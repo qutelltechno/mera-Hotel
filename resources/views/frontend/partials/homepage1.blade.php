@@ -14,7 +14,7 @@
 							<p>{{ $aRow->sub_title }}</p>
 							@endif
 							@if($aRow->button_text != '')
-							<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+							<a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 							@endif
 						</div>
 					</div>
@@ -25,7 +25,7 @@
 		
 		<div class="search-card">
 			<div class="container">
-				<div class="search-card-inner">
+				<div class="search-card-inner wow bounceInUp">
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
@@ -63,10 +63,10 @@
 	<section class="section about-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-5">
+				<div class="col-md-12 col-lg-5 wow bounceInRight ">
 					@if($row->image != '')
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-12 ">
 							<div class="about-img">
 								<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}">
 							</div>
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-12 col-lg-7">
+				<div class="col-md-12 col-lg-7 wow rollIn">
 					<div class="about-card">
 						<div class="about-title">
 							<h5>{{ __('About Us') }}</h5>
@@ -173,10 +173,10 @@
 
 	<!-- Offer Section -->
 	@if($offer_ads_section->is_publish == 1)
-	<section class="section offer-section">
+	<section class="section offer-section ">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 ">
 					<div class="section-heading text-center">
 						<h5>{{ $offer_ads_section->title }}</h5>
 						@if($offer_ads_section->desc != '')
@@ -185,7 +185,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row wow lightSpeedIn">
 				@foreach ($OfferAds as $row)
 				@php $aRow = json_decode($row->desc); @endphp
 				<div class="col-lg-4">
@@ -227,7 +227,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row ">
 				@foreach ($featured_rooms as $row)
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="item-card">
@@ -293,7 +293,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row wow bounceInUp">
 				@foreach ($our_services as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="service-card">
@@ -394,7 +394,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row wow bounceInUp">
 				@foreach ($blogs as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="blog-card">

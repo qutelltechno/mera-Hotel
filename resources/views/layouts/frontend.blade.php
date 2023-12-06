@@ -201,10 +201,10 @@
 	<script>
               new WOW().init();
     </script>
-			  <section class="wow slideInLeft" data-wow-duration="5s" data-wow-delay="5s">
+			  <section class="wow slideInLeft" data-wow-duration="5s" data-wow-delay="10s">
                     </section>
 
-                    <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="10">
+                    <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="infinite">
                     </section>
 </body>
 </html>
