@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="breadcrumb-card">
+					<div class="breadcrumb-card wow pulse">
 						<h2>{{ __('Thank') }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">

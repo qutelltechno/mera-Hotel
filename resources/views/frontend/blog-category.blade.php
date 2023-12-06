@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="breadcrumb-card">
+					<div class="breadcrumb-card wow pulse">
 						<h2>{{ $metadata['name'] }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -62,7 +62,7 @@
 				@foreach ($datalist as $row)
 				<div class="col-lg-4 col-md-6">
 					<div class="blog-card">
-						<div class="blog-img">
+						<div class="blog-img ">
 							<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
 								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
 							</a>

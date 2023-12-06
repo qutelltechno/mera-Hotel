@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="breadcrumb-card">
+					<div class="breadcrumb-card wow pulse">
 						<h2>{{ __('Blog') }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -57,10 +57,10 @@
 	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">
 		<div class="container">
-			<div class="row">
+			<div class="row ">
 				@if(count($datalist)>0)
 				@foreach ($datalist as $row)
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-4 col-md-6 wow bounceInUp">
 					<div class="blog-card">
 						<div class="blog-img">
 							<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">

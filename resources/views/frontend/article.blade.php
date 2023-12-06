@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="breadcrumb-card">
+					<div class="breadcrumb-card wow pulse">
 						<h2>{{ $data->title }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -60,7 +60,7 @@
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-8">
 					<div class="blog-details-card">
-						<div class="blog-img">
+						<div class="blog-img ">
 							<img src="{{ asset('public/media/'.$data->thumbnail) }}" alt="{{ $data->title }}" />
 						</div>
 						<div class="blog-content">
