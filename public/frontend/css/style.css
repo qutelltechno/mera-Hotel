@@ -694,7 +694,7 @@ ul.top-list-1 li i {
    ====================== */
 .header-menu {
     height: auto;
-    padding: 15px 0px;
+    padding: 4px 0px;
     background-color: var(--color-white);
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
