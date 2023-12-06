@@ -3363,10 +3363,10 @@ ul.errors-list li {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #313167 ; 
+    background-color: var(--color-blue) ; 
     border-radius: 6px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color:#486493; 
+    background-color:var(--theme-color); 
 }
