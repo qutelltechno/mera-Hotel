@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-8 offset-lg-2">
-				<div class="newsletter-card">
+				<div class="newsletter-card wow pulse ">
                     <h2>{{ __('Subscribe Popup') }}</h2>
 					<p>{{ __('Subscribe our newsletter') }}</p>
 					<div class="newsletter-form">
