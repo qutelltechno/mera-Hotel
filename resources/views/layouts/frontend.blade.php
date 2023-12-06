@@ -74,6 +74,8 @@
 	<link href="{{asset('public/frontend/css/magnific-popup.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/slick.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/jquery.gritter.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('public/frontend/css/animate.css')}}">
+
 	<style type="text/css">
 		:root {
 			--theme-color: {{ $gtext['theme_color'] }};
@@ -194,6 +196,16 @@
 	@php echo $gtext['custom_js']; @endphp
 	</script>
 	@endif
+
+	<script src="{{asset('public/frontend/js/wow.min.js')}}"></script>
+	<script>
+              new WOW().init();
+    </script>
+			  <section class="wow slideInLeft" data-wow-duration="5s" data-wow-delay="5s">
+                    </section>
+
+                    <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="10">
+                    </section>
 </body>
 </html>
 	

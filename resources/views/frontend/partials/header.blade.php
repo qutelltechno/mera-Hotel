@@ -57,7 +57,7 @@
 		</div>
 		<!--/Top Header/-->
 		<!--Menu-->
-		<div class="header-menu" id="sticky-menu">
+		<div class="header-menu wow bounceInUp" id="sticky-menu">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-3">
