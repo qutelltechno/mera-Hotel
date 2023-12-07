@@ -201,7 +201,7 @@
 	<script>
               new WOW().init();
     </script>
-			  <section class="wow slideInLeft" data-wow-duration="5s" data-wow-delay="10s">
+			  <section class="wow slideInLeft" data-wow-duration="10s" data-wow-delay="15s">
                     </section>
 
                     <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="infinite">
