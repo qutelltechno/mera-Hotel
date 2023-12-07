@@ -198,13 +198,25 @@
 	@endif
 
 	<script src="{{asset('public/frontend/js/wow.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
 	<script>
+	
+
               new WOW().init();
+			  
+		 window.addEventListener('scroll', function() {
+            wow.sync();
+        });
+
     </script>
-			  <section class="wow slideInLeft" data-wow-duration="10s" data-wow-delay="15s">
+	
+
+	
+			    <section class="wow slideInLeft" data-wow-duration="10s" data-wow-delay="15s">
                     </section>
 
-                    <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="infinite">
+                <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="infinite">
                     </section>
 </body>
 </html>

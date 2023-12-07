@@ -2837,3 +2837,20 @@ table.order td p {
 .tpeditor .note-modal .note-modal-body .checkbox input {
 	margin-right: 5px;
 }
+/* scrollbar  */
+::-webkit-scrollbar {
+    width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+		background-color: var(--backend-theme-color) ; 
+		border-radius: 6px; 
+	}
+	
+::-webkit-scrollbar-thumb:hover {
+		background-color:var(--backend-theme-color); 
+	}
