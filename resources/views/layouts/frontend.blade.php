@@ -201,8 +201,7 @@
 	@endif
 
 	<script src="{{asset('public/frontend/js/wow.min.js')}}"></script>
-
-	        <script>
+ <script>
               new WOW().init();
               </script>
 	

@@ -1,7 +1,7 @@
 {
     "A unique ID that will be applied to this row. Must start with a letter and may only contain dashes, underscores, letters or numbers. No spaces.": "معرف فريد سيتم تطبيقه على هذا الصف. يجب أن يبدأ بحرف وقد يحتوي فقط على علامات الشرطة، والشرطات السفلية، والحروف، أو الأرقام. بدون مسافات.",
     "API Key": "مفتاح واجهة برمجة التطبيقات",
-    "About Us": "عنا",
+    "About Us": "من نحن",
     "Account Holder Name": "اسم حامل الحساب",
     "Account Number": "رقم الحساب",
     "Action": "إجراء",

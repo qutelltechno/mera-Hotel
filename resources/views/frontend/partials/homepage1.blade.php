@@ -25,7 +25,7 @@
 		
 		<div class="search-card">
 			<div class="container">
-				<div class="search-card-inner wow bounceInUp">
+				<div class="search-card-inner wow fadeIn">
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
@@ -63,7 +63,7 @@
 	<section class="section about-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-5 wow bounceInRight ">
+				<div class="col-md-12 col-lg-5 wow fadeInRight ">
 					@if($row->image != '')
 					<div class="row">
 						<div class="col-lg-12 ">
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-12 col-lg-7 wow rollIn">
+				<div class="col-md-12 col-lg-7 wow fadeInLeft">
 					<div class="about-card">
 						<div class="about-title">
 							<h5>{{ __('About Us') }}</h5>
@@ -185,11 +185,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow lightSpeedIn">
+			<div class="row ">
 				@foreach ($OfferAds as $row)
 				@php $aRow = json_decode($row->desc); @endphp
-				<div class="col-lg-4">
-					<div class="offer-card">
+				<div class="col-lg-4 wow fadeInLeft">
+					<div class="offer-card ">
 						<div class="offer-image">
 							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
 						</div>
@@ -213,7 +213,7 @@
 	
 	<!-- Featured Section/ -->
 	@if($featured_rooms_section->is_publish == 1)
-	<section class="section featured-section   ">
+	<section class="section featured-section wow fadeInUp">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -227,7 +227,7 @@
 				</div>
 			</div>
 
-			<div class="row wow bounceInUp ">
+			<div class="row ">
 				@foreach ($featured_rooms as $row)
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="item-card">
@@ -277,7 +277,7 @@
 	</section>
 	@endif
 	<!-- /Featured Section/ -->
-
+	fadeInUp
 	<!-- Services Section/ -->
 	@if($our_services_section->is_publish == 1)
 	<section class="section service-section">
@@ -293,7 +293,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow bounceInUp">
+			<div class="row wow fadeIn">
 				@foreach ($our_services as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="service-card">
@@ -313,7 +313,7 @@
 
 	<!-- Preview Video Section-->
 	@if($home_video['is_publish'] == 1)
-	<section class="preview-section wow pulse">
+	<section class="preview-section">
 		<div class="row align-items-center justify-content-center g-0">
 			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
 				<div class="preview-video">
@@ -394,7 +394,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow bounceInUp">
+			<div class="row wow fadeIn">
 				@foreach ($blogs as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="blog-card">
