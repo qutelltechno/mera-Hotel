@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 06, 2023 at 11:46 AM
--- Server version: 8.0.35
--- PHP Version: 8.1.25
+-- Host: 127.0.0.1
+-- Generation Time: Dec 10, 2023 at 01:11 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `trialqutell_hotel`
+-- Database: `merahotel`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `amenities` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -55,9 +55,9 @@ INSERT INTO `amenities` (`id`, `name`, `is_publish`, `created_at`, `updated_at`)
 --
 
 CREATE TABLE `bedtypes` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -77,19 +77,19 @@ INSERT INTO `bedtypes` (`id`, `name`, `is_publish`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `blogs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `category_id` int DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `og_title` text COLLATE utf8mb4_unicode_ci,
-  `og_image` text COLLATE utf8mb4_unicode_ci,
-  `og_description` text COLLATE utf8mb4_unicode_ci,
-  `og_keywords` text COLLATE utf8mb4_unicode_ci,
-  `user_id` int NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `slug` varchar(191) NOT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `og_title` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `og_description` text DEFAULT NULL,
+  `og_keywords` text DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -99,18 +99,12 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `slug`, `thumbnail`, `description`, `lan`, `category_id`, `is_publish`, `og_title`, `og_image`, `og_description`, `og_keywords`, `user_id`, `created_at`, `updated_at`) VALUES
-(5, 'Tempor orci dapibus ultrices in iaculis nunc', 'tempor-orci-dapibus-ultrices-in-iaculis-nunc', '07012023092023-900x700-blog-12.jpg', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>', 'en', 6, 1, 'Tempor orci dapibus ultrices in iaculis nunc', '07012023092023-900x700-blog-12.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'laravel portfolio, personal portolio, portfolio, portfolio cms, resume, agency, bootstrap laravel, business, creative, freelancer, laravel CMS', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(6, 'Lorem Ipsum is simply dummy text of the printing', 'lorem-ipsum-is-simply-dummy-text-of-the-printing', '07012023092008-900x700-blog-11.jpg', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>', 'en', 6, 1, 'Lorem Ipsum is simply dummy text of the printing', '07012023092008-900x700-blog-11.jpg', 'ecommerce, farm, farming, food market, grocery shop, grocery store, multivendor, organic, organic farm, organic food, organic store, organic theme, store, super market, vegetable', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(7, 'Lorem Ipsum has been the industry standard dummy', 'lorem-ipsum-has-been-the-industry-standard-dummy', '07012023091951-900x700-blog-10.jpg', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>', 'en', 6, 1, 'Lorem Ipsum has been the industry standard dummy', '07012023091951-900x700-blog-10.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s', 'ecommerce, farm, farming, food market, grocery shop, grocery store, multivendor, organic, organic farm, organic food, organic store, organic theme, store, super market, vegetable', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(8, 'Lorem Ipsum is simply dummy text of the printing', 'lorem-ipsum-is-simply-dummy-text-of-the-printing-2', '07012023091934-900x700-blog-9.jpg', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>', 'en', 1, 1, 'Lorem Ipsum is simply dummy text of the printing', '07012023091934-900x700-blog-9.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'ecommerce, farm, farming, food market, grocery shop, grocery store, multivendor, organic, organic farm, organic food, organic store, organic theme, store, super market, vegetable', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(9, 'It was popularised in the 1960s with the release', 'it-was-popularised-in-the-1960s-with-the-release', '07012023091917-900x700-blog-8.jpg', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p>', 'en', 1, 1, 'It was popularised in the 1960s with the release', '07012023091917-900x700-blog-8.jpg', 'when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'ecommerce, farm, farming, food market, grocery shop, grocery store, multivendor, organic, organic farm, organic food, organic store, organic theme, store, super market, vegetable', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(10, 'Nisi quis eleifend quam adipiscing vitae proin', 'nisi-quis-eleifend-quam-adipiscing-vitae-proin', '07012023091900-900x700-blog-7.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in. Sed blandit libero volutpat sed cras ornare. Cursus mattis molestie a iaculis at erat pellentesque. Eu volutpat odio facilisis mauris sit amet massa. Euismod lacinia at quis risus sed vulputate odio ut. Blandit libero volutpat sed cras ornare arcu dui vivamus arcu. Amet massa vitae tortor condimentum lacinia quis vel eros donec. Aliquet nibh praesent tristique magna. Placerat in egestas erat imperdiet sed euismod nisi porta lorem. Dui id ornare arcu odio ut sem nulla pharetra. Eu augue ut lectus arcu bibendum. Praesent semper feugiat nibh sed pulvinar proin. Aliquam malesuada bibendum arcu vitae elementum curabitur. In cursus turpis massa tincidunt dui. Id eu nisl nunc mi ipsum faucibus. Quisque non tellus orci ac auctor augue mauris augue. Neque egestas congue quisque egestas.<br></p><p>Rhoncus aenean vel elit scelerisque. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Sed odio morbi quis commodo odio. Nibh mauris cursus mattis molestie a iaculis at. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Sagittis purus sit amet volutpat consequat mauris. Scelerisque in dictum non consectetur a erat. Aliquet nec ullamcorper sit amet risus. Pharetra sit amet aliquam id diam maecenas ultricies. Scelerisque eleifend donec pretium vulputate. Eget egestas purus viverra accumsan in nisl.</p><p>Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Duis at tellus at urna condimentum mattis pellentesque id. Sit amet justo donec enim diam vulputate ut pharetra. Hendrerit gravida rutrum quisque non tellus orci ac. Id interdum velit laoreet id donec. Lorem sed risus ultricies tristique nulla. Tortor vitae purus faucibus ornare suspendisse sed. Vitae ultricies leo integer malesuada nunc vel. Egestas tellus rutrum tellus pellentesque eu tincidunt. Purus ut faucibus pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Sed felis eget velit aliquet sagittis id consectetur purus ut. Pellentesque id nibh tortor id aliquet lectus. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Habitant morbi tristique senectus et netus et malesuada fames ac.<br></p>', 'en', 1, 1, 'Nisi quis eleifend quam adipiscing vitae proin', '07012023091900-900x700-blog-7.jpg', 'Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ultrices tincidunt arcu non sodales neque sodales ut etiam.', 'Nisi quis eleifend quam adipiscing vitae proin', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(11, 'Quisque egestas diam in arcu cursus euismod quis viverra', 'quisque-egestas-diam-in-arcu-cursus-euismod-quis-viverra', '07012023091844-900x700-blog-6.jpg', '<p>Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Duis at tellus at urna condimentum mattis pellentesque id. Sit amet justo donec enim diam vulputate ut pharetra. Hendrerit gravida rutrum quisque non tellus orci ac. Id interdum velit laoreet id donec. Lorem sed risus ultricies tristique nulla. Tortor vitae purus faucibus ornare suspendisse sed. Vitae ultricies leo integer malesuada nunc vel. Egestas tellus rutrum tellus pellentesque eu tincidunt. Purus ut faucibus pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Sed felis eget velit aliquet sagittis id consectetur purus ut. Pellentesque id nibh tortor id aliquet lectus. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Habitant morbi tristique senectus et netus et malesuada fames ac.</p><p>Quisque egestas diam in arcu cursus euismod quis viverra. Lacinia quis vel eros donec ac. Ac odio tempor orci dapibus ultrices. Congue nisi vitae suscipit tellus mauris a. Leo in vitae turpis massa sed elementum tempus egestas sed. Odio ut sem nulla pharetra diam sit amet. Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Mattis rhoncus urna neque viverra justo nec ultrices dui. Tellus cras adipiscing enim eu turpis. Sollicitudin ac orci phasellus egestas. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Ut enim blandit volutpat maecenas volutpat blandit aliquam. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa. Ipsum faucibus vitae aliquet nec ullamcorper sit. Sed augue lacus viverra vitae. Neque aliquam vestibulum morbi blandit. Ultricies lacus sed turpis tincidunt id. Ut eu sem integer vitae justo eget. Dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Et malesuada fames ac turpis egestas sed tempus urna et.<br></p><p><br></p>', 'en', 7, 1, 'Quisque egestas diam in arcu cursus euismod quis viverra', '07012023091844-900x700-blog-6.jpg', 'Quisque egestas diam in arcu cursus euismod quis viverra. Lacinia quis vel eros donec ac. Ac odio tempor orci dapibus ultrices.', 'Quisque egestas diam in arcu cursus euismod quis viverra', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(12, 'Quisque egestas diam in arcu cursus euismod quis', 'quisque-egestas-diam-in-arcu-cursus-euismod-quis-2', '07012023091827-900x700-blog-5.jpg', '<p>Rhoncus aenean vel elit scelerisque. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Sed odio morbi quis commodo odio. Nibh mauris cursus mattis molestie a iaculis at. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Sagittis purus sit amet volutpat consequat mauris. Scelerisque in dictum non consectetur a erat. Aliquet nec ullamcorper sit amet risus. Pharetra sit amet aliquam id diam maecenas ultricies. Scelerisque eleifend donec pretium vulputate. Eget egestas purus viverra accumsan in nisl.</p><p>Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Duis at tellus at urna condimentum mattis pellentesque id. Sit amet justo donec enim diam vulputate ut pharetra. Hendrerit gravida rutrum quisque non tellus orci ac. Id interdum velit laoreet id donec. Lorem sed risus ultricies tristique nulla. Tortor vitae purus faucibus ornare suspendisse sed. Vitae ultricies leo integer malesuada nunc vel. Egestas tellus rutrum tellus pellentesque eu tincidunt. Purus ut faucibus pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Sed felis eget velit aliquet sagittis id consectetur purus ut. Pellentesque id nibh tortor id aliquet lectus. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Habitant morbi tristique senectus et netus et malesuada fames ac.</p><p>Quisque egestas diam in arcu cursus euismod quis viverra. Lacinia quis vel eros donec ac. Ac odio tempor orci dapibus ultrices. Congue nisi vitae suscipit tellus mauris a. Leo in vitae turpis massa sed elementum tempus egestas sed. Odio ut sem nulla pharetra diam sit amet. Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Mattis rhoncus urna neque viverra justo nec ultrices dui. Tellus cras adipiscing enim eu turpis. Sollicitudin ac orci phasellus egestas. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Ut enim blandit volutpat maecenas volutpat blandit aliquam. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa. Ipsum faucibus vitae aliquet nec ullamcorper sit. Sed augue lacus viverra vitae. Neque aliquam vestibulum morbi blandit. Ultricies lacus sed turpis tincidunt id. Ut eu sem integer vitae justo eget. Dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Et malesuada fames ac turpis egestas sed tempus urna et.<br></p>', 'en', 7, 1, 'Quisque egestas diam in arcu cursus euismod quis', '07012023091827-900x700-blog-5.jpg', 'Quisque egestas diam in arcu cursus euismod quis', 'Quisque egestas diam in arcu cursus euismod quis', 1, '2023-01-07 03:20:44', '2023-01-10 11:38:34'),
-(13, 'حمامات سباحة', 'malesuada-bibendum-arcu-vitae-elementum-curabitur', '07012023091806-900x700-blog-4.jpg', '<p>لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.<br></p>', 'ar', 7, 1, 'Malesuada bibendum arcu vitae elementum curabitur', '07012023091806-900x700-blog-4.jpg', 'Malesuada bibendum arcu vitae elementum curabitur', 'Malesuada bibendum arcu vitae elementum curabitur', 1, '2023-01-06 10:35:10', '2023-12-03 08:35:35'),
-(14, 'فنادقنا رائعة', 'lectus-nulla-at-volutpat-diam-ut-venenatis', '07012023091749-900x700-blog-3.jpg', '<p>لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.<br></p>', 'ar', 5, 1, 'Lectus nulla at volutpat diam ut venenatis', '07012023091749-900x700-blog-3.jpg', 'Fermentum iaculis eu non diam. Gravida quis blandit turpis cursus in hac habitasse. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Malesuada fames ac turpis egestas maecenas. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. Maecenas pharetra convallis posuere morbi leo. Tincidunt tortor aliquam nulla facilisi cras.', 'Lectus nulla at volutpat diam ut venenatis', 1, '2023-01-06 10:35:10', '2023-12-03 08:35:26'),
-(15, 'رحلات جبلية', 'fermentum-leo-vel-orci-porta-non-pulvinar', '07012023091730-900x700-blog-2.jpg', '<p>لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.<br></p>', 'ar', 5, 1, 'Fermentum leo vel orci porta non pulvinar', '07012023091730-900x700-blog-2.jpg', 'Fermentum leo vel orci porta non pulvinar. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Turpis massa sed elementum tempus.', 'Fermentum leo vel orci porta non pulvinar', 1, '2023-01-06 10:35:10', '2023-12-03 08:35:20'),
-(16, 'مقالة', 'dolor-sed-viverra-ipsum-nunc-aliquet', '07012023091700-900x700-blog-1.jpg', '<p></p><div class=\"row\" style=\"box-sizing: border-box; margin-top: calc(-1 * var(--bs-gutter-y)); margin-right: calc(-.5 * var(--bs-gutter-x)); margin-bottom: 0px; margin-left: calc(-.5 * var(--bs-gutter-x)); padding: 0px; outline: 0px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; display: flex; flex-wrap: wrap; orphans: 2; text-align: start; text-indent: 0px; widows: 2; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><div class=\"col-12 col-md-6 col-lg-4\" style=\"box-sizing: border-box; margin-top: var(--bs-gutter-y); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: calc(var(--bs-gutter-x) * .5); padding-bottom: 0px; padding-left: calc(var(--bs-gutter-x) * .5); outline: 0px; flex: 0 0 auto; width: 440px; max-width: 100%;\"><font color=\"#595959\" face=\"Tajawal\">لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.</font><br><div class=\"blog-card\" style=\"color: rgb(89, 89, 89); font-family: Tajawal; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-transform: none; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; box-sizing: border-box; margin: 0px 0px 24px; padding: 0px; outline: 0px; background: var(--color-white); box-shadow: rgba(93, 93, 93, 0.14) 0px 17px 42px; overflow: hidden;\"></div></div></div>', 'ar', 5, 1, 'Dolor sed viverra ipsum nunc aliquet', '07012023091700-900x700-blog-1.jpg', 'Dolor sed viverra ipsum nunc aliquet. Elementum facilisis leo vel fringilla est ullamcorper eget. Feugiat in ante metus dictum. Nisl tincidunt eget nullam non nisi est sit. In cursus turpis massa tincidunt dui.', 'Dolor sed viverra ipsum nunc aliquet', 1, '2023-01-07 03:20:44', '2023-12-03 08:32:03');
+(10, 'Mira Waterfront Hotel Jeddah', 'nisi-quis-eleifend-quam-adipiscing-vitae-proin', '07122023100300-900x700-5V7A3955.jpg', '<a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\">Mira Waterfront Hotel Jeddah</a>', 'en', 1, 1, 'Mira Waterfront Hotel Jeddah', '07122023100300-900x700-5V7A3955.jpg', 'Mira Waterfront Hotel Jeddah', 'Mira Waterfront Hotel Jeddah', 1, '2023-01-07 03:20:44', '2023-12-07 08:28:15'),
+(11, 'Report on hotel Mira', 'quisque-egestas-diam-in-arcu-cursus-euismod-quis-viverra', '07122023100640-900x700-5V7A4138.jpg', '<a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\">Report on hotel Mira</a>', 'en', 7, 1, 'Report on hotel Mira', '07122023100640-900x700-5V7A4138.jpg', 'Report on hotel Mira', 'Report on hotel Mira', 1, '2023-01-07 03:20:44', '2023-12-07 08:25:51'),
+(12, 'An article about Mira Hotel from Al Jazeera website', 'quisque-egestas-diam-in-arcu-cursus-euismod-quis-2', '07122023101036-900x700-5V7A4133.jpg', '<p><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">An article about Mira Hotel from Al Jazeera website</a><br></p>', 'en', 7, 1, 'An article about Mira Hotel from Al Jazeera website', '07122023101036-900x700-5V7A4133.jpg', 'An article about Mira Hotel from Al Jazeera website', 'An article about Mira Hotel from Al Jazeera website', 1, '2023-01-07 03:20:44', '2023-12-07 08:22:01'),
+(13, 'فندق ميرا الواجهة البحرية جدة', 'malesuada-bibendum-arcu-vitae-elementum-curabitur', '07122023100300-900x700-5V7A3955.jpg', '<p><a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\" style=\"color: rgb(35, 82, 124); text-decoration: underline; background-color: rgb(255, 255, 255); outline-style: initial; outline-width: 0px; font-family: sans-serif; font-weight: 400;\">تقرير عن فندق ميرا الواجهة البحرية جدة</a><br></p>', 'ar', 7, 1, 'تقرير عن فندق ميرا الواجهة البحرية جدة', '07122023100300-900x700-5V7A3955.jpg', 'فندق ميرا الواجهة البحرية جدة من أفضل الفنادق جدة على يتميز البحر بالمرافق والخدمات التي نالت استحسان جميع زوار الفندق. كما يتميز الفندق بإطلالته الساحرة على البحر والمدينة ، ويعتبر من أفضل الفنادق الكورنيش جدة .\r\n\r\nمن خلال السطور التالية سنتعرف على اهم مميزات وتفاصيل فندق ميرا احد ابرز الفنادق جدة على البحر رخيصة .', 'تقرير عن فندق ميرا الواجهة البحرية جدة', 1, '2023-01-06 10:35:10', '2023-12-07 08:14:22'),
+(14, 'تقرير عن الفندق ميرا', 'lectus-nulla-at-volutpat-diam-ut-venenatis', '07122023100640-900x700-5V7A4138.jpg', '<ul><li></li><li><a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\" style=\"color: rgb(35, 82, 124); text-decoration: underline; outline-style: initial; outline-width: 0px;\">تقرير عن الفندق ميرا</a></li><li></li></ul>', 'ar', 5, 1, 'تقرير عن الفندق ميرا', '07122023100640-900x700-5V7A4138.jpg', 'يُعد فندق ميرا الرياض من افضل فنادق مدينة الرياض الأنيقة، والذي يقع في حي السليمانية داخل العاصمة الرياض.\r\n\r\nيَنتمي فندق ميرا تريو الرياض الى مجموعة من ارقى فنادق الرياض السياحية، بسبب السمعة الطيبة التي حصل عليها من الزوار.\r\n\r\nلذا قررنا أن نقدم لكم هذا البروشور التفصيلي عن كل مَزايا وعُيوب ميرا تريو بناءً على تقييم زوَّار موقعنا الأعزَّاء', 'تقرير عن الفندق ميرا', 1, '2023-01-06 10:35:10', '2023-12-07 08:08:17'),
+(15, 'مقالة عن الفندق من موقع الجزيرة', 'fermentum-leo-vel-orci-porta-non-pulvinar', '07122023101036-900x700-5V7A4133.jpg', '<ul><li><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">مقالة عن فندق&nbsp;ميرا</a></li></ul>', 'ar', 5, 1, 'مقالة عن الفندق', '07122023101036-900x700-5V7A4133.jpg', 'استحوذت شركة فنادق ميرا مع شركة الاستثمار العائلي على فندق رمادا الكورنيش «سابقًا» فيما يعد أكبر صفقة استحواذ في عام 2017م حيث بلغت قيمتها أكثر ربع مليار ريال، وذلك في إطار سعي شركة ميرا لتوسيع انتشارها بالمملكة وتثبيت اقدامها في عالم سوق الفنادق من خلال الميزات التي يتمتع بها الفندق المستحوذ من حيث الموقع الإستراتيجي، وحجم الغرف وتنوع المنتج الفندقي، وأصبحت شركة فنادق ميرا تدير مجموعة متنوعة من المشروعات السياحية ابتداء من الأجنحة الفندقية المناسبة للعائلات والبيزنس بوتيك اوتيل الذي يستهدف شريحة رجال الأعمال، وقد توجت استقطابها للمشروعات المتميزة بفندق ميرا الواجهة البحرية المطل على الكورنيش.', 'مقالة عن الفندق', 1, '2023-01-06 10:35:10', '2023-12-07 08:29:40');
 
 -- --------------------------------------------------------
 
@@ -119,18 +113,18 @@ INSERT INTO `blogs` (`id`, `title`, `slug`, `thumbnail`, `description`, `lan`, `
 --
 
 CREATE TABLE `blog_categories` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id` int DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `og_title` text COLLATE utf8mb4_unicode_ci,
-  `og_image` text COLLATE utf8mb4_unicode_ci,
-  `og_description` text COLLATE utf8mb4_unicode_ci,
-  `og_keywords` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `slug` varchar(191) NOT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `og_title` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `og_description` text DEFAULT NULL,
+  `og_keywords` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -152,15 +146,15 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `thumbnail`, `description`,
 --
 
 CREATE TABLE `booking_manages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `booking_no` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `transaction_no` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `roomtype_id` int DEFAULT NULL,
-  `customer_id` int DEFAULT NULL,
-  `payment_method_id` int DEFAULT NULL,
-  `payment_status_id` int DEFAULT NULL,
-  `booking_status_id` int DEFAULT NULL,
-  `total_room` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `booking_no` varchar(100) DEFAULT NULL,
+  `transaction_no` varchar(100) DEFAULT NULL,
+  `roomtype_id` int(11) DEFAULT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `payment_method_id` int(11) DEFAULT NULL,
+  `payment_status_id` int(11) DEFAULT NULL,
+  `booking_status_id` int(11) DEFAULT NULL,
+  `total_room` int(11) DEFAULT NULL,
   `total_price` double(12,3) DEFAULT NULL,
   `discount` double(12,3) DEFAULT NULL,
   `tax` double(12,3) DEFAULT NULL,
@@ -170,15 +164,15 @@ CREATE TABLE `booking_manages` (
   `due_amount` double(12,3) DEFAULT NULL,
   `in_date` date DEFAULT NULL,
   `out_date` date DEFAULT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `zip_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `comments` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(191) DEFAULT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `phone` varchar(191) DEFAULT NULL,
+  `country` varchar(191) DEFAULT NULL,
+  `state` varchar(191) DEFAULT NULL,
+  `zip_code` varchar(191) DEFAULT NULL,
+  `city` varchar(191) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `comments` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -190,8 +184,8 @@ CREATE TABLE `booking_manages` (
 --
 
 CREATE TABLE `booking_status` (
-  `id` bigint UNSIGNED NOT NULL,
-  `bstatus_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `bstatus_name` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -213,17 +207,17 @@ INSERT INTO `booking_status` (`id`, `bstatus_name`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `categories` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `og_title` text COLLATE utf8mb4_unicode_ci,
-  `og_image` text COLLATE utf8mb4_unicode_ci,
-  `og_description` text COLLATE utf8mb4_unicode_ci,
-  `og_keywords` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `slug` varchar(191) NOT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `og_title` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `og_description` text DEFAULT NULL,
+  `og_keywords` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -234,7 +228,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `thumbnail`, `description`, `lan`, `is_publish`, `og_title`, `og_image`, `og_description`, `og_keywords`, `created_at`, `updated_at`) VALUES
 (1, 'Hotel room', 'hotel', '05012023064431-breadcrumb-bg-1.jpg', 'A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly. The size of the bed is normally 3 feet by 6 feet. However, the concept of single rooms is vanishing nowadays. Mostly, hotels have twin or double rooms, and the charge for a single room is occupied by one person.', 'en', 1, 'Hotel room', '05012023064431-400x400-breadcrumb-bg-1.jpg', 'A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly. The size of the bed is normally 3 feet by 6 feet. However, the concept of single rooms is vanishing nowadays. Mostly, hotels have twin or double rooms, and the charge for a single room is occupied by one person.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort, Single Room', '2023-01-05 01:07:01', '2023-12-06 05:08:59'),
-(9, 'فندق', 'fndk', '05012023064507-breadcrumb-bg-5.jpg', 'غرفة واحدة: تحتوي الغرفة الفردية على سرير واحد لاستيعاب فرد واحد. يمكن إضافة سرير إضافي (يُطلق عليه اسم سرير إضافي) إلى هذه الغرفة حسب طلب النزيل ويتم فرض رسوم وفقًا لذلك. حجم السرير عادة ما يكون 3 أقدام في 6 أقدام. ومع ذلك، فإن مفهوم الغرف الفردية يتلاشى في الوقت الحالي. في معظم الأحيان، تحتوي الفنادق على غرف توأم أو غرف مزدوجة، وتُشغل غرفة واحدة بفرد واحد ويتم فرض تكلفة الغرفة الفردية على شخص واحد.', 'ar', 1, 'فندق', '05012023064520-400x400-breadcrumb-bg-8.jpg', 'غرفة فردية تحتوي على سرير واحد لشخص واحد. يمكن إضافة سرير إضافي (المعروف أيضًا باسم سرير إضافي) إلى هذه الغرفة حسب طلب النزيل ويتم فرض رسوم وفقًا لذلك. حجم السرير عادةً ما يكون 3 أقدام في 6 أقدام. ومع ذلك، يتلاشى مفهوم الغرف الفردية في الوقت الحالي. في معظم الأحيان، تحتوي الفنادق على غرف توأم أو غرف مزدوجة، وتُفرغ الغرفة الفردية لشخص واحد وتتم فرض تكلفة الغرفة الفردية على فرد واحد.', '- حجز، حجز فندق، غرف، حجز غرف، حجز غرفة، فندق بالقرب مني، استئناف، منتجع، غرفة فردية  يرجى ملاحظة أن بعض المصطلحات قد تظل باللغة الأصلية نظرًا لأنها مصطلحات فندقية وسياحية شائعة.', '2023-12-04 20:38:49', '2023-12-04 20:48:49');
+(9, 'فندق', 'fndk', '05012023064507-breadcrumb-bg-5.jpg', 'غرفة واحدة: تحتوي الغرفة الفردية على سرير واحد لاستيعاب فرد واحد. يمكن إضافة سرير إضافي (يُطلق عليه اسم سرير إضافي) إلى هذه الغرفة حسب طلب النزيل ويتم فرض رسوم وفقًا لذلك. حجم السرير عادة ما يكون 3 أقدام في 6 أقدام. ومع ذلك، فإن مفهوم الغرف الفردية يتلاشى في الوقت الحالي. في معظم الأحيان، تحتوي الفنادق على غرف توأم أو غرف مزدوجة، وتُشغل غرفة واحدة بفرد واحد ويتم فرض تكلفة الغرفة الفردية على شخص واحد.', 'ar', 1, 'فندق', '05012023064520-400x400-breadcrumb-bg-8.jpg', 'غرفة فردية تحتوي على سرير واحد لشخص واحد. يمكن إضافة سرير إضافي (المعروف أيضًا باسم سرير إضافي) إلى هذه الغرفة حسب طلب النزيل ويتم فرض رسوم وفقًا لذلك. حجم السرير عادةً ما يكون 3 أقدام في 6 أقدام. ومع ذلك، يتلاشى مفهوم الغرف الفردية في الوقت الحالي. في معظم الأحيان، تحتوي الفنادق على غرف توأم أو غرف مزدوجة، وتُفرغ الغرفة الفردية لشخص واحد وتتم فرض تكلفة الغرفة الفردية على فرد واحد.', '- حجز، حجز فندق، غرف، حجز غرف، حجز غرفة، فندق بالقرب مني، استئناف، منتجع، غرفة فردية  يرجى ملاحظة أن بعض المصطلحات قد تظل باللغة الأصلية نظرًا لأنها مصطلحات فندقية وسياحية شائعة.', '2023-12-04 20:38:49', '2023-12-10 08:33:53');
 
 -- --------------------------------------------------------
 
@@ -243,10 +237,10 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `thumbnail`, `description`, `lan
 --
 
 CREATE TABLE `complements` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `item` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `item` varchar(191) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -269,16 +263,16 @@ INSERT INTO `complements` (`id`, `name`, `item`, `is_publish`, `created_at`, `up
 --
 
 CREATE TABLE `contacts` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contact_info` longtext COLLATE utf8mb4_unicode_ci,
-  `contact_form` longtext COLLATE utf8mb4_unicode_ci,
-  `contact_map` longtext COLLATE utf8mb4_unicode_ci,
-  `is_recaptcha` int DEFAULT NULL,
-  `mail_subject` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_copy` int DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `contact_info` longtext DEFAULT NULL,
+  `contact_form` longtext DEFAULT NULL,
+  `contact_map` longtext DEFAULT NULL,
+  `is_recaptcha` int(11) DEFAULT NULL,
+  `mail_subject` varchar(100) DEFAULT NULL,
+  `is_copy` int(11) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -297,9 +291,9 @@ INSERT INTO `contacts` (`id`, `title`, `contact_info`, `contact_form`, `contact_
 --
 
 CREATE TABLE `countries` (
-  `id` bigint UNSIGNED NOT NULL,
-  `country_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `country_name` varchar(191) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -570,13 +564,13 @@ INSERT INTO `countries` (`id`, `country_name`, `is_publish`, `created_at`, `upda
 --
 
 CREATE TABLE `failed_jobs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -586,13 +580,13 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `languages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `language_code` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `flag` text COLLATE utf8mb4_unicode_ci,
-  `language_default` tinyint NOT NULL DEFAULT '0',
-  `is_rtl` tinyint NOT NULL DEFAULT '0',
-  `status` tinyint NOT NULL DEFAULT '0',
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `language_code` varchar(30) NOT NULL,
+  `language_name` varchar(100) DEFAULT NULL,
+  `flag` text DEFAULT NULL,
+  `language_default` tinyint(4) NOT NULL DEFAULT 0,
+  `is_rtl` tinyint(4) NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -612,10 +606,10 @@ INSERT INTO `languages` (`id`, `language_code`, `language_name`, `flag`, `langua
 --
 
 CREATE TABLE `lankeyvalues` (
-  `id` bigint UNSIGNED NOT NULL,
-  `language_code` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `language_key` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `language_value` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `language_code` varchar(30) DEFAULT NULL,
+  `language_key` varchar(191) DEFAULT NULL,
+  `language_value` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1869,12 +1863,12 @@ INSERT INTO `lankeyvalues` (`id`, `language_code`, `language_key`, `language_val
 --
 
 CREATE TABLE `media_options` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `alt_title` text COLLATE utf8mb4_unicode_ci,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `large_image` text COLLATE utf8mb4_unicode_ci,
-  `option_value` longtext COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text DEFAULT NULL,
+  `alt_title` text DEFAULT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `large_image` text DEFAULT NULL,
+  `option_value` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1994,7 +1988,51 @@ INSERT INTO `media_options` (`id`, `title`, `alt_title`, `thumbnail`, `large_ima
 (901, '5V7A4017', '5V7A4017', '05122023204708-900x700-5V7A4017.jpg', '05122023204708-5V7A4017.jpg', '950362', '2023-12-05 17:47:10', '2023-12-05 17:47:10'),
 (902, '5V7A3955', '5V7A3955', '05122023204832-900x700-5V7A3955.jpg', '05122023204832-5V7A3955.jpg', '1139160', '2023-12-05 17:48:34', '2023-12-05 17:48:34'),
 (903, '5V7A4010', '5V7A4010', '05122023205048-900x700-5V7A4010.jpg', '05122023205048-5V7A4010.jpg', '1403308', '2023-12-05 17:50:50', '2023-12-05 17:50:50'),
-(904, 'Mira-Hotel-Arabic-Logo-full-black', 'Mira-Hotel-Arabic-Logo-full-black', '05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png', '05122023212856-Mira-Hotel-Arabic-Logo-full-black.png', '20256', '2023-12-05 18:28:56', '2023-12-05 18:28:56');
+(904, 'Mira-Hotel-Arabic-Logo-full-black', 'Mira-Hotel-Arabic-Logo-full-black', '05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png', '05122023212856-Mira-Hotel-Arabic-Logo-full-black.png', '20256', '2023-12-05 18:28:56', '2023-12-05 18:28:56'),
+(909, '5V7A4126', '5V7A4126', '06122023211940-900x700-5V7A4126.jpg', '06122023211940-5V7A4126.jpg', '810687', '2023-12-06 18:19:47', '2023-12-06 18:19:47'),
+(910, '5V7A4051', '5V7A4051', '06122023212327-900x700-5V7A4051.jpg', '06122023212327-5V7A4051.jpg', '1204750', '2023-12-06 18:23:28', '2023-12-06 18:23:28'),
+(911, '5V7A4107', '5V7A4107', '06122023212608-900x700-5V7A4107.jpg', '06122023212608-5V7A4107.jpg', '1053537', '2023-12-06 18:26:09', '2023-12-06 18:26:09'),
+(912, '5V7A3932', '5V7A3932', '06122023213355-900x700-5V7A3932.jpg', '06122023213355-5V7A3932.jpg', '1514257', '2023-12-06 18:33:57', '2023-12-06 18:33:57'),
+(913, '5V7A4096', '5V7A4096', '06122023213827-900x700-5V7A4096.jpg', '06122023213827-5V7A4096.jpg', '1130874', '2023-12-06 18:38:28', '2023-12-06 18:38:28'),
+(914, 'photo_6021453864940716618_x', 'photo_6021453864940716618_x', '07122023043645-900x700-photo_6021453864940716618_x.jpg', '07122023043645-photo_6021453864940716618_x.jpg', '54252', '2023-12-07 01:36:49', '2023-12-07 01:36:49'),
+(915, 'photo_6021453864940716628_m', 'photo_6021453864940716628_m', '07122023044133-900x700-photo_6021453864940716628_m.jpg', '07122023044133-photo_6021453864940716628_m.jpg', '3839', '2023-12-07 01:41:36', '2023-12-07 01:41:36'),
+(916, 'Z&B FITNESS', 'Z&B FITNESS', '07122023071148-900x700-Z&B FITNESS.jpg', '07122023071148-Z&B FITNESS.jpg', '87366', '2023-12-07 04:11:53', '2023-12-07 04:11:53'),
+(918, 'photo_6021453864940716617_x (1)', 'photo_6021453864940716617_x (1)', '07122023071709-900x700-photo_6021453864940716617_x (1).jpg', '07122023071709-photo_6021453864940716617_x (1).jpg', '59943', '2023-12-07 04:17:09', '2023-12-07 04:17:09'),
+(920, 'photo_6021453864940716617_x (3) (1)', 'photo_6021453864940716617_x (3) (1)', '07122023072404-900x700-photo_6021453864940716617_x (3) (1).jpg', '07122023072404-photo_6021453864940716617_x (3) (1).jpg', '71275', '2023-12-07 04:24:04', '2023-12-07 04:24:04'),
+(921, 'photo_6021453864940716599_x', 'photo_6021453864940716599_x', '07122023072552-900x700-photo_6021453864940716599_x.jpg', '07122023072552-photo_6021453864940716599_x.jpg', '34107', '2023-12-07 04:25:52', '2023-12-07 04:25:52'),
+(923, 'photo_6021453864940716623_x', 'photo_6021453864940716623_x', '07122023073049-900x700-photo_6021453864940716623_x.jpg', '07122023073049-photo_6021453864940716623_x.jpg', '28072', '2023-12-07 04:30:50', '2023-12-07 04:30:50'),
+(924, '5V7A4085', '5V7A4085', '07122023073209-900x700-5V7A4085.jpg', '07122023073209-5V7A4085.jpg', '1187944', '2023-12-07 04:32:13', '2023-12-07 04:32:13'),
+(925, '5V7A4061', '5V7A4061', '07122023073423-900x700-5V7A4061.jpg', '07122023073423-5V7A4061.jpg', '959910', '2023-12-07 04:34:25', '2023-12-07 04:34:25'),
+(928, 'photo_6021453864940716628_m', 'photo_6021453864940716628_m', '07122023091202-900x700-photo_6021453864940716628_m.jpg', '07122023091202-photo_6021453864940716628_m.jpg', '3839', '2023-12-07 07:12:06', '2023-12-07 07:12:06'),
+(929, 'photo_6021453864940716599_x (3)', 'photo_6021453864940716599_x (3)', '07122023092103-900x700-photo_6021453864940716599_x (3).jpg', '07122023092103-photo_6021453864940716599_x (3).jpg', '1110205', '2023-12-07 07:21:06', '2023-12-07 07:21:06'),
+(930, 'photo_6021453864940716626_m (1)', 'photo_6021453864940716626_m (1)', '07122023092116-900x700-photo_6021453864940716626_m (1).jpg', '07122023092116-photo_6021453864940716626_m (1).jpg', '753402', '2023-12-07 07:21:19', '2023-12-07 07:21:19'),
+(931, '5V7A4051', '5V7A4051', '07122023092139-900x700-5V7A4051.jpg', '07122023092139-5V7A4051.jpg', '1204750', '2023-12-07 07:21:41', '2023-12-07 07:21:41'),
+(932, '5V7A4092', '5V7A4092', '07122023092209-900x700-5V7A4092.jpg', '07122023092209-5V7A4092.jpg', '907326', '2023-12-07 07:22:12', '2023-12-07 07:22:12'),
+(933, '5V7A4042', '5V7A4042', '07122023092244-900x700-5V7A4042.jpg', '07122023092244-5V7A4042.jpg', '1137942', '2023-12-07 07:22:46', '2023-12-07 07:22:46'),
+(934, '5V7A4061', '5V7A4061', '07122023092302-900x700-5V7A4061.jpg', '07122023092302-5V7A4061.jpg', '959910', '2023-12-07 07:23:05', '2023-12-07 07:23:05'),
+(935, '5V7A4085', '5V7A4085', '07122023092318-900x700-5V7A4085.jpg', '07122023092318-5V7A4085.jpg', '1187944', '2023-12-07 07:23:21', '2023-12-07 07:23:21'),
+(936, '5V7A4126', '5V7A4126', '07122023092341-900x700-5V7A4126.jpg', '07122023092341-5V7A4126.jpg', '810687', '2023-12-07 07:23:43', '2023-12-07 07:23:43'),
+(937, '5V7A4107', '5V7A4107', '07122023092353-900x700-5V7A4107.jpg', '07122023092353-5V7A4107.jpg', '1053537', '2023-12-07 07:23:56', '2023-12-07 07:23:56'),
+(939, 'Z&B FITNESS', 'Z&B FITNESS', '07122023094125-900x700-Z&B FITNESS.jpg', '07122023094125-Z&B FITNESS.jpg', '87366', '2023-12-07 07:41:25', '2023-12-07 07:41:25'),
+(940, 'photo_6021453864940716617_x (3) (1)', 'photo_6021453864940716617_x (3) (1)', '07122023094218-900x700-photo_6021453864940716617_x (3) (1).jpg', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '71275', '2023-12-07 07:42:18', '2023-12-07 07:42:18'),
+(941, 'photo_6021453864940716609_x (1)', 'photo_6021453864940716609_x (1)', '07122023094353-900x700-photo_6021453864940716609_x (1).jpg', '07122023094353-photo_6021453864940716609_x (1).jpg', '56904', '2023-12-07 07:43:53', '2023-12-07 07:43:53'),
+(942, 'photo_6021453864940716606_y', 'photo_6021453864940716606_y', '07122023095100-1920x400-photo_6021453864940716606_y.jpg', '07122023095100-photo_6021453864940716606_y.jpg', '177815', '2023-12-07 07:51:00', '2023-12-07 07:51:00'),
+(943, '5V7A4133', '5V7A4133', '07122023095837-900x700-5V7A4133.jpg', '07122023095837-5V7A4133.jpg', '1128813', '2023-12-07 07:58:40', '2023-12-07 07:58:40'),
+(944, '5V7A4138', '5V7A4138', '07122023095918-900x700-5V7A4138.jpg', '07122023095918-5V7A4138.jpg', '1643429', '2023-12-07 07:59:21', '2023-12-07 07:59:21'),
+(945, '5V7A3951', '5V7A3951', '07122023100028-600x315-5V7A3951.jpg', '07122023100028-5V7A3951.jpg', '1641900', '2023-12-07 08:00:31', '2023-12-07 08:00:31'),
+(946, '5V7A3955', '5V7A3955', '07122023100300-900x700-5V7A3955.jpg', '07122023100300-5V7A3955.jpg', '1139160', '2023-12-07 08:03:02', '2023-12-07 08:03:02'),
+(947, '5V7A4138', '5V7A4138', '07122023100640-900x700-5V7A4138.jpg', '07122023100640-5V7A4138.jpg', '3296491', '2023-12-07 08:06:43', '2023-12-07 08:06:43'),
+(948, '5V7A4133', '5V7A4133', '07122023101036-900x700-5V7A4133.jpg', '07122023101036-5V7A4133.jpg', '2425499', '2023-12-07 08:10:39', '2023-12-07 08:10:39'),
+(949, 'photo_6021453864940716607_x', 'photo_6021453864940716607_x', '10122023084543-1920x400-photo_6021453864940716607_x.jpg', '10122023084543-photo_6021453864940716607_x.jpg', '80101', '2023-12-10 06:45:49', '2023-12-10 06:45:49'),
+(950, '5V7A4116', '5V7A4116', '10122023112345-900x700-5V7A4116.jpg', '10122023112345-5V7A4116.jpg', '975994', '2023-12-10 09:23:50', '2023-12-10 09:23:50'),
+(951, '5V7A4061', '5V7A4061', '10122023113122-900x700-5V7A4061.jpg', '10122023113122-5V7A4061.jpg', '959910', '2023-12-10 09:31:27', '2023-12-10 09:31:27'),
+(952, '5V7A4057', '5V7A4057', '10122023113211-900x700-5V7A4057.jpg', '10122023113211-5V7A4057.jpg', '1138250', '2023-12-10 09:32:14', '2023-12-10 09:32:14'),
+(953, '5V7A4085', '5V7A4085', '10122023114017-900x700-5V7A4085.jpg', '10122023114017-5V7A4085.jpg', '1187944', '2023-12-10 09:40:20', '2023-12-10 09:40:20'),
+(954, '5V7A4086', '5V7A4086', '10122023114045-900x700-5V7A4086.jpg', '10122023114045-5V7A4086.jpg', '1270280', '2023-12-10 09:40:48', '2023-12-10 09:40:48'),
+(955, '5V7A4051', '5V7A4051', '10122023114612-900x700-5V7A4051.jpg', '10122023114612-5V7A4051.jpg', '1204750', '2023-12-10 09:46:15', '2023-12-10 09:46:15'),
+(956, '5V7A4017', '5V7A4017', '10122023114636-900x700-5V7A4017.jpg', '10122023114636-5V7A4017.jpg', '950362', '2023-12-10 09:46:39', '2023-12-10 09:46:39'),
+(957, '5V7A4120', '5V7A4120', '10122023114956-900x700-5V7A4120.jpg', '10122023114956-5V7A4120.jpg', '1029891', '2023-12-10 09:49:59', '2023-12-10 09:49:59'),
+(958, '5V7A4129', '5V7A4129', '10122023115044-900x700-5V7A4129.jpg', '10122023115044-5V7A4129.jpg', '1409520', '2023-12-10 09:50:47', '2023-12-10 09:50:47');
 
 -- --------------------------------------------------------
 
@@ -2003,11 +2041,11 @@ INSERT INTO `media_options` (`id`, `title`, `alt_title`, `thumbnail`, `large_ima
 --
 
 CREATE TABLE `media_settings` (
-  `id` bigint UNSIGNED NOT NULL,
-  `media_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `media_desc` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `media_width` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `media_height` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `media_type` varchar(191) NOT NULL,
+  `media_desc` varchar(200) DEFAULT NULL,
+  `media_width` varchar(100) DEFAULT NULL,
+  `media_height` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2033,16 +2071,16 @@ INSERT INTO `media_settings` (`id`, `media_type`, `media_desc`, `media_width`, `
 --
 
 CREATE TABLE `mega_menus` (
-  `id` bigint UNSIGNED NOT NULL,
-  `menu_id` int DEFAULT NULL,
-  `menu_parent_id` int DEFAULT NULL,
-  `mega_menu_title` text COLLATE utf8mb4_unicode_ci,
-  `is_title` int DEFAULT NULL,
-  `is_image` int DEFAULT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci,
-  `css_class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lan` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sort_order` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `menu_parent_id` int(11) DEFAULT NULL,
+  `mega_menu_title` text DEFAULT NULL,
+  `is_title` int(11) DEFAULT NULL,
+  `is_image` int(11) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `css_class` varchar(191) DEFAULT NULL,
+  `lan` varchar(191) DEFAULT NULL,
+  `sort_order` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2054,11 +2092,11 @@ CREATE TABLE `mega_menus` (
 --
 
 CREATE TABLE `menus` (
-  `id` bigint UNSIGNED NOT NULL,
-  `menu_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_position` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_id` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_name` varchar(191) NOT NULL,
+  `menu_position` varchar(191) DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2080,18 +2118,18 @@ INSERT INTO `menus` (`id`, `menu_name`, `menu_position`, `lan`, `status_id`, `cr
 --
 
 CREATE TABLE `menu_childs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `menu_id` int DEFAULT NULL,
-  `menu_parent_id` int DEFAULT NULL,
-  `mega_menu_id` int DEFAULT NULL,
-  `menu_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `item_id` int DEFAULT NULL,
-  `item_label` text COLLATE utf8mb4_unicode_ci,
-  `custom_url` text COLLATE utf8mb4_unicode_ci,
-  `target_window` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `css_class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lan` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sort_order` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `menu_parent_id` int(11) DEFAULT NULL,
+  `mega_menu_id` int(11) DEFAULT NULL,
+  `menu_type` varchar(191) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `item_label` text DEFAULT NULL,
+  `custom_url` text DEFAULT NULL,
+  `target_window` varchar(191) DEFAULT NULL,
+  `css_class` varchar(191) DEFAULT NULL,
+  `lan` varchar(191) DEFAULT NULL,
+  `sort_order` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2103,20 +2141,20 @@ CREATE TABLE `menu_childs` (
 --
 
 CREATE TABLE `menu_parents` (
-  `id` bigint UNSIGNED NOT NULL,
-  `menu_id` int DEFAULT NULL,
-  `menu_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `child_menu_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `item_id` int DEFAULT NULL,
-  `item_label` text COLLATE utf8mb4_unicode_ci,
-  `custom_url` text COLLATE utf8mb4_unicode_ci,
-  `target_window` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `css_class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `column` int DEFAULT NULL,
-  `width_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `width` int DEFAULT NULL,
-  `lan` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sort_order` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `menu_type` varchar(191) DEFAULT NULL,
+  `child_menu_type` varchar(191) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `item_label` text DEFAULT NULL,
+  `custom_url` text DEFAULT NULL,
+  `target_window` varchar(191) DEFAULT NULL,
+  `css_class` varchar(191) DEFAULT NULL,
+  `column` int(11) DEFAULT NULL,
+  `width_type` varchar(191) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `lan` varchar(191) DEFAULT NULL,
+  `sort_order` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2130,22 +2168,28 @@ INSERT INTO `menu_parents` (`id`, `menu_id`, `menu_type`, `child_menu_type`, `it
 (943, 121, 'page', 'none', 47, 'Cookie Policy', 'cookie-policy', '_self', NULL, NULL, NULL, NULL, 'en', 3, '2022-09-02 05:45:07', '2023-02-18 05:58:52'),
 (944, 121, 'page', 'none', 46, 'Booking Policy', 'booking-policy', '_self', NULL, NULL, NULL, NULL, 'en', 5, '2022-09-02 05:45:07', '2023-02-18 05:58:52'),
 (945, 121, 'page', 'none', 45, 'Terms and Conditions', 'terms-and-conditions', '_self', NULL, NULL, NULL, NULL, 'en', 4, '2022-09-02 05:45:07', '2023-02-18 05:58:52'),
-(1014, 120, 'custom_link', 'none', NULL, 'Home', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'en', 1, '2023-01-10 00:33:49', '2023-12-04 05:10:05'),
-(1017, 120, 'custom_link', 'none', NULL, 'Contact Us', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'en', 5, '2023-01-10 00:35:23', '2023-12-04 05:12:01'),
-(1027, 120, 'page', 'none', 71, 'FAQ', 'faq', '_self', NULL, NULL, NULL, NULL, 'en', 4, '2023-01-11 09:28:28', '2023-12-04 05:36:35'),
-(1030, 120, 'product_category', 'none', 1, 'Hotel room', 'hotel', '_self', NULL, NULL, NULL, NULL, 'en', 2, '2023-01-16 10:31:44', '2023-12-06 05:08:59'),
-(1043, 120, 'blog', 'none', 0, 'Blog', 'blog', '_self', NULL, NULL, NULL, NULL, 'en', 3, '2023-02-17 23:46:38', '2023-12-04 05:10:06'),
-(1044, 123, 'custom_link', 'none', NULL, 'غرف الفندق', 'https://trial.qutell.top/category/1/hotel', '_self', '', NULL, NULL, NULL, 'ar', 2, '2023-12-03 09:24:04', '2023-12-06 05:11:08'),
-(1045, 123, 'custom_link', 'none', NULL, 'الاسئله الشائعه', 'https://trial.qutell.top/page/73/faq-ar', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-03 09:35:19', '2023-12-04 05:45:50'),
-(1046, 123, 'custom_link', 'none', NULL, 'الرئيسيه', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'ar', 1, '2023-12-03 09:36:52', '2023-12-04 05:45:50'),
-(1047, 123, 'custom_link', 'none', NULL, 'المدونة', 'https://trial.qutell.top/blog', '_self', NULL, NULL, NULL, NULL, 'ar', 3, '2023-12-03 09:37:28', '2023-12-04 05:45:50'),
-(1048, 123, 'custom_link', 'none', NULL, 'اتصل بنا', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:37:47', '2023-12-04 05:45:50'),
-(1050, 120, 'custom_link', 'none', NULL, 'About us', 'https://trial.qutell.top/page/48/about-us', '_self', NULL, NULL, NULL, NULL, 'en', 6, '2023-12-04 05:10:01', '2023-12-04 05:10:06'),
-(1051, 123, 'custom_link', 'none', NULL, 'عنا', 'https://trial.qutell.top/page/74/about-us-ar', '_self', NULL, NULL, NULL, NULL, 'ar', 5, '2023-12-04 05:45:46', '2023-12-04 05:45:50'),
+(1014, 120, 'custom_link', 'none', NULL, 'Home', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'en', 1, '2023-01-10 00:33:49', '2023-12-10 07:55:29'),
+(1017, 120, 'custom_link', 'none', NULL, 'Contact Us', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'en', 9, '2023-01-10 00:35:23', '2023-12-10 07:55:30'),
+(1027, 120, 'page', 'none', 71, 'FAQ', 'faq', '_self', NULL, NULL, NULL, NULL, 'en', 6, '2023-01-11 09:28:28', '2023-12-10 07:55:29'),
+(1030, 120, 'product_category', 'none', 1, 'Hotel room', 'hotel', '_self', NULL, NULL, NULL, NULL, 'en', 4, '2023-01-16 10:31:44', '2023-12-10 07:55:29'),
+(1043, 120, 'blog', 'none', 0, 'News', 'blog', '_self', '', NULL, NULL, NULL, 'en', 7, '2023-02-17 23:46:38', '2023-12-10 07:55:30'),
+(1044, 123, 'custom_link', 'none', NULL, 'غرف الفندق', 'https://trial.qutell.top/category/1/hotel', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-03 09:24:04', '2023-12-10 07:52:28'),
+(1045, 123, 'custom_link', 'none', NULL, 'الأسئلة الشائعة', 'https://trial.qutell.top/page/73/faq-ar', '_self', '', NULL, NULL, NULL, 'ar', 7, '2023-12-03 09:35:19', '2023-12-10 07:57:41'),
+(1046, 123, 'custom_link', 'none', NULL, 'الرئيسية', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'ar', 1, '2023-12-03 09:36:52', '2023-12-10 07:52:28'),
+(1047, 123, 'custom_link', 'none', NULL, 'الاخبار', 'https://trial.qutell.top/blog', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:37:28', '2023-12-10 07:52:28'),
+(1048, 123, 'custom_link', 'none', NULL, 'اتصل بنا', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'ar', 9, '2023-12-03 09:37:47', '2023-12-10 07:52:28'),
+(1050, 120, 'custom_link', 'none', NULL, 'About us', 'https://trial.qutell.top/page/48/about-us', '_self', NULL, NULL, NULL, NULL, 'en', 2, '2023-12-04 05:10:01', '2023-12-10 07:55:29'),
+(1051, 123, 'custom_link', 'none', NULL, 'من نحن', 'https://trial.qutell.top/page/74/about-us-ar', '_self', '', NULL, NULL, NULL, 'ar', 2, '2023-12-04 05:45:46', '2023-12-10 07:52:28'),
 (1052, 125, 'custom_link', 'none', NULL, 'سياسة ملفات الارتباط', 'https://trial.qutell.top/page/77/syas-mlfat-alartbat', '_self', '', NULL, NULL, NULL, 'ar', 1, '2023-12-04 07:44:54', '2023-12-04 20:06:16'),
 (1053, 125, 'custom_link', 'none', NULL, 'الأحكام والشروط', 'https://trial.qutell.top/page/75/alahkam-oalshrot', '_self', '', NULL, NULL, NULL, 'ar', 2, '2023-12-04 08:12:31', '2023-12-04 20:06:16'),
 (1054, 125, 'custom_link', 'none', NULL, 'سياسة الحجز', 'https://trial.qutell.top/page/78/syas-alhgz', '_self', '', NULL, NULL, NULL, 'ar', 3, '2023-12-04 08:13:33', '2023-12-04 20:06:16'),
-(1055, 125, 'custom_link', 'none', NULL, 'المهنية', 'https://trial.qutell.top/page/79/almhny', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-04 08:14:24', '2023-12-04 20:06:16');
+(1055, 125, 'custom_link', 'none', NULL, 'المهنية', 'https://trial.qutell.top/page/79/almhny', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-04 08:14:24', '2023-12-04 20:06:16'),
+(1056, 123, 'page', 'none', 84, 'الفعليات', 'alfaalyat', '_self', NULL, NULL, NULL, NULL, 'ar', 8, '2023-12-10 07:11:43', '2023-12-10 07:52:28'),
+(1057, 123, 'page', 'none', 82, 'المعرض', 'almaard', '_self', NULL, NULL, NULL, NULL, 'ar', 5, '2023-12-10 07:11:43', '2023-12-10 07:52:28'),
+(1058, 123, 'page', 'none', 80, 'خدماتنا', 'khdmatna', '_self', NULL, NULL, NULL, NULL, 'ar', 3, '2023-12-10 07:11:43', '2023-12-10 07:52:28'),
+(1059, 120, 'page', 'none', 85, 'Events', 'events', '_self', NULL, NULL, NULL, NULL, 'en', 8, '2023-12-10 07:24:38', '2023-12-10 07:55:30'),
+(1060, 120, 'page', 'none', 83, 'Gallery', 'gallery', '_self', NULL, NULL, NULL, NULL, 'en', 5, '2023-12-10 07:24:38', '2023-12-10 07:55:29'),
+(1061, 120, 'page', 'none', 81, 'services', 'services', '_self', NULL, NULL, NULL, NULL, 'en', 3, '2023-12-10 07:24:38', '2023-12-10 07:55:29');
 
 -- --------------------------------------------------------
 
@@ -2154,9 +2198,9 @@ INSERT INTO `menu_parents` (`id`, `menu_id`, `menu_type`, `child_menu_type`, `it
 --
 
 CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) NOT NULL,
+  `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2214,16 +2258,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `offer_ads` (
-  `id` bigint UNSIGNED NOT NULL,
-  `offer_ad_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci,
-  `image` text COLLATE utf8mb4_unicode_ci,
-  `desc` text COLLATE utf8mb4_unicode_ci,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `offer_ad_type` varchar(191) DEFAULT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `lan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en'
+  `lan` varchar(255) NOT NULL DEFAULT 'en'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2231,12 +2275,12 @@ CREATE TABLE `offer_ads` (
 --
 
 INSERT INTO `offer_ads` (`id`, `offer_ad_type`, `title`, `url`, `image`, `desc`, `is_publish`, `created_at`, `updated_at`, `lan`) VALUES
-(29, 'homepage1', 'World Tour', '#', '13012023104807-offer-3.jpg', '{\"text_1\":\"World Tour\",\"text_2\":\"Get the best international offers and deals world tour packages from here.\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:48:36', '2023-01-13 05:26:06', 'en'),
-(30, 'homepage1', 'Hot Air Balloon', '#', '13012023104926-offer-2.jpg', '{\"text_1\":\"Hot Air Balloon\",\"text_2\":\"A hot air balloon is a lighter-than-air aircraft consisting of a bag, called an envelope, which contains heated air.\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:49:30', '2023-01-13 05:26:06', 'en'),
-(31, 'homepage1', 'Mountainous Offer', '#', '13012023105100-offer-1.jpg', '{\"text_1\":\"Mountainous Offer\",\"text_2\":\"Up to 70% off on Winter Mountainous Offers.\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:51:08', '2023-01-13 05:27:14', 'en'),
-(33, 'homepage1', 'منطاد', '#', '13012023104926-offer-2.jpg', '{\"text_1\":\"\\u0645\\u0646\\u0637\\u0627\\u062f\",\"text_2\":\"\\u0645\\u0646\\u0637\\u0627\\u062f \\u0627\\u0644\\u0647\\u0648\\u0627\\u0621 \\u0627\\u0644\\u0633\\u0627\\u062e\\u0646 \\u0639\\u0628\\u0627\\u0631\\u0629 \\u0639\\u0646 \\u0637\\u0627\\u0626\\u0631\\u0629 \\u0623\\u062e\\u0641 \\u0645\\u0646 \\u0627\\u0644\\u0647\\u0648\\u0627\\u0621\\u060c \\u0648\\u062a\\u062a\\u0643\\u0648\\u0646 \\u0645\\u0646 \\u0643\\u064a\\u0633 \\u064a\\u0633\\u0645\\u0649 \\u0627\\u0644\\u0645\\u0638\\u0631\\u0648\\u0641\\u060c \\u0648\\u0627\\u0644\\u0630\\u064a \\u064a\\u062d\\u062a\\u0648\\u064a \\u0639\\u0644\\u0649 \\u0647\\u0648\\u0627\\u0621 \\u0633\\u0627\\u062e\\u0646.\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:03:26', '2023-12-03 08:03:26', 'ar'),
-(34, 'homepage1', 'رحله', '#', '13012023104807-offer-3.jpg', '{\"text_1\":\"\\u0631\\u062d\\u0644\\u0647\",\"text_2\":\"\\u0631\\u062d\\u0644\\u0647 \\u062d\\u0648\\u0644 \\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:12:32', '2023-12-03 08:12:32', 'ar'),
-(35, 'homepage1', 'رحله جبليه', '#', '13012023105100-offer-1.jpg', '{\"text_1\":\"\\u0631\\u062d\\u0644\\u0647 \\u062c\\u0628\\u0644\\u064a\\u0647\",\"text_2\":\"\\u0631\\u062d\\u0644\\u0647 \\u0641\\u0648\\u0642 \\u0627\\u0639\\u0644\\u064a \\u0642\\u0645\\u0645 \\u0627\\u0644\\u062c\\u0628\\u0627\\u0644\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:13:20', '2023-12-03 08:13:20', 'ar');
+(29, 'homepage1', 'Meeting and celebration rooms', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"Meeting and celebration rooms\",\"text_2\":\"Unique halls with the latest design\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:48:36', '2023-12-07 07:49:10', 'en'),
+(30, 'homepage1', 'The health club is a time for relaxation', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"The health club is a time for relaxation\",\"text_2\":\"The gym is equipped with the latest equipment\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:49:30', '2023-12-07 07:48:12', 'en'),
+(31, 'homepage1', 'Unique restaurants that combine art and fun with delicious food', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"Unique restaurants that combine art and fun with delicious food\",\"text_2\":\"Unique restaurants\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:51:08', '2023-12-07 07:47:07', 'en'),
+(33, 'homepage1', 'قاعات الاجتماعات والاحتفالات', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0627\\u0644\\u0627\\u062c\\u062a\\u0645\\u0627\\u0639\\u0627\\u062a \\u0648\\u0627\\u0644\\u0627\\u062d\\u062a\\u0641\\u0627\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0641\\u0631\\u064a\\u062f\\u0629 \\u0628\\u0627\\u062d\\u062f\\u062b \\u062a\\u0635\\u0645\\u064a\\u0645\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:03:26', '2023-12-07 07:45:23', 'ar'),
+(34, 'homepage1', 'النادي الصحي وقت للاستجمام', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0627\\u0644\\u0635\\u062d\\u064a \\u0648\\u0642\\u062a \\u0644\\u0644\\u0627\\u0633\\u062a\\u062c\\u0645\\u0627\\u0645\",\"text_2\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0631\\u064a\\u0627\\u0636\\u064a \\u0645\\u062c\\u0647\\u0632 \\u0628\\u0627\\u062d\\u062f\\u062b \\u0627\\u0644\\u0627\\u062c\\u0647\\u0632\\u0629\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:12:32', '2023-12-07 07:44:43', 'ar'),
+(35, 'homepage1', 'مطاعم فريده تجمع بين الفن والمتعة وتقديم اشهي الماكلات', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647 \\u062a\\u062c\\u0645\\u0639 \\u0628\\u064a\\u0646 \\u0627\\u0644\\u0641\\u0646 \\u0648\\u0627\\u0644\\u0645\\u062a\\u0639\\u0629 \\u0648\\u062a\\u0642\\u062f\\u064a\\u0645 \\u0627\\u0634\\u0647\\u064a \\u0627\\u0644\\u0645\\u0627\\u0643\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:13:20', '2023-12-07 07:44:55', 'ar');
 
 -- --------------------------------------------------------
 
@@ -2245,17 +2289,17 @@ INSERT INTO `offer_ads` (`id`, `offer_ad_type`, `title`, `url`, `image`, `desc`,
 --
 
 CREATE TABLE `pages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `og_title` text COLLATE utf8mb4_unicode_ci,
-  `og_image` text COLLATE utf8mb4_unicode_ci,
-  `og_description` text COLLATE utf8mb4_unicode_ci,
-  `og_keywords` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `slug` varchar(191) NOT NULL,
+  `content` longtext DEFAULT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `og_title` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `og_description` text DEFAULT NULL,
+  `og_keywords` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2269,16 +2313,22 @@ INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `thumbnail`, `lan`, `is_p
 (45, 'Terms and Conditions', 'terms-and-conditions', '<h6>What are Terms and Conditions?</h6>\r\n<p>Terms and conditions (also referred to as terms of use or terms of service) are a form of legal agreement outlining rules and restrictions for customers to follow when using your site.</p>\r\n\r\n<h6>Does My Online Shop Need Terms and Conditions?</h6>\r\n<p>While it’s not legally required for ecommerce websites to have a terms and conditions agreement, adding one will help protect your online business.</p>\r\n<p>As terms and conditions are legally enforceable rules, they allow you to set standards for how users interact with your site. Here are some of the major benefits of including terms and conditions on your ecommerce site:</p>\r\n<h6>1. Prevent Site Abuse</h6>\r\n<p>By setting guidelines on proper site usage, terms inform users what constitutes acceptable actions when using your site, and the consequences of breaking those rules.</p>\r\n<p>Examples of unacceptable behaviors include spamming, using bots, or posting defamatory content. Having terms and conditions allows you to take action against site abusers by banning them or terminating their accounts.</p>\r\n\r\n<h6>2. Protect Your Property</h6>\r\n<p>As the owner of your online store or shop, you also own your website’s content, logo, page designs, and any other brand-related materials you produce.</p>\r\n<p>Use your terms and conditions to inform users that your properties are protected by copyright and trademark laws, and set the rules for how others can lawfully use your materials.</p>\r\n\r\n<h6>3. Minimize Disputes</h6>\r\n<p>A well-drafted terms and conditions agreement will minimize your chances of legal disputes, as all the rules are clearly laid out for customers to see.</p>\r\n<p>In the event that disputes do arise, your terms and conditions (specifically, a dispute resolution clause) sets out a plan for resolving conflicts with limited difficulty.</p>\r\n\r\n<h6>What to Include in Terms and Conditions for Online Stores</h6>\r\n<p>Although terms and conditions will vary from business to business, standard terms and conditions for ecommerce sites will include these clauses:</p>\r\n\r\n<h6>Pricing and Payment Terms</h6>\r\n<p>Under your pricing and payment clause, address online purchase and pricing-related topics, including transaction processes, shipping and delivery terms, and returns and refunds.</p>\r\n<p>Your terms and conditions should also link to your return and refund policy, so users can easily find the details of your returns process. If you decide not to offer refunds, link to your no refund policy or all sales are final policy instead.</p>\r\n\r\n<p>Id aliquet risus feugiat in. Nec ullamcorper sit amet risus nullam eget felis. Sagittis nisl rhoncus mattis rhoncus.</p>\r\n<p>Aliquet sagittis id consectetur purus. Fermentum iaculis eu non diam phasellus vestibulum lorem. Libero id faucibus nisl tincidunt eget nullam non nisi est. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.</p>\r\n<p>Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Sit amet facilisis magna etiam. Volutpat sed cras ornare arcu dui vivamus. Sociis natoque penatibus et magnis dis parturient montes nascetur. Diam maecenas ultricies mi eget mauris pharetra et.</p>\r\n<p>Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Fringilla urna porttitor rhoncus dolor purus non. </p>', '05012023064503-breadcrumb-bg-4.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:55:59', '2023-01-11 10:49:32'),
 (46, 'Booking Policy', 'booking-policy', '<p>The role of the purchasing policy is to define standard methods and procedures for the Company to purchase products and services from different vendors. This policy covers all expenses for the company including items like taxes, payroll payments, etc.  Those are defined as exceptions in the policy and proper procedures are defined to manage these payments.</p>\r\n\r\n<p>Compliance with this policy is mandatory for all employees. Noncompliance with this policy could lead to action including termination of employment. The purchasing department is responsible for maintaining and implementing the processes defined in this policy.</p>\r\n\r\n<h6>Refund Policy</h6>\r\n<p>Thanks for purchasing our products Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices tincidunt. Faucibus turpis in eu mi bibendum neque egestas congue quisque.</p>\r\n<p>We offer a full money-back guarantee for all purchases made on our website. If you are not satisfied with the product that you have purchased from us, you can get your money back no questions asked. You are eligible for a full reimbursement within 14 calendar days of your purchase.</p>\r\n<p>After the 14-day period you will no longer be eligible and won\'t be able to receive a refund. We encourage our customers to try the product (or service) in the first two weeks after their purchase to ensure it fits your needs.</p>\r\n<p>If you have any additional questions or would like to request a refund, feel free to contact us.</p>\r\n\r\n<h6>Why do You Need a Refund Policy?</h6>\r\n<p>We have already stated that a refund policy is a legal agreement. If you run an online retail business or an e-commerce website, the chances are that you already have some policies on display for your customers. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices tincidunt. Faucibus turpis in eu mi bibendum neque egestas congue quisque.</p>\r\n\r\n<h6>What to Include in a Refund policy?</h6>\r\n<p>People don\'t have a tendency to read long and boring legal documents online. On the other hand, you have to provide all the necessary information.</p>\r\n<p>This is why it is advised to break down your return/refund policy into smaller sections. This will increase the readability of the document, make it easier for customers to find what they need, and, at the same time, protect you legally.</p>\r\n\r\n<p>Id aliquet risus feugiat in. Nec ullamcorper sit amet risus nullam eget felis. Sagittis nisl rhoncus mattis rhoncus.</p>\r\n<p>Aliquet sagittis id consectetur purus. Fermentum iaculis eu non diam phasellus vestibulum lorem. Libero id faucibus nisl tincidunt eget nullam non nisi est. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.</p>\r\n<p>Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Sit amet facilisis magna etiam. Volutpat sed cras ornare arcu dui vivamus. Sociis natoque penatibus et magnis dis parturient montes nascetur. Diam maecenas ultricies mi eget mauris pharetra et.</p>\r\n<p>Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Fringilla urna porttitor rhoncus dolor purus non. </p>', '05012023064507-breadcrumb-bg-5.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:56:14', '2023-02-17 23:11:01'),
 (47, 'Cookie Policy', 'cookie-policy', '<h6>What\'s a Cookies Policy</h6>\r\n<p>A Cookies Policy is a policy that provides users with detailed information about the types of cookies a website uses, how these cookies are used, and how users can control cookies placement through limiting or forbidding a website to place cookies on his/her electronic device.</p>\r\n<p>A Privacy Policy will often include a section within it that covers Cookies. However, in the EU, having a fully separate Cookies Policy is required.</p>\r\n<p>In this case, any information about cookies can also be placed in the Privacy Policy but then referenced in the separate Cookies Policy.</p>\r\n\r\n<h6>Legal Requirements for Cookies Policies</h6>\r\n<p>Any EU business that uses cookies must comply with the EU Cookies Law, which requires a Cookie Policy to be in place. Visitors to your website must be alerted that cookies are in use, what kind of cookies are in use, and given the option to opt out of having these cookies placed on their devices.</p>\r\n<p>A Cookie Policy is where this information can be thoroughly detailed and explained to your visitors.</p>\r\n<p>While pop-up boxes and banner notifications alert users that cookies are being used and can allow for an option to opt out within that box or banner, this kind of policy is where further information can be detailed and accessible to your visitors at any time.</p>\r\n\r\n<h6>What to Include in Your Cookies Policy</h6>\r\n<p>All Cookies Policies will include the same basic information:</p>\r\n<ul>\r\n	<li>That cookies are in use on your website</li>\r\n	<li>What cookies are</li>\r\n	<li>What kind of cookies are in use (by you and/or third parties)</li>\r\n	<li>How and why you (and/or third parties) are using the cookies</li>\r\n	<li>How a user can opt out of having cookies placed on a device</li>\r\n</ul>\r\n<p>Let\'s look at some examples of Cookies Policy clauses that address the above information.</p>\r\n\r\n<h6>You Use Cookies, and What Cookies Are</h6>\r\n<p>Most Cookies Policies start by letting users know that cookies are in use, and telling them what cookies are. Simple, easy-to-understand language should be used here so that everyone is able to understand what the policy is saying.</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices tincidunt. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Est ultricies integer quis auctor elit sed vulputate mi. Leo vel fringilla est ullamcorper eget nulla. Odio pellentesque diam volutpat commodo. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Auctor urna nunc id cursus metus aliquam. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>', '05012023064516-breadcrumb-bg-7.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:56:24', '2023-01-11 10:49:32'),
-(48, 'About us', 'about-us', '<h6 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251);\">What Is An About Us Page?</h6><h6><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">An About Us Page is a page on your website that tells your readers all about you. It includes a detailed description covering all aspects of your business and you as an entrepreneur. This can include the products or services you are offering, how you came into being as a business, your mission and vision, your aim, and maybe something about your future goals too. Your About Us page is your perfect opportunity to tell a compelling story about your business.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">An About Us page helps your company make a good first impression, and is critical for building customer trust and loyalty. An About Us page should make sure to cover basic information about the store and its founders, explain the company\'s purpose and how it differs from the competition, and encourage discussion and interaction. Here are some free templates, samples, and example About Us pages to help your ecommerce store stand out from the crowd.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Even though an About Us page is one of the most important elements of a website, it is often one of the most overlooked elements. Compared to a landing page, an About Us page help you communicate a range of things:</p><ul style=\"margin-left: 20px; outline: 0px; list-style: none; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; font-size: 14px; font-weight: 400; text-align: start; background-color: rgb(251, 251, 251);\"><li style=\"margin: 0px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">The story of your brand and why you started it.</li><li style=\"margin: 0px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">The cause or customers that your business serves.</li><li style=\"margin: 0px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">Your business model or how your products are sourced/manufactured.</li></ul><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">As an important part of your website your About Us page can set you apart from your competitors in a way that can build your brand in a positive way.</p></h6><h6 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251);\">Your History</h6><h6><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Take the visitors on your website to a trip down memory lane, and give them an insight to the history behind your store. Here, you can show them where, how, and when you started, and everything your business has accomplished on the way. This is your chance to share your relevant milestones and achievements relating to your business in an engaging way.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">You can even choose to present your history to your viewers in the form of a timeline, which allows you to display a large amount of information in a visually engaging manner. Your customers or potential customers might be interested in seeing how you grew over the years.</p></h6><h6 style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251);\">Team Member Profiles</h6><h6><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Add an emotional element to your About Us page by adding details of the people that are driving the passion at your business. People find it easier to connect with human beings, so allow the personality of your crew to shine through the About Us page.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Id aliquet risus feugiat in. Nec ullamcorper sit amet risus nullam eget felis. Sagittis nisl rhoncus mattis rhoncus.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Aliquet sagittis id consectetur purus. Fermentum iaculis eu non diam phasellus vestibulum lorem. Libero id faucibus nisl tincidunt eget nullam non nisi est. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Sit amet facilisis magna etiam. Volutpat sed cras ornare arcu dui vivamus. Sociis natoque penatibus et magnis dis parturient montes nascetur. Diam maecenas ultricies mi eget mauris pharetra et.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\">Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Fringilla urna porttitor rhoncus dolor purus non.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\"><br></p><li style=\"list-style-type: disc; color: rgb(104, 104, 104); font-family: sans-serif; font-size: 14px; font-weight: 400;\"><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette</a></li><li style=\"list-style-type: disc; color: rgb(104, 104, 104); font-family: sans-serif; font-size: 14px; font-weight: 400;\"><a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\">https://www.omallqura.com/mira-trio-hotel-riyadh/</a></li><li style=\"list-style-type: disc; color: rgb(104, 104, 104); font-family: sans-serif; font-size: 14px; font-weight: 400;\"><a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\">https://ibnbattutatravel.com/mira-hotel-jeddah/</a></li></h6>', '05012023064520-breadcrumb-bg-8.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:57:08', '2023-12-05 18:54:23'),
+(48, 'About us', 'about-us', '<h6 style=\"margin-right: 0px; margin-bottom: 10px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">What Is An About Us Page?</h6><h6 style=\"margin-left: 25px;\"><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">An About Us Page is a page on your website that tells your readers all about you. It includes a detailed description covering all aspects of your business and you as an entrepreneur. This can include the products or services you are offering, how you came into being as a business, your mission and vision, your aim, and maybe something about your future goals too. Your About Us page is your perfect opportunity to tell a compelling story about your business.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">An About Us page helps your company make a good first impression, and is critical for building customer trust and loyalty. An About Us page should make sure to cover basic information about the store and its founders, explain the company\'s purpose and how it differs from the competition, and encourage discussion and interaction. Here are some free templates, samples, and example About Us pages to help your ecommerce store stand out from the crowd.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Even though an About Us page is one of the most important elements of a website, it is often one of the most overlooked elements. Compared to a landing page, an About Us page help you communicate a range of things:</p><p style=\"margin-left: 25px;\"><p style=\"margin: 0px 0px 0px 25px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">The story of your brand and why you started it.</p><p style=\"margin: 0px 0px 0px 25px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">The cause or customers that your business serves.</p><p style=\"margin: 0px 0px 0px 25px; padding: 0px; outline: 0px; list-style-type: none; line-height: 2;\">Your business model or how your products are sourced/manufactured.</p></p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">As an important part of your website your About Us page can set you apart from your competitors in a way that can build your brand in a positive way.</p></h6><h6 style=\"margin-right: 0px; margin-bottom: 10px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Your History</h6><h6 style=\"margin-left: 25px;\"><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Take the visitors on your website to a trip down memory lane, and give them an insight to the history behind your store. Here, you can show them where, how, and when you started, and everything your business has accomplished on the way. This is your chance to share your relevant milestones and achievements relating to your business in an engaging way.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">You can even choose to present your history to your viewers in the form of a timeline, which allows you to display a large amount of information in a visually engaging manner. Your customers or potential customers might be interested in seeing how you grew over the years.</p></h6><h6 style=\"margin-right: 0px; margin-bottom: 10px; padding: 0px; outline: 0px; font-family: var(--secondary-font-family); color: var(--color-black); text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Team Member Profiles</h6><ul><li style=\"margin-left: 25px;\"><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Add an emotional element to your About Us page by adding details of the people that are driving the passion at your business. People find it easier to connect with human beings, so allow the personality of your crew to shine through the About Us page.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Id aliquet risus feugiat in. Nec ullamcorper sit amet risus nullam eget felis. Sagittis nisl rhoncus mattis rhoncus.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Aliquet sagittis id consectetur purus. Fermentum iaculis eu non diam phasellus vestibulum lorem. Libero id faucibus nisl tincidunt eget nullam non nisi est. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Sit amet facilisis magna etiam. Volutpat sed cras ornare arcu dui vivamus. Sociis natoque penatibus et magnis dis parturient montes nascetur. Diam maecenas ultricies mi eget mauris pharetra et.</p><p style=\"padding: 0px; outline: 0px; color: rgb(89, 89, 89); font-family: Roboto, sans-serif; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\">Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Fringilla urna porttitor rhoncus dolor purus non.</p><ul><li style=\"padding: 0px; outline: 0px; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\"><font color=\"#595959\" face=\"Roboto, sans-serif\"><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">An article about the hotel from Al Jazeera’s website</a></font></li></ul><p style=\"padding: 0px; outline: 0px; line-height: 2; text-align: start; background-color: rgb(251, 251, 251); margin-left: 25px;\"><font color=\"#595959\" face=\"Roboto, sans-serif\"><a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\">Report on hotel Mira</a></font></p><p style=\"padding: 0px; outline: 0px; line-height: 2; text-align: start; background-color: rgb(251, 251, 251);\"><font color=\"#595959\" face=\"Roboto, sans-serif\"><a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\">Mira Waterfront Hotel Jeddah</a><br></font></p><p style=\"text-align: start;\"><br></p></li></ul>', '07122023095100-photo_6021453864940716606_y.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:57:08', '2023-12-07 09:47:12'),
 (49, 'Career', 'career', '<p>A Career Objective or a Resume Objective is essentially a heading statement that describes your professional goals in two to three sentences. Employers looking to hire an employee for a position tend to seek candidates that are driven enough to understand what they want. Whether you are starting off or set on a particular dream job, it is extremely essential to design an effective objective to stand out. Designing a resume that catches the eye of the recruiter is important. Showcasing all your skills, and highlighting work experience, and finding the perfect balance, can seem quite intimidating. Thus, taking up a Free Resume Building from Scratch session will help you streamline the process and help you create an effective resume. You will learn a step-by-step process, Do’s and Don’ts, Language &amp; Formatting, and Live Resume Examples.</p>\r\n\r\n<h6>What’s the best resume template to use for an e-commerce resume?</h6>\r\n<p>The best resume template for e-commerce efficiently communicates the information employers need to see. Look for a template with a header in which to provide contact details and room for an objective or summary statement in addition to lists of skills, professional experience, and education.</p>\r\n<p>Our e-commerce resume sample features all of these sections as well as an additional section dedicated to certifications and affiliations. Use this template with our resume builder to create a resume in minutes.</p>\r\n\r\n<h6>What’s the best format for a resume: PDF, MS Word, or txt?</h6>\r\n<p>Check the job advertisement or description to determine which format an employer prefers for resume submission. PDF and MS Word files can display formatting, and plain text files cannot. The e-commerce resume sample includes light formatting such as bolded text, horizontal lines, and bullet points.</p>\r\n<p>If an employer has requested you to submit your resume with other documents, you might want to consider a versatile PDF file. Microsoft Word is a full-featured word processor with a wide variety of formatting options for structuring and refining the appearance of your materials. A text file can be useful for copying and pasting into a form on an online application portal.</p>\r\n\r\n<h6>What’s the best way to include digital skills on an e-commerce resume?</h6>\r\n<p>Digital skills play a major part in the success of any e-commerce candidate. Emphasize the skills requested in the description of the job you are seeking and try to make your resume reflect the employer’s priorities.</p>\r\n\r\n<h6>How can you separate your e-commerce resume from other candidates’ resumes?</h6>\r\n<p>The candidate in our e-commerce resume sample focuses on SEO, social networking, and blogging in her objective statement and sets forth more technological proficiencies in the skills section. If specific proficiency is absolutely necessary, you might want to bring it up in your summary statement or list of skills. Reference competencies related to past positions under qualifications or experience.</p>\r\n<p>One of the best ways to distinguish your resume from the competition for an e-commerce position is to tailor your experience to the job you are seeking. Also, use effective and relevant metrics throughout to make a strong case for your abilities. Write your objective or summary statement with the position you want in mind.</p>\r\n\r\n<h6>How do you list awards on your e-commerce resume?</h6>\r\n<p>You can make reference to awards considered industry standard in your summary statement or a section devoted to awards. If these honors pertain to past positions, bring them up in the corresponding entry of your professional experience section. The candidate on our e-commerce resume sample does not mention accolades, but she includes a section for certifications and affiliations that could go in the place of, before, or after an awards section.</p>', '05012023064524-breadcrumb-bg-9.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2021-11-24 00:57:18', '2023-01-11 10:49:32'),
 (71, 'FAQ', 'faq', '<div>Purchase Policy Summary:</div><div><br></div><div>The role of the purchasing policy is to define the standard methods and procedures that the company should follow when acquiring products and services from various suppliers. This policy encompasses all expenses for the company, including taxes, salary payments, and more. Exceptions are outlined in the policy, and appropriate procedures are specified for managing these payments.</div><div><br></div><div>Compliance with this policy is mandatory for all employees. Non-compliance may lead to actions, including termination of employment. The purchasing management is responsible for maintaining and implementing the processes outlined in this policy.</div><div><br></div><div>Refund Policy:</div><div><br></div><div>Thank you for purchasing our products.</div><div><br></div><div>We offer a full refund guarantee for all purchases made through our website. If you are not satisfied with the product you bought from us, you can get a refund without asking any questions. You are eligible for a full refund within 14 calendar days from your purchase date.</div><div><br></div><div>After the 14-day period, you will no longer be eligible, and you won\'t be able to receive a refund. We encourage our customers to try the product (or service) in the first two weeks after the purchase to ensure it meets your needs.</div><div><br></div><div>If you have any additional questions or wish to request a refund, feel free to contact us.</div><div><br></div><div>Why do you need a refund policy?</div><div><br></div><div>We have already mentioned that the refund policy is a legal agreement. If you operate a business online or an e-commerce site, chances are you already have some policies displayed to your customers.</div><div><br></div><div>What should be included in the refund policy?</div><div><br></div><div>People tend not to read long and boring legal documents online. On the other hand, you must provide all the necessary information.</div><div><br></div><div>For this reason, it is advisable to break down the return/refund policy into smaller sections. This will increase the readability of the document, making it easier for customers to find what they need, while also providing legal protection for you.</div>', '05012023064531-breadcrumb-bg-11.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2022-09-04 11:00:58', '2023-12-04 05:36:35'),
 (73, 'الاسئله الشائعه', 'faq-ar', '<div>ملخص سياسة الشراء:</div><div><br></div><div>يتعين على سياسة الشراء تحديد الطرق والإجراءات القياسية التي يجب أن تتبعها الشركة عند الحصول على منتجات وخدمات من موردين متنوعين. تغطي هذه السياسة جميع النفقات للشركة، بما في ذلك الضرائب ودفعات الرواتب والمزيد. يتم تحديد الاستثناءات في السياسة، ويتم تحديد الإجراءات المناسبة لإدارة هذه الدفعات.</div><div><br></div><div>الامتثال لهذه السياسة إلزامي لجميع الموظفين. قد تؤدي عدم الامتثال إلى إجراءات، بما في ذلك إنهاء العمل. إدارة الشراء مسؤولة عن الحفاظ على وتنفيذ العمليات المحددة في هذه السياسة.</div><div><br></div><div>سياسة الاسترجاع:</div><div><br></div><div>شكرًا لشرائك منتجاتنا.</div><div><br></div><div>نقدم ضمان استرداد كامل لجميع المشتريات التي تمت عبر موقعنا. إذا لم تكن راضيًا عن المنتج الذي اشتريته منا، يمكنك الحصول على استرداد دون طرح أي أسئلة. أنت مؤهل للحصول على استرداد كامل في غضون 14 يومًا من تاريخ الشراء الخاص بك.</div><div><br></div><div>بعد انتهاء فترة الـ 14 يومًا، لن تكون مؤهلاً بعد، ولن تتمكن من الحصول على استرداد. نشجع عملائنا على تجربة المنتج (أو الخدمة) في الأسبوعين الأولين بعد الشراء لضمان أنه يلبي احتياجاتك.</div><div><br></div><div>إذا كان لديك أي أسئلة إضافية أو ترغب في طلب استرداد، فلا تتردد في الاتصال بنا.</div><div><br></div><div>لماذا تحتاج إلى سياسة استرداد؟</div><div><br></div><div>لقد أشرنا بالفعل إلى أن سياسة الاسترداد هي اتفاق قانوني. إذا كنت تدير عملًا عبر الإنترنت أو موقع تجارة إلكترونية، فإن هناك احتمالًا كبيرًا أن لديك بالفعل بعض السياسات المعروضة لعملائك.</div><div><br></div><div>ما يجب تضمينه في سياسة الاسترداد؟</div><div><br></div><div>غالبًا ما يتجنب الناس قراءة الوثائق القانونية الطويلة والمملة عبر الإنترنت. ومن ناحية أخرى، يجب عليك توفير جميع المعلومات اللازمة.</div><div><br></div><div>لهذا السبب، من المستحسن تقسيم سياسة الإرجاع/الاسترداد إلى أقسام أصغر. سيزيد ذلك من قابلية قراءة المستند، مما يجعله أسهل للعملاء العثور على ما يحتاجون إليه، بينما يوفر أيضًا الحماية القانونية لك.</div>', '05012023064520-breadcrumb-bg-8.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-03 09:32:44', '2023-12-04 05:42:32'),
-(74, 'عنا', 'about-us-ar', '<p><br></p><p>نحن نفخر بتقديم منتجات وخدمات عالية الجودة التي تلبي احتياجات عملائنا بشكل شامل. تتسم سياستنا في مجال الشراء بالالتزام بأساليب وإجراءات قياسية، حيث يتم تحديدها بعناية لضمان الحصول على منتجات وخدمات موثوقة من موردينا المتنوعين. نحن نغطي جميع النفقات المتعلقة بالشركة، بما في ذلك الضرائب ودفعات الرواتب، ونقوم بتحديد الاستثناءات ووضع إجراءات مناسبة لإدارة هذه الدفعات. يشترط الامتثال لهذه السياسة على جميع موظفينا، وقد تؤدي أي عدم امتثال إلى اتخاذ إجراءات، بما في ذلك إنهاء العمل. إدارة الشراء لدينا ملتزمة بالحفاظ على وتنفيذ العمليات المحددة في هذه السياسة لضمان فاعلية وشفافية العمليات.</p><p><br></p><p>فيما يتعلق بسياستنا في مجال الاسترداد، نهتم برضا عملائنا ونقدم ضمان استرداد كامل لجميع المشتريات التي تمت عبر موقعنا. نفهم أهمية راحة العميل ولذلك نوفر فترة استرداد تصل إلى 14 يومًا من تاريخ الشراء. نشجع عملائنا على تجربة المنتج أو الخدمة في هذه الفترة الزمنية للتحقق من مدى تلبيتها لاحتياجاتهم. تعتبر سياسة الاسترداد لدينا اتفاقًا قانونيًا يضمن حقوق العملاء ويوفر إطارًا واضحًا للجميع.</p><p><br></p><li style=\"list-style-type: disc;\"><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette</a></li><li style=\"list-style-type: disc;\"><a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\">https://www.omallqura.com/mira-trio-hotel-riyadh/</a></li><li style=\"list-style-type: disc;\"><a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\">https://ibnbattutatravel.com/mira-hotel-jeddah/</a></li>', '27122022160439-footer-top.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 05:44:28', '2023-12-05 18:53:56'),
+(74, 'من نحن', 'about-us-ar', '<p><br></p><p>نحن نفخر بتقديم منتجات وخدمات عالية الجودة التي تلبي احتياجات عملائنا بشكل شامل. تتسم سياستنا في مجال الشراء بالالتزام بأساليب وإجراءات قياسية، حيث يتم تحديدها بعناية لضمان الحصول على منتجات وخدمات موثوقة من موردينا المتنوعين. نحن نغطي جميع النفقات المتعلقة بالشركة، بما في ذلك الضرائب ودفعات الرواتب، ونقوم بتحديد الاستثناءات ووضع إجراءات مناسبة لإدارة هذه الدفعات. يشترط الامتثال لهذه السياسة على جميع موظفينا، وقد تؤدي أي عدم امتثال إلى اتخاذ إجراءات، بما في ذلك إنهاء العمل. إدارة الشراء لدينا ملتزمة بالحفاظ على وتنفيذ العمليات المحددة في هذه السياسة لضمان فاعلية وشفافية العمليات.</p><p><br></p><p>فيما يتعلق بسياستنا في مجال الاسترداد، نهتم برضا عملائنا ونقدم ضمان استرداد كامل لجميع المشتريات التي تمت عبر موقعنا. نفهم أهمية راحة العميل ولذلك نوفر فترة استرداد تصل إلى 14 يومًا من تاريخ الشراء. نشجع عملائنا على تجربة المنتج أو الخدمة في هذه الفترة الزمنية للتحقق من مدى تلبيتها لاحتياجاتهم. تعتبر سياسة الاسترداد لدينا اتفاقًا قانونيًا يضمن حقوق العملاء ويوفر إطارًا واضحًا للجميع.</p><p><br></p><li style=\"list-style-type: disc;\"><a href=\"https://www.al-jazirah.com/2017/20170601/rr6.htm#google_vignette\" target=\"_blank\">مقالة عن الفندق&nbsp; من موقع الجزيرة</a></li><li style=\"list-style-type: disc;\"><a href=\"https://www.omallqura.com/mira-trio-hotel-riyadh/\" target=\"_blank\">تقرير عن الفندق ميرا</a></li><li style=\"list-style-type: disc;\"><a href=\"https://ibnbattutatravel.com/mira-hotel-jeddah/\" target=\"_blank\">تقرير عن فندق ميرا الواجهة البحرية جدة</a><br></li>', '07122023095100-photo_6021453864940716606_y.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 05:44:28', '2023-12-10 06:32:51'),
 (75, 'الأحكام والشروط', 'alahkam-oalshrot', '<div><div>ما هي الشروط والأحكام؟</div><div>الشروط والأحكام (يشار إليها أيضًا باسم شروط الاستخدام أو شروط الخدمة) هي شكل من أشكال الاتفاقية القانونية التي تحدد القواعد والقيود التي يجب على العملاء اتباعها عند استخدام موقعك.</div><div><br></div><div>هل يحتاج متجري الإلكتروني إلى الشروط والأحكام؟</div><div>على الرغم من أنه ليس من الضروري قانونًا أن يكون لدى مواقع التجارة الإلكترونية اتفاقية شروط وأحكام، فإن إضافة واحدة ستساعد في حماية عملك عبر الإنترنت.</div><div><br></div><div>نظرًا لأن الشروط والأحكام هي قواعد قابلة للتنفيذ قانونيًا، فإنها تسمح لك بوضع معايير لكيفية تفاعل المستخدمين مع موقعك. فيما يلي بعض الفوائد الرئيسية لتضمين الشروط والأحكام على موقع التجارة الإلكترونية الخاص بك1&nbsp; . منع إساءة استخدام الموقع</div><div>من خلال وضع إرشادات حول الاستخدام السليم للموقع، تُعلم الشروط المستخدمين ما الذي يشكل إجراءات مقبولة عند استخدام موقعك، وعواقب انتهاك هذه القواعد.</div><div><br></div><div>تتضمن أمثلة السلوكيات غير المقبولة إرسال البريد العشوائي أو استخدام برامج الروبوت أو نشر محتوى تشهيري. يتيح لك وجود الشروط والأحكام اتخاذ إجراءات ضد من يسيئون استخدام الموقع من خلال حظرهم أو إنهاء حساباتهم.</div><div><br></div><div><div>حماية ممتلكاتك</div><div>بصفتك مالكًا لمتجرك الإلكتروني أو محلك، فإنك تمتلك أيضًا محتوى موقع الويب الخاص بك، والشعار، وتصميم الصفحة، وأي مواد أخرى متعلقة بالعلامة التجارية التي تنتجها.</div><div>استخدم شروطك وأحكامك لإبلاغ المستخدمين بأن ممتلكاتك محمية بموجب قوانين حقوق الملكية الفكرية والعلامات التجارية، وحدد القواعد لكيفية استخدام الآخرين لموادك بشكل قانوني.</div><div><br></div><div>تقليل النزاعات</div><div>سيقلل اتفاق شروط وأحكام جيد من فرص وقوع نزاعات قانونية، حيث يتم توضيح جميع القواعد بوضوح للعملاء.</div><div>في حال حدوث نزاعات، تحدد شروط وأحكامك (بشكل خاص، بند حل النزاع) خطة لحل النزاعات بصعوبة محدودة.</div><div><br></div><div>ما يجب تضمينه في شروط وأحكام المتاجر الإلكترونية</div><div>على الرغم من أن شروط وأحكام الأعمال ستختلف من شركة إلى شركة، ستتضمن الشروط والأحكام القياسية لمواقع التجارة الإلكترونية هذه البنود:</div><div><br></div><div>التسعير وشروط الدفع</div><div>في بند التسعير وشروط الدفع الخاص بك، تناول مواضيع الشراء عبر الإنترنت والأسعار، بما في ذلك عمليات العمليات، وشروط الشحن والتسليم، وسياسات الإرجاع والاسترداد.</div><div><br></div><div>يجب أن ترتبط شروطك وأحكامك أيضًا بسياسة الإرجاع والاسترداد الخاصة بك، حتى يتمكن المستخدمون بسهولة من العثور على تفاصيل عملية الإرجاع الخاصة بك. إذا قررت عدم تقديم استردادات، فاربط بسياسة عدم استرداد الأموال أو سياسة أن جميع المبيعات نهائية بدلاً من ذلك.</div><div><br></div><div><br></div><div><br></div></div></div>', '05012023064516-breadcrumb-bg-7.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 09:25:56', '2023-12-04 09:30:13'),
 (76, 'Contact us', 'contact-us', '<p style=\"text-align: start; \"><font color=\"#595959\" face=\"Tajawal\">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 16th century, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 16th century, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</font></p><p style=\"text-align: start; \"><font color=\"#595959\" face=\"Tajawal\"><br></font></p><p style=\"text-align: start; \"><font color=\"#595959\" face=\"Tajawal\"><br></font></p><p style=\"text-align: start; \"><br></p>', '05012023064507-breadcrumb-bg-5.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2023-12-04 09:37:39', '2023-12-04 09:38:57'),
 (77, 'سياسة ملفات الارتباط', 'syas-mlfat-alartbat', '<p>ما هي سياسة الكوكيز؟</p><p><br></p><p>سياسة الكوكيز هي سياسة تقدم للمستخدمين معلومات مفصلة حول أنواع ملفات الكوكيز التي يستخدمها موقع الويب، وكيفية استخدام هذه الملفات، وكيف يمكن للمستخدمين التحكم في وضع ملفات الكوكيز عن طريق تقييد أو منع الموقع من وضع ملفات الكوكيز على جهازهم الإلكتروني.</p><p><br></p><p>غالبًا ما يتم تضمين قسم يغطي ملفات الكوكيز في سياسة الخصوصية. ومع ذلك، في الاتحاد الأوروبي، يتعين وجود سياسة الكوكيز كوثيقة منفصلة بشكل كامل.</p><p><br></p><p>في هذه الحالة، يمكن أيضًا وضع أي معلومات حول ملفات الكوكيز في سياسة الخصوصية ومن ثم الرجوع إليها في سياسة الكوكيز الفردية.</p><p><br></p><p>المتطلبات القانونية لسياسات الكوكيز</p><p><br></p><p>يجب على أي شركة في الاتحاد الأوروبي تستخدم ملفات الكوكيز أن تلتزم بقانون ملفات الكوكيز الخاص بالاتحاد الأوروبي، الذي يتطلب وجود سياسة الكوكيز. يجب أن يتم إعلام زوار موقع الويب بأن ملفات الكوكيز قيد الاستخدام، وأي نوع من أنواع ملفات الكوكيز في الاستخدام، ويتيح لهم خيار الاختيار فيما إذا كانوا يرغبون في عدم وضع هذه الملفات على أجهزتهم.</p><p><br></p><p>سياسة الكوكيز هي المكان الذي يمكن فيه توضيح وشرح هذه المعلومات بشكل دقيق لزوار الموقع.</p><p><br></p><p>في حين أن صناديق النص الفورية والإشعارات الظاهرة تنبيه المستخدمين بأن ملفات الكوكيز قيد الاستخدام ويمكن أن تتيح خيارًا للانسحاب داخل تلك الصناديق أو الإشعارات، يعد هذا النوع من السياسات مكانًا يمكن فيه توضيح مزيد من المعلومات وجعلها متاحة لزوار الموقع في أي وقت.</p><p>**ما يجب تضمينه في سياسة الكوكيز الخاصة بك**</p><p><br></p><p>تتضمن جميع سياسات الكوكيز نفس المعلومات الأساسية:</p><p><br></p><p>1. **أن ملفات الكوكيز قيد الاستخدام على موقع الويب الخاص بك**</p><p>&nbsp; &nbsp;- يجب أن تقول بوضوح أن ملفات الكوكيز قيد الاستخدام على موقع الويب الخاص بك.</p><p><br></p><p>2. **ما هي ملفات الكوكيز**</p><p>&nbsp; &nbsp;- قدم شرحاً موجزاً حول ما هي ملفات الكوكيز.</p><p><br></p><p>3. **أنواع ملفات الكوكيز التي تُستخدم (من قِبلك و/أو أطراف ثالثة)**</p><p>&nbsp; &nbsp;- حدد أنواع ملفات الكوكيز المستخدمة، سواء كانت من موقعك أو من مصادر أطراف ثالثة.</p><p><br></p><p>4. **كيفية ولماذا تستخدم أنت (و/أو أطراف ثالثة) ملفات الكوكيز**</p><p>&nbsp; &nbsp;- شرح للغرض والسبب وراء استخدام ملفات الكوكيز من قِبل موقعك وأطراف ثالثة.</p><p><br></p><p>5. **كيف يمكن للمستخدم أن يرفض وضع ملفات الكوكيز على جهازه**</p><p>&nbsp; &nbsp;- قدم معلومات حول كيف يمكن للمستخدمين اختيار منع وضع ملفات الكوكيز أو تقييد وضعها على أجهزتهم.</p><p><br></p><p>*لنلقي نظرة على بعض أمثلة على فقرات سياسة الكوكيز التي تعنى بالمعلومات أعلاه.*</p><p><br></p><p>**أنت تستخدم ملفات الكوكيز، وما هي ملفات الكوكيز**</p><p><br></p><p>غالبًا ما تبدأ معظم سياسات الكوكيز بإعلام المستخدمين بأن ملفات الكوكيز قيد الاستخدام وشرح ما هي ملفات الكوكيز. يجب استخدام لغة بسيطة وسهلة التفاهم هنا حتى يتمكن الجميع من فهم ما تقوله السياسة.</p><p><br></p><p>*مثال:*</p><p>&gt; نستخدم ملفات الكوكيز على موقعنا. ملفات الكوكيز هي ملفات نصية صغيرة تُخزن على جهاز الكمبيوتر أو الجهاز المحمول الخاص بك عند زيارة موقع ويب.</p>', '05012023064527-breadcrumb-bg-10.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 19:48:10', '2023-12-04 19:48:10'),
 (78, 'سياسة الحجز', 'syas-alhgz', '<p>يتمثل دور سياسة الشراء في تحديد الأساليب والإجراءات القياسية للشركة لشراء المنتجات والخدمات من البائعين المختلفين. تغطي هذه السياسة جميع نفقات الشركة بما في ذلك بنود مثل الضرائب ومدفوعات الرواتب وما إلى ذلك. ويتم تعريف هذه على أنها استثناءات في السياسة ويتم تحديد الإجراءات المناسبة لإدارة هذه المدفوعات.</p><div><div>**سياسة الاسترجاع**</div><div><br></div><div>شكرًا لشرائكم منتجاتنا. Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices tincidunt. Faucibus turpis in eu mi bibendum neque egestas congue quisque.</div><div><br></div><div>نقدم ضمان استرجاع كامل لجميع المشتريات التي تمت على موقعنا. إذا كنت غير راضٍ عن المنتج الذي اشتريته منا، يمكنك استرداد أموالك دون طرح أي أسئلة. أنت مؤهل لاسترداد كامل خلال 14 يومًا من تاريخ الشراء.</div><div><br></div><div>بعد انتهاء هذه الفترة البالغة 14 يومًا، لن تكون مؤهلاً بعد ولن تتمكن من الحصول على استرداد. نحث عملائنا على تجربة المنتج (أو الخدمة) في الأسبوعين الأولين بعد عملية الشراء للتأكد من أنه يناسب احتياجاتك.</div><div><br></div><div>إذا كانت لديك أي أسئلة إضافية أو ترغب في طلب استرداد، فلا تتردد في الاتصال بنا.</div><div><br></div><div>**لماذا تحتاج إلى سياسة استرجاع؟**</div><div><br></div><div>لقد ذكرنا بالفعل أن سياسة الاسترجاع هي اتفاق قانوني. إذا كنت تدير عملًا تجاريًا عبر الإنترنت أو موقعًا للتجارة الإلكترونية، فإن الفرصة كبيرة أنك بالفعل لديك بعض السياسات المعروضة لزبائنك. Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices tincidunt. Faucibus turpis in eu mi bibendum neque egestas congue quisque.</div><div><div>**ما يجب تضمينه في سياسة الاسترجاع؟**</div><div><br></div><div>ليس لدى الناس عادةً قراءة وثائق قانونية طويلة ومملة عبر الإنترنت. من ناحية أخرى، يجب عليك توفير جميع المعلومات الضرورية.</div><div><br></div><div>لذلك يُفضل تقسيم سياسة الإرجاع/الاسترجاع إلى أقسام صغيرة. سيزيد ذلك من قابلية القراءة للوثيقة، ويجعل من السهل على العملاء العثور على ما يحتاجون إليه، وفي نفس الوقت، يحميك قانونيًا.</div><div><br></div><div>**إيجاد مرجع سريع:**</div><div>- قدم قسمًا صغيرًا يوفر نظرة عامة سريعة عن السياسة.</div><div>&nbsp;&nbsp;</div><div>**المدة الزمنية للاسترجاع:**</div><div>- حدد المدة الزمنية التي يحق للعملاء فيها طلب استرجاع.</div><div><br></div><div>**شروط الاسترجاع:**</div><div>- وضح الشروط والشروط التي يجب أن يلتزم بها العملاء لتقديم طلب استرجاع.</div><div><br></div><div>**كيفية تقديم الطلب:**</div><div>- أشرح الخطوات التي يجب اتخاذها لتقديم طلب استرجاع.</div><div><br></div><div>**رسوم الاسترجاع (إن وجدت):**</div><div>- إذا كان هناك رسوم تنطبق على عملية الاسترجاع، قدم توضيحًا حول هذه الرسوم.</div><div><br></div><div>**حالة المنتجات المسترجعة:**</div><div>- حدد ما إذا كانت هناك قيود أو شروط خاصة لحالة المنتجات المسترجعة.</div><div><br></div><div>**توفير التفاصيل الاتصال:**</div><div>- ضع معلومات الاتصال للعملاء الذين يرغبون في الحصول على مزيد من المساعدة أو تقديم طلب استرجاع.</div><div><br></div><div>**لماذا تحتاج إلى سياسة الاسترجاع؟**</div><div>- شرح لماذا هذه السياسة ضرورية وكيف تحمي الزبائن والشركة على حد سواء.</div></div></div>', '05012023064507-breadcrumb-bg-5.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 19:56:42', '2023-12-04 19:56:42'),
-(79, 'المهنية', 'almhny', '<p>الهدف المهني في السيرة الذاتية أو السيرة الذاتية يعتبر ببساطة عبارة رئيسية تصف أهدافك المهنية في جملتين إلى ثلاث جمل. يميل أصحاب العمل البحث عن مرشحين متحفزين يفهمون بما فيه الكفاية ما يرغبون فيه. سواء كنت تبدأ أو كنت قد حددت وظيفة معينة تحلم بها، فإن تصميم هدف فعّال أمر ضروري للتألق. تصميم سيرة ذاتية تلفت انتباه الموظف هو أمر مهم. عرض جميع مهاراتك وتسليط الضوء على خبرات العمل والعثور على التوازن المثالي يمكن أن يبدو أمرًا مخيفًا. لذلك، سيساعدك الانخراط في جلسة إنشاء سيرة ذاتية مجانية من البداية على تنظيم العملية ومساعدتك في إنشاء سيرة ذاتية فعّالة. ستتعلم عملية خطوة بخطوة، الأشياء التي يجب القيام بها والتي لا يجب القيام بها، اللغة والتنسيق، وأمثلة حية للسيرة الذاتية.</p><p><br></p><p>ما هو أفضل قالب للسيرة الذاتية لوظيفة في مجال التجارة الإلكترونية؟</p><p>أفضل قالب للسيرة الذاتية في مجال التجارة الإلكترونية يوفر بشكل فعّال المعلومات التي يحتاجها أصحاب العمل لرؤيتها. ابحث عن قالب يحتوي على رأس لتقديم معلومات الاتصال ومساحة لهدف أو بيان ملخص بالإضافة إلى قوائم المهارات والخبرات المهنية والتعليم.</p><p><br></p><p>يحتوي قالب السيرة الذاتية للتجارة الإلكترونية الخاص بنا على كل هذه الأقسام بالإضافة إلى قسم إضافي مخصص للشهادات والانتماءات. استخدم هذا القالب مع أداة إنشاء السير الذاتية لدينا لإنشاء سيرة ذاتية في دقائق.</p><p><br></p><p>ما هو أفضل تنسيق للسيرة الذاتية: PDF، MS Word، أم txt؟</p><p>تحقق من إعلان الوظيفة أو الوصف لتحديد التنسيق الذي يفضله صاحب العمل لتقديم السيرة الذاتية. يمكن لملفات PDF وMS Word عرض التنسيق، وملفات النص العادية لا تستطيع ذلك. تتضمن عينة السيرة الذاتية في مجال التجارة الإلكترونية تنسيقات خفيفة مثل النص المعتمد، والخطوط الأفقية، ونقاط التعويض.</p><p><br></p><p>إذا كان صاحب العمل قد طلب منك تقديم السيرة الذاتية مع مستندات أخرى، فقد ترغب في النظر في ملف PDF متعدد الاستخدامات. Microsoft Word هو معالج النصوص الكامل المزود بمجموعة واسعة من خيارات التنسيق لبناء وتنقية مظهر موادك. يمكن أن يكون ملف النص مفيدًا لنسخ ولصق في نموذج على بوابة طلب الوظائف عبر الإنترنت.</p><p>**أفضل طريقة لتضمين المهارات الرقمية في سيرة ذاتية لمجال التجارة الإلكترونية؟**</p><p><br></p><p>تلعب المهارات الرقمية دورًا رئيسيًا في نجاح أي مرشح في مجال التجارة الإلكترونية. قدِّم تأكيدًا على المهارات المطلوبة في وصف الوظيفة التي تسعى للحصول عليها وحاول جعل سيرتك الذاتية تعكس أولويات صاحب العمل.</p><p><br></p><p>**كيف يمكنك فصل سيرتك الذاتية لمجال التجارة الإلكترونية عن سير ذاتية لباقي المرشحين؟**</p><p><br></p><p>تركز المرشحة في عينة سيرة الذات لمجال التجارة الإلكترونية لدينا على مجالات مثل تحسين محركات البحث (SEO)، والشبكات الاجتماعية، وكتابة المدونات في بيان الهدف الخاص بها، وتُظهر المزيد من الكفاءات التكنولوجية في قسم المهارات. إذا كانت كفاءة معينة ضرورية بشكل مطلق، قد ترغب في ذكرها في بيان الهدف أو قائمة المهارات. استشهد بالكفاءات ذات الصلة بالوظائف السابقة ضمن قسم المؤهلات أو الخبرات.</p><p><br></p><p>أحد أفضل الطرق لتمييز سيرتك الذاتية عن المنافسة على وظيفة في مجال التجارة الإلكترونية هو تخصيص تجربتك بشكل كامل للوظيفة التي تسعى للحصول عليها. استخدم المقاييس الفعّالة والملموسة لإثبات قدراتك بشكل قوي. اكتب بيان هدفك أو الملخص الخاص بك مع الوظيفة المستهدفة في اعتبارك.</p><p><br></p><p>**كيفية ذكر الجوائز في سيرة ذاتية لمجال التجارة الإلكترونية؟**</p><p><br></p><p>يمكنك الإشارة إلى الجوائز المعتبرة صناعيًا في بيان ملخصك أو في قسم مخصص للجوائز. إذا كانت هذه التكريمات تتعلق بالوظائف السابقة، فيمكنك ذكرها في الإدخال المقابل في قسم الخبرة المهنية. لا تذكر المرشحة في عينة سيرة الذات لمجال التجارة الإلكترونية الجوائز، ولكنها تضم قسمًا للشهادات والانتماءات يمكن أن يأتي في مكان الجوائز أو قبلها أو بعدها.</p>', '05012023064524-breadcrumb-bg-9.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 20:05:27', '2023-12-04 20:05:27');
+(79, 'المهنية', 'almhny', '<p>الهدف المهني في السيرة الذاتية أو السيرة الذاتية يعتبر ببساطة عبارة رئيسية تصف أهدافك المهنية في جملتين إلى ثلاث جمل. يميل أصحاب العمل البحث عن مرشحين متحفزين يفهمون بما فيه الكفاية ما يرغبون فيه. سواء كنت تبدأ أو كنت قد حددت وظيفة معينة تحلم بها، فإن تصميم هدف فعّال أمر ضروري للتألق. تصميم سيرة ذاتية تلفت انتباه الموظف هو أمر مهم. عرض جميع مهاراتك وتسليط الضوء على خبرات العمل والعثور على التوازن المثالي يمكن أن يبدو أمرًا مخيفًا. لذلك، سيساعدك الانخراط في جلسة إنشاء سيرة ذاتية مجانية من البداية على تنظيم العملية ومساعدتك في إنشاء سيرة ذاتية فعّالة. ستتعلم عملية خطوة بخطوة، الأشياء التي يجب القيام بها والتي لا يجب القيام بها، اللغة والتنسيق، وأمثلة حية للسيرة الذاتية.</p><p><br></p><p>ما هو أفضل قالب للسيرة الذاتية لوظيفة في مجال التجارة الإلكترونية؟</p><p>أفضل قالب للسيرة الذاتية في مجال التجارة الإلكترونية يوفر بشكل فعّال المعلومات التي يحتاجها أصحاب العمل لرؤيتها. ابحث عن قالب يحتوي على رأس لتقديم معلومات الاتصال ومساحة لهدف أو بيان ملخص بالإضافة إلى قوائم المهارات والخبرات المهنية والتعليم.</p><p><br></p><p>يحتوي قالب السيرة الذاتية للتجارة الإلكترونية الخاص بنا على كل هذه الأقسام بالإضافة إلى قسم إضافي مخصص للشهادات والانتماءات. استخدم هذا القالب مع أداة إنشاء السير الذاتية لدينا لإنشاء سيرة ذاتية في دقائق.</p><p><br></p><p>ما هو أفضل تنسيق للسيرة الذاتية: PDF، MS Word، أم txt؟</p><p>تحقق من إعلان الوظيفة أو الوصف لتحديد التنسيق الذي يفضله صاحب العمل لتقديم السيرة الذاتية. يمكن لملفات PDF وMS Word عرض التنسيق، وملفات النص العادية لا تستطيع ذلك. تتضمن عينة السيرة الذاتية في مجال التجارة الإلكترونية تنسيقات خفيفة مثل النص المعتمد، والخطوط الأفقية، ونقاط التعويض.</p><p><br></p><p>إذا كان صاحب العمل قد طلب منك تقديم السيرة الذاتية مع مستندات أخرى، فقد ترغب في النظر في ملف PDF متعدد الاستخدامات. Microsoft Word هو معالج النصوص الكامل المزود بمجموعة واسعة من خيارات التنسيق لبناء وتنقية مظهر موادك. يمكن أن يكون ملف النص مفيدًا لنسخ ولصق في نموذج على بوابة طلب الوظائف عبر الإنترنت.</p><p>**أفضل طريقة لتضمين المهارات الرقمية في سيرة ذاتية لمجال التجارة الإلكترونية؟**</p><p><br></p><p>تلعب المهارات الرقمية دورًا رئيسيًا في نجاح أي مرشح في مجال التجارة الإلكترونية. قدِّم تأكيدًا على المهارات المطلوبة في وصف الوظيفة التي تسعى للحصول عليها وحاول جعل سيرتك الذاتية تعكس أولويات صاحب العمل.</p><p><br></p><p>**كيف يمكنك فصل سيرتك الذاتية لمجال التجارة الإلكترونية عن سير ذاتية لباقي المرشحين؟**</p><p><br></p><p>تركز المرشحة في عينة سيرة الذات لمجال التجارة الإلكترونية لدينا على مجالات مثل تحسين محركات البحث (SEO)، والشبكات الاجتماعية، وكتابة المدونات في بيان الهدف الخاص بها، وتُظهر المزيد من الكفاءات التكنولوجية في قسم المهارات. إذا كانت كفاءة معينة ضرورية بشكل مطلق، قد ترغب في ذكرها في بيان الهدف أو قائمة المهارات. استشهد بالكفاءات ذات الصلة بالوظائف السابقة ضمن قسم المؤهلات أو الخبرات.</p><p><br></p><p>أحد أفضل الطرق لتمييز سيرتك الذاتية عن المنافسة على وظيفة في مجال التجارة الإلكترونية هو تخصيص تجربتك بشكل كامل للوظيفة التي تسعى للحصول عليها. استخدم المقاييس الفعّالة والملموسة لإثبات قدراتك بشكل قوي. اكتب بيان هدفك أو الملخص الخاص بك مع الوظيفة المستهدفة في اعتبارك.</p><p><br></p><p>**كيفية ذكر الجوائز في سيرة ذاتية لمجال التجارة الإلكترونية؟**</p><p><br></p><p>يمكنك الإشارة إلى الجوائز المعتبرة صناعيًا في بيان ملخصك أو في قسم مخصص للجوائز. إذا كانت هذه التكريمات تتعلق بالوظائف السابقة، فيمكنك ذكرها في الإدخال المقابل في قسم الخبرة المهنية. لا تذكر المرشحة في عينة سيرة الذات لمجال التجارة الإلكترونية الجوائز، ولكنها تضم قسمًا للشهادات والانتماءات يمكن أن يأتي في مكان الجوائز أو قبلها أو بعدها.</p>', '05012023064524-breadcrumb-bg-9.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-04 20:05:27', '2023-12-04 20:05:27'),
+(80, 'خدماتنا', 'khdmatna', '<p><br></p>', '10122023084543-photo_6021453864940716607_x.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:46:04', '2023-12-10 06:46:04'),
+(81, 'services', 'services', '<p><br></p>', '10122023084543-photo_6021453864940716607_x.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:48:49', '2023-12-10 06:48:49'),
+(82, 'المعرض', 'almaard', '<p><br></p>', '07122023100300-5V7A3955.jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:49:40', '2023-12-10 06:49:40'),
+(83, 'Gallery', 'gallery', '<p><br></p>', '07122023100300-5V7A3955.jpg', 'en', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:51:07', '2023-12-10 06:51:07'),
+(84, 'الفعليات', 'alfaalyat', '<p><br></p>', '07122023094353-photo_6021453864940716609_x (1).jpg', 'ar', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:51:40', '2023-12-10 06:51:40'),
+(85, 'Events', 'events', '<p><br></p>', '07122023094353-photo_6021453864940716609_x (1).jpg', 'en', 1, NULL, NULL, NULL, NULL, '2023-12-10 06:52:41', '2023-12-10 06:52:41');
 
 -- --------------------------------------------------------
 
@@ -2287,8 +2337,8 @@ INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `thumbnail`, `lan`, `is_p
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) NOT NULL,
+  `token` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2299,8 +2349,8 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `payment_method` (
-  `id` bigint UNSIGNED NOT NULL,
-  `method_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `method_name` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2324,8 +2374,8 @@ INSERT INTO `payment_method` (`id`, `method_name`, `created_at`, `updated_at`) V
 --
 
 CREATE TABLE `payment_status` (
-  `id` bigint UNSIGNED NOT NULL,
-  `pstatus_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `pstatus_name` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2347,11 +2397,11 @@ INSERT INTO `payment_status` (`id`, `pstatus_name`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `reviews` (
-  `id` bigint UNSIGNED NOT NULL,
-  `item_id` int DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  `rating` int DEFAULT NULL,
-  `comments` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `comments` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2363,30 +2413,30 @@ CREATE TABLE `reviews` (
 --
 
 CREATE TABLE `rooms` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `cover_img` text COLLATE utf8mb4_unicode_ci,
-  `short_desc` text COLLATE utf8mb4_unicode_ci,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `total_adult` int DEFAULT NULL,
-  `total_child` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `slug` varchar(191) NOT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `cover_img` text DEFAULT NULL,
+  `short_desc` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `total_adult` int(11) DEFAULT NULL,
+  `total_child` int(11) DEFAULT NULL,
   `price` double(12,3) DEFAULT NULL,
   `old_price` double(12,3) DEFAULT NULL,
-  `amenities` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `complements` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `beds` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cat_id` int DEFAULT NULL,
-  `tax_id` int DEFAULT NULL,
-  `is_discount` int DEFAULT NULL,
-  `is_featured` int DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
-  `lan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `og_title` text COLLATE utf8mb4_unicode_ci,
-  `og_image` text COLLATE utf8mb4_unicode_ci,
-  `og_description` text COLLATE utf8mb4_unicode_ci,
-  `og_keywords` text COLLATE utf8mb4_unicode_ci,
+  `amenities` varchar(150) DEFAULT NULL,
+  `complements` varchar(150) DEFAULT NULL,
+  `beds` varchar(100) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
+  `tax_id` int(11) DEFAULT NULL,
+  `is_discount` int(11) DEFAULT NULL,
+  `is_featured` int(11) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `og_title` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `og_description` text DEFAULT NULL,
+  `og_keywords` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2396,24 +2446,30 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `title`, `slug`, `thumbnail`, `cover_img`, `short_desc`, `description`, `total_adult`, `total_child`, `price`, `old_price`, `amenities`, `complements`, `beds`, `cat_id`, `tax_id`, `is_discount`, `is_featured`, `is_publish`, `lan`, `og_title`, `og_image`, `og_description`, `og_keywords`, `created_at`, `updated_at`) VALUES
-(1, 'Executive Suite', 'executive-suite', '06012023120550-900x700-1-room.jpg', '05012023064431-breadcrumb-bg-1.jpg', NULL, '<p>A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly.<br><br>The size of the bed is normally 3 feet by 6 feet. However, the concept of single rooms is vanishing nowadays. Mostly, hotels have twin or double rooms, and the charge for a single room is occupied by one person.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 100.000, NULL, '2|7|3|6|5|1', '5|2|3', '1|2', 1, 38, NULL, 0, 1, 'en', 'Executive Suite', '06012023120550-900x700-1-room.jpg', 'A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly.', 'Single Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-05 04:15:56', '2023-01-21 09:43:27'),
-(10, 'Royal Club Suite', 'royal-club-suite', '06012023120553-900x700-2-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A twin room has two single beds for double occupancy. An extra bed may be added to this room at a guests request and charged accordingly. Here the bed size is normally 3 feet by 6 feet. These rooms are suitable for sharing accommodation among a group of delegates meeting.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p><p><br></p>', 2, 1, 400.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, NULL, 1, 1, 'en', 'Royal Club Suite', '06012023120553-900x700-2-room.jpg', 'A twin room has two single beds for double occupancy. An extra bed may be added to this room at a guests request and charged accordingly. Here the bed size is normally 3 feet by 6 feet. These rooms are suitable for sharing accommodation among a group of delegates meeting.', 'Twin Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 06:38:55', '2023-01-21 09:43:11'),
-(11, 'Honeymoon Suite', 'honeymoon-suite', '06012023120557-900x700-3-room.jpg', '05012023064459-breadcrumb-bg-3.jpg', NULL, '<p>A double room has one double bed for double occupancy. An extra bed may be added to this room at a guest\'s request and charged accordingly. The size of the double bed is generally 4.5 feet by 6 feet.<br></p>', 2, 1, 1000.000, 1200.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 1, 1, 'en', 'Honeymoon Suite', '06012023120557-900x700-3-room.jpg', 'A double room has one double bed for double occupancy. An extra bed may be added to this room at a guest\'s request and charged accordingly. The size of the double bed is generally 4.5 feet by 6 feet.', 'Double Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:03:44', '2023-01-21 09:42:50'),
-(12, 'Deluxe Family Suite', 'deluxe-family-suite', '09012023045931-900x700-17-room.jpg', '05012023064503-breadcrumb-bg-4.jpg', NULL, '<p>A triple room has three separate single beds and can be occupied by three guests. This type of room is suitable for groups and delegates of meetings and conferences.<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 1150.000, 1500.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 1, 1, 'en', 'Deluxe Family Suite', '06012023120600-900x700-4-room.jpg', 'A triple room has three separate single beds and can be occupied by three guests. This type of room is suitable for groups and delegates of meetings and conferences.', 'Triple Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:11:16', '2023-01-21 09:42:24'),
-(13, 'Deluxe Couple Suite', 'deluxe-couple-suite', '06012023120603-900x700-5-room.jpg', '05012023064507-breadcrumb-bg-5.jpg', NULL, '<p>A quad room has four separate single beds and can accommodate four persons together in the same room.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 2, 1100.000, 1200.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 0, 1, 'en', 'Deluxe Couple Suite', '06012023120603-900x700-5-room.jpg', 'A quad room has four separate single beds and can accommodate four persons together in the same room.', 'Quad Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:15:40', '2023-01-21 09:45:56'),
-(14, 'Super Deluxe Twin', 'super-deluxe-twin', '06012023120606-900x700-6-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 600.000, NULL, '2|7|4|6|5|1', '5|4|2|3', '1', 1, 38, NULL, 0, 1, 'en', 'Super Deluxe Twin', '06012023120606-900x700-6-room.jpg', 'A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Hollywood Twin Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:23:57', '2023-01-21 09:41:45'),
-(15, 'Deluxe Room', 'deluxe-room', '09012023045855-900x700-8-room.jpg', '05012023064431-breadcrumb-bg-1.jpg', NULL, '<p>A king room has a king-size bed. The size of the bed is 6 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 700.000, NULL, '2|7|6|5|1', '1|5|4|2', '1|2', 1, 38, NULL, 0, 1, 'en', 'Deluxe Room', '09012023045855-900x700-8-room.jpg', 'A king room has a king-size bed. The size of the bed is 6 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'King Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 22:36:16', '2023-01-21 09:41:31'),
-(16, 'Deluxe Twin Room', 'deluxe-twin-room', '09012023045904-900x700-10-room.jpg', '05012023064507-breadcrumb-bg-5.jpg', NULL, '<p>A queen room has a queen-size bed. The size of the bed is 5 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 500.000, NULL, '2|7|3|4|6|1', '5|4|2', '1', 1, 38, NULL, 0, 1, 'en', 'Deluxe Twin Room', '09012023045904-900x700-10-room.jpg', 'A queen room has a queen-size bed. The size of the bed is 5 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Queen Room Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:12:01', '2023-01-21 09:41:10'),
-(17, 'Economy Room', 'economy-room', '09012023045908-900x700-11-room.jpg', '05012023064531-breadcrumb-bg-11.jpg', NULL, '<p>Interconnecting rooms have a common wall and a door that connects the two rooms. This allows guests to access any of the two rooms without passing through a public area. This type of hotel room is ideal for families and crew members in a 5-star hotel.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 3, 2, 1000.000, 1400.000, '2|3|4|6|5|1', '5|4|2|3', '1|2', 1, 38, 1, 0, 1, 'en', 'Economy Room', '09012023045908-900x700-11-room.jpg', 'Interconnecting rooms have a common wall and a door that connects the two rooms. This allows guests to access any of the two rooms without passing through a public area. This type of hotel room is ideal for families and crew members in a 5-star hotel.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:35:06', '2023-01-21 09:40:40'),
-(18, 'Superior Room', 'superior-room', '09012023045912-900x700-12-room.jpg', '05012023064527-breadcrumb-bg-10.jpg', NULL, '<p>A Cabana is situated away from the main hotel building, in the \r\nvicinity of a swimming pool or sea beach. It may or may not have beds \r\nand is generally used as a changing room, not a bedroom.</p><p>Lorem \r\nipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem\r\n dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit \r\nsuscipit laborum eligendi eaque! Porro in deleniti ad sed corporis \r\nconsequuntur quos, numquam totam alias vero neque eum aliquam \r\nreprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio \r\nveniam architecto, repellendus exercitationem commodi? Optio, iste \r\ntempora amet excepturi laborum ipsam perspiciatis asperiores nihil \r\nvoluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum \r\nlabore debitis animi quod eum, earum officiis ipsa molestiae quasi, est \r\nveniam quam ducimus. Repudiandae est facilis veritatis praesentium \r\nmagnam error nihil, modi accusantium sequi, illo porro.</p><p></p>', 2, 0, 300.000, 400.000, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, 1, 0, 1, 'en', 'Superior Room', '09012023045912-900x700-12-room.jpg', 'A Cabana is situated away from the main hotel building, in the vicinity of a swimming pool or sea beach. It may or may not have beds and is generally used as a changing room, not a bedroom.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:44:50', '2023-01-21 09:45:12'),
-(19, 'Balcony Executive Room', 'balcony-executive-room', '09012023045935-900x700-18-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A Lanai has a veranda or roofed patio and is often furnished and used as a living room. It generally has a view of a garden or sea beach.</p><p>Lorem \r\nipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem\r\n dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit \r\nsuscipit laborum eligendi eaque! Porro in deleniti ad sed corporis \r\nconsequuntur quos, numquam totam alias vero neque eum aliquam \r\nreprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio \r\nveniam architecto, repellendus exercitationem commodi? Optio, iste \r\ntempora amet excepturi laborum ipsam perspiciatis asperiores nihil \r\nvoluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum \r\nlabore debitis animi quod eum, earum officiis ipsa molestiae quasi, est \r\nveniam quam ducimus. Repudiandae est facilis veritatis praesentium \r\nmagnam error nihil, modi accusantium sequi, illo porro.</p><p></p>', 1, 0, 200.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '2', 1, 38, NULL, 1, 1, 'en', 'Balcony Executive Room', '09012023045935-900x700-18-room.jpg', 'A Lanai has a veranda or roofed patio and is often furnished and used as a living room. It generally has a view of a garden or sea beach.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:04:37', '2023-01-21 09:32:49'),
-(20, 'Executive Premium Suite', 'executive-premium-suite', '09012023045859-900x700-9-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A penthouse room is generally located on the topmost floor of hotels and has an attached open terrace or open sky space. It has very opulent decor and furnishings and is among the costliest rooms in the hotels, preferred by celebrities and major political personalities.<br></p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 2000.000, 3000.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 0, 1, 'en', 'Executive Premium Suite', '09012023045859-900x700-9-room.jpg', 'A penthouse room is generally located on the topmost floor of hotels and has an attached open terrace or open sky space. It has very opulent decor and furnishings and is among the costliest rooms in the hotels, preferred by celebrities and major political personalities.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:16:56', '2023-01-21 09:23:29'),
-(21, 'Couple Premium Room', 'couple-premium-room', '09012023045912-900x700-12-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A hospitality room is designed for hotel guests who would want to entertain their own guests outside their allotted rooms. Such rooms are generally charged on an hourly basis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 720.000, NULL, '2|7|3|4|6|5|1', '5|4|2|3', '1', 1, 38, NULL, 0, 1, 'en', 'Couple Premium Room', '09012023045912-900x700-12-room.jpg', 'A hospitality room is designed for hotel guests who would want to entertain their own guests outside their allotted rooms. Such rooms are generally charged on an hourly basis.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:27:29', '2023-01-21 09:39:10'),
-(22, 'Superior Premium Room', 'superior-premium-room', '06012023120553-900x700-2-room.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>An efficiency room has an attached kitchenette for guests preferring a longer duration of stay. Generally, this type of hotel room is found in holiday and health resorts where guests stay for a longer period of time.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 2, 1400.000, 1500.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 1, 1, 'en', 'Superior Premium Room', '06012023120553-900x700-2-room.jpg', 'An efficiency room has an attached kitchenette for guests preferring a longer duration of stay. Generally, this type of hotel room is found in holiday and health resorts where guests stay for a longer period of time.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:42:50', '2023-01-21 09:31:34'),
-(23, 'Twin Premium Room', 'twin-premium-room', '06012023135205-900x700-about-4.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? <br></p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 400.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, NULL, 1, 1, 'en', 'Twin Premium Room', '06012023135205-900x700-about-4.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:54:54', '2023-01-21 09:27:19'),
-(24, 'Deluxe Double Room', 'deluxe-double-room', '09012023045943-900x700-20-room.jpg', '05012023064527-breadcrumb-bg-10.jpg', NULL, '<p>A Suite room is comprised of more than one room. Occasionally, it can also be a single large room with clearly defined sleeping and sitting areas. The decor of such units is of very high standards, aimed to please the affluent guest who can afford the high tariffs of the room category.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 800.000, 1000.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 0, 1, 'en', 'Deluxe Double Room', '09012023045943-900x700-20-room.jpg', 'A Suite room is comprised of more than one room. Occasionally, it can also be a single large room with clearly defined sleeping and sitting areas. The decor of such units is of very high standards, aimed to please the affluent guest who can afford the high tariffs of the room category.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 01:57:27', '2023-01-30 10:25:35'),
-(25, 'Deluxe Single Room', 'deluxe-single-room', '06012023120606-900x700-6-room.jpg', '05012023064527-breadcrumb-bg-10.jpg', NULL, '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 200.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, NULL, 1, 1, 'en', 'Deluxe Single Room', '06012023120606-900x700-6-room.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 02:08:39', '2023-01-21 09:38:38'),
-(43, 'Luxury Suite', 'luxury-suite', '10012023084507-900x700-Rectangle 5.jpg', '05012023064516-breadcrumb-bg-7.jpg', NULL, '<p>A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 456.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 0, 0, 1, 'en', 'Luxury Suite', '10012023084507-900x700-Rectangle 5.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-10 03:39:32', '2023-02-27 09:40:10');
+(1, 'Executive Suite', 'executive-suite', '07122023092318-900x700-5V7A4085.jpg', '05012023064431-breadcrumb-bg-1.jpg', NULL, '<p>A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly.<br><br>The size of the bed is normally 3 feet by 6 feet. However, the concept of single rooms is vanishing nowadays. Mostly, hotels have twin or double rooms, and the charge for a single room is occupied by one person.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 100.000, NULL, '2|7|3|6|5|1', '5|2|3', '1|2', 1, 38, NULL, 0, 1, 'en', 'Executive Suite', '06012023120550-900x700-1-room.jpg', 'A single room has one single bed for single occupancy. An additional bed (called an extra bed) may be added to this room at a guests request and charged accordingly.', 'Single Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-05 04:15:56', '2023-12-07 07:34:38'),
+(10, 'Royal Club Suite', 'royal-club-suite', '07122023092209-900x700-5V7A4092.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A twin room has two single beds for double occupancy. An extra bed may be added to this room at a guests request and charged accordingly. Here the bed size is normally 3 feet by 6 feet. These rooms are suitable for sharing accommodation among a group of delegates meeting.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p><p><br></p>', 2, 1, 400.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, NULL, 1, 1, 'en', 'Royal Club Suite', '06012023120553-900x700-2-room.jpg', 'A twin room has two single beds for double occupancy. An extra bed may be added to this room at a guests request and charged accordingly. Here the bed size is normally 3 feet by 6 feet. These rooms are suitable for sharing accommodation among a group of delegates meeting.', 'Twin Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 06:38:55', '2023-12-07 07:38:23'),
+(11, 'Honeymoon Suite', 'honeymoon-suite', '07122023092302-900x700-5V7A4061.jpg', '05012023064459-breadcrumb-bg-3.jpg', NULL, '<p>A double room has one double bed for double occupancy. An extra bed may be added to this room at a guest\'s request and charged accordingly. The size of the double bed is generally 4.5 feet by 6 feet.<br></p>', 2, 1, 1000.000, 1200.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 1, 1, 'en', 'Honeymoon Suite', '06012023120557-900x700-3-room.jpg', 'A double room has one double bed for double occupancy. An extra bed may be added to this room at a guest\'s request and charged accordingly. The size of the double bed is generally 4.5 feet by 6 feet.', 'Double Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:03:44', '2023-12-07 07:33:51'),
+(12, 'Deluxe Family Suite', 'deluxe-family-suite', '07122023092341-900x700-5V7A4126.jpg', '05012023064503-breadcrumb-bg-4.jpg', NULL, '<p>A triple room has three separate single beds and can be occupied by three guests. This type of room is suitable for groups and delegates of meetings and conferences.<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 1150.000, 1500.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 1, 1, 'en', 'Deluxe Family Suite', '06012023120600-900x700-4-room.jpg', 'A triple room has three separate single beds and can be occupied by three guests. This type of room is suitable for groups and delegates of meetings and conferences.', 'Triple Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:11:16', '2023-12-07 07:33:09'),
+(13, 'Deluxe Couple Suite', 'deluxe-couple-suite', '07122023092244-900x700-5V7A4042.jpg', '05012023064507-breadcrumb-bg-5.jpg', NULL, '<p>A quad room has four separate single beds and can accommodate four persons together in the same room.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 2, 1100.000, 1200.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 0, 1, 'en', 'Deluxe Couple Suite', '06012023120603-900x700-5-room.jpg', 'A quad room has four separate single beds and can accommodate four persons together in the same room.', 'Quad Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:15:40', '2023-12-07 07:32:47'),
+(14, 'Super Deluxe Twin', 'super-deluxe-twin', '07122023092353-900x700-5V7A4107.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 600.000, NULL, '2|7|4|6|5|1', '5|4|2|3', '1', 1, 38, NULL, 0, 1, 'en', 'Super Deluxe Twin', '06012023120606-900x700-6-room.jpg', 'A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Hollywood Twin Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-06 07:23:57', '2023-12-07 07:32:12'),
+(15, 'Deluxe Room', 'deluxe-room', '07122023092209-900x700-5V7A4092.jpg', '05012023064431-breadcrumb-bg-1.jpg', NULL, '<p>A king room has a king-size bed. The size of the bed is 6 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 700.000, NULL, '2|7|6|5|1', '1|5|4|2', '1|2', 1, 38, NULL, 0, 1, 'en', 'Deluxe Room', '09012023045855-900x700-8-room.jpg', 'A king room has a king-size bed. The size of the bed is 6 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'King Room, Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 22:36:16', '2023-12-07 07:31:29'),
+(16, 'Deluxe Twin Room', 'deluxe-twin-room', '07122023092103-900x700-photo_6021453864940716599_x (3).jpg', '05012023064507-breadcrumb-bg-5.jpg', NULL, '<p>A queen room has a queen-size bed. The size of the bed is 5 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 500.000, NULL, '2|7|3|4|6|1', '5|4|2', '1', 1, 38, NULL, 0, 1, 'en', 'Deluxe Twin Room', '09012023045904-900x700-10-room.jpg', 'A queen room has a queen-size bed. The size of the bed is 5 feet by 6 feet. An extra bed may be added to this room at a guest\'s request and charged accordingly.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Queen Room Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:12:01', '2023-12-07 07:30:50'),
+(17, 'Standard Room King/Twin', 'economy-room', '07122023092139-900x700-5V7A4051.jpg', '10122023114636-5V7A4017.jpg', NULL, '<p>Interconnecting rooms have a common wall and a door that connects the two rooms. This allows guests to access any of the two rooms without passing through a public area. This type of hotel room is ideal for families and crew members in a 5-star hotel.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 3, 2, 1000.000, 1400.000, '2|3|4|6|5|1', '5|4|2|3', '1|2', 1, 38, 1, 1, 1, 'en', 'Economy Room', '09012023045908-900x700-11-room.jpg', 'Interconnecting rooms have a common wall and a door that connects the two rooms. This allows guests to access any of the two rooms without passing through a public area. This type of hotel room is ideal for families and crew members in a 5-star hotel.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:35:06', '2023-12-10 09:48:19'),
+(18, 'Standard Room King/Twin', 'superior-room', '07122023092244-900x700-5V7A4042.jpg', '05012023064507-breadcrumb-bg-5.jpg', NULL, '<p>A Cabana is situated away from the main hotel building, in the \r\nvicinity of a swimming pool or sea beach. It may or may not have beds \r\nand is generally used as a changing room, not a bedroom.</p><p>Lorem \r\nipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem\r\n dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit \r\nsuscipit laborum eligendi eaque! Porro in deleniti ad sed corporis \r\nconsequuntur quos, numquam totam alias vero neque eum aliquam \r\nreprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio \r\nveniam architecto, repellendus exercitationem commodi? Optio, iste \r\ntempora amet excepturi laborum ipsam perspiciatis asperiores nihil \r\nvoluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum \r\nlabore debitis animi quod eum, earum officiis ipsa molestiae quasi, est \r\nveniam quam ducimus. Repudiandae est facilis veritatis praesentium \r\nmagnam error nihil, modi accusantium sequi, illo porro.</p><p></p>', 2, 0, 300.000, 400.000, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, 1, 1, 1, 'en', 'Superior Room', '09012023045912-900x700-12-room.jpg', 'A Cabana is situated away from the main hotel building, in the vicinity of a swimming pool or sea beach. It may or may not have beds and is generally used as a changing room, not a bedroom.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-08 23:44:50', '2023-12-10 09:44:13'),
+(19, 'Balcony Executive Room', 'balcony-executive-room', '05122023204708-900x700-5V7A4017.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A Lanai has a veranda or roofed patio and is often furnished and used as a living room. It generally has a view of a garden or sea beach.</p><p>Lorem \r\nipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem\r\n dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit \r\nsuscipit laborum eligendi eaque! Porro in deleniti ad sed corporis \r\nconsequuntur quos, numquam totam alias vero neque eum aliquam \r\nreprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio \r\nveniam architecto, repellendus exercitationem commodi? Optio, iste \r\ntempora amet excepturi laborum ipsam perspiciatis asperiores nihil \r\nvoluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum \r\nlabore debitis animi quod eum, earum officiis ipsa molestiae quasi, est \r\nveniam quam ducimus. Repudiandae est facilis veritatis praesentium \r\nmagnam error nihil, modi accusantium sequi, illo porro.</p><p></p>', 1, 0, 200.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '2', 1, 38, NULL, 1, 1, 'en', 'Balcony Executive Room', '09012023045935-900x700-18-room.jpg', 'A Lanai has a veranda or roofed patio and is often furnished and used as a living room. It generally has a view of a garden or sea beach.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:04:37', '2023-12-07 04:45:23'),
+(20, 'Executive Premium Suite', 'executive-premium-suite', '07122023092353-900x700-5V7A4107.jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>A penthouse room is generally located on the topmost floor of hotels and has an attached open terrace or open sky space. It has very opulent decor and furnishings and is among the costliest rooms in the hotels, preferred by celebrities and major political personalities.<br></p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 2000.000, 3000.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 0, 1, 'en', 'Executive Premium Suite', '09012023045859-900x700-9-room.jpg', 'A penthouse room is generally located on the topmost floor of hotels and has an attached open terrace or open sky space. It has very opulent decor and furnishings and is among the costliest rooms in the hotels, preferred by celebrities and major political personalities.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:16:56', '2023-12-07 07:29:14'),
+(21, 'Family Suite', 'couple-premium-room', '07122023092302-900x700-5V7A4061.jpg', '10122023113211-5V7A4057.jpg', NULL, '<p>A hospitality room is designed for hotel guests who would want to entertain their own guests outside their allotted rooms. Such rooms are generally charged on an hourly basis.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 720.000, NULL, '2|7|3|4|6|5|1', '5|4|2|3', '2', 1, 38, NULL, 1, 1, 'en', 'Couple Premium Room', '09012023045912-900x700-12-room.jpg', 'A hospitality room is designed for hotel guests who would want to entertain their own guests outside their allotted rooms. Such rooms are generally charged on an hourly basis.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:27:29', '2023-12-10 09:34:54'),
+(22, 'Junior Suite', 'superior-premium-room', '07122023092341-900x700-5V7A4126.jpg', '10122023112345-5V7A4116.jpg', NULL, '<p>An efficiency room has an attached kitchenette for guests preferring a longer duration of stay. Generally, this type of hotel room is found in holiday and health resorts where guests stay for a longer period of time.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 1, 0, 1400.000, 1500.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 1, 1, 1, 'en', 'Superior Premium Room', '06012023120553-900x700-2-room.jpg', 'An efficiency room has an attached kitchenette for guests preferring a longer duration of stay. Generally, this type of hotel room is found in holiday and health resorts where guests stay for a longer period of time.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:42:50', '2023-12-10 09:26:05'),
+(23, 'Twin Premium Room', 'twin-premium-room', '07122023092116-900x700-photo_6021453864940716626_m (1).jpg', '05012023064453-breadcrumb-bg-2.jpg', NULL, '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? <br></p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 400.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, NULL, 1, 1, 'en', 'Twin Premium Room', '06012023135205-900x700-about-4.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 00:54:54', '2023-12-07 07:26:38'),
+(24, 'Panorama Suite', 'deluxe-double-room', '07122023092318-900x700-5V7A4085.jpg', '10122023114045-5V7A4086.jpg', NULL, '<p>A Suite room is comprised of more than one room. Occasionally, it can also be a single large room with clearly defined sleeping and sitting areas. The decor of such units is of very high standards, aimed to please the affluent guest who can afford the high tariffs of the room category.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 800.000, 1000.000, '2|7|3|4|6|5|1', '1|5|4|2|3', '1', 1, 38, 1, 1, 1, 'en', 'Deluxe Double Room', '09012023045943-900x700-20-room.jpg', 'A Suite room is comprised of more than one room. Occasionally, it can also be a single large room with clearly defined sleeping and sitting areas. The decor of such units is of very high standards, aimed to please the affluent guest who can afford the high tariffs of the room category.\r\n\r\nLorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 01:57:27', '2023-12-10 09:42:52'),
+(25, 'Deluxe Single Room', 'deluxe-single-room', '07122023092353-900x700-5V7A4107.jpg', '05012023064527-breadcrumb-bg-10.jpg', NULL, '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 0, 200.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2', '1', 1, 38, NULL, 1, 1, 'en', 'Deluxe Single Room', '06012023120606-900x700-6-room.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-09 02:08:39', '2023-12-07 07:25:36'),
+(43, 'Junior Suite', 'luxury-suite', '10122023114956-900x700-5V7A4120.jpg', '10122023115044-5V7A4129.jpg', NULL, '<p>A Hollywood twin room has two single beds with a common headboard. This hotel room type is generally occupied by two guests.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.<br></p>', 2, 1, 456.000, NULL, '2|7|3|4|6|5|1', '1|5|4|2|3', '1|2', 1, 38, 0, 1, 1, 'en', 'Luxury Suite', '10012023084507-900x700-Rectangle 5.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione dolorem dolor nostrum dolorum necessitatibus a inventore fugit, quis ab sit suscipit laborum eligendi eaque! Porro in deleniti ad sed corporis consequuntur quos, numquam totam alias vero neque eum aliquam reprehenderit obcaecati accusamus ex atque omnis quidem rem distinctio veniam architecto, repellendus exercitationem commodi? Optio, iste tempora amet excepturi laborum ipsam perspiciatis asperiores nihil voluptates quidem id doloremque libero. Temporibus incidunt omnis ipsum labore debitis animi quod eum, earum officiis ipsa molestiae quasi, est veniam quam ducimus. Repudiandae est facilis veritatis praesentium magnam error nihil, modi accusantium sequi, illo porro.', 'Booking, Hotel Booking, Rooms, Room Booking, Room Book, Hotel Near By Me, Resurrect, Resort', '2023-01-10 03:39:32', '2023-12-10 09:52:36'),
+(52, 'غرفة عادية بسرير كبير/توأم', 'ghrf-aaady-bsryr-kbyrtoam', '07122023092244-900x700-5V7A4042.jpg', '07122023092353-5V7A4107.jpg', NULL, NULL, 2, 2, 406.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:10:49', '2023-12-10 09:15:24'),
+(53, 'جناح صغير', 'junior-suite', '07122023092341-900x700-5V7A4126.jpg', '10122023112345-5V7A4116.jpg', NULL, NULL, 1, 0, 416.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:19:47', '2023-12-10 09:24:52'),
+(54, 'جناح عائلي', 'gnah-aaayly', '10122023113122-900x700-5V7A4061.jpg', '10122023113211-5V7A4057.jpg', NULL, NULL, 2, 3, 500.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:29:00', '2023-12-10 09:33:32'),
+(55, 'جناح بانورامي', 'gnah-banoramy', '10122023114017-900x700-5V7A4085.jpg', '10122023114045-5V7A4086.jpg', NULL, NULL, 2, 2, 1450.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:39:39', '2023-12-10 09:43:20'),
+(56, 'غرفة عادية بسرير كبير/توأم', 'ghrf-aaady-bsryr-kbyrtoam-2', '10122023114612-900x700-5V7A4051.jpg', '10122023114636-5V7A4017.jpg', NULL, NULL, 2, 2, 500.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:45:08', '2023-12-10 09:47:06'),
+(57, 'جناح صغير', 'gnah-sghyr', '10122023114956-900x700-5V7A4120.jpg', '10122023115044-5V7A4129.jpg', NULL, NULL, 1, 1, 500.000, NULL, NULL, NULL, NULL, 9, 38, NULL, 1, 1, 'ar', NULL, NULL, NULL, NULL, '2023-12-10 09:49:08', '2023-12-10 09:51:33');
 
 -- --------------------------------------------------------
 
@@ -2422,10 +2478,10 @@ INSERT INTO `rooms` (`id`, `title`, `slug`, `thumbnail`, `cover_img`, `short_des
 --
 
 CREATE TABLE `room_assigns` (
-  `id` bigint UNSIGNED NOT NULL,
-  `booking_id` int DEFAULT NULL,
-  `room_id` int DEFAULT NULL,
-  `roomtype_id` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `booking_id` int(11) DEFAULT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `roomtype_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2437,11 +2493,11 @@ CREATE TABLE `room_assigns` (
 --
 
 CREATE TABLE `room_images` (
-  `id` bigint UNSIGNED NOT NULL,
-  `room_id` int DEFAULT NULL,
-  `thumbnail` text COLLATE utf8mb4_unicode_ci,
-  `large_image` text COLLATE utf8mb4_unicode_ci,
-  `desc` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `thumbnail` text DEFAULT NULL,
+  `large_image` text DEFAULT NULL,
+  `desc` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2582,13 +2638,13 @@ INSERT INTO `room_images` (`id`, `room_id`, `thumbnail`, `large_image`, `desc`, 
 --
 
 CREATE TABLE `room_manages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `roomtype_id` int DEFAULT NULL,
-  `room_no` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `roomtype_id` int(11) DEFAULT NULL,
+  `room_no` varchar(191) DEFAULT NULL,
   `in_date` date DEFAULT NULL,
   `out_date` date DEFAULT NULL,
-  `book_status` int DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `book_status` int(11) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2756,15 +2812,15 @@ INSERT INTO `room_manages` (`id`, `roomtype_id`, `room_no`, `in_date`, `out_date
 --
 
 CREATE TABLE `section_contents` (
-  `id` bigint UNSIGNED NOT NULL,
-  `section_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `page_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci,
-  `image` text COLLATE utf8mb4_unicode_ci,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` text COLLATE utf8mb4_unicode_ci,
-  `lan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en',
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section_type` varchar(191) DEFAULT NULL,
+  `page_type` varchar(191) DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `lan` varchar(255) NOT NULL DEFAULT 'en',
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2774,7 +2830,7 @@ CREATE TABLE `section_contents` (
 --
 
 INSERT INTO `section_contents` (`id`, `section_type`, `page_type`, `url`, `image`, `title`, `desc`, `lan`, `is_publish`, `created_at`, `updated_at`) VALUES
-(4, 'about_us', 'home_1', '#', '05122023203644-5V7A3920.jpg', 'Welcome to Relaxly Modern Hotel Rooms and Services', '{\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"total_rooms\":\"500\",\"total_customers\":\"1200\",\"total_amenities\":\"120\",\"total_packages\":\"320\",\"button_text\":\"More About Us\",\"target\":\"_self\",\"image2\":\"05122023204832-5V7A3955.jpg\",\"image3\":\"05122023204708-5V7A4017.jpg\",\"year\":null,\"tp_name\":null,\"position\":null}', 'en', 1, '2023-01-05 12:20:12', '2023-12-05 17:53:02'),
+(4, 'about_us', 'home_1', '#', '05122023203644-5V7A3920.jpg', 'Welcome to Mira Hotel', '{\"description\":\"The Mira Hotel chain has begun to expand to cover the cities of Riyadh and Jeddah with four luxury hotels offering its esteemed guests a large number of diverse, upscale rooms and suites that suit the requirements of different segments of guests, and we may look to give them the best positive impressions of its distinctive services.\",\"total_rooms\":\"500\",\"total_customers\":\"1200\",\"total_amenities\":\"120\",\"total_packages\":\"320\",\"button_text\":\"More About Us\",\"target\":\"_self\",\"image2\":\"05122023204832-5V7A3955.jpg\",\"image3\":\"05122023204708-5V7A4017.jpg\",\"year\":null,\"tp_name\":null,\"position\":null}', 'en', 1, '2023-01-05 12:20:12', '2023-12-06 20:04:19'),
 (17, 'our_services', NULL, NULL, '06012023175149-service_6.png', 'Gym', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'en', 1, '2023-01-06 11:51:57', '2023-01-06 12:07:14'),
 (18, 'our_services', NULL, NULL, '06012023175228-service_5.png', 'Breakfast', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'en', 1, '2023-01-06 11:52:34', '2023-01-06 12:07:14'),
 (19, 'our_services', NULL, NULL, '06012023175255-service_4.png', 'Swimming Pool', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'en', 1, '2023-01-06 11:52:58', '2023-01-06 12:07:14'),
@@ -2787,7 +2843,7 @@ INSERT INTO `section_contents` (`id`, `section_type`, `page_type`, `url`, `image
 (29, 'testimonial', NULL, NULL, '07012023065955-100x100-2-client.jpg', 'Nancy', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'en', 1, '2023-01-07 00:59:59', '2023-01-07 01:16:20'),
 (30, 'testimonial', NULL, NULL, '07012023070147-100x100-5-client.jpg', 'John', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'en', 1, '2023-01-07 01:01:51', '2023-01-07 01:16:20'),
 (31, 'testimonial', NULL, NULL, '07012023070816-100x100-6-client.jpg', 'Sarah', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'en', 1, '2023-01-07 01:08:22', '2023-02-27 09:41:28'),
-(32, 'about_us', 'home_1', NULL, '05122023203644-5V7A3920.jpg', 'مرحبًا بك في غرف وخدمات الفندق الحديثة المريحة', '{\"description\":\"\\u0644\\u0648\\u0631\\u064a\\u0645 \\u0625\\u064a\\u0628\\u0633\\u0648\\u0645 \\u0647\\u0648 \\u0628\\u0628\\u0633\\u0627\\u0637\\u0629 \\u0646\\u0635 \\u0648\\u0647\\u0645\\u064a \\u0645\\u0646 \\u0635\\u0646\\u0627\\u0639\\u0629 \\u0627\\u0644\\u0637\\u0628\\u0627\\u0639\\u0629 \\u0648\\u0627\\u0644\\u062a\\u0646\\u0636\\u064a\\u062f. \\u0644\\u0642\\u062f \\u0643\\u0627\\u0646 \\u0644\\u0648\\u0631\\u064a\\u0645 \\u0625\\u064a\\u0628\\u0633\\u0648\\u0645 \\u0647\\u0648 \\u0627\\u0644\\u0646\\u0635 \\u0627\\u0644\\u0648\\u0647\\u0645\\u064a \\u0627\\u0644\\u0642\\u064a\\u0627\\u0633\\u064a \\u0641\\u064a \\u0647\\u0630\\u0647 \\u0627\\u0644\\u0635\\u0646\\u0627\\u0639\\u0629 \\u0645\\u0646\\u0630 \\u0627\\u0644\\u0642\\u0631\\u0646 \\u0627\\u0644\\u0633\\u0627\\u062f\\u0633 \\u0639\\u0634\\u0631\\u060c \\u0639\\u0646\\u062f\\u0645\\u0627 \\u0623\\u062e\\u0630\\u062a \\u0637\\u0627\\u0628\\u0639\\u0629 \\u063a\\u064a\\u0631 \\u0645\\u0639\\u0631\\u0648\\u0641\\u0629 \\u0644\\u0648\\u062d \\u0627\\u0644\\u0643\\u062a\\u0627\\u0628\\u0629 \\u0648\\u062e\\u0644\\u0637\\u062a\\u0647 \\u0644\\u0635\\u0646\\u0639 \\u0646\\u0645\\u0648\\u0630\\u062c \\u0643\\u062a\\u0627\\u0628. \\u0644\\u0648\\u0631\\u064a\\u0645 \\u0625\\u064a\\u0628\\u0633\\u0648\\u0645 \\u0647\\u0648 \\u0628\\u0628\\u0633\\u0627\\u0637\\u0629 \\u0646\\u0635 \\u0648\\u0647\\u0645\\u064a \\u0645\\u0646 \\u0635\\u0646\\u0627\\u0639\\u0629 \\u0627\\u0644\\u0637\\u0628\\u0627\\u0639\\u0629 \\u0648\\u0627\\u0644\\u062a\\u0646\\u0636\\u064a\\u062f. \\u0644\\u0642\\u062f \\u0643\\u0627\\u0646 \\u0644\\u0648\\u0631\\u064a\\u0645 \\u0625\\u064a\\u0628\\u0633\\u0648\\u0645 \\u0647\\u0648 \\u0627\\u0644\\u0646\\u0635 \\u0627\\u0644\\u0648\\u0647\\u0645\\u064a \\u0627\\u0644\\u0642\\u064a\\u0627\\u0633\\u064a \\u0641\\u064a \\u0647\\u0630\\u0647 \\u0627\\u0644\\u0635\\u0646\\u0627\\u0639\\u0629 \\u0645\\u0646\\u0630 \\u0627\\u0644\\u0642\\u0631\\u0646 \\u0627\\u0644\\u0633\\u0627\\u062f\\u0633 \\u0639\\u0634\\u0631\\u060c \\u0639\\u0646\\u062f\\u0645\\u0627 \\u0623\\u062e\\u0630\\u062a \\u0637\\u0627\\u0628\\u0639\\u0629 \\u063a\\u064a\\u0631 \\u0645\\u0639\\u0631\\u0648\\u0641\\u0629 \\u0644\\u0648\\u062d \\u0627\\u0644\\u0643\\u062a\\u0627\\u0628\\u0629 \\u0648\\u062e\\u0644\\u0637\\u062a\\u0647 \\u0644\\u0635\\u0646\\u0639 \\u0646\\u0645\\u0648\\u0630\\u062c \\u0643\\u062a\\u0627\\u0628.\",\"total_rooms\":\"2\",\"total_customers\":\"1\",\"total_amenities\":\"120\",\"total_packages\":\"320\",\"button_text\":\"\\u0627\\u0639\\u0631\\u0641 \\u0627\\u0644\\u0645\\u0632\\u064a\\u062f\",\"target\":\"_self\",\"image2\":\"05122023204832-5V7A3955.jpg\",\"image3\":\"05122023204708-5V7A4017.jpg\",\"year\":\"1\",\"tp_name\":\"ABOUTUS\",\"position\":\"ABOUTUS\"}', 'ar', 1, '2023-12-03 06:57:21', '2023-12-05 17:52:14'),
+(32, 'about_us', 'home_1', NULL, '05122023203644-5V7A3920.jpg', 'مرحبًا بك في سلسلة فندق ميرا', '{\"description\":\"\\u0628\\u062f\\u0623\\u062a \\u0633\\u0644\\u0633\\u0644\\u0629 \\u0641\\u0646\\u0627\\u062f\\u0642 \\u0645\\u064a\\u0631\\u0627 \\u0628\\u0627\\u0644\\u0627\\u0644\\u062a\\u0633\\u0627\\u0639 \\u0644\\u062a\\u063a\\u0637\\u064a \\u0645\\u062f\\u064a\\u0646\\u062a\\u064a \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636 \\u0648\\u062c\\u062f\\u0629 \\u0628\\u0623\\u0631\\u0628\\u0639\\u0629 \\u0641\\u0646\\u0627\\u062f\\u0642 \\u0641\\u0627\\u062e\\u0631\\u0629 \\u062a\\u0642\\u062f\\u0645 \\u0644\\u0646\\u0632\\u0644\\u0627\\u0626\\u0647\\u0627 \\u0627\\u0644\\u0643\\u0631\\u0627\\u0645 \\u0639\\u062f\\u062f\\u0627 \\u0643\\u0628\\u064a\\u0631\\u0627 \\u0645\\u0646 \\u0627\\u0644\\u063a\\u0631\\u0641 \\u0648\\u0627\\u0644\\u0623\\u062c\\u0646\\u062d\\u0629 \\u0627\\u0644\\u0631\\u0627\\u0642\\u064a\\u0629 \\u0627\\u0644\\u0645\\u062a\\u0646\\u0648\\u0639\\u0629\\u0627\\u0644\\u062a\\u064a \\u062a\\u064f\\u0646\\u0627\\u0633\\u0628 \\u0645\\u062a\\u0637\\u0644\\u0628\\u0627\\u062a \\u0645\\u062e\\u062a\\u0644\\u0641 \\u0634\\u0631\\u0627\\u0626\\u062d \\u0627\\u0644\\u064f\\u0646\\u0632\\u0644\\u0627\\u0621\\u060c \\u0648\\u0642\\u062f \\u0646\\u0628\\u062d\\u062b \\u0641\\u064a \\u0625\\u0639\\u0637\\u0627\\u0621 \\u0627\\u0641\\u0636\\u0644 \\u0627\\u0644\\u0646\\u0637\\u0628\\u0627\\u0639\\u0627\\u062a \\u0627\\u0644\\u0625\\u064a\\u062c\\u0627\\u0628\\u064a\\u0629 \\u0644\\u062f\\u064a\\u0647\\u0645 \\u0639\\u0646 \\u062e\\u062f\\u0645\\u0627\\u062a\\u0647\\u0627 \\u0627\\u0644\\u0645\\u0645\\u064a\\u0632\\u0629.\",\"total_rooms\":\"2\",\"total_customers\":\"1\",\"total_amenities\":\"120\",\"total_packages\":\"320\",\"button_text\":\"\\u0627\\u0639\\u0631\\u0641 \\u0627\\u0644\\u0645\\u0632\\u064a\\u062f\",\"target\":\"_self\",\"image2\":\"05122023204832-5V7A3955.jpg\",\"image3\":\"05122023204708-5V7A4017.jpg\",\"year\":\"1\",\"tp_name\":\"ABOUTUS\",\"position\":\"ABOUTUS\"}', 'ar', 1, '2023-12-03 06:57:21', '2023-12-06 20:02:37'),
 (34, 'our_services', NULL, NULL, '06012023175409-service_1.png', 'وسائل التنقل', 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 'ar', 1, '2023-12-03 07:38:42', '2023-12-03 07:47:08'),
 (35, 'our_services', NULL, NULL, '06012023175228-service_5.png', 'الافطار', 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 'ar', 1, '2023-12-03 07:41:23', '2023-12-03 07:47:01'),
 (37, 'our_services', NULL, NULL, '06012023175344-service_2.png', 'ركن للسيارات', 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 'ar', 1, '2023-12-03 07:43:35', '2023-12-03 07:46:47');
@@ -2799,17 +2855,17 @@ INSERT INTO `section_contents` (`id`, `section_type`, `page_type`, `url`, `image
 --
 
 CREATE TABLE `section_manages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `manage_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `section` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci,
-  `image` text COLLATE utf8mb4_unicode_ci,
-  `desc` text COLLATE utf8mb4_unicode_ci,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `manage_type` varchar(191) DEFAULT NULL,
+  `section` varchar(191) DEFAULT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `lan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en'
+  `lan` varchar(255) NOT NULL DEFAULT 'en'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2820,15 +2876,16 @@ INSERT INTO `section_manages` (`id`, `manage_type`, `section`, `title`, `url`, `
 (374, 'home_1', 'slider_hero', 'Hero Section', NULL, NULL, NULL, 1, '2023-01-13 06:44:13', '2023-01-13 07:16:43', 'en'),
 (376, 'home_1', 'about_us', 'About Us', NULL, NULL, NULL, 1, '2023-01-13 06:52:00', '2023-01-13 07:16:43', 'en'),
 (377, 'home_1', 'offer_ads', 'Choose your offer', NULL, NULL, 'One More Offer For You!', 1, '2023-01-13 06:54:13', '2023-01-13 07:16:43', 'en'),
-(378, 'home_1', 'featured_rooms', 'Featured Rooms', NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 1, '2023-01-13 06:58:30', '2023-01-13 07:16:43', 'en'),
-(379, 'home_1', 'our_services', 'Our Hotel Services', NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 1, '2023-01-13 07:04:30', '2023-01-13 07:16:43', 'en'),
-(380, 'home_1', 'testimonial', 'What Our Clients Says', NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 1, '2023-01-13 07:10:15', '2023-01-13 07:16:43', 'en'),
-(381, 'home_1', 'our_blogs', 'Latest Blog & News', NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 1, '2023-01-13 07:13:30', '2023-01-13 07:16:43', 'en'),
-(382, 'home_1', 'our_services', 'خدمات الفندق', NULL, NULL, 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 1, '2023-12-03 07:17:34', '2023-12-03 07:22:56', 'ar'),
+(378, 'home_1', 'featured_rooms', 'Featured Rooms', NULL, NULL, 'With Mira, a smile of satisfaction will accompany you; Because it is a specialized Saudi company that translates all its expertise into hotel construction And operate it to your satisfaction, through commitment to the finest International specifications and standards.', 1, '2023-01-13 06:58:30', '2023-12-10 08:22:04', 'en'),
+(379, 'home_1', 'our_services', 'Our Hotel Services', NULL, NULL, 'A great package of service is waiting for you to make your stay a unique experience The hotel has a 24 -hour front desk ensures a fast check -in and out. The hotel has a small market also, as well as other services such as groceries delivery, luggage storage, free and available car parking (Car valet), a safe, laundry and ironing facilities.If you are a swimmer, the hotel has an outdoor pool. Free Wi -Fi is also available over all the hotel.', 1, '2023-01-13 07:04:30', '2023-12-06 20:33:02', 'en'),
+(380, 'home_1', 'testimonial', 'What Our Clients Says', NULL, NULL, 'With Mira, a smile of satisfaction will accompany you; Lanha is a specialized Saudi company that translates all its experience in establishing and operating hotels to achieve your satisfaction, by adhering to the highest international specifications and standards.', 1, '2023-01-13 07:10:15', '2023-12-10 08:52:02', 'en'),
+(381, 'home_1', 'our_blogs', 'Latest Blog & News', NULL, NULL, 'In Riyadh, the city of nobility, heritage and modernity in the center of the city, near its most important tourist attractions, Mira Hotels Company chose to make its launch into the world of four-star hotels from a strategic location, from Prince Muhammad bin Abdulaziz Street, famous as (Tahlia Street). It is a landmark street in the city of Riyadh, and has become one of the symbols of vitality that has become famous as one of the most important luxury in it, and the preferred location for the most luxurious international companies and brands, so the hotel enjoys its vital location in the heart of the capital,It is surrounded by many of the finest tourist attractions, making the hotel guest a part of the various centers, shops, international brands and restaurants for travelers interested in shopping for the liveliness that characterizes this upscale street, and a choice of activities suitable for family and business. The hotel is located in the middle of the most famous tourist attractions in the city of Riyadh, as it is located 1.5 km from Al Faisaliah Tower, 2.3 km from the Kingdom Mall (Kingdom Tower), 2.7 km from Panorama Mall, and 29 km from King Khalid Airport.', 1, '2023-01-13 07:13:30', '2023-12-06 20:24:50', 'en'),
+(382, 'home_1', 'our_services', 'خدمات الفندق', NULL, NULL, 'تتوفر في الفندق مجموعة من الخدمات التي تجعل إقامتك محطة رائعة، فمكتب االستقبال في الفندق يعمل على مدار 24 ساعة ويضمن التسجيل السريع للوصول والمغادرة، وفي الفندق سوق صغيرة، باإلضافة إلى خدمات أخرى مثل توصيل البقالة، وتخزين األمتعة، والمواقف المتوفرة ، وصندوق األمانات، ومرافق غسيل مع خدمة ركن السيارة ) والمجانية للسيارات ) المالبس، وخدمة كي المالبس . وإذا كنت من هواة السياحة، فإن الفندق يضم مسبحا في الهواء الطلق. ولهواة اإلنترنت تتوفر خدم ة الواي فاي المجانية في جميع أنحاء الفندق', 1, '2023-12-03 07:17:34', '2023-12-06 20:32:35', 'ar'),
 (383, 'home_1', 'offer_ads', 'العروض', NULL, NULL, 'عرض آخر لك!', 1, '2023-12-03 08:05:34', '2023-12-03 08:06:12', 'ar'),
-(386, 'home_1', 'our_blogs', 'المدونة', NULL, NULL, 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 1, '2023-01-13 07:13:30', '2023-01-13 07:16:43', 'ar'),
-(387, 'home_1', 'testimonial', 'ما يقوله العملاء عنا', NULL, NULL, 'لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب. لوريم إيبسوم هو ببساطة نص وهمي من صناعة الطباعة والتنضيد. لقد كان لوريم إيبسوم هو النص الوهمي القياسي في هذه الصناعة منذ القرن السادس عشر، عندما أخذت طابعة غير معروفة لوح الكتابة وخلطته لصنع نموذج كتاب.', 1, '2023-01-13 07:10:15', '2023-01-13 07:16:43', 'ar'),
-(388, 'home_1', 'about_us', 'عنا', NULL, NULL, NULL, 1, '2023-01-13 06:52:00', '2023-01-13 07:16:43', 'ar');
+(386, 'home_1', 'our_blogs', 'المدونة', NULL, NULL, 'في الرياض، مدينة العراقة والُتراث وال حَدَاثة في وسط المدينة، عند أهم معالمها الس ياحية ، اختارت شركة فنادق ميرا أن تكون انطالقتها في عالم الفنادق من فئة األربع نجوم من موقع استراتيجي، من شارع األمير محمد بن عبدالعزيز، الشهير بـ(شارع التحلية)، وهو الشارع مَعلما معالم مدينة الرياض، وأصبح احد رموز الحيوي الذي ذاع صيته بوصفه من أهم الرفاهية فيها، والمكان ال مفضل ألفخم الشركات والع المات التجارية العالمية، ليتمتع الفندق بموقعه الحيوي في قلب العاصمة، حيث يُحيط به العديد من المعالم السياحية وأرقى ، ما يجعل نزيل الفندق جزءا المراكز والمحال التجارية والماركات العالمية والمطا عم ال متنوعة  رائعا للمسافرين المه تمين بالتسوق  من الحيوية التي تميز هذا الشارع الراقي، وخيار ا واألن شطة المناسبة للعائلة واألعمال. ويقع الفندق في وسط أشهر المعالم السياحية في مدينة الرياض، إذ يقع على بعد 1.5 كم من برج الفيصلية، و2.3 كم من مركز المملكة التجاري( برج المملكة ) ، و 2.7 كم من بانوراما مول، ويبعد 29 كم عن مطار الملك خالد.', 1, '2023-01-13 07:13:30', '2023-12-06 20:18:25', 'ar'),
+(387, 'home_1', 'testimonial', 'ما يقوله العملاء عنا', NULL, NULL, 'مع ميرا سترافقك ابتسامة الرضا ؛ للنها شركة سعودية مختصة تترجم ُكل خبراتها في إنشاء الفنادق وتشغيلها لتحقيق رضاك، من خلال الاللتزام بأرقى المواصفات والمقاييس العالمية .', 1, '2023-01-13 07:10:15', '2023-12-06 20:15:55', 'ar'),
+(388, 'home_1', 'about_us', 'من نحن', NULL, NULL, NULL, 1, '2023-01-13 06:52:00', '2023-12-10 06:34:34', 'ar'),
+(389, 'home_1', 'featured_rooms', 'الغرف المميزة', NULL, NULL, 'مع ميرا سترافقك ابتسامة الرضا ؛ ألانها شركة سعودية مختصة تترجم ُكل خبراتها في إنشاء الفنادق وتشغيلها لتحقيق رضاك، من خالل االلتزام بأرقى المواصفات والمقاييس العالمية .', 1, '2023-12-10 08:20:35', '2023-12-10 08:21:44', 'ar');
 
 -- --------------------------------------------------------
 
@@ -2837,9 +2894,9 @@ INSERT INTO `section_manages` (`id`, `manage_type`, `section`, `title`, `url`, `
 --
 
 CREATE TABLE `shoppingcart` (
-  `identifier` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `instance` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identifier` varchar(191) NOT NULL,
+  `instance` varchar(191) NOT NULL,
+  `content` longtext NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2851,14 +2908,14 @@ CREATE TABLE `shoppingcart` (
 --
 
 CREATE TABLE `sliders` (
-  `id` bigint UNSIGNED NOT NULL,
-  `slider_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci,
-  `image` text COLLATE utf8mb4_unicode_ci,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lan` text COLLATE utf8mb4_unicode_ci,
-  `desc` text COLLATE utf8mb4_unicode_ci,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `slider_type` varchar(191) DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `lan` text DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2868,8 +2925,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `slider_type`, `url`, `image`, `title`, `lan`, `desc`, `is_publish`, `created_at`, `updated_at`) VALUES
-(29, 'home_1', '#', '05122023203418-5V7A4133.jpg', 'Enjoy Your Beautiful Moment', 'en', '{\"sub_title\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"button_text\":\"Booking Now\",\"target\":null}', 1, '2023-01-04 09:54:14', '2023-12-05 17:40:49'),
-(33, 'home_1', NULL, '05122023203418-5V7A4133.jpg', 'استمتع بلحظاتك الرائعة', 'ar', '{\"sub_title\":\"\\u0647\\u0648 \\u0628\\u0628\\u0633\\u0627\\u0637\\u0629 \\u0646\\u0635 \\u0648\\u0647\\u0645\\u064a \\u0645\\u0646 \\u0635\\u0646\\u0627\\u0639\\u0629 \\u0627\\u0644\\u0637\\u0628\\u0627\\u0639\\u0629 \\u0648\\u0627\\u0644\\u062a\\u0646\\u0636\\u064a\\u062f. \\u0644\\u0642\\u062f \\u0643\\u0627\\u0646 \\u0644\\u0648\\u0631\\u064a\\u0645 \\u0625\\u064a\\u0628\\u0633\\u0648\\u0645 \\u0647\\u0648 \\u0627\\u0644\\u0646\\u0635 \\u0627\\u0644\\u0648\\u0647\\u0645\\u064a \\u0627\\u0644\\u0642\\u064a\\u0627\\u0633\\u064a \\u0641\\u064a \\u0627\\u0644\\u0635\\u0646\\u0627\\u0639\\u0629 \\u0645\\u0646\\u0630 \\u0627\\u0644\\u0642\\u0631\\u0646 \\u0627\\u0644\\u0633\\u0627\\u062f\\u0633 \\u0639\\u0634\\u0631\\u060c \\u0639\\u0646\\u062f\\u0645\\u0627 \\u0623\\u062e\\u0630\\u062a \\u0637\\u0627\\u0628\\u0639\\u0629 \\u063a\\u064a\\u0631 \\u0645\\u0639\\u0631\\u0648\\u0641\\u0629 \\u0644\\u0648\\u062d \\u0627\\u0644\\u0643\\u062a\\u0627\\u0628\\u0629 \\u0648\\u062e\\u0644\\u0637\\u062a\\u0647 \\u0644\\u0635\\u0646\\u0639 \\u0646\\u0645\\u0648\\u0630\\u062c \\u0643\\u062a\\u0627\\u0628.\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0622\\u0646\",\"target\":null}', 1, '2023-11-30 08:27:48', '2023-12-05 17:34:38');
+(29, 'home_1', '#', '07122023095100-photo_6021453864940716606_y.jpg', 'Enjoy Your Beautiful Moment', 'en', '{\"sub_title\":\"With Mira, a smile of satisfaction will accompany you; Because it is a specialized Saudi company that translates all its expertise into hotel construction And operate it to your satisfaction, through commitment to the finest International specifications and standards.\",\"button_text\":\"Booking Now\",\"target\":null}', 1, '2023-01-04 09:54:14', '2023-12-10 07:47:50'),
+(33, 'home_1', NULL, '07122023095100-photo_6021453864940716606_y.jpg', 'استمتع بلحظاتك الرائعة', 'ar', '{\"sub_title\":\"\\u0645\\u0639 \\u0645\\u064a\\u0631\\u0627 \\u0633\\u062a\\u0631\\u0627\\u0641\\u0642\\u0643 \\u0627\\u0628\\u062a\\u0633\\u0627\\u0645\\u0629 \\u0627\\u0644\\u0631\\u0636\\u0627 \\u061b \\u0623\\u0644\\u0627\\u0646\\u0647\\u0627 \\u0634\\u0631\\u0643\\u0629 \\u0633\\u0639\\u0648\\u062f\\u064a\\u0629 \\u0645\\u062e\\u062a\\u0635\\u0629 \\u062a\\u062a\\u0631\\u062c\\u0645 \\u064f\\u0643\\u0644 \\u062e\\u0628\\u0631\\u0627\\u062a\\u0647\\u0627 \\u0641\\u064a \\u0625\\u0646\\u0634\\u0627\\u0621 \\u0627\\u0644\\u0641\\u0646\\u0627\\u062f\\u0642 \\u0648\\u062a\\u0634\\u063a\\u064a\\u0644\\u0647\\u0627 \\u0644\\u062a\\u062d\\u0642\\u064a\\u0642 \\u0631\\u0636\\u0627\\u0643\\u060c \\u0645\\u0646 \\u062e\\u0627\\u0644\\u0644 \\u0627\\u0627\\u0644\\u0644\\u062a\\u0632\\u0627\\u0645 \\u0628\\u0623\\u0631\\u0642\\u0649 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0635\\u0641\\u0627\\u062a \\u0648\\u0627\\u0644\\u0645\\u0642\\u0627\\u064a\\u064a\\u0633 \\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\\u064a\\u0629 .\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0622\\u0646\",\"target\":null}', 1, '2023-11-30 08:27:48', '2023-12-10 07:47:32');
 
 -- --------------------------------------------------------
 
@@ -2878,12 +2935,12 @@ INSERT INTO `sliders` (`id`, `slider_type`, `url`, `image`, `title`, `lan`, `des
 --
 
 CREATE TABLE `social_medias` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci,
-  `social_icon` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `target` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_publish` int DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `social_icon` varchar(120) DEFAULT NULL,
+  `target` varchar(100) DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2905,13 +2962,13 @@ INSERT INTO `social_medias` (`id`, `title`, `url`, `social_icon`, `target`, `is_
 --
 
 CREATE TABLE `subscribers` (
-  `id` bigint UNSIGNED NOT NULL,
-  `email_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `first_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email_address` varchar(191) DEFAULT NULL,
+  `first_name` varchar(191) DEFAULT NULL,
+  `last_name` varchar(191) DEFAULT NULL,
+  `address` varchar(191) DEFAULT NULL,
+  `phone_number` varchar(191) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2933,10 +2990,10 @@ INSERT INTO `subscribers` (`id`, `email_address`, `first_name`, `last_name`, `ad
 --
 
 CREATE TABLE `taxes` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
   `percentage` double(12,3) NOT NULL,
-  `is_publish` int DEFAULT NULL,
+  `is_publish` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2955,9 +3012,9 @@ INSERT INTO `taxes` (`id`, `title`, `percentage`, `is_publish`, `created_at`, `u
 --
 
 CREATE TABLE `timezones` (
-  `id` bigint UNSIGNED NOT NULL,
-  `timezone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `timezone_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `timezone` varchar(100) DEFAULT NULL,
+  `timezone_name` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3110,9 +3167,9 @@ INSERT INTO `timezones` (`id`, `timezone`, `timezone_name`, `created_at`, `updat
 --
 
 CREATE TABLE `tp_options` (
-  `id` bigint UNSIGNED NOT NULL,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `option_value` longtext COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `option_name` varchar(191) NOT NULL,
+  `option_value` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3128,13 +3185,13 @@ INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `up
 (69, 'custom_css', NULL, '2021-06-06 23:18:38', '2021-11-26 04:38:46'),
 (70, 'custom_js', NULL, '2021-06-06 23:46:24', '2021-11-26 04:37:19'),
 (74, 'theme_option_seo', '{\"og_title\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_image\":\"16022023173552-600x315-home-1.jpg\",\"og_description\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_keywords\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"is_publish\":\"1\"}', '2021-07-11 10:38:12', '2023-02-16 11:35:57'),
-(77, 'theme_logo', '{\"favicon\":\"04122023082522-27122022155818-favicon.ico\",\"front_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\",\"back_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\"}', '2021-07-12 11:15:36', '2023-12-05 18:50:10'),
+(77, 'theme_logo', '{\"favicon\":\"07122023091202-900x700-photo_6021453864940716628_m.jpg\",\"front_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\",\"back_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\"}', '2021-07-12 11:15:36', '2023-12-07 07:12:25'),
 (78, 'facebook', '{\"fb_app_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:00:35', '2021-11-26 03:59:37'),
 (79, 'twitter', '{\"twitter_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:10:01', '2021-11-26 03:57:18'),
 (80, 'whatsapp', '{\"whatsapp_id\":\"0123456789\",\"whatsapp_text\":null,\"position\":\"left\",\"is_publish\":\"1\"}', '2021-08-05 11:25:20', '2023-02-27 09:42:53'),
-(87, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+1 964 565 87652\",\"is_publish\":\"1\"}', '2021-08-29 08:45:26', '2023-12-05 18:35:46'),
+(87, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"920008155\",\"is_publish\":\"1\"}', '2021-08-29 08:45:26', '2023-12-10 07:59:30'),
 (91, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":\"Mira Hotel\",\"is_publish_about\":\"1\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+1 964 565 87652\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"Mira Hotel\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\"}', '2021-08-29 11:15:13', '2023-12-05 18:35:25'),
-(93, 'home-video', '{\"title\":\"Our Hotel Preview Video\",\"short_desc\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"url\":\"#\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=AlfXYaiAv68\",\"button_text\":\"Book Now\",\"target\":null,\"image\":\"07012023043902-preview.jpg\",\"is_publish\":\"2\"}', '2021-09-01 11:39:35', '2023-12-03 07:55:59'),
+(93, 'home-video', '{\"title\":\"Our Hotel Preview Video\",\"short_desc\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"url\":\"#\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=AlfXYaiAv68\",\"button_text\":\"Book Now\",\"target\":null,\"image\":\"07012023043902-preview.jpg\",\"is_publish\":\"1\"}', '2021-09-01 11:39:35', '2023-12-10 08:13:08'),
 (94, 'facebook-pixel', '{\"fb_pixel_id\":null,\"is_publish\":\"2\"}', '2021-09-17 11:52:01', '2021-11-26 03:59:21'),
 (95, 'google_analytics', '{\"tracking_id\":null,\"is_publish\":\"2\"}', '2021-09-18 08:11:08', '2023-02-27 09:42:47'),
 (96, 'google_tag_manager', '{\"google_tag_manager_id\":null,\"is_publish\":\"2\"}', '2021-09-18 08:30:10', '2021-11-26 04:35:16'),
@@ -3150,7 +3207,7 @@ INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `up
 (117, 'mollie', '{\"mollie_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"mollie_currency\":\"USD\",\"ismode_mollie\":1,\"isenable_mollie\":0}', '2022-05-20 07:50:45', '2023-02-18 07:53:43'),
 (131, 'page_variation', '{\"home_variation\":\"home_1\"}', '2022-08-11 23:58:42', '2023-02-18 05:59:12'),
 (133, 'google_map', '{\"googlemap_apikey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_googlemap\":0}', '2022-08-27 10:17:37', '2023-02-18 02:05:28'),
-(147, 'theme_color', '{\"theme_color\":\"#484895\",\"light_color\":\"#314286\",\"blue_color\":\"#313167\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#212145\",\"gray400_color\":\"#e7e7e7\",\"gray500_color\":\"#fbfbfb\",\"black_color\":\"#486493\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#313167\"}', '2022-09-01 23:55:08', '2023-12-06 05:25:52'),
+(147, 'theme_color', '{\"theme_color\":\"#af8765\",\"light_color\":\"#7d7f82\",\"blue_color\":\"#757678\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#1e2a3e\",\"gray400_color\":\"#f1f5f9\",\"gray500_color\":\"#f0eded\",\"black_color\":\"#1e2a3e\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#757678\"}', '2022-09-01 23:55:08', '2023-12-10 08:28:46'),
 (160, 'cookie_consent', '{\"title\":\"Cookie Consent\",\"message\":\"This website uses cookies or similar technologies, to enhance your browsing experience and provide personalized recommendations. By continuing to use our website, you agree to our\",\"button_text\":\"Accept\",\"learn_more_url\":\"https:\\/\\/relaxly.themeposh.net\\/page\\/47\\/cookie-policy\",\"learn_more_text\":\"Privacy Policy\",\"style\":\"minimal\",\"position\":\"left\",\"is_publish\":\"1\"}', '2022-10-15 09:49:20', '2023-02-27 09:43:01'),
 (169, 'currency', '{\"currency_name\":\"USD\",\"currency_icon\":\"$\",\"currency_position\":\"left\",\"thousands_separator\":\"comma\",\"decimal_separator\":\"point\",\"decimal_digit\":\"2\"}', '2021-08-21 04:22:13', '2023-02-27 09:40:43'),
 (173, 'subheader_bg_images', '{\"blog_bg\":\"05012023064531-breadcrumb-bg-11.jpg\",\"contact_bg\":\"05012023064527-breadcrumb-bg-10.jpg\",\"register_bg\":\"05012023064524-breadcrumb-bg-9.jpg\",\"login_bg\":\"05012023064520-breadcrumb-bg-8.jpg\",\"reset_password_bg\":\"05012023064516-breadcrumb-bg-7.jpg\",\"dashboard_bg\":\"05012023064507-breadcrumb-bg-5.jpg\",\"profile_bg\":\"05012023064503-breadcrumb-bg-4.jpg\",\"change_password_bg\":\"05012023064459-breadcrumb-bg-3.jpg\",\"booking_bg\":\"05012023064453-breadcrumb-bg-2.jpg\"}', '2023-01-14 09:43:04', '2023-02-18 05:59:25'),
@@ -3163,8 +3220,8 @@ INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `up
 --
 
 CREATE TABLE `tp_status` (
-  `id` bigint UNSIGNED NOT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3184,25 +3241,25 @@ INSERT INTO `tp_status` (`id`, `status`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `shop_name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shop_url` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `city` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `zip_code` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country_id` int DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bactive` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bkey` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_id` int DEFAULT NULL,
-  `role_id` int DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) NOT NULL,
+  `shop_name` varchar(200) DEFAULT NULL,
+  `shop_url` varchar(200) DEFAULT NULL,
+  `phone` varchar(200) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `zip_code` varchar(200) DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `bactive` varchar(200) DEFAULT NULL,
+  `bkey` varchar(200) DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3212,7 +3269,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `shop_name`, `shop_url`, `phone`, `address`, `city`, `state`, `zip_code`, `country_id`, `photo`, `bactive`, `bkey`, `status_id`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@themeposh.xyz', '2023-12-05 06:58:31', '$2y$10$AKDmqvsZlnRmjJwWP66/KurVIIMIbxVkQxRaeEWUeESpHzj32sQEa', NULL, NULL, '0123456789', '56 King Street, New York', NULL, NULL, NULL, NULL, '27122022160205-400x400-photo.png', 'YWRtaW4xMjM0NTY=', NULL, 1, 1, 'NTT2kiJygvtXfyr13KYo7cSBWMYY6uXtgXk16PONtpAfDPBQwH4MZpAQ0Nlt', '2021-03-26 13:22:14', '2023-12-05 05:21:06'),
+(1, 'Admin', 'admin@themeposh.xyz', '2023-12-05 06:58:31', '$2y$10$AKDmqvsZlnRmjJwWP66/KurVIIMIbxVkQxRaeEWUeESpHzj32sQEa', NULL, NULL, '0123456789', '56 King Street, New York', NULL, NULL, NULL, NULL, '27122022160205-400x400-photo.png', 'YWRtaW4xMjM0NTY=', NULL, 1, 1, 'Qw5gG4PiRm7u7XRAjOLPYyoYNqaucOmQxLX3DdjG4AFsjtloldueX2rVKBL3', '2021-03-26 13:22:14', '2023-12-05 05:21:06'),
 (75, 'Receptionist', 'receptionist@themeposh.xyz', '2023-12-05 06:58:24', '$2y$10$WrIBihqmTp4CODOyXa8SFuF6nLaRA/1G6T/hlw6npDNQX4i6aIl0W', NULL, NULL, '0123456789', '58 King Street, New York', NULL, NULL, NULL, NULL, '10012023044315-900x700-Rectangle 2-4.jpg', 'cmVjZXB0aW9uaXN0MTIzNDU2', NULL, 1, 3, 'jYqn80y86cpNZOZP6qkxV0rf1pNcNgvdK6IzjL98fSmQkvjgtU48ErGBobVx', '2023-02-09 21:41:55', '2023-12-04 20:19:41'),
 (110, 'Customer', 'customer@gmail.com', '2023-12-05 06:58:22', '$2y$10$MBzXeEMq4i9M/zjCHk9xuO/0sP6bGHyTy1emHBq6xYEHVUVPCO5FW', NULL, NULL, '0123456789', NULL, NULL, NULL, NULL, NULL, NULL, 'Y3VzdG9tZXIxMjM0NTY=', NULL, 1, 2, NULL, '2023-12-05 04:57:36', '2023-12-05 05:12:12');
 
@@ -3223,8 +3280,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `sh
 --
 
 CREATE TABLE `user_roles` (
-  `id` bigint UNSIGNED NOT NULL,
-  `role` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(150) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3245,8 +3302,8 @@ INSERT INTO `user_roles` (`id`, `role`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `user_status` (
-  `id` bigint UNSIGNED NOT NULL,
-  `status` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(150) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3542,247 +3599,247 @@ ALTER TABLE `user_status`
 -- AUTO_INCREMENT for table `amenities`
 --
 ALTER TABLE `amenities`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `bedtypes`
 --
 ALTER TABLE `bedtypes`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `booking_manages`
 --
 ALTER TABLE `booking_manages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `booking_status`
 --
 ALTER TABLE `booking_status`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `complements`
 --
 ALTER TABLE `complements`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lankeyvalues`
 --
 ALTER TABLE `lankeyvalues`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10596;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10596;
 
 --
 -- AUTO_INCREMENT for table `media_options`
 --
 ALTER TABLE `media_options`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=909;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=959;
 
 --
 -- AUTO_INCREMENT for table `media_settings`
 --
 ALTER TABLE `media_settings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `mega_menus`
 --
 ALTER TABLE `mega_menus`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1306;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1306;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `menu_childs`
 --
 ALTER TABLE `menu_childs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=566;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=566;
 
 --
 -- AUTO_INCREMENT for table `menu_parents`
 --
 ALTER TABLE `menu_parents`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1056;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1062;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `offer_ads`
 --
 ALTER TABLE `offer_ads`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `payment_method`
 --
 ALTER TABLE `payment_method`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment_status`
 --
 ALTER TABLE `payment_status`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `room_assigns`
 --
 ALTER TABLE `room_assigns`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
 
 --
 -- AUTO_INCREMENT for table `room_images`
 --
 ALTER TABLE `room_images`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT for table `room_manages`
 --
 ALTER TABLE `room_manages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `section_contents`
 --
 ALTER TABLE `section_contents`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `section_manages`
 --
 ALTER TABLE `section_manages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
 
 --
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `social_medias`
 --
 ALTER TABLE `social_medias`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `taxes`
 --
 ALTER TABLE `taxes`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `timezones`
 --
 ALTER TABLE `timezones`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `tp_options`
 --
 ALTER TABLE `tp_options`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT for table `tp_status`
 --
 ALTER TABLE `tp_status`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_status`
 --
 ALTER TABLE `user_status`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
