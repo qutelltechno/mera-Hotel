@@ -11,7 +11,7 @@
 							<li><i class="bi bi-geo-alt"></i>{{ $gtext['address'] }}</li>
 							@endif
 							@if($gtext['phone'] != '')
-							<li><i class="bi bi-telephone"></i>{{ $gtext['phone'] }}</li>
+							<li>{{ $gtext['phone'] }}<i class="bi bi-telephone"></i></li>
 							@endif
 						</ul>
 						@endif

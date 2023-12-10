@@ -213,7 +213,7 @@
 	
 	<!-- Featured Section/ -->
 	@if($featured_rooms_section->is_publish == 1)
-	<section class="section featured-section">
+	<section class="section featured-section   ">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -227,7 +227,7 @@
 				</div>
 			</div>
 
-			<div class="row ">
+			<div class="row wow bounceInUp ">
 				@foreach ($featured_rooms as $row)
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="item-card">
@@ -313,7 +313,7 @@
 
 	<!-- Preview Video Section-->
 	@if($home_video['is_publish'] == 1)
-	<section class="preview-section">
+	<section class="preview-section wow pulse">
 		<div class="row align-items-center justify-content-center g-0">
 			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
 				<div class="preview-video">

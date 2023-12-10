@@ -43,7 +43,7 @@
     outline: 0;
 }
 body {
-    font-family: 'Tajawal';
+    font-family: 'Cairo', sans-serif ;
     font-weight: normal;
     font-style: normal;
     color: var(--color-gray-dark);
@@ -118,7 +118,7 @@ h3 {
     font-size: 28px;
 }
 h4 {
-    font-size: 22px;
+    font-size: 14px;
 }
 h5 {
     font-size: 18px;
@@ -755,8 +755,8 @@ ul.top-list-1 li i {
 .tp-menu ul li a {
     font-family: 'Tajawal';
     color: var(--color-black);
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 900;
     display: block;
     padding: 25px 20px;
     text-decoration: none;
