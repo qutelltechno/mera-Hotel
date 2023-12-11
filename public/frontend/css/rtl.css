@@ -6,10 +6,10 @@ body.rtl h3,
 body.rtl h4,
 body.rtl h5,
 body.rtl h6 {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl p {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 
 body.rtl ul.top-list-1 {
@@ -60,19 +60,19 @@ body.rtl .tp-menu ul > li > a.tp-updown::before {
     right: auto;
 }
 body.rtl .tp-menu ul li a {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl .tp-menu ul li .mega-menu ul li a {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl .tp-menu ul li .mega-menu ul li.mega-title {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl .icon-bars-card {
     float: left;
 }
 body.rtl .mobile-menu li > a {
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl .mobile-menu li.has-children-menu .menu-expand {
     left: 20px;
@@ -80,7 +80,7 @@ body.rtl .mobile-menu li.has-children-menu .menu-expand {
 }
 body.rtl .mobile-menu li > a {
     padding: 10px 20px 10px 10px;
-    font-family: 'Tajawal';
+	font-family: 'Cairo', sans-serif;
 }
 body.rtl .about-card {
     padding-left: 0;

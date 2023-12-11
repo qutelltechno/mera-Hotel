@@ -277,7 +277,7 @@
 	</section>
 	@endif
 	<!-- /Featured Section/ -->
-	fadeInUp
+
 	<!-- Services Section/ -->
 	@if($our_services_section->is_publish == 1)
 	<section class="section service-section">
