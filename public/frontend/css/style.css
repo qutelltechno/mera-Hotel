@@ -3197,7 +3197,7 @@ ul.errors-list li {
 .footer-widget ul.widget-list li {
     position: relative;
     margin-bottom: 12px;
-    width: 50%;
+    width: 100%;
     float: left;
 }
 .footer-widget ul.widget-list li a {}

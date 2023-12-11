@@ -90,14 +90,12 @@
 						</div>
 					</div>
 					@endif
-					<div class="social-media mb25">
-						@php echo SocialMediaList(); @endphp
-					</div>
+					
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 footer-border">
 					<div class="footer-widget-card">
 						@if($gtext['is_publish_about'] == 1)
-						<div class="footer-widget mb25">
+						<div class="footer-widget mb25  payment-method">
 							<div class="info-card">
 								@if($gtext['about_logo_footer'] != '')
 								<div class="info-logo">
@@ -105,11 +103,15 @@
 								</div>
 								@endif
 								@if($gtext['about_desc_footer'] != '')
-								<p>{{ $gtext['about_desc_footer'] }}</p>
+								
 								@endif
 							</div>
 						</div>
 						@endif
+
+						<div class="social-media mb25">
+							@php echo SocialMediaList(); @endphp
+						</div>
 						
 					</div>
 				</div>
@@ -117,12 +119,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer-bottom">
+	<div class="footer-bottom bg-black text-white ">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					@if($gtext['is_publish_copyright'] == 1)
-					<div class="copy-right">
+					<div class="copy-right ">
 						@php echo $gtext['copyright']; @endphp
 					</div>
 					@endif

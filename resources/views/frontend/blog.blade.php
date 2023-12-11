@@ -60,7 +60,7 @@
 			<div class="row ">
 				@if(count($datalist)>0)
 				@foreach ($datalist as $row)
-				<div class="col-lg-4 col-md-6 wow bounceInUp">
+				<div class="col-lg-4 col-md-6 wow fadeInUp">
 					<div class="blog-card">
 						<div class="blog-img">
 							<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
