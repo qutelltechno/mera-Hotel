@@ -1,7 +1,7 @@
 <!-- Footer Top Section -->
 @if($gtext['is_subscribe_footer'] == 1)
 <section class="footer-top" style="background-image: url({{ asset('public/media/'.$gtext['subscribe_background_image']) }});">
-	<div class="container">
+	{{-- <div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-8 offset-lg-2">
 				<div class="newsletter-card c wow pulse  ">
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 </section>
 @endif
 <!-- /Footer Top Section/ -->
