@@ -55,52 +55,57 @@
 	<!-- /Page Breadcrumb/ -->
 	
 	<!-- Inner Section -->
+
 	<section class="inner-section inner-section-bg">
 		<div class="container">
 			<div class="row ">
-				@if(count($datalist)>0)
-				@foreach ($datalist as $row)
-				<div class="col-lg-4 col-md-6 wow fadeInUp">
-					<div class="blog-card">
-						<div class="blog-img">
-							<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
-								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
-							</a>
-						</div>
-						<div class="blog-content">
-							<div class="blog-meta-card">
-								<div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($row->created_at)) }}</div>
-								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $row->name }}</div>
-							</div>
-							<div class="blog-title">
-								<h4><a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">{{ $row->title }}</a></h4>
-							</div>
-							<div class="read-more-btn">
-								<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
-									{{ __('Read More') }}
-									<i class="bi bi-arrow-right"></i>
-								</a>
-							</div>
-						</div>
+
+	<!-- Blog Section/ -->
+		@if(count($datalist)>0)
+		@foreach ($datalist as $row)
+		<div class="col-lg-4 col-md-6 wow fadeInUp">
+			<div class="blog-card">
+				<div class="blog-img">
+					<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
+						<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
+					</a>
+				</div>
+				<div class="blog-content">
+					<div class="blog-meta-card">
+						<div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($row->created_at)) }}</div>
+						<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $row->name }}</div>
+					</div>
+					<div class="blog-title">
+						<h4><a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">{{ $row->title }}</a></h4>
+					</div>
+					<div class="read-more-btn">
+						<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
+							{{ __('Read More') }}
+							<i class="bi bi-arrow-right"></i>
+						</a>
 					</div>
 				</div>
-				@endforeach
-				@else
-				<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 col-xxl-4 offset-xxl-4">
-					<div class="empty_card">
-						<div class="empty_img">
-							<img src="{{ asset('public/frontend/images/empty.png') }}" />
-						</div>
-						<h3>{{ __('Oops! Not found.') }}</h3>
-					</div>
-				</div>
-				@endif
 			</div>
-			<div class="row mt30">
-				<div class="col-lg-12">
-					{{ $datalist->links() }}
+		</div>
+		@endforeach
+		@else
+		<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 col-xxl-4 offset-xxl-4">
+			<div class="empty_card">
+				<div class="empty_img">
+					<img src="{{ asset('public/frontend/images/empty.png') }}" />
 				</div>
+				<h3>{{ __('Oops! Not found.') }}</h3>
 			</div>
+		</div>
+		@endif
+	</div>
+	<div class="row mt30">
+		<div class="col-lg-12">
+			{{ $datalist->links() }}
+		</div>
+	</div>
+	<!-- Blog Section/ -->
+
 		</div>
 	</section>
 	<!-- /Inner Section/ -->	

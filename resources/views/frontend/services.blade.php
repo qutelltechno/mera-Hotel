@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', $data['title'])
+@section('title', __('Our Services'))
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
@@ -35,16 +35,16 @@
 @section('content')
 <main class="main">
 	<!-- Page Breadcrumb -->
-	<section class="breadcrumb-section" style="background-image: url({{ $data['thumbnail'] ? asset('public/media/'.$data['thumbnail']) : asset('public/frontend/images/breadcrumb_bg.jpg') }});">
+	<section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/'.$gtext['blog_bg']) : '' }});">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="breadcrumb-card wow pulse">
-						<h2>{{ $data['title'] }}</h2>
+						<h2>{{ __('Our Services') }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ $data['title'] }}</li>
+								<li class="breadcrumb-item active" aria-current="page">{{ __('Blog') }}</li>
 							</ol>
 						</nav>
 					</div>
@@ -53,24 +53,50 @@
 		</div>
 	</section>
 	<!-- /Page Breadcrumb/ -->
-	
+
 	<!-- Inner Section -->
+
 	<section class="inner-section inner-section-bg">
 		<div class="container">
+			<div class="row ">
+
+	<!-- Services Section/ -->
+	<section class="section service-section">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="entry min-height">
-					@php echo $data['content']; @endphp
+				<div class="col-md-8 offset-md-2">
+					<div class="section-heading">
+						<h5>{{ __('Our Services') }}</h5>
+						<h2>{{ $our_services_section->title }}</h2>
+						@if($our_services_section->desc != '')
+						<p>{{ $our_services_section->desc }}</p>
+						@endif
 					</div>
-					
 				</div>
+			</div>
+			<div class="row wow fadeIn">
+				@foreach ($our_services as $row)
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="service-card">
+						<div class="service">
+							<img src="{{ asset('public/media/'.$row->image) }}" width="150" alt="{{ $row->title }}" style="max-height: 500px; width: 100%; margin-bottom: 12px; border-radius: 8px;" />
+						</div>
+						<h4>{{ $row->title }}</h4>
+						<p>{{ $row->desc }}</p>
+					</div>
+				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
-	<!-- /Inner Section/ -->	
+	<!-- /Services Section/ -->
+            </div>
+        </div>
+	</section>
+	<!-- /Inner Section/ -->
 </main>
 @endsection
 
 @push('scripts')
 
-@endpush	
+@endpush

@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		@endforeach
-		
+
 		<div class="search-card">
 			<div class="container">
 				<div class="search-card-inner wow fadeIn">
@@ -115,7 +115,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_customers != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -129,7 +129,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_amenities != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -143,7 +143,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_packages != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -158,7 +158,7 @@
 							</div>
 							@endif
 						</div>
-						
+
 						@if($aRow->button_text != '')
 						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
@@ -209,8 +209,8 @@
 		</div>
 	</section>
 	@endif
-	<!-- /Offer Section/ -->	
-	
+	<!-- /Offer Section/ -->
+
 	<!-- Featured Section/ -->
 	@if($featured_rooms_section->is_publish == 1)
 	<section class="section featured-section wow fadeInUp">
@@ -236,7 +236,7 @@
 								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
 							</a>
 							@if(($row->is_discount == 1) && ($row->old_price !=''))
-								@php 
+								@php
 									$discount = number_format((($row->old_price - $row->price)*100)/$row->old_price);
 								@endphp
 							<span class="item-label">{{ $discount }}% {{ __('Off') }}</span>

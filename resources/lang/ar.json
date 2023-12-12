@@ -345,8 +345,10 @@
     "Order Status": "حالة الطلب",
     "Order#": "رقم الطلب",
     "Orders": "الطلبات",
-    "Our Blogs": "الاخبار والفعليات",
+    "Our Blogs": "الاخبار",
     "Our Services": "خدماتنا",
+    "Hotel services":"خدمات الفنادق",
+    "Everything new about our distinguished services":"كل جديد عن خدماتنا المتميزه",
     "Packages": "الحزم",
     "Padding Bottom": "الحشو السفلي",
     "Padding Top": "الحشو العلوي",
@@ -637,5 +639,10 @@
     "and": "و",
     "change password": "كلمة السر",
     "profile": "الملف الشخصي",
-    "recent booking": "الحجز الأخير"
+    "recent booking": "الحجز الأخير",
+    "Customer reviews": "آراء العملاء",
+    "What our customers say about us": "ماذا يقول عملائنا عنا",
+    "Our news and updates": "اخبارنا وتحديثاتها",
+    "Follow our latest updates": "تابع آخر التحديثات لدينا",
+    "gallery":"معرض"
 }
