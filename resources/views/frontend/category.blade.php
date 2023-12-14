@@ -62,7 +62,7 @@
 				@foreach ($datalist as $row)
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="item-card">
-						<div class="item-image wow bounceInUp">
+						<div class="item-image wow fadeInUp">
 							<a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">
 								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
 							</a>

@@ -11,7 +11,7 @@
 							<li><i class="bi bi-geo-alt"></i>{{ $gtext['address'] }}</li>
 							@endif
 							@if($gtext['phone'] != '')
-							<li><i class="bi bi-telephone"></i>{{ $gtext['phone'] }}</li>
+							<li><i class="bi bi-tablet"></i>{{ $gtext['phone'] }}</li>
 							@endif
 						</ul>
 						@endif
@@ -57,7 +57,7 @@
 		</div>
 		<!--/Top Header/-->
 		<!--Menu-->
-		<div class="header-menu wow bounceInUp" id="sticky-menu">
+		<div class="header-menu wow fadeInUp" id="sticky-menu">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-3">

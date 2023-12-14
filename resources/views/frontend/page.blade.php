@@ -62,6 +62,7 @@
 					<div class="entry min-height">
 					@php echo $data['content']; @endphp
 					</div>
+					
 				</div>
 			</div>
 		</div>

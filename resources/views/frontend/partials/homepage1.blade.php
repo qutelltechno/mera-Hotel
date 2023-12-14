@@ -22,10 +22,10 @@
 			</div>
 		</div>
 		@endforeach
-		
+
 		<div class="search-card">
 			<div class="container">
-				<div class="search-card-inner wow bounceInUp">
+				<div class="search-card-inner wow fadeIn">
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
@@ -63,7 +63,7 @@
 	<section class="section about-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-5 wow bounceInRight ">
+				<div class="col-md-12 col-lg-5 wow fadeInRight ">
 					@if($row->image != '')
 					<div class="row">
 						<div class="col-lg-12 ">
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-12 col-lg-7 wow rollIn">
+				<div class="col-md-12 col-lg-7 wow fadeInLeft">
 					<div class="about-card">
 						<div class="about-title">
 							<h5>{{ __('About Us') }}</h5>
@@ -115,7 +115,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_customers != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -129,7 +129,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_amenities != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -143,7 +143,7 @@
 								</div>
 							</div>
 							@endif
-							
+
 							@if($aRow->total_packages != '')
 							<div class="col-12 col-sm-3 col-lg-3">
 								<div class="info-card mb15">
@@ -158,7 +158,7 @@
 							</div>
 							@endif
 						</div>
-						
+
 						@if($aRow->button_text != '')
 						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
@@ -185,11 +185,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow lightSpeedIn">
+			<div class="row ">
 				@foreach ($OfferAds as $row)
 				@php $aRow = json_decode($row->desc); @endphp
-				<div class="col-lg-4">
-					<div class="offer-card">
+				<div class="col-lg-4 wow fadeInLeft">
+					<div class="offer-card ">
 						<div class="offer-image">
 							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
 						</div>
@@ -209,11 +209,11 @@
 		</div>
 	</section>
 	@endif
-	<!-- /Offer Section/ -->	
-	
+	<!-- /Offer Section/ -->
+
 	<!-- Featured Section/ -->
 	@if($featured_rooms_section->is_publish == 1)
-	<section class="section featured-section">
+	<section class="section featured-section wow fadeInUp">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -236,7 +236,7 @@
 								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
 							</a>
 							@if(($row->is_discount == 1) && ($row->old_price !=''))
-								@php 
+								@php
 									$discount = number_format((($row->old_price - $row->price)*100)/$row->old_price);
 								@endphp
 							<span class="item-label">{{ $discount }}% {{ __('Off') }}</span>
@@ -293,7 +293,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow bounceInUp">
+			<div class="row wow fadeIn">
 				@foreach ($our_services as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="service-card">
@@ -394,7 +394,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row wow bounceInUp">
+			<div class="row wow fadeIn">
 				@foreach ($blogs as $row)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="blog-card">

@@ -39,6 +39,17 @@ Route::get('/blog', [App\Http\Controllers\Frontend\BlogController::class, 'getBl
 Route::get('/blog-category/{id}/{title}', [App\Http\Controllers\Frontend\BlogController::class, 'getBlogCategoryPage'])->name('frontend.blog-category');
 Route::get('/article/{id}/{title}', [App\Http\Controllers\Frontend\BlogController::class, 'getArticlePage'])->name('frontend.article');
 
+// About us
+Route::get('/aboutus', [App\Http\Controllers\Frontend\AboutUsController::class, 'getAboutUsPage'])->name('frontend.aboutus');
+
+
+//services
+Route::get('/services', [App\Http\Controllers\Frontend\ServiceController::class, 'getservicesPage'])->name('frontend.services');
+
+
+//gallery
+Route::get('/gallery', [App\Http\Controllers\Frontend\GalleryController::class, 'getgalleryPage'])->name('frontend.gallery');
+
 //Customer Authentication
 Route::get('/user/login', [App\Http\Controllers\Backend\CustomerAuthController::class, 'LoadLogin'])->name('frontend.login');
 Route::post('/user/customer-login', [App\Http\Controllers\Backend\CustomerAuthController::class, 'CustomerLogin'])->name('frontend.customer-login');

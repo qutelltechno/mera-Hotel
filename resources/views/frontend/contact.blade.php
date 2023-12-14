@@ -93,6 +93,9 @@
 							<div class="desc">
 								<span>{{ __('Phone') }}</span>
 								<p>{{ $contact_info->phone }}</p>
+                                <p>{{ $contact_info->phone2 }}</p>
+								<p>{{ $contact_info->phone }}</p>
+
 							</div>
 						</div>
 					</div>

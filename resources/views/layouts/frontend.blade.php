@@ -75,7 +75,10 @@
 	<link href="{{asset('public/frontend/css/slick.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/jquery.gritter.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('public/frontend/css/animate.css')}}">
-
+	<!--font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
 	<style type="text/css">
 		:root {
 			--theme-color: {{ $gtext['theme_color'] }};
@@ -198,14 +201,16 @@
 	@endif
 
 	<script src="{{asset('public/frontend/js/wow.min.js')}}"></script>
-	<script>
+ <script>
               new WOW().init();
-    </script>
-			  <section class="wow slideInLeft" data-wow-duration="10s" data-wow-delay="15s">
+              </script>
+	
+
+	
+			    <section class="wow slideInLeft" data-wow-duration="15s" >
                     </section>
 
-                    <section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="infinite">
-                    </section>
+               
 </body>
 </html>
 	
