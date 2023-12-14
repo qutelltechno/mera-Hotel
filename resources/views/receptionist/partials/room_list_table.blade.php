@@ -18,7 +18,7 @@
 			@php $i = 1; @endphp
 			@foreach($datalist as $row)
 			<tr>
-				<td class="text-center">{{ $i++; }}</td>
+				<td class="text-center">{{ $i++ }}</td>
 				<td class="text-left">{{ $row->room_no }}</td>
 				<td class="text-left">{{ $row->title }}</td>
 				@if ($row->book_status == 1)

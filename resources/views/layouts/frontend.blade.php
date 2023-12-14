@@ -75,6 +75,7 @@
 	<link href="{{asset('public/frontend/css/slick.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/jquery.gritter.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('public/frontend/css/animate.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css"/>
 	<!--font-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +98,6 @@
 	</style>
 	<link href="{{asset('public/frontend/css/style.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
-	@stack('style')
 	@if($gtext['custom_css'] != '')
 	<style type="text/css">
 	@php echo $gtext['custom_css']; @endphp

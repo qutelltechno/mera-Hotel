@@ -118,15 +118,7 @@
             </div>
             <div class="elementor-element elementor-element-71624b1 elementor-align-left elementor-widget elementor-widget-button" data-id="71624b1" data-element_type="widget" data-widget_type="button.default">
             <div class="elementor-widget-container">
-            <div class="elementor-button-wrapper">
-            <a href="https://demo2.pavothemes.com/seasona/all-items/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-            <span class="elementor-button-content-wrapper">
-            <span class="elementor-button-icon elementor-align-icon-right">
-            <i aria-hidden="true" class="seasona-icon- seasona-icon-long-arrow-right"></i> </span>
-            <span class="elementor-button-text">Book Now</span>
-            </span>
-            </a>
-            </div>
+          
             </div>
             </div>
             </div>

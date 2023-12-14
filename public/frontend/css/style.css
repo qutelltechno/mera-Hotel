@@ -135,8 +135,7 @@ li {
 }
 p {
     color: var(--color-gray-dark);
-    font-family: 'Tajawal';
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     margin-bottom: 15px;
 }
@@ -1504,6 +1503,7 @@ ul.top-list-1 li i {
 .preview-section {
     background: var(--color-black);
     overflow: hidden;
+    border-radius: 20px;
 }
 .preview-section .preview-video {
 	background-position: 50%;
@@ -3422,4 +3422,14 @@ ul.errors-list li {
 
 #services{
     margin: 0;
+}
+
+.elementor-widget-container{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.wp-image-1332{
+    object-fit: cover;
 }
