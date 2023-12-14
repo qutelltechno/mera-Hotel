@@ -50,6 +50,11 @@ Route::get('/services', [App\Http\Controllers\Frontend\ServiceController::class,
 //gallery
 Route::get('/gallery', [App\Http\Controllers\Frontend\GalleryController::class, 'getgalleryPage'])->name('frontend.gallery');
 
+
+
+//faq
+Route::get('/faq', [App\Http\Controllers\Frontend\FaqController::class, 'getfaqPage'])->name('frontend.faq');
+
 //Customer Authentication
 Route::get('/user/login', [App\Http\Controllers\Backend\CustomerAuthController::class, 'LoadLogin'])->name('frontend.login');
 Route::post('/user/customer-login', [App\Http\Controllers\Backend\CustomerAuthController::class, 'CustomerLogin'])->name('frontend.customer-login');

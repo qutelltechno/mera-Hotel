@@ -119,23 +119,11 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="phone">{{ __('Phone') }}<span class="red">*</span></label>
-										<input type="text" name="phone" id="phone" class="form-control parsley-validated" data-required="true">
-									</div>
+                                        <textarea name="phone" cols="1"  id="phone" class="form-control parsley-validated" data-required="true"></textarea>
+
+                                    </div>
 								</div>
 
-                                <div class="col-md-6">
-									<div class="form-group">
-										<label for="phone">{{ __('Phone') }}<span class="red">*</span></label>
-										<input type="text" name="phone" id="phone" class="form-control parsley-validated" data-required="true">
-									</div>
-								</div>
-
-                                <div class="col-md-6">
-									<div class="form-group">
-										<label for="phone">{{ __('Phone') }}<span class="red">*</span></label>
-										<input type="text" name="phone" id="phone" class="form-control parsley-validated" data-required="true">
-									</div>
-								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">

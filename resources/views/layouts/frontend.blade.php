@@ -4,13 +4,13 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	@php 
+	@php
 	$PageVariation = PageVariation();
-	$gtext = gtext(); 
+	$gtext = gtext();
 	@endphp
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	
+
 	<title>@yield('title')</title>
 	@yield('meta-content')
 	@if($gtext['fb_pixel_publish'] == 1)
@@ -28,12 +28,12 @@
 	  fbq('track', 'PageView');
 	</script>
 	<noscript>
-	  <img height="1" width="1" style="display:none" 
+	  <img height="1" width="1" style="display:none"
 		   src="https://www.facebook.com/tr?id={{ $gtext['fb_pixel_id'] }}&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@endif
-	
+
 	@if($gtext['ga_publish'] == 1)
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id={{ $gtext['tracking_id'] }}"></script>
@@ -53,7 +53,7 @@
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','{{ $gtext["google_tag_manager_id"] }}');</script>
-	<!-- End Google Tag Manager -->	
+	<!-- End Google Tag Manager -->
 	@endif
 	<!--favicon-->
 	<link rel="shortcut icon" href="{{ $gtext['favicon'] ? asset('public/media/'.$gtext['favicon']) : asset('public/backend/images/favicon.ico') }}" type="image/x-icon">
@@ -115,10 +115,10 @@
 	<div class="tw-loader">
 		<div class="tw-ellipsis">
 			<div></div><div></div><div></div><div></div>
-		</div>						
+		</div>
 	</div>
-	<!--/loader/--> 
-	<!-- scrollToTop -->	
+	<!--/loader/-->
+	<!-- scrollToTop -->
 	<a href="#top" class="scroll-to-top">
 		<i class="bi bi-arrow-up"></i>
 	</a>
@@ -134,7 +134,7 @@
 		<h4 class="cookie_consent_head">{{ $gtext['cookie_title'] }} </h4>
 		@endif
 		@if($gtext['cookie_message'] != '')
-		<div class="cookie_consent_text">{{ $gtext['cookie_message'] }} 
+		<div class="cookie_consent_text">{{ $gtext['cookie_message'] }}
 			@if($gtext['learn_more_text'] != '')
 			<a href="{{ $gtext['learn_more_url'] }}">{{ $gtext['learn_more_text'] }}</a>
 			@endif
@@ -162,7 +162,7 @@
 		var theme_color = "{{ $gtext['theme_color'] }}";
 		var base_url = "{{ url('/') }}";
 		var public_path = "{{ asset('public') }}";
-		
+
 		//Cookie Consent
 		var is_publish_cookie_consent = "{{ $gtext['is_publish_cookie_consent'] }}";
 		if(is_publish_cookie_consent == 1){
@@ -204,13 +204,12 @@
  <script>
               new WOW().init();
               </script>
-	
 
-	
+
+
 			    <section class="wow slideInLeft" data-wow-duration="15s" >
                     </section>
 
-               
+
 </body>
 </html>
-	

@@ -78,7 +78,9 @@
 							@if($aRow->text_2 != '')
 							<p>{{ $aRow->text_2 }}</p>
 							@endif
-						
+							@if($aRow->button_text != '')
+							<a href="{{ $row->url }}" class="btn theme-btn offer-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+							@endif
 						</div>
 					</div>
 				</div>
