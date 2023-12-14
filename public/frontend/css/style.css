@@ -3355,18 +3355,71 @@ ul.errors-list li {
 }
 /* scrollbar  */
 ::-webkit-scrollbar {
-    width: 8px; 
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; 
+    background-color: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-blue) ; 
-    border-radius: 6px; 
+    background-color: var(--color-blue) ;
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color:var(--theme-color); 
+    background-color:var(--theme-color);
+}
+.elementor-widget-wrap {
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.elementor img {
+    height: auto;
+    max-width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.elementor-element-populated, .elementor-element-bbbe7ad{
+    display: flex;
+}
+.elementor-element-d6b568c{
+    position: absolute;
+    width: 78%;
+    right: 0;
+    top: 400px;
+    background-color: #fff;
+    padding: 40px;
+    --swiper-theme-color: #000;
+    --swiper-navigation-size: 44px;
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+}
+.elementor-element-c8c1736 {
+    max-width: 27%;
+
+
+}
+.elementor-heading-title {
+    color: #000;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.padd{
+    padding-bottom: 300px;
+    padding-top: 0;
+}
+.elementor-column:last-child,
+.elementor-element-c8c1736:last-child {
+    margin-bottom: 20px; /* Adjust the value to your desired spacing */
+}
+
+#services{
+    margin: 0;
 }

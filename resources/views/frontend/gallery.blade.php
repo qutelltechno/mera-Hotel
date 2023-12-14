@@ -71,6 +71,7 @@
 					<div class="offer-card ">
 						<div class="offer-image">
 							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
+                            
 						</div>
 						<div class="offer-content">
 							<h2>{{ $row->title }}</h2>
