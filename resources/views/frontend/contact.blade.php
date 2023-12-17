@@ -57,14 +57,14 @@
 	<!-- Inner Section -->
 	@if($data['is_publish'] == 1)
 	@php $contact_form = $data['contact_form']; @endphp
-	<section class="inner-section contact_card">
+	<section class="inner-section contact_card inner-section-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
 					<h3 class="heading text-center">{{ __('Contact Info') }}</h3>
 					@php $contact_info = $data['contact_info']; @endphp
 					@if($contact_info->short_desc != '')
-					<p>{{ $contact_info->short_desc }}</p>
+					<p class="text-center">{{ $contact_info->short_desc }}</p>
 					@endif
 				</div>
 			</div>

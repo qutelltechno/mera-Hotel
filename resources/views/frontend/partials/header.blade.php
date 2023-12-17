@@ -63,7 +63,13 @@
 					<div class="col-lg-3">
 						<div class="logo">
 							<a href="{{ url('/') }}">
-								<img src="{{ $gtext['front_logo'] ? asset('public/media/'.$gtext['front_logo']) : asset('public/frontend/images/logo.png') }}" alt="logo">
+
+                                @if (app()->getLocale()=='ar')
+								<img src="{{ asset('public/frontend/images/ar-logo.png')  }}" alt="logo">
+                                @else
+								<img src="{{ asset('public/frontend/images/en-logo.png') }}" alt="logo">
+                                @endif
+
 							</a>
 						</div>
 						<div class="icon-bars-card">
