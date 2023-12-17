@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2023 at 02:02 AM
+-- Generation Time: Dec 17, 2023 at 02:47 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `merahotel`
+-- Database: `relaxly_db`
 --
 
 -- --------------------------------------------------------
@@ -595,7 +595,12 @@ CREATE TABLE `faqs` (
 --
 
 INSERT INTO `faqs` (`id`, `title`, `desc`, `is_publish`, `lan`, `created_at`, `updated_at`) VALUES
-(1, 'tste', 'tasssssssste', 1, 'ar', NULL, NULL);
+(12, 'أين يمكنني أن أجدكم على الإنترنت بخلاف الموقع الإلكتروني؟ صفة فيس بوك؟ تويتر؟', 'يمكنك أن تتعرف على آخر المستجدات لدينا على صفحىة الفيس بوك وحساب تويتر', 1, 'ar', '2023-12-17 10:53:35', '2023-12-17 10:53:35'),
+(13, 'كيف تختارون الخدمات التي يجب مراجعتها؟', 'أولاً، يبحث خبراء الموضوعات الموهوبين في الويب. عندما نعثر على أمر يعجبنا، نضعه تحت أقسى الاختبارات. ثم نقارن ميزاته وأوجه قصوره بعناية. وأخيرًا، نختار الخدمات التي وجدناها رائعة للغاية.', 1, 'ar', '2023-12-17 10:54:46', '2023-12-17 10:54:46'),
+(14, 'لماذا يجب علي قراءة مراجعاتكم؟', 'ستحصل على جميع المعلومات التي ستحتاجها لاتخاذ قرارات مهمة بشأن موقعك على الويب في مكان واحد. إن مراجعاتنا سهلة القراءة ومجانية وغنية بالقيمة: تحتاج إلى هذه المعلومات، ونحن نضعها في متناول يديك.', 1, 'ar', '2023-12-17 10:55:30', '2023-12-17 10:58:13'),
+(15, 'Why should I read your reviews?', 'You\'ll get all the information you\'ll need to make important decisions about your website in one place. Our reviews are easy to read, free and full of value: you need this information, and we put it at your fingertips.', 1, 'en', '2023-12-17 10:57:59', '2023-12-17 10:57:59'),
+(16, 'How do you choose which services to review?', 'First, talented subject matter experts search the web. When we find something we like, we put it to the harshest tests. Then we carefully compare its advantages and shortcomings. Finally, we select the services that we found most amazing.', 1, 'en', '2023-12-17 11:00:06', '2023-12-17 11:00:06'),
+(17, 'Where can I find you online other than your website? Facebook characteristic? Twitter?', 'You\'ll get all the information you\'ll need to make important decisions about your website in one place. Our reviews are easy to read, free and full of value: you need this information, and we put it at your fingertips.', 1, 'en', '2023-12-17 11:08:22', '2023-12-17 11:08:22');
 
 -- --------------------------------------------------------
 
@@ -2220,7 +2225,7 @@ INSERT INTO `menu_parents` (`id`, `menu_id`, `menu_type`, `child_menu_type`, `it
 (1027, 120, 'page', 'none', 71, 'FAQ', 'faq', '_self', NULL, NULL, NULL, NULL, 'en', 6, '2023-01-11 09:28:28', '2023-12-14 09:06:56'),
 (1030, 120, 'product_category', 'none', 1, 'Hotel room', 'hotel', '_self', NULL, NULL, NULL, NULL, 'en', 4, '2023-01-16 10:31:44', '2023-12-13 05:59:34'),
 (1044, 123, 'custom_link', 'none', NULL, 'غرف الفندق', 'https://trial.qutell.top/category/9/hotel', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-03 09:24:04', '2023-12-13 05:52:09'),
-(1045, 123, 'custom_link', 'none', NULL, 'الأسئلة الشائعة', 'https://trial.qutell.top/faq', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:35:19', '2023-12-16 22:57:19'),
+(1045, 123, 'custom_link', 'none', NULL, 'الأسئلة الشائعة', 'https://trial.qutell.top/faq', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:35:19', '2023-12-17 11:13:38'),
 (1046, 123, 'custom_link', 'none', NULL, 'الرئيسية', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'ar', 1, '2023-12-03 09:36:52', '2023-12-13 05:52:09'),
 (1048, 123, 'custom_link', 'none', NULL, 'اتصل بنا', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'ar', 7, '2023-12-03 09:37:47', '2023-12-13 05:52:10'),
 (1050, 120, 'custom_link', 'none', NULL, 'About us', 'https://trial.qutell.top/aboutus', '_self', '', NULL, NULL, NULL, 'en', 2, '2023-12-04 05:10:01', '2023-12-13 05:59:33'),
@@ -2319,12 +2324,12 @@ CREATE TABLE `offer_ads` (
 --
 
 INSERT INTO `offer_ads` (`id`, `offer_ad_type`, `title`, `url`, `image`, `desc`, `is_publish`, `created_at`, `updated_at`, `lan`) VALUES
-(29, 'homepage1', 'Meeting and celebration rooms', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"Meeting and celebration rooms\",\"text_2\":\"Unique halls with the latest design\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:48:36', '2023-12-07 07:49:10', 'en'),
-(30, 'homepage1', 'The health club is a time for relaxation', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"The health club is a time for relaxation\",\"text_2\":\"The gym is equipped with the latest equipment\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:49:30', '2023-12-07 07:48:12', 'en'),
-(31, 'homepage1', 'Unique restaurants that combine art and fun with delicious food', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"Unique restaurants that combine art and fun with delicious food\",\"text_2\":\"Unique restaurants\",\"button_text\":\"Book Now\",\"target\":null}', 1, '2023-01-13 04:51:08', '2023-12-11 07:03:19', 'en'),
-(33, 'homepage1', 'قاعات الاجتماعات والاحتفالات', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0627\\u0644\\u0627\\u062c\\u062a\\u0645\\u0627\\u0639\\u0627\\u062a \\u0648\\u0627\\u0644\\u0627\\u062d\\u062a\\u0641\\u0627\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0641\\u0631\\u064a\\u062f\\u0629 \\u0628\\u0627\\u062d\\u062f\\u062b \\u062a\\u0635\\u0645\\u064a\\u0645\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:03:26', '2023-12-07 07:45:23', 'ar'),
-(34, 'homepage1', 'النادي الصحي وقت للاستجمام', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0627\\u0644\\u0635\\u062d\\u064a \\u0648\\u0642\\u062a \\u0644\\u0644\\u0627\\u0633\\u062a\\u062c\\u0645\\u0627\\u0645\",\"text_2\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0631\\u064a\\u0627\\u0636\\u064a \\u0645\\u062c\\u0647\\u0632 \\u0628\\u0627\\u062d\\u062f\\u062b \\u0627\\u0644\\u0627\\u062c\\u0647\\u0632\\u0629\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:12:32', '2023-12-07 07:44:43', 'ar'),
-(35, 'homepage1', 'مطاعم فريده تجمع بين الفن والمتعة وتقديم اشهي الماكلات', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647 \\u062a\\u062c\\u0645\\u0639 \\u0628\\u064a\\u0646 \\u0627\\u0644\\u0641\\u0646 \\u0648\\u0627\\u0644\\u0645\\u062a\\u0639\\u0629 \\u0648\\u062a\\u0642\\u062f\\u064a\\u0645 \\u0627\\u0634\\u0647\\u064a \\u0627\\u0644\\u0645\\u0627\\u0643\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0627\\u0646\",\"target\":null}', 1, '2023-12-03 08:13:20', '2023-12-07 07:44:55', 'ar');
+(29, 'homepage1', 'Meeting and celebration rooms', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"Meeting and celebration rooms\",\"text_2\":\"Unique halls with the latest design\",\"button_text\":\"room\",\"target\":null}', 1, '2023-01-13 04:48:36', '2023-12-17 08:27:42', 'en'),
+(30, 'homepage1', 'The health club is a time for relaxation', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"The health club is a time for relaxation\",\"text_2\":\"The gym is equipped with the latest equipment\",\"button_text\":\"spa\",\"target\":null}', 1, '2023-01-13 04:49:30', '2023-12-17 08:27:19', 'en'),
+(31, 'homepage1', 'Unique restaurants that combine art and fun with delicious food', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"Unique restaurants that combine art and fun with delicious food\",\"text_2\":\"Unique restaurants\",\"button_text\":\"restaurant\",\"target\":null}', 1, '2023-01-13 04:51:08', '2023-12-17 08:26:24', 'en'),
+(33, 'homepage1', 'قاعات الاجتماعات والاحتفالات', '#', '07122023094218-photo_6021453864940716617_x (3) (1).jpg', '{\"text_1\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0627\\u0644\\u0627\\u062c\\u062a\\u0645\\u0627\\u0639\\u0627\\u062a \\u0648\\u0627\\u0644\\u0627\\u062d\\u062a\\u0641\\u0627\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0642\\u0627\\u0639\\u0627\\u062a \\u0641\\u0631\\u064a\\u062f\\u0629 \\u0628\\u0627\\u062d\\u062f\\u062b \\u062a\\u0635\\u0645\\u064a\\u0645\",\"button_text\":\"room\",\"target\":null}', 1, '2023-12-03 08:03:26', '2023-12-17 08:27:25', 'ar'),
+(34, 'homepage1', 'النادي الصحي وقت للاستجمام', '#', '07122023094125-Z&B FITNESS.jpg', '{\"text_1\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0627\\u0644\\u0635\\u062d\\u064a \\u0648\\u0642\\u062a \\u0644\\u0644\\u0627\\u0633\\u062a\\u062c\\u0645\\u0627\\u0645\",\"text_2\":\"\\u0627\\u0644\\u0646\\u0627\\u062f\\u064a \\u0631\\u064a\\u0627\\u0636\\u064a \\u0645\\u062c\\u0647\\u0632 \\u0628\\u0627\\u062d\\u062f\\u062b \\u0627\\u0644\\u0627\\u062c\\u0647\\u0632\\u0629\",\"button_text\":\"spa\",\"target\":null}', 1, '2023-12-03 08:12:32', '2023-12-17 08:27:08', 'ar'),
+(35, 'homepage1', 'مطاعم فريده تجمع بين الفن والمتعة وتقديم اشهي الماكلات', '#', '07122023094353-photo_6021453864940716609_x (1).jpg', '{\"text_1\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647 \\u062a\\u062c\\u0645\\u0639 \\u0628\\u064a\\u0646 \\u0627\\u0644\\u0641\\u0646 \\u0648\\u0627\\u0644\\u0645\\u062a\\u0639\\u0629 \\u0648\\u062a\\u0642\\u062f\\u064a\\u0645 \\u0627\\u0634\\u0647\\u064a \\u0627\\u0644\\u0645\\u0627\\u0643\\u0644\\u0627\\u062a\",\"text_2\":\"\\u0645\\u0637\\u0627\\u0639\\u0645 \\u0641\\u0631\\u064a\\u062f\\u0647\",\"button_text\":\"restaurant\",\"target\":null}', 1, '2023-12-03 08:13:20', '2023-12-17 08:25:30', 'ar');
 
 -- --------------------------------------------------------
 
@@ -2978,8 +2983,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `slider_type`, `url`, `image`, `title`, `lan`, `desc`, `is_publish`, `created_at`, `updated_at`) VALUES
-(29, 'home_1', '#', '10122023232249-baner-3.jpg', 'Enjoy Your Beautiful Moment', 'en', '{\"sub_title\":\"With Mira, a smile of satisfaction will accompany you; Because it is a specialized Saudi company that translates all its expertise into hotel construction And operate it to your satisfaction, through commitment to the finest International specifications and standards.\",\"button_text\":\"Booking Now\",\"target\":null}', 1, '2023-01-04 09:54:14', '2023-12-10 23:01:46'),
-(33, 'home_1', NULL, '10122023232249-baner-3.jpg', 'استمتع بلحظاتك الرائعة', 'ar', '{\"sub_title\":\"\\u0645\\u0639 \\u0645\\u064a\\u0631\\u0627 \\u0633\\u062a\\u0631\\u0627\\u0641\\u0642\\u0643 \\u0627\\u0628\\u062a\\u0633\\u0627\\u0645\\u0629 \\u0627\\u0644\\u0631\\u0636\\u0627 \\u061b \\u0623\\u0644\\u0627\\u0646\\u0647\\u0627 \\u0634\\u0631\\u0643\\u0629 \\u0633\\u0639\\u0648\\u062f\\u064a\\u0629 \\u0645\\u062e\\u062a\\u0635\\u0629 \\u062a\\u062a\\u0631\\u062c\\u0645 \\u064f\\u0643\\u0644 \\u062e\\u0628\\u0631\\u0627\\u062a\\u0647\\u0627 \\u0641\\u064a \\u0625\\u0646\\u0634\\u0627\\u0621 \\u0627\\u0644\\u0641\\u0646\\u0627\\u062f\\u0642 \\u0648\\u062a\\u0634\\u063a\\u064a\\u0644\\u0647\\u0627 \\u0644\\u062a\\u062d\\u0642\\u064a\\u0642 \\u0631\\u0636\\u0627\\u0643\\u060c \\u0645\\u0646 \\u062e\\u0627\\u0644\\u0644 \\u0627\\u0627\\u0644\\u0644\\u062a\\u0632\\u0627\\u0645 \\u0628\\u0623\\u0631\\u0642\\u0649 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0635\\u0641\\u0627\\u062a \\u0648\\u0627\\u0644\\u0645\\u0642\\u0627\\u064a\\u064a\\u0633 \\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\\u064a\\u0629 .\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0622\\u0646\",\"target\":null}', 1, '2023-11-30 08:27:48', '2023-12-10 21:23:09');
+(29, 'home_1', 'https://trial.qutell.top/category/1/hotel', '10122023232249-baner-3.jpg', 'Enjoy Your Beautiful Moment', 'en', '{\"sub_title\":\"With Mira, a smile of satisfaction will accompany you; Because it is a specialized Saudi company that translates all its expertise into hotel construction And operate it to your satisfaction, through commitment to the finest International specifications and standards.\",\"button_text\":\"Booking Now\",\"target\":null}', 1, '2023-01-04 09:54:14', '2023-12-17 11:31:57'),
+(33, 'home_1', 'https://trial.qutell.top/category/9/hotel', '10122023232249-baner-3.jpg', 'استمتع بلحظاتك الرائعة', 'ar', '{\"sub_title\":\"\\u0645\\u0639 \\u0645\\u064a\\u0631\\u0627 \\u0633\\u062a\\u0631\\u0627\\u0641\\u0642\\u0643 \\u0627\\u0628\\u062a\\u0633\\u0627\\u0645\\u0629 \\u0627\\u0644\\u0631\\u0636\\u0627 \\u061b \\u0623\\u0644\\u0627\\u0646\\u0647\\u0627 \\u0634\\u0631\\u0643\\u0629 \\u0633\\u0639\\u0648\\u062f\\u064a\\u0629 \\u0645\\u062e\\u062a\\u0635\\u0629 \\u062a\\u062a\\u0631\\u062c\\u0645 \\u064f\\u0643\\u0644 \\u062e\\u0628\\u0631\\u0627\\u062a\\u0647\\u0627 \\u0641\\u064a \\u0625\\u0646\\u0634\\u0627\\u0621 \\u0627\\u0644\\u0641\\u0646\\u0627\\u062f\\u0642 \\u0648\\u062a\\u0634\\u063a\\u064a\\u0644\\u0647\\u0627 \\u0644\\u062a\\u062d\\u0642\\u064a\\u0642 \\u0631\\u0636\\u0627\\u0643\\u060c \\u0645\\u0646 \\u062e\\u0627\\u0644\\u0644 \\u0627\\u0627\\u0644\\u0644\\u062a\\u0632\\u0627\\u0645 \\u0628\\u0623\\u0631\\u0642\\u0649 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0635\\u0641\\u0627\\u062a \\u0648\\u0627\\u0644\\u0645\\u0642\\u0627\\u064a\\u064a\\u0633 \\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\\u064a\\u0629 .\",\"button_text\":\"\\u0627\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0622\\u0646\",\"target\":null}', 1, '2023-11-30 08:27:48', '2023-12-17 11:31:16');
 
 -- --------------------------------------------------------
 
@@ -3232,7 +3237,7 @@ CREATE TABLE `tp_options` (
 --
 
 INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `updated_at`) VALUES
-(3, 'general_settings', '{\"company\":\"mira hotel\",\"email\":\"info@qutell.com\",\"phone\":\"966112351510+\",\"site_name\":\"mira Hotel\",\"site_title\":\"Hotel Booking\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0647. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"timezone\":\"Africa\\/Cairo\"}', '2021-03-31 15:59:45', '2023-12-10 12:42:27'),
+(3, 'general_settings', '{\"company\":\"mira hotel\",\"email\":\"info@qutell.com\",\"phone\":\"966112351510+\",\"site_name\":\"mira Hotel\",\"site_title\":\"Hotel Booking\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0647. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"timezone\":\"Africa\\/Cairo\"}', '2021-03-31 15:59:45', '2023-12-17 09:12:55'),
 (5, 'google_recaptcha', '{\"sitekey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"secretkey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_recaptcha\":0}', '2021-03-31 17:56:01', '2023-02-18 01:48:34'),
 (35, 'mail_settings', '{\"ismail\":0,\"from_name\":\"Qutell\",\"from_mail\":\"info@qutell.com\",\"to_name\":\"Qutell\",\"to_mail\":\"admin@gmail.com\",\"mailer\":\"smtp\",\"smtp_host\":\"mail.companyname.com\",\"smtp_port\":\"465\",\"smtp_security\":\"ssl\",\"smtp_username\":\"admin@companyname.com\",\"smtp_password\":\"xxxxxxxxxxxxxxxx\"}', '2021-06-03 19:33:17', '2023-11-27 09:15:21'),
 (69, 'custom_css', NULL, '2021-06-06 23:18:38', '2021-11-26 04:38:46'),
@@ -3242,8 +3247,8 @@ INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `up
 (78, 'facebook', '{\"fb_app_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:00:35', '2021-11-26 03:59:37'),
 (79, 'twitter', '{\"twitter_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:10:01', '2021-11-26 03:57:18'),
 (80, 'whatsapp', '{\"whatsapp_id\":\"+669 (0) 11 532 0151\",\"whatsapp_text\":\"\\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"position\":\"left\",\"is_publish\":\"1\"}', '2021-08-05 11:25:20', '2023-12-14 08:18:47'),
-(87, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"920008155\",\"is_publish\":\"1\"}', '2021-08-29 08:45:26', '2023-12-10 07:59:30'),
-(91, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":null,\"is_publish_about\":\"1\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+1 964 565 87652\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"Mira Hotel\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\"}', '2021-08-29 11:15:13', '2023-12-11 12:30:32'),
+(87, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"is_publish\":\"1\"}', '2021-08-29 08:45:26', '2023-12-17 10:21:22'),
+(91, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":null,\"is_publish_about\":\"1\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\\r\\n+966  (0) 11 466 1153 \\u0645\\u064a\\u0631\\u0627 \\u062a\\u0631\\u064a\\u0648\\r\\n+966  (0) 12 614 1040 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0644\\u0648\\u062c\\u0647\\u0629 \\u0627\\u0644\\u0628\\u062d\\u0631\\u064a\\u0629\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"Mira Hotel\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\"}', '2021-08-29 11:15:13', '2023-12-17 09:15:32'),
 (93, 'home-video', '{\"title\":\"Our Hotel Preview Video\",\"short_desc\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"url\":\"#\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=AlfXYaiAv68\",\"button_text\":\"Book Now\",\"target\":null,\"image\":\"07012023043902-preview.jpg\",\"is_publish\":\"1\"}', '2021-09-01 11:39:35', '2023-12-10 08:13:08'),
 (94, 'facebook-pixel', '{\"fb_pixel_id\":null,\"is_publish\":\"2\"}', '2021-09-17 11:52:01', '2021-11-26 03:59:21'),
 (95, 'google_analytics', '{\"tracking_id\":null,\"is_publish\":\"2\"}', '2021-09-18 08:11:08', '2023-02-27 09:42:47'),
@@ -3260,7 +3265,7 @@ INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `up
 (117, 'mollie', '{\"mollie_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"mollie_currency\":\"USD\",\"ismode_mollie\":1,\"isenable_mollie\":0}', '2022-05-20 07:50:45', '2023-02-18 07:53:43'),
 (131, 'page_variation', '{\"home_variation\":\"home_1\"}', '2022-08-11 23:58:42', '2023-02-18 05:59:12'),
 (133, 'google_map', '{\"googlemap_apikey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_googlemap\":0}', '2022-08-27 10:17:37', '2023-02-18 02:05:28'),
-(147, 'theme_color', '{\"theme_color\":\"#adadad\",\"light_color\":\"#000000\",\"blue_color\":\"#000000\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#6f7173\",\"gray400_color\":\"#f1f5f9\",\"gray500_color\":\"#f0eded\",\"black_color\":\"#000000\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#757678\"}', '2022-09-01 23:55:08', '2023-12-11 05:23:13'),
+(147, 'theme_color', '{\"theme_color\":\"#000000\",\"light_color\":\"#adadad\",\"blue_color\":\"#000000\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#a8acb0\",\"gray400_color\":\"#f1f5f9\",\"gray500_color\":\"#f0eded\",\"black_color\":\"#000000\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#757678\"}', '2022-09-01 23:55:08', '2023-12-17 09:28:57'),
 (160, 'cookie_consent', '{\"title\":\"Cookie Consent\",\"message\":\"This website uses cookies or similar technologies, to enhance your browsing experience and provide personalized recommendations. By continuing to use our website, you agree to our\",\"button_text\":\"Accept\",\"learn_more_url\":\"https:\\/\\/relaxly.themeposh.net\\/page\\/47\\/cookie-policy\",\"learn_more_text\":\"Privacy Policy\",\"style\":\"minimal\",\"position\":\"left\",\"is_publish\":\"1\"}', '2022-10-15 09:49:20', '2023-02-27 09:43:01'),
 (169, 'currency', '{\"currency_name\":\"USD\",\"currency_icon\":\"$\",\"currency_position\":\"left\",\"thousands_separator\":\"comma\",\"decimal_separator\":\"point\",\"decimal_digit\":\"2\"}', '2021-08-21 04:22:13', '2023-02-27 09:40:43'),
 (173, 'subheader_bg_images', '{\"blog_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"contact_bg\":\"11122023081140-img-24.jpg\",\"register_bg\":\"11122023081856-mirabusiness14.jpg\",\"login_bg\":\"11122023081948-mirabusiness3.JPG\",\"reset_password_bg\":\"11122023084654-img-23.jpg\",\"dashboard_bg\":\"11122023081856-mirabusiness14.jpg\",\"profile_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"change_password_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"booking_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\"}', '2023-01-14 09:43:04', '2023-12-13 07:56:22'),
@@ -3322,7 +3327,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `shop_name`, `shop_url`, `phone`, `address`, `city`, `state`, `zip_code`, `country_id`, `photo`, `bactive`, `bkey`, `status_id`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@themeposh.xyz', '2023-12-05 06:58:31', '$2y$10$AKDmqvsZlnRmjJwWP66/KurVIIMIbxVkQxRaeEWUeESpHzj32sQEa', NULL, NULL, '0123456789', '56 King Street, New York', NULL, NULL, NULL, NULL, '27122022160205-400x400-photo.png', 'YWRtaW4xMjM0NTY=', NULL, 1, 1, 'T5qDr7tBvJF1oszKyHgDVBceuyBK039ITfZVAEC0owS4s3J7oZwQRfiDPYAu', '2021-03-26 13:22:14', '2023-12-05 05:21:06'),
+(1, 'Admin', 'admin@themeposh.xyz', '2023-12-05 06:58:31', '$2y$10$AKDmqvsZlnRmjJwWP66/KurVIIMIbxVkQxRaeEWUeESpHzj32sQEa', NULL, NULL, '0123456789', '56 King Street, New York', NULL, NULL, NULL, NULL, '27122022160205-400x400-photo.png', 'YWRtaW4xMjM0NTY=', NULL, 1, 1, 'DybUigMB06zxLMD0UwHlYYnv7bqAQsCXWlAHJj5XUbDsMsd11oaDqmYZyiNK', '2021-03-26 13:22:14', '2023-12-05 05:21:06'),
 (75, 'Receptionist', 'receptionist@themeposh.xyz', '2023-12-05 06:58:24', '$2y$10$WrIBihqmTp4CODOyXa8SFuF6nLaRA/1G6T/hlw6npDNQX4i6aIl0W', NULL, NULL, '0123456789', '58 King Street, New York', NULL, NULL, NULL, NULL, '10012023044315-900x700-Rectangle 2-4.jpg', 'cmVjZXB0aW9uaXN0MTIzNDU2', NULL, 1, 3, 'jYqn80y86cpNZOZP6qkxV0rf1pNcNgvdK6IzjL98fSmQkvjgtU48ErGBobVx', '2023-02-09 21:41:55', '2023-12-04 20:19:41'),
 (110, 'Customer', 'customer@gmail.com', '2023-12-05 06:58:22', '$2y$10$MBzXeEMq4i9M/zjCHk9xuO/0sP6bGHyTy1emHBq6xYEHVUVPCO5FW', NULL, NULL, '0123456789', NULL, NULL, NULL, NULL, NULL, NULL, 'Y3VzdG9tZXIxMjM0NTY=', NULL, 1, 2, NULL, '2023-12-05 04:57:36', '2023-12-05 05:12:12'),
 (111, 'mariam', 'm.qassem4175@gmail.com', NULL, '$2y$10$dWAiBkALwSA5mOJrD0s68ebJkGOMxFys0gfm2y7A9gAEQEg2EVf5S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTIzNDU2Nzg5', NULL, 1, 2, NULL, '2023-12-14 07:22:54', '2023-12-14 07:22:54');
@@ -3725,7 +3730,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `languages`
