@@ -116,11 +116,6 @@
             <div class="elementor-widget-container">
             <p>{{ $row->desc }}</p> </div>
             </div>
-            <div class="elementor-element elementor-element-71624b1 elementor-align-left elementor-widget elementor-widget-button" data-id="71624b1" data-element_type="widget" data-widget_type="button.default">
-            <div class="elementor-widget-container">
-          
-            </div>
-            </div>
             </div>
             </div>
             </div>

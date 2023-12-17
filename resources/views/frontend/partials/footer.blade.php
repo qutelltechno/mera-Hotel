@@ -23,11 +23,11 @@
 <!-- /Footer Top Section/ -->
 
 <!-- Footer Section -->
-<footer class="footer-section">
+<footer class="footer-section bg-black">
 	<div class="footer-middle">
 		<div class="container">
 			<div class="row">
-			
+
 				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 footer-border">
 					@if($gtext['is_publish_contact'] == 1)
 					<div class="footer-widget-card">
@@ -40,7 +40,7 @@
 											<i class="bi bi-envelope-paper"></i>
 										</div>
 										<div class="contact-desc">
-											<h5>{{ __('Email') }}</h5>
+											<h5 style="color: var( --theme-color)" >{{ __('Email') }}</h5>
 											<p>{{ $gtext['email_footer'] }}</p>
 										</div>
 									</div>
@@ -53,7 +53,7 @@
 											<i class="bi bi-telephone"></i>
 										</div>
 										<div class="contact-desc">
-											<h5>{{ __('Phone') }}</h5>
+											<h5 style="color: var( --theme-color)">{{ __('Phone') }}</h5>
 											<p>{{ $gtext['phone_footer'] }}</p>
 										</div>
 									</div>
@@ -66,7 +66,7 @@
 											<i class="bi bi-geo-alt"></i>
 										</div>
 										<div class="contact-desc">
-											<h5>{{ __('Address') }}</h5>
+											<h5 style="color: var( --theme-color)">{{ __('Address') }}</h5>
 											<p>{{ $gtext['address_footer'] }}</p>
 										</div>
 									</div>
@@ -76,21 +76,21 @@
 						</div>
 					</div>
 					@endif
-					
+
 				</div>
-				
+
 				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
 					@if(FooterMenuList('footer') != '')
 					<div class="footer-widget-card">
 						<div class="footer-widget mb25">
-							<h3 class="widget-title">{{ __('Quick links') }}</h3>
+							<h3 class="widget-title" style="color: var( --theme-color)">{{ __('Quick links') }}</h3>
 							<ul class="widget-list">
 								@php echo FooterMenuList('footer'); @endphp
 							</ul>
 						</div>
 					</div>
 					@endif
-					
+
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 footer-border">
 					<div class="footer-widget-card">
@@ -103,7 +103,7 @@
 								</div>
 								@endif
 								@if($gtext['about_desc_footer'] != '')
-								
+
 								@endif
 							</div>
 						</div>
@@ -112,10 +112,10 @@
 						<div class="social-media mb25">
 							@php echo SocialMediaList(); @endphp
 						</div>
-						
+
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>

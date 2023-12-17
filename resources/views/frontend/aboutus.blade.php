@@ -56,15 +56,13 @@
 
 	<!-- Inner Section -->
 
-	<section class="inner-section inner-section-bg">
-		<div class="container">
-			<div class="row ">
+
 
 		<!-- About Section/ -->
         @if($about_us_section->is_publish == 1)
         @foreach ($about_us as $row)
         @php $aRow = json_decode($row->desc); @endphp
-        <section class="section about-section">
+        <section class="section about-section bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-5 wow fadeInRight ">
@@ -177,7 +175,7 @@
 
 
 	<!-- Testimonial Section/ -->
-	<section class="section testimonial-section">
+	<section class="section testimonial-section bg-wite">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">

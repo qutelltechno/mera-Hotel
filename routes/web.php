@@ -287,6 +287,14 @@ Route::prefix('backend')->group(function(){
 	Route::post('/bulkActionContact', [App\Http\Controllers\Backend\ContactController::class, 'bulkActionContact'])->name('backend.bulkActionContact')->middleware(['auth','is_admin']);
 	Route::post('/saveContactData', [App\Http\Controllers\Backend\ContactController::class, 'saveContactData'])->name('backend.saveContactData')->middleware(['auth','is_admin']);
 
+    //Faq
+    Route::get('/faq', [App\Http\Controllers\Backend\FaqController::class, 'getFaqData'])->name('backend.faq')->middleware(['auth','is_admin']);
+	Route::get('/getFaqPaginationData', [App\Http\Controllers\Backend\FaqController::class, 'getFaqPaginationData'])->name('backend.getFaqPaginationData')->middleware(['auth','is_admin']);
+	Route::post('/getFaqById', [App\Http\Controllers\Backend\FaqController::class, 'getFaqById'])->name('backend.getFaqById')->middleware(['auth','is_admin']);
+	Route::post('/deleteFaq', [App\Http\Controllers\Backend\FaqController::class, 'deleteFaq'])->name('backend.deleteFaq')->middleware(['auth','is_admin']);
+	Route::post('/bulkActionFaq', [App\Http\Controllers\Backend\FaqController::class, 'bulkActionFaq'])->name('backend.bulkActionFaq')->middleware(['auth','is_admin']);
+	Route::post('/saveFaqData', [App\Http\Controllers\Backend\FaqController::class, 'saveFaqData'])->name('backend.saveFaqData')->middleware(['auth','is_admin']);
+
 	//Blog Categories
 	Route::get('/blog-categories', [App\Http\Controllers\Backend\Blog_categoriesController::class, 'getBlogCategoriesPageLoad'])->name('backend.blog-categories')->middleware(['auth','is_admin']);
 	Route::get('/getBlogCategoriesTableData', [App\Http\Controllers\Backend\Blog_categoriesController::class, 'getBlogCategoriesTableData'])->name('backend.getBlogCategoriesTableData')->middleware(['auth','is_admin']);
@@ -345,7 +353,7 @@ Route::prefix('backend')->group(function(){
 	Route::post('/deleteTestimonial', [App\Http\Controllers\Backend\TestimonialController::class, 'deleteTestimonial'])->name('backend.deleteTestimonial')->middleware(['auth','is_admin']);
 	Route::post('/bulkActionTestimonial', [App\Http\Controllers\Backend\TestimonialController::class, 'bulkActionTestimonial'])->name('backend.bulkActionTestimonial')->middleware(['auth','is_admin']);
 
-	//Offer Ads
+	//OFfer Ads
 	Route::get('/offer-ads', [App\Http\Controllers\Backend\Offer_adsController::class, 'getOfferAdsPageLoad'])->name('backend.offer-ads')->middleware(['auth','is_admin']);
 	Route::get('/getOfferAdsTableData', [App\Http\Controllers\Backend\Offer_adsController::class, 'getOfferAdsTableData'])->name('backend.getOfferAdsTableData')->middleware(['auth','is_admin']);
 	Route::post('/saveOfferAdsData', [App\Http\Controllers\Backend\Offer_adsController::class, 'saveOfferAdsData'])->name('backend.saveOfferAdsData')->middleware(['auth','is_admin']);

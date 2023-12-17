@@ -44,7 +44,7 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ __('Blog') }}</li>
+								<li class="breadcrumb-item active" aria-current="page">{{ __('gallery') }}</li>
 							</ol>
 						</nav>
 					</div>
@@ -62,9 +62,8 @@
 
 
 	<!-- Offer Section -->
-	<section class="section offer-section ">
-		<div class="container">
-			<div class="row ">
+
+			{{-- <div class="row ">
 				@foreach ($OfferAds as $row)
 				@php $aRow = json_decode($row->desc); @endphp
 				<div class="col-lg-4 wow fadeInLeft">
@@ -78,12 +77,37 @@
 							@if($aRow->text_2 != '')
 							<p>{{ $aRow->text_2 }}</p>
 							@endif
-						
+
 						</div>
 					</div>
 				</div>
 				@endforeach
-			</div>
+			</div> --}}
+            <div class="site-section site-blocks-2">
+                <div class="container">
+                  <div class="row">
+				    @foreach ($OfferAds as $row)
+				    @php $aRow = json_decode($row->desc); @endphp
+                    <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="" >
+                      <a class="block-2-item" href="#">
+                        <figure class="image" style="border-radius:10px ">
+                          <img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" class="img-fluid" >
+                        </figure>
+                        <div class="text p-2" >
+                          <span class="text-uppercase">{{ $row->title }}</span>
+                            @if($aRow->text_2 != '')
+                          <h3 style="font-size: 25px">{{ $aRow->text_2 }}</h3>
+                          @endif
+
+                        </div>
+                      </a>
+                    </div>
+                    @endforeach
+                  </div>
+
+
+                </div>
+           </div>
 		</div>
 	</section>
 	<!-- /Offer Section/ -->

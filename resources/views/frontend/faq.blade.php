@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', __('gallery'))
+@section('title', __('Faq'))
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
@@ -56,35 +56,79 @@
 
 	<!-- Inner Section -->
 
-	<section class="inner-section inner-section-bg">
-		<div class="container">
-			<div class="row ">
-
-
 	<!-- Offer Section -->
-	<section class="section offer-section ">
+	<section class="section offer-section p-0">
 		<div class="container">
 			<div class="row ">
-				@foreach ($OfferAds as $row)
-				@php $aRow = json_decode($row->desc); @endphp
-				<div class="col-lg-4 wow fadeInLeft">
-					<div class="offer-card ">
-						<div class="offer-image">
-							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
+                <div class="bg-color-sky-light" data-auto-height="true">
+                    <div class="content-lg container">
+                        <div class="row row-space-1 margin-b-2">
+                            <div class="col-sm-6 sm-margin-b-2">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
+                                    <div class="service" data-height="height">
+                                        <h3>Art Of Coding</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+                                    <div class="service" data-height="height">
+                                        <h3>Responsive Design</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// end row -->
 
-						</div>
-						<div class="offer-content">
-							<h2>{{ $row->title }}</h2>
-							@if($aRow->text_2 != '')
-							<p>{{ $aRow->text_2 }}</p>
-							@endif
-							@if($aRow->button_text != '')
-							<a href="{{ $row->url }}" class="btn theme-btn offer-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
-							@endif
-						</div>
-					</div>
-				</div>
-				@endforeach
+                        <div class="row row-space-1 margin-b-2">
+                            <div class="col-sm-6 sm-margin-b-2">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                                    <div class="service" data-height="height">
+                                        <h3>Feature Reach</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
+                                    <div class="service" data-height="height">
+                                        <h3>Useful Documentation</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// end row -->
+
+                        <div class="row row-space-1">
+                            <div class="col-sm-6 sm-margin-b-2">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".4s">
+                                    <div class="service" data-height="height">
+                                        <h3>Fast Delivery</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                                    <div class="service" data-height="height">
+                                        <h3>Free Plugins</h3>
+                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
+                                        <a href="#" class="content-wrapper-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// end row -->
+                    </div>
+                </div>
 			</div>
 		</div>
 	</section>

@@ -182,6 +182,8 @@
 			}
 		}
 	</script>
+    <script src="{{ asset('public/frontend/js/aos.js')}}"></script>
+
 	<script src="{{ asset('public/frontend/js/scripts.js')}}"></script>
 	<div class="custom-popup light width-100 dnone" id="lightCustomModal">
 		<div class="padding-md">

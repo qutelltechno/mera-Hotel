@@ -14,10 +14,10 @@ class ContactController extends Controller
 
     //Get Contact
     public function getContactData(){
-		
+
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		
+
 		$AllCount = Contact::count();
 		$PublishedCount = Contact::where('is_publish', '=', 1)->count();
 		$DraftCount = Contact::where('is_publish', '=', 2)->count();
@@ -28,17 +28,17 @@ class ContactController extends Controller
 			->select('contacts.*', 'tp_status.status', 'languages.language_name')
 			->orderBy('contacts.id','desc')
 			->paginate(20);
-		
+
         return view('backend.contact', compact('AllCount', 'PublishedCount', 'DraftCount', 'datalist', 'statuslist', 'languageslist'));
     }
-	
+
 	//Get data for Contact Pagination
 	public function getContactPaginationData(Request $request){
 
 		$search = $request->search;
 		$post_status = $request->post_status;
 		$language_code = $request->language_code;
-		
+
 		if($request->ajax()){
 			if($search != ''){
 				$datalist = DB::table('contacts')
@@ -71,7 +71,7 @@ class ContactController extends Controller
 			return view('backend.partials.contact_table', compact('datalist'))->render();
 		}
 	}
-	 
+
 	//Save data for Contact
     public function saveContactData(Request $request){
 		$res = array();
@@ -81,12 +81,12 @@ class ContactController extends Controller
 		$is_publish = $request->input('is_publish');
 		$mail_subject = str_slug($request->input('mail_subject'));
 		$lan = $request->input('lan');
-		
+
 		$email = $request->input('email');
 		$phone = $request->input('phone');
 		$address = $request->input('address');
 		$short_desc = $request->input('short_desc');
-		
+
 		$latitude = $request->input('latitude');
 		$longitude = $request->input('longitude');
 		$zoom = $request->input('zoom');
@@ -98,21 +98,21 @@ class ContactController extends Controller
 		}
 
 		$contact_form = $request->input('contact_form');
-		
+
 		$isRecaptcha = $request->input('is_recaptcha');
 		if ($isRecaptcha == 'true' || $isRecaptcha == 'on') {
 			$is_recaptcha = 1;
 		}else {
 			$is_recaptcha = 0;
 		}
-		
+
  		$validator_array = array(
 			'title' => $request->input('title'),
 			'email' => $request->input('email'),
 			'phone' => $request->input('phone'),
 			'address' => $request->input('address')
 		);
-		
+
 		$validator = Validator::make($validator_array, [
 			'title' => 'required',
 			'email' => 'required',
@@ -120,7 +120,7 @@ class ContactController extends Controller
 			'address' => 'required'
 		]);
 
-		$errors = $validator->errors();	
+		$errors = $validator->errors();
 
 		if($errors->has('title')){
 			$res['id'] = '';
@@ -128,21 +128,21 @@ class ContactController extends Controller
 			$res['msg'] = $errors->first('title');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('email')){
 			$res['id'] = '';
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('email');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('phone')){
 			$res['id'] = '';
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('phone');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('address')){
 			$res['id'] = '';
 			$res['msgType'] = 'error';
@@ -156,14 +156,14 @@ class ContactController extends Controller
 			'address' => $address,
 			'short_desc' => $short_desc
 		);
-		
+
 		$contact_map = array(
 			'latitude' => $latitude,
 			'longitude' => $longitude,
 			'zoom' => $zoom,
 			'is_google_map' => $is_google_map
 		);
-		
+
 		$data = array(
 			'title' => $title,
 			'contact_info' => json_encode($contact_info),
@@ -174,7 +174,7 @@ class ContactController extends Controller
 			'is_publish' => $is_publish,
 			'lan' => $lan
 		);
-		
+
 		if($id ==''){
 			$response = Contact::create($data);
 			if($response){
@@ -194,23 +194,23 @@ class ContactController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Get data for Contact by id
     public function getContactById(Request $request){
 
 		$id = $request->id;
-		
+
 		$data = Contact::where('id', $id)->first();
 		$data->contact_info = json_decode($data->contact_info);
 		$data->contact_form = json_decode($data->contact_form);
 		$data->contact_map = json_decode($data->contact_map);
-		
+
 		return response()->json($data);
 	}
-	
+
 	//Delete data for Contact
 	public function deleteContact(Request $request){
 		$res = array();
@@ -227,18 +227,18 @@ class ContactController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//Bulk Action for Contact
 	public function bulkActionContact(Request $request){
-		
+
 		$res = array();
 
 		$idsStr = $request->ids;
 		$idsArray = explode(',', $idsStr);
-		
+
 		$BulkAction = $request->BulkAction;
 
 		if($BulkAction == 'publish'){
@@ -250,9 +250,9 @@ class ContactController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'draft'){
-			
+
 			$response = Contact::whereIn('id', $idsArray)->update(['is_publish' => 2]);
 			if($response){
 				$res['msgType'] = 'success';
@@ -261,7 +261,7 @@ class ContactController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'delete'){
 			$response = Contact::whereIn('id', $idsArray)->delete();
 			if($response){
@@ -272,7 +272,7 @@ class ContactController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
 }

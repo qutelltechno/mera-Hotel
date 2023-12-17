@@ -44,7 +44,7 @@
 							<li><a href="{{ route('frontend.login') }}"><i class="bi bi-person"></i>{{ __('Sign in') }}</a></li>
 							@endif
 							@endauth
-							
+
 							@if($gtext['is_language_switcher'] == 1)
 							<li>
 								@php echo language(); @endphp
@@ -86,7 +86,7 @@
 		</div>
 		<!--/Menu/-->
 	</header>
-	
+
 	<!-- off-canvas menu start -->
 	<aside class="mobile-menu-wrapper">
 		<div class="off-canvas-overlay"></div>
