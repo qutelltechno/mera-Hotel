@@ -40,11 +40,11 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="breadcrumb-card wow pulse">
-						<h2>{{ __('gallery') }}</h2>
+						<h2>{{ __('Faq') }}</h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ __('Blog') }}</li>
+								<li class="breadcrumb-item active" aria-current="page">{{ __('Faq') }}</li>
 							</ol>
 						</nav>
 					</div>

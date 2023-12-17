@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 03:51 PM
+-- Generation Time: Dec 17, 2023 at 02:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -573,6 +573,29 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `is_publish` int(11) NOT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `title`, `desc`, `is_publish`, `lan`, `created_at`, `updated_at`) VALUES
+(1, 'tste', 'tasssssssste', 1, 'ar', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2197,7 +2220,7 @@ INSERT INTO `menu_parents` (`id`, `menu_id`, `menu_type`, `child_menu_type`, `it
 (1027, 120, 'page', 'none', 71, 'FAQ', 'faq', '_self', NULL, NULL, NULL, NULL, 'en', 6, '2023-01-11 09:28:28', '2023-12-14 09:06:56'),
 (1030, 120, 'product_category', 'none', 1, 'Hotel room', 'hotel', '_self', NULL, NULL, NULL, NULL, 'en', 4, '2023-01-16 10:31:44', '2023-12-13 05:59:34'),
 (1044, 123, 'custom_link', 'none', NULL, 'غرف الفندق', 'https://trial.qutell.top/category/9/hotel', '_self', '', NULL, NULL, NULL, 'ar', 4, '2023-12-03 09:24:04', '2023-12-13 05:52:09'),
-(1045, 123, 'custom_link', 'none', NULL, 'الأسئلة الشائعة', 'https://trial.qutell.top/page/73/faq-ar', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:35:19', '2023-12-13 05:52:10'),
+(1045, 123, 'custom_link', 'none', NULL, 'الأسئلة الشائعة', 'https://trial.qutell.top/faq', '_self', '', NULL, NULL, NULL, 'ar', 6, '2023-12-03 09:35:19', '2023-12-16 22:57:19'),
 (1046, 123, 'custom_link', 'none', NULL, 'الرئيسية', 'https://trial.qutell.top/', '_self', '', NULL, NULL, NULL, 'ar', 1, '2023-12-03 09:36:52', '2023-12-13 05:52:09'),
 (1048, 123, 'custom_link', 'none', NULL, 'اتصل بنا', 'https://trial.qutell.top/contact/6/contact-us', '_self', '', NULL, NULL, NULL, 'ar', 7, '2023-12-03 09:37:47', '2023-12-13 05:52:10'),
 (1050, 120, 'custom_link', 'none', NULL, 'About us', 'https://trial.qutell.top/aboutus', '_self', '', NULL, NULL, NULL, 'en', 2, '2023-12-04 05:10:01', '2023-12-13 05:59:33'),
@@ -2269,7 +2292,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (40, '2023_01_21_101710_create_room_manages_table', 6),
 (41, '2023_01_22_153058_create_booking_status_table', 7),
 (42, '2023_01_22_153216_create_booking_manages_table', 7),
-(43, '2023_01_29_160950_create_room_assigns_table', 8);
+(43, '2023_01_29_160950_create_room_assigns_table', 8),
+(44, '2023_12_16_184353_create_faqs_table', 9);
 
 -- --------------------------------------------------------
 
@@ -3421,6 +3445,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
@@ -3692,6 +3722,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
@@ -3743,7 +3779,7 @@ ALTER TABLE `menu_parents`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `offer_ads`
@@ -3815,7 +3851,7 @@ ALTER TABLE `section_manages`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `social_medias`
