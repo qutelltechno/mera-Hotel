@@ -30,19 +30,19 @@
 						<div class="row g-2">
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
 								<label for="checkin_date" class="form-label">{{ __('Check In') }}</label>
-								<input name="checkin_date" id="checkin_date" type="text" class="form-control" placeholder="yyyy-mm-dd" required>
+								<input name="checkin_date" id="checkin_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
 								<label for="checkout_date" class="form-label">{{ __('Check Out') }}</label>
-								<input name="checkout_date" id="checkout_date" type="text" class="form-control" placeholder="yyyy-mm-dd" required>
+								<input name="checkout_date" id="checkout_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
 								<label for="total_adult" class="form-label">{{ __('Adult') }}</label>
-								<input name="total_adult" id="total_adult" type="number" class="form-control" value="1" min="1" required>
+								<input name="total_adult" id="total_adult" type="number" class="form-control" value="1" min="1">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
 								<label for="total_child" class="form-label">{{ __('Child') }}</label>
-								<input name="total_child" id="total_child" type="number" class="form-control" value="0" min="0" required>
+								<input name="total_child" id="total_child" type="number" class="form-control" value="0" min="0">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
 								<button type="submit" class="btn theme-btn search-btn">{{ __('Check Availability') }}</button>
@@ -278,6 +278,35 @@
 	@endif
 	<!-- /Featured Section/ -->
 
+    	<!-- Preview Video Section-->
+	@if($home_video['is_publish'] == 1)
+	<section class="preview-section">
+		<div class="row align-items-center justify-content-center g-0">
+			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
+				<div class="preview-video">
+					<img src="{{ asset('public/media/'.$home_video['image']) }}" alt="{{ $home_video['title'] }}">
+					<div class="video-card">
+						<a href="{{ $home_video['video_url'] }}" class="play-icon popup-video">
+							<i class="bi bi-play-fill"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
+				<div class="preview-content">
+					<h5>{{ __('Preview') }}</h5>
+					<h2>{{ $home_video['title'] }}</h2>
+					@if($home_video['short_desc'] !='')
+					<p>{{ $home_video['short_desc'] }}</p>
+					@endif
+					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn theme-btn">{{ $home_video['button_text'] }}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	@endif
+	<!-- /Preview Video Section/ -->
+
 	<!-- Services Section/ -->
 	@if($our_services_section->is_publish == 1)
 	<section class="section service-section">
@@ -310,35 +339,6 @@
 	</section>
 	@endif
 	<!-- /Services Section/ -->
-
-	<!-- Preview Video Section-->
-	@if($home_video['is_publish'] == 1)
-	<section class="preview-section">
-		<div class="row align-items-center justify-content-center g-0">
-			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
-				<div class="preview-video">
-					<img src="{{ asset('public/media/'.$home_video['image']) }}" alt="{{ $home_video['title'] }}">
-					<div class="video-card">
-						<a href="{{ $home_video['video_url'] }}" class="play-icon popup-video">
-							<i class="bi bi-play-fill"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
-				<div class="preview-content">
-					<h5>{{ __('Preview') }}</h5>
-					<h2>{{ $home_video['title'] }}</h2>
-					@if($home_video['short_desc'] !='')
-					<p>{{ $home_video['short_desc'] }}</p>
-					@endif
-					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn theme-btn">{{ $home_video['button_text'] }}</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	@endif
-	<!-- /Preview Video Section/ -->
 
 	<!-- Testimonial Section/ -->
 	@if($testimonial_section->is_publish == 1)

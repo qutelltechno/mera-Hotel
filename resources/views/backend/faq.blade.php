@@ -108,80 +108,15 @@
 									</div>
 								</div>
 							</div>
-							<div class="divider_heading">{{ __('faq Info') }}</div>
+							<div class="divider_heading">{{ __('Faq') }}</div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<div class="form-group">
 										<label for="email">{{ __('Description') }}<span class="red">*</span></label>
 										<textarea name="description" id="description" class="form-control parsley-validated" data-required="true" rows="5"></textarea>
 									</div>
 								</div>
 
-							</div>
-
-
-							<div class="divider_heading">{{ __('Google Map') }}</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="latitude">{{ __('Latitude') }}</label>
-										<input type="text" name="latitude" id="latitude" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="longitude">{{ __('Longitude') }}</label>
-										<input type="text" name="longitude" id="longitude" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label for="zoom">{{ __('Zoom') }}</label>
-										<input type="text" name="zoom" id="zoom" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<p class="mb0">If you are not yet added Google Map API key. <strong><a href="{{ route('backend.google-map') }}">Click Here</a></strong></p>
-									<div class="tw_checkbox checkbox_group">
-										<input id="is_google_map" name="is_google_map" type="checkbox">
-										<label for="is_google_map">{{ __('Enable/Disable') }}</label>
-										<span></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="divider_heading">{{ __('faq Form') }}</div>
-
-							<div id="FormElementId"></div>
-
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-builder">
-										<a onclick="onAddField()" class="add_field_btn" href="javascript:void(0);" title="{{ __('Add Field') }}"><i class="fa fa-plus"></i></a>
-									</div>
-								</div>
-							</div>
-
-							<div class="row mt-25" id="mailSubjectHideShow">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="mail_subject">{{ __('Select Mail Subject Field') }}<span class="red">*</span></label>
-										<select name="mail_subject" id="mail_subject" class="chosen-rtl form-control">
-										</select>
-									</div>
-								</div>
-								<div class="col-md-9"></div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-12">
-									<p class="mt-15 mb0"><strong>{{ __('Google reCAPTCHA') }}</strong> (If you are not yet added Google reCAPTCHA key. <strong><a href="{{ route('backend.google-recaptcha') }}">Click Here</a></strong>)</p>
-									<div class="tw_checkbox checkbox_group">
-										<input id="is_recaptcha" name="is_recaptcha" type="checkbox">
-										<label for="is_recaptcha">{{ __('Enable/Disable') }}</label>
-										<span></span>
-									</div>
-								</div>
 							</div>
 
 							<input type="text" name="RecordId" id="RecordId" class="dnone">

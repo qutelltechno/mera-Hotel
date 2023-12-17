@@ -141,11 +141,7 @@ class FaqController extends Controller
 
 		$data = array(
 			'title' => $title,
-			'faq_info' => json_encode($faq_info),
-			'faq_form' => $faq_form,
-			'faq_map' => json_encode($faq_map),
-			'is_recaptcha' => $is_recaptcha,
-			'mail_subject' => $mail_subject,
+            'desc' => $description,
 			'is_publish' => $is_publish,
 			'lan' => $lan
 		);
@@ -238,5 +234,13 @@ class FaqController extends Controller
 		}
 
 		return response()->json($res);
+	}
+
+    public function getFaqById(Request $request){
+		$id = $request->id;
+
+		$data = Faq::where('id', $id)->first();
+
+		return response()->json($data);
 	}
 }

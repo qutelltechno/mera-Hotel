@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use App\Models\Offer_ad;
-use App\Models\Section_manage;
 use Illuminate\Http\Request;
+use App\Models\Section_manage;
+use App\Http\Controllers\Controller;
 
 class FaqController extends Controller
 {
@@ -14,17 +15,10 @@ class FaqController extends Controller
     public function getfaqPage(){
         $lan = glan();
 
-            // Offer & Ads Section
-			$offer_ads_section = Section_manage::where('lan',$lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'offer_ads')->first();
+        $faqs = Faq::where('lan', $lan)->orderBy('id', 'asc')->get();
 
-
-            	//Offer & Ads
-			$OfferAds = Offer_ad::where('lan', $lan)->where('offer_ad_type', '=', 'homepage1')->orderBy('id', 'asc')->get();
-
-            return view('frontend.faq', compact(
-                'offer_ads_section',
-                'OfferAds',
-
-            ));
-        }
+        return view('frontend.faq', compact(
+            'faqs',
+        ));
+    }
 }

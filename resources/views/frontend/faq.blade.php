@@ -56,83 +56,41 @@
 
 	<!-- Inner Section -->
 
-	<!-- Offer Section -->
-	<section class="section offer-section p-0">
+	<!-- Faq Section -->
+	<section class="inner-section inner-section-bg">
 		<div class="container">
-			<div class="row ">
+			<div class="row">
+                <div class="col-md-8 offset-md-2">
+					<div class="section-heading" id="services">
+						<h5>{{ __('Faq') }}</h5>
+						<h2>{{ __('Here you will find frequently asked questions') . '.' }}</h2>
+						<p></p>
+					</div>
+				</div>
                 <div class="bg-color-sky-light" data-auto-height="true">
                     <div class="content-lg container">
-                        <div class="row row-space-1 margin-b-2">
-                            <div class="col-sm-6 sm-margin-b-2">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
-                                    <div class="service" data-height="height">
-                                        <h3>Art Of Coding</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
+                            <div class="row">
+                                <div class="accordion accordion-flush info-card">
+                                    @foreach ($faqs as $faq)
+                                    <div class="wow fadeInLeft accordion-item" data-wow-duration=".3" data-wow-delay=".1s">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            {{$faq->title}}
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">{{$faq->desc}}</div>
                                     </div>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
-                                    <div class="service" data-height="height">
-                                        <h3>Responsive Design</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--// end row -->
-
-                        <div class="row row-space-1 margin-b-2">
-                            <div class="col-sm-6 sm-margin-b-2">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
-                                    <div class="service" data-height="height">
-                                        <h3>Feature Reach</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
-                                    <div class="service" data-height="height">
-                                        <h3>Useful Documentation</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--// end row -->
-
-                        <div class="row row-space-1">
-                            <div class="col-sm-6 sm-margin-b-2">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".4s">
-                                    <div class="service" data-height="height">
-                                        <h3>Fast Delivery</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
-                                    <div class="service" data-height="height">
-                                        <h3>Free Plugins</h3>
-                                        <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor</p>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--// end row -->
                     </div>
                 </div>
 			</div>
 		</div>
 	</section>
-	<!-- /Offer Section/ -->
+	<!-- /Faq Section/ -->
             </div>
         </div>
 	</section>

@@ -30,6 +30,15 @@
 
 @section('header')
 @include('frontend.partials.header')
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css"
+/>
+
+<style>
+    .gallery-container ul{display:flex;justify-content:center;list-style-type:none}.gallery-container .bttn{background-color:transparent;border:none;font-size:14px;font-weight:600;margin:10px 20px;padding:0 0 20px;text-transform:uppercase}.gallery-container .bttn:hover{color:#dba765;border-bottom:3px solid #dba765}.gallery-container .min-header{height:48px;border-bottom:1px solid rgba(92,92,92,.404);margin-bottom:20px}.gallery-container img{border-radius:15px;animation-name:example;animation-duration:2s}.gallery-container .tz-gallery .lightbox img{width:100%;margin-bottom:10px;transition:.2s ease-in-out;box-shadow:0 2px 3px rgba(0,0,0,.2)}.gallery-container .tz-gallery .lightbox img:hover{filter:brightness(.3)}.gallery-container .baguetteBox-button{background-color:transparent!important}@media (max-width:767px){.min-header{height:175px}}@keyframes example{from{transform:scale(.5);opacity:0%}to{transform:scale(1);opacity:100%}}.gallery-container .content{position:relative}.gallery-container .overlay{position:absolute;bottom:60px;left:0;width:100%;transition:.5s;opacity:0;color:#fff;font-size:20px;padding:15px;text-align:center}.gallery-container .content:hover .overlay{opacity:1}.gallery-container h1{margin:0;font-weight:700;text-shadow:1px 1px 10px #000}.gallery-container a{display:flex!important}
+</style>
 @endsection
 
 @section('content')
@@ -55,69 +64,129 @@
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
+    <section class="inner-section inner-section-bg">
+    <div class="container gallery-container">
+        <div class="row">
+          <div class="col-lg-12 text-center min-header">
+            <div class="row justify-content-center">
+              <div class="col-md-4 col-lg-3">
+                <button
+                  type="button"
+                  class="bttn col-md"
+                  onclick="myFunction('dm1')"
+                >
+                  {{__('ROOMS & SUITES')}}
+                </button>
+              </div>
+              <div class="col-md-4 col-lg-3">
+                <button
+                  type="button"
+                  class="bttn col-md"
+                  onclick="myFunction('dm2')"
+                >
+                  {{__('RESTAURANTS & CAFES')}}
+                </button>
+              </div>
+              <div class="col-md-4 col-lg-3">
+                <button
+                  type="button"
+                  class="bttn col-md"
+                  onclick="myFunction('dm3')"
+                >
+                  {{__('SPA')}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-	<section class="inner-section inner-section-bg">
-		<div class="container">
-			<div class="row ">
+        <!-- Gallery 1 -->
+        <div class="tz-gallery" id="demo">
+          <div class="row">
+                @foreach ($spa as $row)
+                <div class="col-lg-4">
+                    <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
+                      <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                      <div class="overlay">
+                        <h2 class="text-light">{{$row->title}}</h2>
+                        <button type="button" class="btn btn-outline-light">
+                          {{ __('Browse') }}
+                        </button>
+                      </div>
+                    </a>
+                  </div>
+                @endforeach
+          </div>
+        </div>
 
-
-	<!-- Offer Section -->
-
-			{{-- <div class="row ">
-				@foreach ($OfferAds as $row)
-				@php $aRow = json_decode($row->desc); @endphp
-				<div class="col-lg-4 wow fadeInLeft">
-					<div class="offer-card ">
-						<div class="offer-image">
-							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
-
-						</div>
-						<div class="offer-content">
-							<h2>{{ $row->title }}</h2>
-							@if($aRow->text_2 != '')
-							<p>{{ $aRow->text_2 }}</p>
-							@endif
-
-						</div>
-					</div>
-				</div>
-				@endforeach
-			</div> --}}
-            <div class="site-section site-blocks-2">
-                <div class="container">
-                  <div class="row">
-				    @foreach ($OfferAds as $row)
-				    @php $aRow = json_decode($row->desc); @endphp
-                    <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="" >
-                      <a class="block-2-item" href="#">
-                        <figure class="image" style="border-radius:10px ">
-                          <img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" class="img-fluid" >
-                        </figure>
-                        <div class="text p-2" >
-                          <span class="text-uppercase">{{ $row->title }}</span>
-                            @if($aRow->text_2 != '')
-                          <h3 style="font-size: 25px">{{ $aRow->text_2 }}</h3>
-                          @endif
-
+        <!-- Gallery 2 -->
+        <div class="tz-gallery" style="display: none" id="demo2">
+            <div class="row">
+                    @foreach ($restaurants as $row)
+                    <div class="col-lg-4">
+                        <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
+                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                        <div class="overlay">
+                            <h2 class="text-light">{{$row->title}}</h2>
+                            <button type="button" class="btn btn-outline-light">
+                                {{ __('Browse') }}
+                            </button>
                         </div>
-                      </a>
+                        </a>
                     </div>
                     @endforeach
-                  </div>
-
-
-                </div>
-           </div>
-		</div>
-	</section>
-	<!-- /Offer Section/ -->
             </div>
-        </div>
-	</section>
-	<!-- /Inner Section/ -->
+            </div>
+
+        <!-- Gallery 3 -->
+        <div class="tz-gallery" style="display: none" id="demo3">
+            <div class="row">
+                    @foreach ($rooms as $row)
+                    <div class="col-lg-4">
+                        <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
+                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                        <div class="overlay">
+                            <h2 class="text-light">{{$row->title}}</h2>
+                            <button type="button" class="btn btn-outline-light">
+                                {{ __('Browse') }}
+                            </button>
+                        </div>
+                        </a>
+                    </div>
+                    @endforeach
+            </div>
+            </div>
+
+    </div>
+    </section>
+
 </main>
 @endsection
 
 @push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 
+<script>
+    baguetteBox.run('.tz-gallery', {
+      animation: 'fadeIn',
+      buttons: true,
+      noScrollbars: true,
+      overlayBackgroundColor: 'rgba(0,0,0,0.9)',
+    });
+    function myFunction(p1) {
+      if (p1 == 'dm1') {
+        document.getElementById('demo').style.display = 'block';
+        document.getElementById('demo2').style.display = 'none';
+        document.getElementById('demo3').style.display = 'none';
+      } else if (p1 == 'dm2') {
+        document.getElementById('demo').style.display = 'none';
+        document.getElementById('demo2').style.display = 'block';
+        document.getElementById('demo3').style.display = 'none';
+      } else {
+        document.getElementById('demo').style.display = 'none';
+        document.getElementById('demo2').style.display = 'none';
+        document.getElementById('demo3').style.display = 'block';
+      }
+    }
+  </script>
 @endpush

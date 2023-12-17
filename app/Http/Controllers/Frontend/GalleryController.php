@@ -14,18 +14,15 @@ class GalleryController extends Controller
     public function getgalleryPage(){
         $lan = glan();
 
-            // Offer & Ads Section
-			$offer_ads_section = Section_manage::where('lan',$lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'offer_ads')->first();
+        $spa = Offer_ad::where('lan', $lan)->where('desc->button_text', 'spa')->orderBy('id', 'asc')->get();
+        $restaurants = Offer_ad::where('lan', $lan)->where('desc->button_text', 'restaurant')->orderBy('id', 'asc')->get();
+        $rooms = Offer_ad::where('lan', $lan)->where('desc->button_text', 'room')->orderBy('id', 'asc')->get();
 
-
-            	//Offer & Ads
-			$OfferAds = Offer_ad::where('lan', $lan)->where('offer_ad_type', '=', 'homepage1')->orderBy('id', 'asc')->get();
-
-            return view('frontend.gallery', compact(
-                'offer_ads_section',
-                'OfferAds',
-
-            ));
-        }
+        return view('frontend.gallery', compact(
+            'spa',
+            'restaurants',
+            'rooms',
+        ));
+    }
 
 }

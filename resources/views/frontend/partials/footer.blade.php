@@ -1,7 +1,7 @@
 <!-- Footer Top Section -->
 @if($gtext['is_subscribe_footer'] == 1)
-<section class="footer-top" style="background-image: url({{ asset('public/media/'.$gtext['subscribe_background_image']) }});">
-	{{-- <div class="container">
+{{-- <section class="footer-top" style="background-image: url({{ asset('public/media/'.$gtext['subscribe_background_image']) }});">
+	 <div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-8 offset-lg-2">
 				<div class="newsletter-card c wow pulse  ">
@@ -17,8 +17,8 @@
 				</div>
 			</div>
 		</div>
-	</div> --}}
-</section>
+	</div>
+</section> --}}
 @endif
 <!-- /Footer Top Section/ -->
 
@@ -40,7 +40,7 @@
 											<i class="bi bi-envelope-paper"></i>
 										</div>
 										<div class="contact-desc">
-											<h5 style="color: var( --theme-color)" >{{ __('Email') }}</h5>
+											<h5 style="color: var( --color-gray-dark)" >{{ __('Email') }}</h5>
 											<p>{{ $gtext['email_footer'] }}</p>
 										</div>
 									</div>
@@ -53,8 +53,8 @@
 											<i class="bi bi-telephone"></i>
 										</div>
 										<div class="contact-desc">
-											<h5 style="color: var( --theme-color)">{{ __('Phone') }}</h5>
-											<p>{{ $gtext['phone_footer'] }}</p>
+											<h5 style="color: var( --color-gray-dark)">{{ __('Phone') }}</h5>
+											<p>{!! nl2br($gtext['phone_footer']) !!}</p>
 										</div>
 									</div>
 								</li>
@@ -66,7 +66,7 @@
 											<i class="bi bi-geo-alt"></i>
 										</div>
 										<div class="contact-desc">
-											<h5 style="color: var( --theme-color)">{{ __('Address') }}</h5>
+											<h5 style="color: var( --color-gray-dark)">{{ __('Address') }}</h5>
 											<p>{{ $gtext['address_footer'] }}</p>
 										</div>
 									</div>
@@ -83,7 +83,7 @@
 					@if(FooterMenuList('footer') != '')
 					<div class="footer-widget-card">
 						<div class="footer-widget mb25">
-							<h3 class="widget-title" style="color: var( --theme-color)">{{ __('Quick links') }}</h3>
+							<h3 class="widget-title" style="color: var( --color-gray-dark)">{{ __('Quick links') }}</h3>
 							<ul class="widget-list">
 								@php echo FooterMenuList('footer'); @endphp
 							</ul>

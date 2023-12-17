@@ -14,6 +14,5 @@ class Faq extends Model
         'desc',
         'is_publish',
         'lan'
-
     ];
 }

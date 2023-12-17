@@ -86,7 +86,7 @@
 									<div class="col-lg-12">
 										<div class="form-group">
 											<label for="phone">{{ __('Phone') }}</label>
-											<input value="{{ $datalist['phone'] }}" type="text" name="phone" id="phone" class="form-control">
+											<textarea rows="1" type="text" name="phone" id="phone" class="form-control">{{ $datalist['phone'] }}</textarea>
 										</div>
 									</div>
 								</div>

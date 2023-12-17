@@ -53,7 +53,7 @@
 		</div>
 	</section>
 	<!-- /Page Breadcrumb/ -->
-	
+
 	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">
 		<div class="container">
@@ -67,7 +67,7 @@
 								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
 							</a>
 							@if(($row->is_discount == 1) && ($row->old_price !=''))
-								@php 
+								@php
 									$discount = number_format((($row->old_price - $row->price)*100)/$row->old_price);
 								@endphp
 							<span class="item-label">{{ $discount }}% {{ __('Off') }}</span>
@@ -95,7 +95,8 @@
 								<div class="per-day-night">/ {{ __('Night') }}</div>
 							</div>
 						</div>
-						<a href="{{ route('frontend.room', [$row->id, $row->slug]) }}" class="btn theme-btn book-now-btn">{{ __('Details') }}</a>
+                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}" class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+
 						<ul class="item-meta">
 							<li>{{ __('Adult') }} {{ $row->total_adult }}</li>
 							<li>{{ __('Child') }} {{ $row->total_child }}</li>
@@ -121,10 +122,10 @@
 			</div>
 		</div>
 	</section>
-	<!-- /Inner Section/ -->	
+	<!-- /Inner Section/ -->
 </main>
 @endsection
 
 @push('scripts')
 
-@endpush	
+@endpush
