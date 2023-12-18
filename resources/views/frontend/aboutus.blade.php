@@ -281,6 +281,23 @@
 	</section>
 	<!-- /Blog Section/ -->
 
+
+   <!-- Map Section/ -->
+	<section class="section testimonial-section bg-wite">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="section-heading">
+						<h5>{{ __('Map') }}</h5>
+						<h2>{{ __('Our location on the map') }}</h2>
+					</div>
+				</div>
+			</div>
+                <iframe style="border-radius:4px;height:500px;width:100%" src="https://www.google.com/maps/embed/v1/place?q=https://www.google.com/maps/place/%D9%81%D9%86%D8%AF%D9%82+%D9%85%D9%8A%D8%B1%D8%A7+%D8%A7%D8%B9%D9%85%D8%A7%D9%84+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7+MIRA+BUSINESS+HOTEL%E2%80%AD/@24.6886334,46.6880452,17z/data=!4m9!3m8!1s0x3e2ee2a4e0047b25:0x8a10d3a1b417d8ff!5m2!4m1!1i2!8m2!3d24.6886334!4d46.6880452!16s%2Fg%2F11tmr325b4&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+			</div>
+	</section>
+	<!-- /Map Section/ -->
+
 		</div>
 	</section>
 	<!-- /Inner Section/ -->

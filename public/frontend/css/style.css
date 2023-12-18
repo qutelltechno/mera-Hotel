@@ -1132,7 +1132,7 @@ ul.top-list-1 li i {
 	background-size: cover;
 	height: 100%;
 	width: 100%;
-	padding: 200px 0px 220px 0px;
+	padding: 100px 0px 110px 0px;
 	position: relative;
 }
 .hero-overlay::before {
@@ -1151,8 +1151,7 @@ ul.top-list-1 li i {
 	z-index: 2;
 }
 .hero-screen .hero-content h1 {
-	font-size: 65px;
-	font-weight: 900;
+	font-size: 28px;
 	margin-bottom: 25px;
 	color: var(--color-white);
 }
@@ -1174,7 +1173,7 @@ ul.top-list-1 li i {
 	padding: 40px 35px 30px 35px;
 	-webkit-box-shadow: 0px 20px 60px 0px rgba(151, 151, 151, 0.2);
 	box-shadow: 0px 20px 60px 0px rgba(151, 151, 151, 0.2);
-	border-radius: 10px;
+	border-radius: 4px;
 }
 .home_1 .search-card .search-card-inner .search-btn {
 	border-radius: 0;
@@ -1710,7 +1709,7 @@ ul.top-list-1 li i {
     background-position: 50%;
     background-size: cover;
     height: 100%;
-    min-height: 450px;
+    min-height: 250px;
     position: relative;
     display: flex;
     align-items: center;

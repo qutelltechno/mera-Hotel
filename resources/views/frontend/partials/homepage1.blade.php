@@ -14,7 +14,7 @@
 							<p>{{ $aRow->sub_title }}</p>
 							@endif
 							@if($aRow->button_text != '')
-							<a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+							<!-- <a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a> -->
 							@endif
 						</div>
 					</div>

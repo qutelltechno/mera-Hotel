@@ -30,6 +30,21 @@
 
 @section('header')
 @include('frontend.partials.header')
+<style>
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #e5e5e5;
+}
+
+.accordion-button {
+    color: black;
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+}
+</style>
 @endsection
 
 @section('content')
@@ -57,7 +72,7 @@
 	<!-- Inner Section -->
 
 	<!-- Faq Section -->
-	<section class="inner-section inner-section-bg">
+	<section class="bg-white inner-section">
 		<div class="container">
 			<div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -68,9 +83,9 @@
 					</div>
 				</div>
                 <div class="bg-color-sky-light" data-auto-height="true">
-                    <div class="content-lg container">
+                    <div class="mt-4 p-4 container card">
                             <div class="row">
-                                <div class="accordion accordion-flush info-card">
+                                <div class="accordion accordion-flush">
                                     @foreach ($faqs as $faq)
                                     <div class="wow fadeInLeft accordion-item" data-wow-duration=".3" data-wow-delay=".1s">
                                     <h2 class="accordion-header" id="flush-headingOne">
