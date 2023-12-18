@@ -35,7 +35,7 @@
 @section('content')
 <main class="main">
 	<!-- Page Breadcrumb -->
-	<section class="breadcrumb-section" style="background-image: url({{ $gtext['register_bg'] ? asset('public/media/'.$gtext['register_bg']) : '' }});">
+	<!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['register_bg'] ? asset('public/media/'.$gtext['register_bg']) : '' }});">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->

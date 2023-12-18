@@ -35,7 +35,7 @@
 @section('content')
 <main class="main">
 	<!-- Page Breadcrumb -->
-	<section class="breadcrumb-section" style="background-image: url({{ $data->cover_img ? asset('public/media/'.$data->cover_img) : '' }});">
+<!-- 	<section class="breadcrumb-section" style="background-image: url({{ $data->cover_img ? asset('public/media/'.$data->cover_img) : '' }});">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
