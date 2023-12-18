@@ -1130,9 +1130,9 @@ ul.top-list-1 li i {
 .hero-screen {
 	background-position: 50%;
 	background-size: cover;
-	min-height: 450px;
+	height: 100%;
 	width: 100%;
-	padding: 200px 0px 110px 0px;
+	padding: 200px 0px 220px 0px;
 	position: relative;
 }
 .hero-overlay::before {
