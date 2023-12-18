@@ -110,7 +110,7 @@ class HomeFrontendController extends Controller
 			$our_services = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '=', 1)->get();
 
 			//Home Video Section
-			$hv_data = Tp_option::where('option_name', 'home-video')->get();
+			$hv_data = Tp_option::where('option_name', 'home-video')->where('lan', $lan)->get();
 			$id_home_video = '';
 			foreach ($hv_data as $row){
 				$id_home_video = $row->id;

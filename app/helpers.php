@@ -549,7 +549,7 @@ function gtext(){
 	}
 
 	//theme_option_header
- 	$theme_option_header = Tp_option::where('option_name', 'theme_option_header')->get();
+ 	$theme_option_header = Tp_option::where('option_name', 'theme_option_header')->where('lan', glan())->get();
 
 	$theme_option_header_id = '';
 	foreach ($theme_option_header as $row){
@@ -586,7 +586,7 @@ function gtext(){
 	}
 
 	//theme_option_footer
- 	$theme_option_footer = Tp_option::where('option_name', 'theme_option_footer')->get();
+ 	$theme_option_footer = Tp_option::where('option_name', 'theme_option_footer')->where('lan', glan())->get();
 
 	$theme_option_footer_id = '';
 	foreach ($theme_option_footer as $row){
