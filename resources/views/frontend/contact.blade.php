@@ -59,49 +59,56 @@
 	@php $contact_form = $data['contact_form']; @endphp
 	<section class="inner-section contact_card inner-section-bg">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-8 offset-md-2">
+			<div class="row ">
+				<div class="col-md-8 offset-md-2 ">
 					<h3 class="heading text-center">{{ __('Contact Info') }}</h3>
 					@php $contact_info = $data['contact_info']; @endphp
 					@if($contact_info->short_desc != '')
-					<p class="text-center">{{ $contact_info->short_desc }}</p>
+					<p class="text-center text-dark">{{ $contact_info->short_desc }}</p>
 					@endif
 				</div>
 			</div>
 			<div class="contact-info">
-				<div class="row">
+				<div class="row  ">
 					@if($contact_info->email != '')
-					<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
+					<div class=" bg-white p-5 rounded ">
 						<div class="info">
-							<span class="icon">
+							<span class="icon iconc">
 								<i class="bi bi-envelope-paper"></i>
 							</span>
 							<div class="desc">
 								<span>{{ __('Email') }}</span>
-								<p><a href="mailto:{{ $contact_info->email }}">{{ $contact_info->email }}</a></p>
+								<p ><a href="mailto:{{ $contact_info->email }}" style="color:#000">{{ $contact_info->email }}</a></p>
 							</div>
 						</div>
 					</div>
+                    </div>
 					@endif
 
 					@if($contact_info->phone != '')
-					<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
-						<div class="info">
-							<span class="icon">
-								<i class="bi bi-telephone"></i>
-							</span>
-							<div class="desc">
-								<span>{{ __('Phone') }}</span>
-								<p>{!! nl2br($contact_info->phone) !!}</p>
-							</div>
-						</div>
-					</div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
+                        <div class="bg-white p-5  rounded">
+                            <div class="info">
+                                <span class="icon iconc">
+                                    <i class="bi bi-telephone"></i>
+                                </span>
+                                <div class="desc "class="text-dark">
+                                    <span>{{ __('Phone') }}</span>
+                                    <p>{!! nl2br($contact_info->phone) !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 					@endif
 
 					@if($contact_info->address != '')
-					<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
+
+					<div class=" bg-white p-5 rounded">
 						<div class="info">
-							<span class="icon">
+							<span class="icon iconc">
 								<i class="bi bi-geo-alt"></i>
 							</span>
 							<div class="desc">
@@ -110,6 +117,7 @@
 							</div>
 						</div>
 					</div>
+                    </div>
 					@endif
 				</div>
 			</div>
