@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2023 at 02:47 PM
+-- Generation Time: Dec 18, 2023 at 10:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -3228,6 +3228,7 @@ CREATE TABLE `tp_options` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `option_name` varchar(191) NOT NULL,
   `option_value` longtext DEFAULT NULL,
+  `lan` varchar(255) NOT NULL DEFAULT 'en',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3236,40 +3237,43 @@ CREATE TABLE `tp_options` (
 -- Dumping data for table `tp_options`
 --
 
-INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `created_at`, `updated_at`) VALUES
-(3, 'general_settings', '{\"company\":\"mira hotel\",\"email\":\"info@qutell.com\",\"phone\":\"966112351510+\",\"site_name\":\"mira Hotel\",\"site_title\":\"Hotel Booking\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0647. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"timezone\":\"Africa\\/Cairo\"}', '2021-03-31 15:59:45', '2023-12-17 09:12:55'),
-(5, 'google_recaptcha', '{\"sitekey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"secretkey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_recaptcha\":0}', '2021-03-31 17:56:01', '2023-02-18 01:48:34'),
-(35, 'mail_settings', '{\"ismail\":0,\"from_name\":\"Qutell\",\"from_mail\":\"info@qutell.com\",\"to_name\":\"Qutell\",\"to_mail\":\"admin@gmail.com\",\"mailer\":\"smtp\",\"smtp_host\":\"mail.companyname.com\",\"smtp_port\":\"465\",\"smtp_security\":\"ssl\",\"smtp_username\":\"admin@companyname.com\",\"smtp_password\":\"xxxxxxxxxxxxxxxx\"}', '2021-06-03 19:33:17', '2023-11-27 09:15:21'),
-(69, 'custom_css', NULL, '2021-06-06 23:18:38', '2021-11-26 04:38:46'),
-(70, 'custom_js', NULL, '2021-06-06 23:46:24', '2021-11-26 04:37:19'),
-(74, 'theme_option_seo', '{\"og_title\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_image\":\"16022023173552-600x315-home-1.jpg\",\"og_description\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_keywords\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"is_publish\":\"1\"}', '2021-07-11 10:38:12', '2023-02-16 11:35:57'),
-(77, 'theme_logo', '{\"favicon\":\"07122023091202-900x700-photo_6021453864940716628_m.jpg\",\"front_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\",\"back_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\"}', '2021-07-12 11:15:36', '2023-12-07 07:12:25'),
-(78, 'facebook', '{\"fb_app_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:00:35', '2021-11-26 03:59:37'),
-(79, 'twitter', '{\"twitter_id\":null,\"is_publish\":\"2\"}', '2021-08-05 11:10:01', '2021-11-26 03:57:18'),
-(80, 'whatsapp', '{\"whatsapp_id\":\"+669 (0) 11 532 0151\",\"whatsapp_text\":\"\\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"position\":\"left\",\"is_publish\":\"1\"}', '2021-08-05 11:25:20', '2023-12-14 08:18:47'),
-(87, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"is_publish\":\"1\"}', '2021-08-29 08:45:26', '2023-12-17 10:21:22'),
-(91, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":null,\"is_publish_about\":\"1\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\\r\\n+966  (0) 11 466 1153 \\u0645\\u064a\\u0631\\u0627 \\u062a\\u0631\\u064a\\u0648\\r\\n+966  (0) 12 614 1040 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0644\\u0648\\u062c\\u0647\\u0629 \\u0627\\u0644\\u0628\\u062d\\u0631\\u064a\\u0629\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"Mira Hotel\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\"}', '2021-08-29 11:15:13', '2023-12-17 09:15:32'),
-(93, 'home-video', '{\"title\":\"Our Hotel Preview Video\",\"short_desc\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"url\":\"#\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=AlfXYaiAv68\",\"button_text\":\"Book Now\",\"target\":null,\"image\":\"07012023043902-preview.jpg\",\"is_publish\":\"1\"}', '2021-09-01 11:39:35', '2023-12-10 08:13:08'),
-(94, 'facebook-pixel', '{\"fb_pixel_id\":null,\"is_publish\":\"2\"}', '2021-09-17 11:52:01', '2021-11-26 03:59:21'),
-(95, 'google_analytics', '{\"tracking_id\":null,\"is_publish\":\"2\"}', '2021-09-18 08:11:08', '2023-02-27 09:42:47'),
-(96, 'google_tag_manager', '{\"google_tag_manager_id\":null,\"is_publish\":\"2\"}', '2021-09-18 08:30:10', '2021-11-26 04:35:16'),
-(98, 'cash_on_delivery', '{\"description\":\"Pay via cash on\",\"isenable\":1}', '2021-10-07 10:42:26', '2023-01-29 09:18:05'),
-(99, 'bank_transfer', '{\"description\":\"Please send money to our bank account: A\\/C- 12365402547895487454.\",\"isenable\":1}', '2021-10-07 10:53:34', '2022-05-20 12:05:08'),
-(100, 'stripe', '{\"stripe_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"stripe_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"currency\":\"usd\",\"isenable\":0}', '2021-10-07 12:14:49', '2023-02-18 07:53:06'),
-(101, 'mailchimp', '{\"mailchimp_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"audience_id\":\"0123645455455\",\"is_mailchimp\":0}', '2021-11-01 09:27:17', '2023-02-18 01:51:48'),
-(102, 'subscribe_popup', '{\"subscribe_title\":\"Subscribe our newsletter\",\"subscribe_popup_desc\":\"Subscribe to the mailing list to receive updates on special offers, new arrivals and our promotions.\",\"bg_image_popup\":\"11122023080614-mirabusiness13.JPG\",\"background_image\":\"11122023080641-mirabusiness1.jpg\",\"is_subscribe_popup\":1,\"is_subscribe_footer\":1}', '2021-11-01 10:00:58', '2023-12-11 12:16:02'),
-(111, 'seller_settings', '{\"fee_withdrawal\":\"5\",\"product_auto_publish\":1,\"seller_auto_active\":1}', '2022-01-07 10:45:07', '2022-12-09 07:42:52'),
-(112, 'language_switcher', '{\"is_language_switcher\":\"1\"}', '2022-01-22 10:22:15', '2023-02-18 05:59:42'),
-(114, 'paypal', '{\"paypal_client_id\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"paypal_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"paypal_currency\":\"USD\",\"ismode_paypal\":1,\"isenable_paypal\":1}', '2022-05-19 23:25:59', '2023-12-05 05:50:09'),
-(116, 'razorpay', '{\"razorpay_key_id\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"razorpay_key_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"razorpay_currency\":\"USD\",\"ismode_razorpay\":1,\"isenable_razorpay\":0}', '2022-05-20 00:28:45', '2023-02-18 07:53:32'),
-(117, 'mollie', '{\"mollie_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"mollie_currency\":\"USD\",\"ismode_mollie\":1,\"isenable_mollie\":0}', '2022-05-20 07:50:45', '2023-02-18 07:53:43'),
-(131, 'page_variation', '{\"home_variation\":\"home_1\"}', '2022-08-11 23:58:42', '2023-02-18 05:59:12'),
-(133, 'google_map', '{\"googlemap_apikey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_googlemap\":0}', '2022-08-27 10:17:37', '2023-02-18 02:05:28'),
-(147, 'theme_color', '{\"theme_color\":\"#000000\",\"light_color\":\"#adadad\",\"blue_color\":\"#000000\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#a8acb0\",\"gray400_color\":\"#f1f5f9\",\"gray500_color\":\"#f0eded\",\"black_color\":\"#000000\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#757678\"}', '2022-09-01 23:55:08', '2023-12-17 09:28:57'),
-(160, 'cookie_consent', '{\"title\":\"Cookie Consent\",\"message\":\"This website uses cookies or similar technologies, to enhance your browsing experience and provide personalized recommendations. By continuing to use our website, you agree to our\",\"button_text\":\"Accept\",\"learn_more_url\":\"https:\\/\\/relaxly.themeposh.net\\/page\\/47\\/cookie-policy\",\"learn_more_text\":\"Privacy Policy\",\"style\":\"minimal\",\"position\":\"left\",\"is_publish\":\"1\"}', '2022-10-15 09:49:20', '2023-02-27 09:43:01'),
-(169, 'currency', '{\"currency_name\":\"USD\",\"currency_icon\":\"$\",\"currency_position\":\"left\",\"thousands_separator\":\"comma\",\"decimal_separator\":\"point\",\"decimal_digit\":\"2\"}', '2021-08-21 04:22:13', '2023-02-27 09:40:43'),
-(173, 'subheader_bg_images', '{\"blog_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"contact_bg\":\"11122023081140-img-24.jpg\",\"register_bg\":\"11122023081856-mirabusiness14.jpg\",\"login_bg\":\"11122023081948-mirabusiness3.JPG\",\"reset_password_bg\":\"11122023084654-img-23.jpg\",\"dashboard_bg\":\"11122023081856-mirabusiness14.jpg\",\"profile_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"change_password_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"booking_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\"}', '2023-01-14 09:43:04', '2023-12-13 07:56:22'),
-(190, 'vipc', '{\"bactive\":0,\"resetkey\":0}', '2023-03-05 10:14:50', '2023-03-05 10:14:50');
+INSERT INTO `tp_options` (`id`, `option_name`, `option_value`, `lan`, `created_at`, `updated_at`) VALUES
+(3, 'general_settings', '{\"company\":\"mira hotel\",\"email\":\"info@qutell.com\",\"phone\":\"966112351510+\",\"site_name\":\"mira Hotel\",\"site_title\":\"Hotel Booking\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0647. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"timezone\":\"Africa\\/Cairo\"}', 'en', '2021-03-31 15:59:45', '2023-12-17 09:12:55'),
+(5, 'google_recaptcha', '{\"sitekey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"secretkey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_recaptcha\":0}', 'en', '2021-03-31 17:56:01', '2023-02-18 01:48:34'),
+(35, 'mail_settings', '{\"ismail\":0,\"from_name\":\"Qutell\",\"from_mail\":\"info@qutell.com\",\"to_name\":\"Qutell\",\"to_mail\":\"admin@gmail.com\",\"mailer\":\"smtp\",\"smtp_host\":\"mail.companyname.com\",\"smtp_port\":\"465\",\"smtp_security\":\"ssl\",\"smtp_username\":\"admin@companyname.com\",\"smtp_password\":\"xxxxxxxxxxxxxxxx\"}', 'en', '2021-06-03 19:33:17', '2023-11-27 09:15:21'),
+(69, 'custom_css', NULL, 'en', '2021-06-06 23:18:38', '2021-11-26 04:38:46'),
+(70, 'custom_js', NULL, 'en', '2021-06-06 23:46:24', '2021-11-26 04:37:19'),
+(74, 'theme_option_seo', '{\"og_title\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_image\":\"16022023173552-600x315-home-1.jpg\",\"og_description\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"og_keywords\":\"Lorem Ipsum un testo segnaposto utilizzato nel settore della tipografia e della stampa.\",\"is_publish\":\"1\"}', 'en', '2021-07-11 10:38:12', '2023-02-16 11:35:57'),
+(77, 'theme_logo', '{\"favicon\":\"07122023091202-900x700-photo_6021453864940716628_m.jpg\",\"front_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\",\"back_logo\":\"05122023212856-900x700-Mira-Hotel-Arabic-Logo-full-black.png\"}', 'en', '2021-07-12 11:15:36', '2023-12-07 07:12:25'),
+(78, 'facebook', '{\"fb_app_id\":null,\"is_publish\":\"2\"}', 'en', '2021-08-05 11:00:35', '2021-11-26 03:59:37'),
+(79, 'twitter', '{\"twitter_id\":null,\"is_publish\":\"2\"}', 'en', '2021-08-05 11:10:01', '2021-11-26 03:57:18'),
+(80, 'whatsapp', '{\"whatsapp_id\":\"+669 (0) 11 532 0151\",\"whatsapp_text\":\"\\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"position\":\"left\",\"is_publish\":\"1\"}', 'en', '2021-08-05 11:25:20', '2023-12-14 08:18:47'),
+(87, 'theme_option_header', '{\"address\":\"Saudi arabia\",\"phone\":\"+966  (0) 11  532 0151 (Business)\",\"is_publish\":\"1\"}', 'en', '2021-08-29 08:45:26', '2023-12-18 07:11:12'),
+(91, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":null,\"is_publish_about\":\"1\",\"address\":\"Saudi Arabia. Riyadh\",\"phone\":\"+966 (0) 11 532 0151 Mira Business\\r\\n+966 (0) 11 466 1153 Mira Trio\\r\\n+966 (0) 12 614 1040 Mira seaside destination\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"Mira Hotel\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\",\"lan\":\"en\"}', 'en', '2021-08-29 11:15:13', '2023-12-18 07:18:33'),
+(93, 'home-video', '{\"title\":\"Our Hotel Preview Videoo\",\"short_desc\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\",\"url\":\"#\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=AlfXYaiAv68\",\"button_text\":\"Book Now\",\"target\":null,\"image\":\"07012023043902-preview.jpg\",\"is_publish\":\"1\"}', 'en', '2021-09-01 11:39:35', '2023-12-18 06:16:21'),
+(94, 'facebook-pixel', '{\"fb_pixel_id\":null,\"is_publish\":\"2\"}', 'en', '2021-09-17 11:52:01', '2021-11-26 03:59:21'),
+(95, 'google_analytics', '{\"tracking_id\":null,\"is_publish\":\"2\"}', 'en', '2021-09-18 08:11:08', '2023-02-27 09:42:47'),
+(96, 'google_tag_manager', '{\"google_tag_manager_id\":null,\"is_publish\":\"2\"}', 'en', '2021-09-18 08:30:10', '2021-11-26 04:35:16'),
+(98, 'cash_on_delivery', '{\"description\":\"Pay via cash on\",\"isenable\":1}', 'en', '2021-10-07 10:42:26', '2023-01-29 09:18:05'),
+(99, 'bank_transfer', '{\"description\":\"Please send money to our bank account: A\\/C- 12365402547895487454.\",\"isenable\":1}', 'en', '2021-10-07 10:53:34', '2022-05-20 12:05:08'),
+(100, 'stripe', '{\"stripe_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"stripe_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"currency\":\"usd\",\"isenable\":0}', 'en', '2021-10-07 12:14:49', '2023-02-18 07:53:06'),
+(101, 'mailchimp', '{\"mailchimp_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"audience_id\":\"0123645455455\",\"is_mailchimp\":0}', 'en', '2021-11-01 09:27:17', '2023-02-18 01:51:48'),
+(102, 'subscribe_popup', '{\"subscribe_title\":\"Subscribe our newsletter\",\"subscribe_popup_desc\":\"Subscribe to the mailing list to receive updates on special offers, new arrivals and our promotions.\",\"bg_image_popup\":\"11122023080614-mirabusiness13.JPG\",\"background_image\":\"11122023080641-mirabusiness1.jpg\",\"is_subscribe_popup\":1,\"is_subscribe_footer\":1}', 'en', '2021-11-01 10:00:58', '2023-12-11 12:16:02'),
+(111, 'seller_settings', '{\"fee_withdrawal\":\"5\",\"product_auto_publish\":1,\"seller_auto_active\":1}', 'en', '2022-01-07 10:45:07', '2022-12-09 07:42:52'),
+(112, 'language_switcher', '{\"is_language_switcher\":\"1\"}', 'en', '2022-01-22 10:22:15', '2023-02-18 05:59:42'),
+(114, 'paypal', '{\"paypal_client_id\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"paypal_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"paypal_currency\":\"USD\",\"ismode_paypal\":1,\"isenable_paypal\":1}', 'en', '2022-05-19 23:25:59', '2023-12-05 05:50:09'),
+(116, 'razorpay', '{\"razorpay_key_id\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"razorpay_key_secret\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"razorpay_currency\":\"USD\",\"ismode_razorpay\":1,\"isenable_razorpay\":0}', 'en', '2022-05-20 00:28:45', '2023-02-18 07:53:32'),
+(117, 'mollie', '{\"mollie_api_key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"mollie_currency\":\"USD\",\"ismode_mollie\":1,\"isenable_mollie\":0}', 'en', '2022-05-20 07:50:45', '2023-02-18 07:53:43'),
+(131, 'page_variation', '{\"home_variation\":\"home_1\"}', 'en', '2022-08-11 23:58:42', '2023-02-18 05:59:12'),
+(133, 'google_map', '{\"googlemap_apikey\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"is_googlemap\":0}', 'en', '2022-08-27 10:17:37', '2023-02-18 02:05:28'),
+(147, 'theme_color', '{\"theme_color\":\"#000000\",\"light_color\":\"#adadad\",\"blue_color\":\"#000000\",\"gray_color\":\"#8d949d\",\"dark_gray_color\":\"#a8acb0\",\"gray400_color\":\"#f1f5f9\",\"gray500_color\":\"#f0eded\",\"black_color\":\"#000000\",\"white_color\":\"#ffffff\",\"backend_theme_color\":\"#757678\"}', 'en', '2022-09-01 23:55:08', '2023-12-17 09:28:57'),
+(160, 'cookie_consent', '{\"title\":\"Cookie Consent\",\"message\":\"This website uses cookies or similar technologies, to enhance your browsing experience and provide personalized recommendations. By continuing to use our website, you agree to our\",\"button_text\":\"Accept\",\"learn_more_url\":\"https:\\/\\/relaxly.themeposh.net\\/page\\/47\\/cookie-policy\",\"learn_more_text\":\"Privacy Policy\",\"style\":\"minimal\",\"position\":\"left\",\"is_publish\":\"1\"}', 'en', '2022-10-15 09:49:20', '2023-02-27 09:43:01'),
+(169, 'currency', '{\"currency_name\":\"USD\",\"currency_icon\":\"$\",\"currency_position\":\"left\",\"thousands_separator\":\"comma\",\"decimal_separator\":\"point\",\"decimal_digit\":\"2\"}', 'en', '2021-08-21 04:22:13', '2023-02-27 09:40:43'),
+(173, 'subheader_bg_images', '{\"blog_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"contact_bg\":\"11122023081140-img-24.jpg\",\"register_bg\":\"11122023081856-mirabusiness14.jpg\",\"login_bg\":\"11122023081948-mirabusiness3.JPG\",\"reset_password_bg\":\"11122023084654-img-23.jpg\",\"dashboard_bg\":\"11122023081856-mirabusiness14.jpg\",\"profile_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"change_password_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\",\"booking_bg\":\"07122023095100-photo_6021453864940716606_y.jpg\"}', 'en', '2023-01-14 09:43:04', '2023-12-13 07:56:22'),
+(190, 'vipc', '{\"bactive\":0,\"resetkey\":0}', 'en', '2023-03-05 10:14:50', '2023-03-05 10:14:50'),
+(198, 'home-video', '{\"title\":\"\\u0627\\u0644\\u0639\\u0646\\u0648\\u0627\\u0646\",\"short_desc\":\"\\u0627\\u0644\\u0639\\u0646\\u0648\\u0627\\u0646\\u0627\\u0644\\u0639\\u0646\\u0648\\u0627\\u0646\",\"url\":\"\\u0646\\u0635 \\u0627\\u0644\\u0632\\u0631\\u0646\\u0635 \\u0627\\u0644\\u0632\\u0631\",\"video_url\":\"\\u0627\\u0644\\u0639\\u0646\\u0648\\u0627\\u0646\\u0627\\u0644\\u0639\\u0646\\u0648\\u0627\\u0646\",\"button_text\":\"\\u0646\\u0635 \\u0627\\u0644\\u0632\\u0631\",\"target\":null,\"image\":\"11122023081948-mirabusiness3.JPG\",\"is_publish\":\"1\"}', 'ar', '2023-12-18 06:38:21', '2023-12-18 06:38:21'),
+(199, 'theme_option_header', '{\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\",\"is_publish\":\"1\"}', 'ar', '2023-12-18 07:10:25', '2023-12-18 07:10:25'),
+(200, 'theme_option_footer', '{\"about_logo\":\"27122022160256-payment.png\",\"about_desc\":null,\"is_publish_about\":\"1\",\"address\":\"\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629. \\u0627\\u0644\\u0631\\u064a\\u0627\\u0636\",\"phone\":\"+966  (0) 11  532 0151 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0639\\u0645\\u0627\\u0644\\r\\n+966  (0) 11 466 1153 \\u0645\\u064a\\u0631\\u0627 \\u062a\\u0631\\u064a\\u0648\\r\\n+966  (0) 12 614 1040 \\u0645\\u064a\\u0631\\u0627 \\u0627\\u0644\\u0648\\u062c\\u0647\\u0629 \\u0627\\u0644\\u0628\\u062d\\u0631\\u064a\\u0629\",\"email\":\"info@qutell.com\",\"is_publish_contact\":\"1\",\"copyright\":\"\\u0641\\u0646\\u0627\\u062f\\u0642 \\u0645\\u064a\\u0631\\u0627\",\"is_publish_copyright\":\"1\",\"payment_gateway_icon\":\"27122022160256-payment.png\",\"is_publish_payment\":\"1\",\"lan\":\"ar\"}', 'ar', '2021-08-29 11:15:13', '2023-12-18 07:19:08');
 
 -- --------------------------------------------------------
 
@@ -3627,8 +3631,7 @@ ALTER TABLE `timezones`
 -- Indexes for table `tp_options`
 --
 ALTER TABLE `tp_options`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tp_options_option_name_unique` (`option_name`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tp_status`
@@ -3886,7 +3889,7 @@ ALTER TABLE `timezones`
 -- AUTO_INCREMENT for table `tp_options`
 --
 ALTER TABLE `tp_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `tp_status`
