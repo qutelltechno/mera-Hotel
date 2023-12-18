@@ -33,7 +33,7 @@ class AboutUsController extends Controller
         $testimonial = Section_content::where('section_type', '=', 'testimonial')->get();
 
         //Home Video Section
-        $hv_data = Tp_option::where('option_name', 'home-video')->get();
+        $hv_data = Tp_option::where('option_name', 'home-video')->where('lan', $lan)->get();
         $id_home_video = '';
         foreach ($hv_data as $row){
             $id_home_video = $row->id;

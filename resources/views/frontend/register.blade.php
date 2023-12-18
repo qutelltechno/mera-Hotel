@@ -53,7 +53,7 @@
 		</div>
 	</section>
 	<!-- /Page Breadcrumb/ -->
-	
+
 	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">
 		<div class="container">
@@ -62,9 +62,9 @@
 					<div class="register">
 						<h4>{{ __('Create an customer account') }}</h4>
 						<p>{{ __('Please fill in the information below') }}</p>
-						
+
 						@if(Session::has('success'))
-						<div class="alert alert-success">
+						<d						iv class="alert alert-success">
 							{{Session::get('success')}}
 						</div>
 						@endif
@@ -117,12 +117,12 @@
 			</div>
 		</div>
 	</section>
-	<!-- /Inner Section/ -->	
+	<!-- /Inner Section/ -->
 </main>
 @endsection
 
 @push('scripts')
 @if($gtext['is_recaptcha'] == 1)
-<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+<script src='https://www.go	ogle.com/recaptcha/api.js' async defer></script>
 @endif
-@endpush	
+@endpush

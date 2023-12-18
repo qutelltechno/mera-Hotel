@@ -41,12 +41,6 @@
 				<div class="col-12">
 					<div class="breadcrumb-card wow pulse">
 						<h2>{{ $metadata['name'] }}</h2>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ $metadata['name'] }}</li>
-							</ol>
-						</nav>
 					</div>
 				</div>
 			</div>

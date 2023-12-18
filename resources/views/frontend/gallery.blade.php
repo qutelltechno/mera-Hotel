@@ -50,12 +50,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
 				<div class="col-12">
 					<div class="breadcrumb-card wow pulse">
 						<h2>{{ __('gallery') }}</h2>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ __('gallery') }}</li>
-							</ol>
-						</nav>
 					</div>
 				</div>
 			</div>

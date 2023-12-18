@@ -53,7 +53,7 @@
 		</div>
 	</section>
 	<!-- /Page Breadcrumb/ -->
-	
+
 	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">
 		<div class="container">
@@ -62,7 +62,7 @@
 					<div class="register">
 						<h4>{{ __('Reset Password') }}</h4>
 						<p>{{ __('Enter your email address below and we will send you a link to reset your password') }}</p>
-						
+
 						@if(Session::has('success'))
 						<div class="alert alert-success">
 							{{Session::get('success')}}
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- /Inner Section/ -->	
+	<!-- /Inner Section/ -->
 </main>
 @endsection
 
@@ -110,4 +110,4 @@
 @if($gtext['is_recaptcha'] == 1)
 <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 @endif
-@endpush	
+@endpush

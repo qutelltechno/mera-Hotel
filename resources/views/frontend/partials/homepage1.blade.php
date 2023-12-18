@@ -278,7 +278,7 @@
 	@endif
 	<!-- /Featured Section/ -->
 
-    	<!-- Preview Video Section-->
+    <!-- Preview Video Section-->
 	@if($home_video['is_publish'] == 1)
 	<section class="preview-section">
 		<div class="row align-items-center justify-content-center g-0">
