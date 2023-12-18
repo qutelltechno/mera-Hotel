@@ -136,7 +136,7 @@
 									</label>
 								</div>
 								@if ($errors->has('password'))
-								<span class="text-danger">{{ $errors->fi rst('password') }}</span>
+								<span class="text-danger">{{ $errors->first('password') }}</span>
 								@endif
 							</div>
 						</div>
@@ -186,7 +186,7 @@
 								<div class="payment_card">
 									<div class="checkboxlist">
 										<label class="checkbox-title">
-											<i								nput id="payment_method_paypal" name="payment_method" type="radio" value="4"><img src="{{ asset('public/frontend/images/paypal.png') }}" alt="Paypal" />
+											<input id="payment_method_paypal" name="payment_method" type="radio" value="4"><img src="{{ asset('public/frontend/images/paypal.png') }}" alt="Paypal" />
 										</label>
 									</div>
 									<p id="pay_paypal" class="hideclass">{{ __('Pay online via Paypal') }}</p>
@@ -197,7 +197,7 @@
 								<div class="payment_card">
 									<div class="checkboxlist">
 										<label class="checkbox-title">
-											<input id="								payment_method_razorpay" name="payment_method" type="radio" value="5"><img src="{{ asset('public/frontend/images/razorpay.png') }}" alt="Razorpay" />
+											<input id="payment_method_razorpay" name="payment_method" type="radio" value="5"><img src="{{ asset('public/frontend/images/razorpay.png') }}" alt="Razorpay" />
 										</label>
 									</div>
 									<p id="pay_razorpay" class="hideclass">{{ __('Pay online via Razorpay') }}</p>
@@ -208,7 +208,7 @@
 								<div class="payment_card">
 									<div class="checkboxlist">
 										<label class="checkbox-title">
-											<input id="payment_metho								d_mollie" name="payment_method" type="radio" value="6"><img src="{{ asset('public/frontend/images/mollie.png') }}" alt="Mollie" />
+											<input id="payment_method_mollie" name="payment_method" type="radio" value="6"><img src="{{ asset('public/frontend/images/mollie.png') }}" alt="Mollie" />
 										</label>
 									</div>
 									<p id="pay_mollie" class="hideclass">{{ __('Pay online via Mollie') }}</p>
@@ -219,7 +219,7 @@
 								<div class="payment_card">
 									<div class="checkboxlist">
 										<label class="checkbox-title">
-											<input id="payment_method_cod" name="p								ayment_method" type="radio" value="1"><img src="{{ asset('public/frontend/images/cash_on_delivery.png') }}" alt="Cash on Delivery" />
+											<input id="payment_method_cod" name="payment_method" type="radio" value="1"><img src="{{ asset('public/frontend/images/cash_on_delivery.png') }}" alt="Cash on Delivery" />
 										</label>
 									</div>
 									<p id="pay_cod" class="hideclass">{{ $gtext['cod_description'] }}</p>
@@ -230,7 +230,7 @@
 								<div class="payment_card">
 									<div class="checkboxlist">
 										<label class="checkbox-title">
-											<input id="payment_method_bank" name="payment_me								thod" type="radio" value="2"><img src="{{ asset('public/frontend/images/bank_transfer.png') }}" alt="Bank Transfer" />
+											<input id="payment_method_bank" name="payment_method" type="radio" value="2"><img src="{{ asset('public/frontend/images/bank_transfer.png') }}" alt="Bank Transfer" />
 										</label>
 									</div>
 									<p id="pay_bank" class="hideclass">{{ $gtext['bank_description'] }}</p>
@@ -253,7 +253,7 @@
 								<div class="widget-title">{{ __('Booking Summary') }}</div>
 								<div class="widget-body">
 									<div class="row">
-										<div c					lass="room-book-card">
+										<div class="room-book-card">
 											<div class="room-book-img">
 												<a href="{{ route('frontend.room', [$rtdata->id, $rtdata->slug]) }}">
 													<img src="{{ asset('public/media/'.$rtdata->thumbnail) }}" alt="{{ $rtdata->title }}" />
@@ -347,7 +347,7 @@
 									<p>{{ __('If you need any help, feel free to contact us.') }}</p>
 
 									@if($gtext['phone_footer'] != '')
-									<p><strong>{{ __('Phone') 							}}:</strong> {{ $gtext['phone_footer'] }}</p>
+									<p><strong>{{ __('Phone')}}:</strong> {{ $gtext['phone_footer'] }}</p>
 									@endif
 
 									@if($gtext['email_footer'] != '')
@@ -359,7 +359,7 @@
 									@endif
 								</div>
 							</div>
-							@e									ndif
+							@endif
 						</div>
 					</div>
 				</div>
@@ -371,10 +371,10 @@
 @endsection
 
 @push('scripts')
-<link re									l="stylesheet" href="{{asset('public/frontend/css/bootstrap-fonticon.css')}}">
+<link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap-fonticon.css')}}">
 <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap-datetimepicker.css')}}">
-<scri	pt src="{{asset('public/frontend/js/bootstrap-datetimepicker.min.js')}}"></script>
-<script src="{{asset('public/frontend/js/parsley	.min.js')}}"></script>
+<script src="{{asset('public/frontend/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="{{asset('public/frontend/js/parsley.min.js')}}"></script>
 <script type="text/javascript">
 var maxRoom = "{{ $total_room }}";
 var theme_color = "{{ $gtext['theme_color'] }}";
