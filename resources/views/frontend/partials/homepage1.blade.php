@@ -458,7 +458,7 @@
 				@endforeach
 			</div>
 
-            <div class="item-content">
+            <div class="item-content mt25">
                 <div class="item-title d-flex justify-content-center">
                     <a class="btn theme-btn" href="{{ route('frontend.services') }}">{{__('Show More')}}</a>
                  </div>

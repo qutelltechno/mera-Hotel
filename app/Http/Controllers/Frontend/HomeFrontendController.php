@@ -68,7 +68,7 @@ class HomeFrontendController extends Controller
 				$our_services_section = json_decode(json_encode($our_services_array));
 			}
 
-            $$our_services_section = $our_services_section->limit(6)->get();
+            $our_services_section = $our_services_section->limit(6)->get();
 
             $our_services2 = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '!=', 1)->get();
 
