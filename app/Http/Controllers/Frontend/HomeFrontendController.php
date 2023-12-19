@@ -68,8 +68,6 @@ class HomeFrontendController extends Controller
 				$our_services_section = json_decode(json_encode($our_services_array));
 			}
 
-            $our_services_section = $our_services_section->limit(6)->get();
-
             $our_services2 = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '!=', 1)->get();
 
 			//Testimonial Section
@@ -111,7 +109,7 @@ class HomeFrontendController extends Controller
 				->get();
 
 			//Our Services
-			$our_services = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '=', 1)->get();
+			$our_services = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '=', 1)->limit(6)->get();
 
 			//Home Video Section
 			$hv_data = Tp_option::where('option_name', 'home-video')->where('lan', $lan)->get();
