@@ -66,7 +66,7 @@
 				<div class="row  ">
 					@if($contact_info->email != '')
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
-					<div class=" bg-white p-5 rounded ">
+					<div class=" bg-white p-5 rounded " style="height: 250px;">
 						<div class="info">
 							<span class="icon iconc">
 								<i class="bi bi-envelope-paper"></i>
@@ -82,7 +82,7 @@
 
 					@if($contact_info->phone != '')
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
-                        <div class="bg-white p-5  rounded">
+                        <div class=" bg-white p-5 rounded " style="height: 250px;">
                             <div class="info">
                                 <span class="icon iconc">
                                     <i class="bi bi-telephone"></i>
@@ -100,8 +100,8 @@
 					@if($contact_info->address != '')
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
 
-					<div class=" bg-white p-5 rounded">
-						<div class="info">
+                        <div class=" bg-white p-5 rounded " style="height: 250px;">
+                            <div class="info">
 							<span class="icon iconc">
 								<i class="bi bi-geo-alt"></i>
 							</span>
