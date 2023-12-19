@@ -35,7 +35,7 @@
 							<ul class="widget-contact">
 								@if($gtext['email_footer'] != '')
 								<li>
-									<div class="contact-card">
+									<div class="contact-card" style="display:flex;gap:4px;">
 										<div class="contact-icon">
 											<i class="bi bi-envelope-paper"></i>
 										</div>
@@ -48,7 +48,7 @@
 								@endif
 								@if($gtext['phone_footer'] != '')
 								<li>
-									<div class="contact-card">
+									<div class="contact-card" style="display:flex;gap:4px;">
 										<div class="contact-icon">
 											<i class="bi bi-telephone"></i>
 										</div>
@@ -61,7 +61,7 @@
 								@endif
 								@if($gtext['address_footer'] != '')
 								<li>
-									<div class="contact-card">
+									<div class="contact-card" style="display:flex;gap:4px;">
 										<div class="contact-icon">
 											<i class="bi bi-geo-alt"></i>
 										</div>
