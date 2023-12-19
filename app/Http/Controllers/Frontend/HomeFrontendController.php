@@ -68,6 +68,8 @@ class HomeFrontendController extends Controller
 				$our_services_section = json_decode(json_encode($our_services_array));
 			}
 
+            $our_services2 = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '!=', 1)->get();
+
 			//Testimonial Section
 			$testimonial_section = Section_manage::where('lan',$lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'testimonial')->where('is_publish', '=', 1)->first();
 			if($testimonial_section ==''){
@@ -177,6 +179,7 @@ class HomeFrontendController extends Controller
 			'OfferAds',
 			'featured_rooms',
 			'our_services',
+            'our_services2',
 			'home_video',
 			'testimonial',
 			'blogs'

@@ -337,6 +337,33 @@
 			</div>
 		</div>
 	</section>
+
+
+    <section class="section service-section">
+        <div class="container mt-5">
+            <div class="row">
+                @foreach ($our_services2 as $row)
+                <div class="col-lg-4 col-md-6 col-sm-12 position-relative main-card">
+                    <div>
+                        <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" alt="">
+                    </div>
+                    <div class="col-9 text-card">
+                        <h3>{{ $row->title }}</h3>
+                        <p class="paragraphe-text">
+                            {{ $row->desc }}.
+                        </p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+             </section>
+            </div>
+        </div>
+
+            </div>
+        </div>
+	</section>
 	@endif
 	<!-- /Services Section/ -->
 
@@ -426,3 +453,39 @@
 	@endif
 	<!-- /Blog Section/ -->
 </main>
+
+@push('scripts')
+<style>
+    .main-card {
+  margin-bottom: 110px;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+.text-card {
+  background-color: rgb(255, 255, 255);
+  bottom: -70px;
+  padding: 25px;
+  width: 100%;
+  height: 250px;
+}
+.paragraphe-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+  width: 100%;
+  cursor: pointer;
+  padding: 0px 10px;
+  font-family: 'Cairo', sans-serif;
+  margin-bottom: 0;
+  padding: 0;
+}
+.text-card h3 {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+</style>
+@endpush
