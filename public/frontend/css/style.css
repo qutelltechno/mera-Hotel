@@ -2432,6 +2432,9 @@ ul.errors-list li {
 	width: 100%;
 	overflow: hidden;
 	margin-bottom: 30px;
+  background: white;
+	padding: 20px;
+  
 }
 .blog-details-card .blog-img {
 	width: 100%;

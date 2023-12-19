@@ -86,7 +86,7 @@
 				</div>
 				<div class="col-12 col-md-12 col-lg-4">
 					<div class="sidebar">
-						<div class="widget-card">
+			<!-- 			<div class="widget-card">
 							<div class="widget-title">{{ __('Blog Categories') }}</div>
 							<div class="widget-body">
 								<ul class="widget-list">
@@ -100,7 +100,7 @@
 									@endforeach
 								</ul>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="widget-card">
 							<div class="widget-title">{{ __('Latest Blog') }}</div>
