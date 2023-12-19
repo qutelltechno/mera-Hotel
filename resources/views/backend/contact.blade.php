@@ -113,13 +113,13 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="email">{{ __('Email') }}<span class="red">*</span></label>
-										<input type="text" name="email" id="email" class="form-control parsley-validated" data-required="true">
+                                        <textarea name="email" rows="2"  id="phone" class="form-control parsley-validated" data-required="true"></textarea>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="phone">{{ __('Phone') }}<span class="red">*</span></label>
-                                        <textarea name="phone" cols="1"  id="phone" class="form-control parsley-validated" data-required="true"></textarea>
+                                        <textarea name="phone" rows="2"  id="phone" class="form-control parsley-validated" data-required="true"></textarea>
 
                                     </div>
 								</div>
