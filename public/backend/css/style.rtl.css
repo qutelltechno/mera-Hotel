@@ -788,6 +788,7 @@ a.my-profile-info {
 	padding: 12px 10px;
 	color: #808182;
 	font-size: 14px;
+	text-decoration:none;
 }
 .sidebar-wrapper ul.left-navbar li a i.fa {
 	font-size: 14px;
@@ -2854,3 +2855,4 @@ table.order td p {
 ::-webkit-scrollbar-thumb:hover {
 		background-color:var(--backend-theme-color); 
 	}
+
