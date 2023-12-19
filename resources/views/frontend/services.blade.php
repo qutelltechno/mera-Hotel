@@ -84,8 +84,8 @@
 			</div>
 		</div>
 	</section>
-	
-	<!-- /Services Section/ -->		
+
+	<!-- /Services Section/ -->
 	<!-- Services Section/ -->
 
 	<!-- /Services Section/ -->
@@ -95,9 +95,9 @@
                 @foreach ($our_services2 as $row)
                 <div class="col-lg-4 col-md-6 col-sm-12 position-relative main-card">
                     <div>
-                        <img src="{{ asset('public/media/'.$row->image) }}" alt="">
+                        <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" alt="">
                     </div>
-                    <div class="col-9 text-card position-absolute">
+                    <div class="col-9 text-card">
                         <h3>{{ $row->title }}</h3>
                         <p class="paragraphe-text">
                             {{ $row->desc }}.
@@ -131,11 +131,13 @@ img {
   background-color: rgb(255, 255, 255);
   bottom: -70px;
   padding: 25px;
+  width: 100%;
+  height: 250px;
 }
 .paragraphe-text {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   width: 100%;
   cursor: pointer;
