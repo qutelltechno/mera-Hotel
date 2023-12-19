@@ -170,6 +170,47 @@
 	@endforeach
 	@endif
 	<!-- /About Section/ -->
+	
+    <section class="section service-section">
+        <div class="container mt-5">
+			<div class="section-heading text-center">
+							<!-- <h5>سلسلة فنادق ميرا</h5> -->
+							
+							<h2> سلسلة فنادق ميرا</h2>
+							
+			</div>
+            <div class="row">
+
+               
+                
+				<div class="col-lg-3 col-md-6 col-sm-12 position-relative main-card">
+                    <div>
+                        <img style="" src="" alt="">
+                    </div>
+                    <div class="col-9 text-card">
+                        <h3>فندق ميرا أعمال</h3>
+                        <p class="paragraphe-text">
+						هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
+                       
+					</p>
+					<div class="social-media mb25 ">
+							@php echo SocialMediaList(); @endphp
+						</div>
+						
+                    </div>
+                </div>
+			
+				
+             
+            </div>
+        </div>
+             </section>
+            </div>
+        </div>
+
+            </div>
+        </div>
+	</section>
 
 	<!-- Offer Section -->
 	@if($offer_ads_section->is_publish == 1)
