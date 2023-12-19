@@ -347,7 +347,7 @@
 									<p>{{ __('If you need any help, feel free to contact us.') }}</p>
 
 									@if($gtext['phone_footer'] != '')
-									<p><strong>{{ __('Phone')}}:</strong> {{ nl2br($gtext['phone_footer']) }}</p>
+									<p><strong>{{ __('Phone')}}:</strong> {!! nl2br($gtext['phone_footer']) !!}</p>
 									@endif
 
 									@if($gtext['email_footer'] != '')
