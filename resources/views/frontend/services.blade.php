@@ -145,6 +145,7 @@ img {
   font-family: 'Cairo', sans-serif;
   margin-bottom: 0;
   padding: 0;
+  text-align: justify
 }
 .text-card h3 {
   font-family: 'Cairo', sans-serif;

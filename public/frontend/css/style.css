@@ -1212,7 +1212,9 @@ ul.top-list-1 li i {
 .about-card {
     padding-left: 24px;
 }
-.about-card .about-title {}
+.about-card .about-title {
+    text-align: justify;
+}
 .about-card .about-title h5 {
     color: var(--theme-color);
     font-size: 18px;
@@ -1227,9 +1229,10 @@ ul.top-list-1 li i {
     background: var(--color-white);
     -webkit-box-shadow: 0px 0px 35px 13px rgba(230, 230, 230, 0.2);
     -moz-box-shadow: 0px 0px 35px 13px rgba(230, 230, 230, 0.2);
-    box-shadow: 0px 0px 35px 13px rgba(230, 230, 230, 0.2);
+    box-shadow: 0px 0px 35px 13px rgb(223 222 222 / 20%);
     padding: 20px 10px;
     border-radius: 2px;
+    border: 1px solid lightgray;
 }
 .about-card .info-card .icon {
     margin: 0 auto;
@@ -2435,7 +2438,7 @@ ul.errors-list li {
 	margin-bottom: 30px;
   background: white;
 	padding: 20px;
-  
+
 }
 .blog-details-card .blog-img {
 	width: 100%;
