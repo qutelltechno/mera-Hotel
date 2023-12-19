@@ -31,7 +31,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 footer-border">
 					@if($gtext['is_publish_contact'] == 1)
 					<div class="footer-widget-card">
-						<div class="footer-widget mb10">
+						<div>
 							<ul class="widget-contact">
 								@if($gtext['email_footer'] != '')
 								<li>
@@ -90,7 +90,7 @@
 						</div>
 						@if($gtext['is_publish_about'] == 1)
 						<div class="footer-widget mb25  payment-method">
-							
+
 						</div>
 						@endif
 
@@ -103,7 +103,7 @@
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 footer-border">
 					<div class="footer-widget-card">
-			
+
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14500.45304278439!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702953402433!5m2!1sen!2sus" width="100%" height="250" style="border:0;border-radius:4px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 				</div>
