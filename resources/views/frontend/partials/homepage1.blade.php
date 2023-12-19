@@ -101,69 +101,111 @@
 						@if($aRow->description != '')
 						<p class="mb20">{{ $aRow->description }}</p>
 						@endif
-						<div class="row mb40">
-							@if($aRow->total_rooms != '')
-							<div class="col-12 col-sm-3 col-lg-3">
-								<div class="info-card mb15">
-									<div class="icon">
-										<i class="bi bi-buildings"></i>
-									</div>
-									<div class="content">
-										<h4>{{ $aRow->total_rooms }}</h4>
-										<p>{{ __('Rooms') }}</p>
-									</div>
-								</div>
-							</div>
-							@endif
+                            <hr>
+                            @if (glan()=='ar')
+                            <div class="about-title">
+                                <h5>رؤيتنا تقود عملنا</h5>
+                                <p>
+                                    لشركة ميرا للفنادق رؤية واضحة تصب في خدمتك، وهي أن تكون الشركة إحدى كُبريات الشركات العاملة في القطاع الفندقي، معتمدةً على خبرتها الفندقية العالية، ودراساتها المستقبلية الدقيقة، واستقطابها لأهم الكوادر
+                                    الإدارية والتنفيذية الخبيرة.
+                                </p>
+                            </div>
 
-							@if($aRow->total_customers != '')
-							<div class="col-12 col-sm-3 col-lg-3">
-								<div class="info-card mb15">
-									<div class="icon">
-										<i class="bi bi-emoji-smile"></i>
-									</div>
-									<div class="content">
-										<h4>{{ $aRow->total_customers }}</h4>
-										<p>{{ __('Customers') }}</p>
-									</div>
-								</div>
-							</div>
-							@endif
+                            <div class="about-title">
+                                <h5>القـيــــــم</h5>
+                                <p>بدأت سلسلة فنادق ميرا بالاتساع لتغطي مدينتي الرياض وجدة بأربعة فنادق فاخرة تقدم لنزلائها الكرام عددا كبيراً من الغرف والأجنحة الراقية المتنوعة التي تُناسب متطلبات مختلف شرائح النُزلاء، وقد نبحث في إعطاء افضل الانطباعات الإيجابية لديهم عن خدماتها المميزة.</p>
+                            </div>
 
-							@if($aRow->total_amenities != '')
-							<div class="col-12 col-sm-3 col-lg-3">
-								<div class="info-card mb15">
-									<div class="icon">
-										<i class="bi bi-pie-chart"></i>
-									</div>
-									<div class="content">
-										<h4>{{ $aRow->total_amenities }}</h4>
-										<p>{{ __('Amenities') }}</p>
-									</div>
-								</div>
-							</div>
-							@endif
+                            <div class="about-title">
+                                <h5>باقة متكاملة من الخدمات</h5>
+                                <p>الاهتمام بالتفاصيل هو إحدى علاماتنا الفارقة، فبالإضافة إلى الإقامة المريحة
+                                    المُترفة، تقدم فنادق ميرا باقة متكاملة من الخدمات الفندقية الإضافية، كغرف الاجتماعات، ومواقف السيارات، والنوادي الصحية والرياضية بما في
+                                    ذلك المسابح وقاعات المساج والسبا.
+                                </p>
+                            </div>
+                            @else
+                            <div class="about-title">
+                                <h5>Our Vision Leads Our Work</h5>
+                                <p>Mira Hotels have a clear vision to serve you. Aiming to be one of the largest companies operating in hotel sector, relying on its high hotel experience, accurate future studies and attracting most important administrative and executive cadres.</p>
+                            </div>
 
-							@if($aRow->total_packages != '')
-							<div class="col-12 col-sm-3 col-lg-3">
-								<div class="info-card mb15">
-									<div class="icon">
-										<i class="bi bi-percent"></i>
-									</div>
-									<div class="content">
-										<h4>{{ $aRow->total_packages }}</h4>
-										<p>{{ __('Packages') }}</p>
-									</div>
-								</div>
-							</div>
-							@endif
-						</div>
+                            <div class="about-title">
+                                <h5>Our Values</h5>
+                                <p>The Mira Hotel chain has grown to cover cities of Riyadh and Jeddah with four luxury hotels offering guests large number of rooms and suites that match all needs of various guest segments, Mira Hotel chain succeeded to give guests the best impressions of services.</p>
+                            </div>
+
+                            <div class="about-title">
+                                <h5>Perfect Package Of Services</h5>
+                                <p>Concerning about detail is one of our distinguishing marks. In addition to the comfortable and luxurious accommodation, Mira offers perfect package of additional hotel services such as meeting rooms, parking, health and sports clubs including swimming pools, massage rooms and spa</p>
+                            </div>
+                            @endif
+
 
 						@if($aRow->button_text != '')
 						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
 					</div>
 				</div>
+
+                <div class="about-card" style="margin-top: 100px">
+                    <div class="row mb40">
+                        @if($aRow->total_rooms != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-buildings"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ $aRow->total_rooms }}</h4>
+                                    <p>{{ __('Rooms') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_customers != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-emoji-smile"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ $aRow->total_customers }}</h4>
+                                    <p>{{ __('Customers') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_amenities != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-pie-chart"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ $aRow->total_amenities }}</h4>
+                                    <p>{{ __('Amenities') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_packages != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-percent"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ $aRow->total_packages }}</h4>
+                                    <p>{{ __('Packages') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
 			</div>
 		</div>
 	</section>
@@ -437,7 +479,7 @@
                 @endforeach
             </div>
         </div>
-             </section>
+            </section>
             </div>
         </div>
 
