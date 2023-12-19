@@ -540,7 +540,7 @@ function gtext(){
 		$currencyData = json_decode($currency);
 		$currencyObj = json_decode($currencyData[0]->option_value);
 		$data['currency_name'] = $currencyObj->currency_name;
-		$data['currency_icon'] = $currencyObj->currency_icon;
+		$data['currency_icon'] = ' '.$currencyObj->currency_icon;
 		$data['currency_position'] = $currencyObj->currency_position;
 	}else{
 		$data['currency_name'] = '';
