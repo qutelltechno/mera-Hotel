@@ -54,12 +54,13 @@
 		<div class="container">
 			<div class="row ">
 
-	<!-- Services Section/ -->
+		<!-- Services Section/ -->
+
 	<section class="section service-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
-					<div class="section-heading" id="services">
+					<div class="section-heading">
 						<h5>{{ __('Our Services') }}</h5>
 						<h2>{{ $our_services_section->title }}</h2>
 						@if($our_services_section->desc != '')
@@ -68,26 +69,30 @@
 					</div>
 				</div>
 			</div>
-			{{-- <div class="row wow fadeIn">
+			<div class="row wow fadeIn">
 				@foreach ($our_services as $row)
-				<div class="col-12 col-md-6 col-lg-4">
+				<div class="col-12 col-md-6 col-lg-3">
 					<div class="service-card">
-						<div class="service">
-							<img src="{{ asset('public/media/'.$row->image) }}" width="150" alt="{{ $row->title }}" style="max-height: 500px; width: 100%; margin-bottom: 12px; border-radius: 8px;" />
+						<div class="service-icon">
+							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
 						</div>
 						<h4>{{ $row->title }}</h4>
-						<p>{{ $row->desc }}</p>
+						<!-- <p>{{ $row->desc }}</p> -->
 					</div>
 				</div>
 				@endforeach
-			</div> --}}
+			</div>
 		</div>
 	</section>
+	
+	<!-- /Services Section/ -->		
+	<!-- Services Section/ -->
+
 	<!-- /Services Section/ -->
 	<section class="section service-section padd">
         <div class="container mt-5">
             <div class="row">
-                @foreach ($our_services as $row)
+                @foreach ($our_services2 as $row)
                 <div class="col-lg-4 col-md-6 col-sm-12 position-relative main-card">
                     <div>
                         <img src="{{ asset('public/media/'.$row->image) }}" alt="">

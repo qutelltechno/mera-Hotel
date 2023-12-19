@@ -16,11 +16,13 @@ class ServiceController extends Controller
         $our_services_section = Section_manage::where('lan',$lan)->where('lan', $lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'our_services')->first();
 
         //Our Services
-        $our_services = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '!=', 1)->get();
+        $our_services = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '=', 1)->get();
+        $our_services2 = Section_content::where('lan', $lan)->where('section_type', '=', 'our_services')->where('is_publish', '!=', 1)->get();
 
         return view('frontend.services', compact(
             'our_services',
-            'our_services_section'
+            'our_services_section',
+            'our_services2',
         ));
     }
 }
