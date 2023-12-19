@@ -37,7 +37,91 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
 />
 
 <style>
-    .gallery-container ul{display:flex;justify-content:center;list-style-type:none}.gallery-container .bttn{background-color:transparent;border:none;font-size:14px;font-weight:600;margin:10px 20px;padding:0 0 20px;text-transform:uppercase}.gallery-container .bttn:hover{color:#dba765;border-bottom:3px solid #dba765}.gallery-container .min-header{height:48px;border-bottom:1px solid rgba(92,92,92,.404);margin-bottom:20px}.gallery-container img{border-radius:15px;animation-name:example;animation-duration:2s}.gallery-container .tz-gallery .lightbox img{width:100%;margin-bottom:10px;transition:.2s ease-in-out;box-shadow:0 2px 3px rgba(0,0,0,.2)}.gallery-container .tz-gallery .lightbox img:hover{filter:brightness(.3)}.gallery-container .baguetteBox-button{background-color:transparent!important}@media (max-width:767px){.min-header{height:175px}}@keyframes example{from{transform:scale(.5);opacity:0%}to{transform:scale(1);opacity:100%}}.gallery-container .content{position:relative}.gallery-container .overlay{position:absolute;bottom:60px;left:0;width:100%;transition:.5s;opacity:0;color:#fff;font-size:20px;padding:15px;text-align:center}.gallery-container .content:hover .overlay{opacity:1}.gallery-container h1{margin:0;font-weight:700;text-shadow:1px 1px 10px #000}.gallery-container a{display:flex!important}
+    .gallery-container ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .gallery-container .bttn {
+        background-color: transparent;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 10px 20px;
+        padding: 0 0 20px;
+        text-transform: uppercase;
+    }
+    .gallery-container .bttn:hover {
+        color: #dba765;
+        border-bottom: 3px solid #dba765;
+    }
+    .gallery-container .min-header {
+        height: 48px;
+        border-bottom: 1px solid rgba(92, 92, 92, 0.404);
+        margin-bottom: 20px;
+    }
+    .gallery-container img {
+        border-radius: 15px;
+        animation-name: example;
+        animation-duration: 2s;
+    }
+    .gallery-container .tz-gallery .lightbox img {
+        width: 100%;
+        margin-bottom: 10px;
+        transition: 0.2s ease-in-out;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    }
+    .gallery-container .tz-gallery .lightbox img:hover {
+        filter: brightness(0.3);
+    }
+    .gallery-container .baguetteBox-button {
+        background-color: transparent !important;
+    }
+    @media (max-width: 767px) {
+        .min-header {
+            height: 175px;
+        }
+    }
+    @keyframes example {
+        from {
+            transform: scale(0.5);
+            opacity: 0%;
+        }
+        to {
+            transform: scale(1);
+            opacity: 100%;
+        }
+    }
+    .gallery-container .content {
+        position: relative;
+    }
+    .gallery-container .overlay {
+        position: absolute;
+        bottom: 60px;
+        left: 0;
+        width: 100%;
+        transition: 0.5s;
+        opacity: 0;
+        color: #fff;
+        font-size: 20px;
+        padding: 15px;
+        text-align: center;
+    }
+    .gallery-container .content:hover .overlay {
+        opacity: 1;
+    }
+    .gallery-container h1 {
+        margin: 0;
+        font-weight: 700;
+        text-shadow: 1px 1px 10px #000;
+    }
+    .gallery-container a {
+        display: flex !important;
+    }
+
+    #baguetteBox-overlay.visible{
+        opacity: 1
+    }
 </style>
 @endsection
 
@@ -96,10 +180,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
 
         <!-- Gallery 1 -->
         <div class="tz-gallery" id="demo">
+            <div class="row">
+                    @foreach ($rooms as $row)
+                    <div class="col-lg-4">
+                        <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
+                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                        <div class="overlay">
+                            <h2 class="text-light">{{$row->title}}</h2>
+                            <button type="button" class="btn btn-outline-light">
+                                {{ __('Browse') }}
+                            </button>
+                        </div>
+                        </a>
+                    </div>
+                    @endforeach
+            </div>
+            </div>
+
+        <!-- Gallery 2 -->
+        <div class="tz-gallery" style="display: none" id="demo2">
           <div class="row">
-                @foreach ($spa as $row)
+                @foreach ($restaurants as $row)
                 <div class="col-lg-4">
-                    <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
+                    <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
                       <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
                       <div class="overlay">
                         <h2 class="text-light">{{$row->title}}</h2>
@@ -113,41 +216,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
           </div>
         </div>
 
-        <!-- Gallery 2 -->
-        <div class="tz-gallery" style="display: none" id="demo2">
-            <div class="row">
-                    @foreach ($restaurants as $row)
-                    <div class="col-lg-4">
-                        <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
-                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
-                        <div class="overlay">
-                            <h2 class="text-light">{{$row->title}}</h2>
-                            <button type="button" class="btn btn-outline-light">
-                                {{ __('Browse') }}
-                            </button>
-                        </div>
-                        </a>
-                    </div>
-                    @endforeach
-            </div>
-            </div>
-
         <!-- Gallery 3 -->
         <div class="tz-gallery" style="display: none" id="demo3">
             <div class="row">
-                    @foreach ($rooms as $row)
-                    <div class="col-lg-4">
-                        <a class="lightbox content" href="{{ asset('public/media/'.$row->image) }}">
-                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
-                        <div class="overlay">
-                            <h2 class="text-light">{{$row->title}}</h2>
-                            <button type="button" class="btn btn-outline-light">
-                                {{ __('Browse') }}
-                            </button>
-                        </div>
-                        </a>
+                @foreach ($spa as $row)
+                <div class="col-lg-4">
+                    <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
+                    <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                    <div class="overlay">
+                        <h2 class="text-light">{{$row->title}}</h2>
+                        <button type="button" class="btn btn-outline-light">
+                            {{ __('Browse') }}
+                        </button>
                     </div>
-                    @endforeach
+                    </a>
+                </div>
+                @endforeach
             </div>
             </div>
 
@@ -158,15 +242,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
 @endsection
 
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
 
 <script>
-    baguetteBox.run('.tz-gallery', {
-      animation: 'fadeIn',
-      buttons: true,
-      noScrollbars: true,
-      overlayBackgroundColor: 'rgba(0,0,0,0.9)',
-    });
     function myFunction(p1) {
       if (p1 == 'dm1') {
         document.getElementById('demo').style.display = 'block';
