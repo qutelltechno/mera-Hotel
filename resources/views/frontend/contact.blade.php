@@ -117,12 +117,9 @@
 			</div>
 
 			<div class="row">
-				@if(count($contact_form)>0)
-				@if($gtext['is_googlemap'] == 0)
-				<div class="col-lg-12">
-				@else
+			
 				<div class="col-lg-5">
-				@endif
+			
 					<div class="contact-form">
 						<h3 class="heading">{{ __('Get In Touch') }}</h3>
 						<form novalidate="" data-validate="parsley" id="contact-form">
@@ -173,28 +170,28 @@
 						<div id="sent_message"></div>
 					</div>
 				</div>
-				@endif
+			
 
-				@php $contact_map = $data['contact_map']; @endphp
-				@if($gtext['is_googlemap'] == 1)
+			
 				<div class="col-lg-7">
-					@if($contact_map->is_google_map == 1)
-						<div class="contact-map">
-							<div class="google_map" id="google_map"></div>
-						</div>
-					@endif
+					
+						
+				  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>							</div>
+						
+					
+					
+				
+			
 				</div>
-				@endif
-			</div>
 		</div>
+
 	</section>
 	@endif
 	<!-- /Inner Section/ -->
 
     <!-- Map Section/ -->
-	<section class="section bg-wite">
-        <iframe style="border-radius:4px;height:600px;width:100%" src="https://www.google.com/maps/embed/v1/place?q=https://www.google.com/maps/place/%D9%81%D9%86%D8%AF%D9%82+%D9%85%D9%8A%D8%B1%D8%A7+%D8%A7%D8%B9%D9%85%D8%A7%D9%84+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7+MIRA+BUSINESS+HOTEL%E2%80%AD/@24.6886334,46.6880452,17z/data=!4m9!3m8!1s0x3e2ee2a4e0047b25:0x8a10d3a1b417d8ff!5m2!4m1!1i2!8m2!3d24.6886334!4d46.6880452!16s%2Fg%2F11tmr325b4&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-	</section>
+	
+	
 	<!-- /Map Section/ -->
 </main>
 @endsection
