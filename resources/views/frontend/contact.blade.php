@@ -107,7 +107,7 @@
 							</span>
 							<div class="desc">
 								<span>{{ __('Address') }}</span>
-								<p>{{ nl2br($contact_info->address) }}</p>
+								<p>{!! nl2br($contact_info->address) !!}</p>
 							</div>
 						</div>
 					</div>
