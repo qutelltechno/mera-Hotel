@@ -18,8 +18,8 @@ class SearchController extends Controller
 			->join('categories', 'rooms.cat_id', '=', 'categories.id')
 			->select('rooms.*', 'categories.name as category_name', 'categories.slug as category_slug')
 			->where('rooms.is_publish', '=', 1)
-			->where('rooms.total_adult', '<=', $total_adult)
-			->where('rooms.total_child', '<=', $total_child)
+			->where('rooms.total_adult', '>=', $total_adult)
+			->where('rooms.total_child', '>=', $total_child)
 			->where('rooms.lan', '=', $lan)
 			->orderBy('rooms.id','desc')
 			->get();
