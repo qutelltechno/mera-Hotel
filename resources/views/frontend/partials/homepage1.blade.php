@@ -324,13 +324,13 @@
 			</div>
 			<div class="row wow fadeIn">
 				@foreach ($our_services as $row)
-				<div class="col-12 col-md-6 col-lg-4">
+				<div class="col-12 col-md-6 col-lg-3">
 					<div class="service-card">
 						<div class="service-icon">
 							<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
 						</div>
 						<h4>{{ $row->title }}</h4>
-						<p>{{ $row->desc }}</p>
+						<!-- <p>{{ $row->desc }}</p> -->
 					</div>
 				</div>
 				@endforeach

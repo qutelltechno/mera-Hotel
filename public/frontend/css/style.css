@@ -1490,6 +1490,7 @@ ul.top-list-1 li i {
 }
 .service-card p {
 	margin: 0;
+  display:none;
 }
 .service-card .service-icon,
 .service-card h4,
