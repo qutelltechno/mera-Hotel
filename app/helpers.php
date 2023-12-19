@@ -529,7 +529,7 @@ function gtext(){
 	}
 
 	//currency
- 	$currency = Tp_option::where('option_name', 'currency')->get();
+ 	$currency = Tp_option::where('option_name', 'currency')->where('lan', glan())->get();
 
 	$currency_id = '';
 	foreach ($currency as $row){
