@@ -89,7 +89,7 @@
 	<!-- Services Section/ -->
 
 	<!-- /Services Section/ -->
-	<section class="section service-section padd">
+	<section class="section service-section">
         <div class="container mt-5">
             <div class="row">
                 @foreach ($our_services2 as $row)
