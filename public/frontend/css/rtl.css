@@ -83,7 +83,7 @@ body.rtl .mobile-menu li > a {
 	font-family: 'Cairo', sans-serif;
 }
 body.rtl .about-card {
-    padding-left: 0;
+    padding-left: 24px;
     padding-right: 24px;
 }
 body.rtl .search-card .form-control,
