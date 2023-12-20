@@ -50,13 +50,13 @@
 
 	<!-- Inner Section -->
 
-	<section class="inner-section inner-section-bg">
+	<section class="inner-section inner-section-bg block-bg">
 		<div class="container">
 			<div class="row ">
 
 		<!-- Services Section/ -->
 
-	<section class="section service-section">
+	<section class="section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -89,7 +89,7 @@
 	<!-- Services Section/ -->
 
 	<!-- /Services Section/ -->
-	<section class="section service-section">
+	<section class="section">
         <div class="container mt-5">
             <div class="row">
                 @foreach ($our_services2 as $row)

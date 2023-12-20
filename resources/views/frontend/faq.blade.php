@@ -108,7 +108,3 @@
 	<!-- /Inner Section/ -->
 </main>
 @endsection
-
-@push('scripts')
-
-@endpush
