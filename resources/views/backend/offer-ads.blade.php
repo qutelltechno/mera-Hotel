@@ -54,12 +54,12 @@
 					<div id="form-panel" class="card-body dnone">
 						<form novalidate="" data-validate="parsley" id="DataEntry_formId">
 
-							<div class="row">
+							<div class="row" hidden>
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="offer_ad_type">{{ __('Offer & Ads Position') }}<span class="red">*</span></label>
 										<select name="offer_ad_type" id="offer_ad_type" class="chosen-rtl form-control">
-											<option value="homepage1">Homepage 1</option>
+											<option value="homepage1" selected>Homepage 1</option>
 											<option value="homepage2_small">Homepage 2 (For small size)</option>
 											<option value="homepage2_large">Homepage 2 (For large size)</option>
 											<option value="homepage3_small">Homepage 3 (For small size)</option>
@@ -103,9 +103,13 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="button_text">{{ __('Button Text') }}<span class="red">*</span></label>
-										<input type="text" name="button_text" id="button_text" class="form-control parsley-validated" data-required="true">
-									</div>
+										<label for="button_text">{{ __('Category') }}<span class="red">*</span></label>
+                                        <select name="target" id="target" class="chosen-rtl form-control">
+                                            <option value="room" selected>{{ __('ROOMS & SUITES') }}</option>
+                                            <option value="restaurant">{{ __('RESTAURANTS & CAFES') }}</option>
+                                            <option value="spa">{{ __('SPA') }}</option>
+                                        </select>
+                                    </div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
@@ -152,7 +156,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
 								<div class="col-lg-12">
