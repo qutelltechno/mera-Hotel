@@ -90,7 +90,7 @@ class HomeFrontendController extends Controller
 			}
 
 			//Slider
-			$slider = Slider::where('slider_type', '=', 'home_1')->where('is_publish', '=', 1)->orderBy('id', 'desc')->get();
+			$slider = Slider::where('lan', $lan)->where('slider_type', '=', 'home_1')->where('is_publish', '=', 1)->orderBy('id', 'desc')->get();
 
             //About Us
 			$about_us = Section_content::where('lan', $lan)->where('lan', $lan)->where('page_type', '=', 'home_1')->where('section_type', '=', 'about_us')->where('is_publish', '=', 1)->orderBy('id', 'desc')->limit(1)->get();
