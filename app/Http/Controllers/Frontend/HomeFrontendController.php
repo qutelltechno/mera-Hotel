@@ -32,6 +32,7 @@ class HomeFrontendController extends Controller
 				$slider_hero_section = json_decode(json_encode($slider_hero_array));
 			}
 
+
 			//About Us Section
 			$about_us_section = Section_manage::where('lan',$lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'about_us')->where('is_publish', '=', 1)->first();
 			if($about_us_section ==''){
@@ -91,7 +92,7 @@ class HomeFrontendController extends Controller
 			//Slider
 			$slider = Slider::where('lan', $lan)->where('slider_type', '=', 'home_1')->where('is_publish', '=', 1)->orderBy('id', 'desc')->limit(1)->get();
 
-			//About Us
+            //About Us
 			$about_us = Section_content::where('lan', $lan)->where('lan', $lan)->where('page_type', '=', 'home_1')->where('section_type', '=', 'about_us')->where('is_publish', '=', 1)->orderBy('id', 'desc')->limit(1)->get();
 
 			//Offer & Ads
