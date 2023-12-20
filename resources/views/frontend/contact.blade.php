@@ -55,7 +55,7 @@
 		<div class="container">
 			<div class="row ">
 				<div class="col-md-8 offset-md-2 ">
-					<h3 class="heading text-center">{{ __('Contact Info') }}</h3>
+					<h1 class="heading text-center">{{ __('Contact Info') }}</h1>
 					@php $contact_info = $data['contact_info']; @endphp
 					@if($contact_info->short_desc != '')
 					<p class="text-center text-dark">{{ $contact_info->short_desc }}</p>
