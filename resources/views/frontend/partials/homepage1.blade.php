@@ -265,7 +265,7 @@
 					@if($home_video['short_desc'] !='')
 					<p>{{ $home_video['short_desc'] }}</p>
 					@endif
-					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn theme-btn">{{ $home_video['button_text'] }}</a>
+					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn btn-light">{{ $home_video['button_text'] }}</a>
 				</div>
 			</div>
 		</div>
