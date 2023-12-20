@@ -294,8 +294,8 @@
 				<div class="col-md-8 offset-md-2">
 					<div class="section-heading">
 						<h5>{{ __('Founders') }}</h5>
-						<h2>{{ __('Customer reviews') }}</h2>
-						<p>{{ __('What our customers say about us') }}</p>
+						<h2>{{ __('Hotel founders') }}</h2>
+						<p>{{ __("Get to know the hotel's founders") }}</p>
 					</div>
 				</div>
 			</div>
