@@ -5171,3 +5171,12 @@
        width: 120px;
        border-radius: 50%;
        margin-bottom: 20px; }
+
+    .block-bg{
+        background-image: url('../images/About_bg.jpg');
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 40px;
+    }

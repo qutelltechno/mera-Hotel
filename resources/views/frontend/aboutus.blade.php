@@ -50,91 +50,11 @@
 
 	<!-- Inner Section -->
 
-	<!-- Hotels Section -->
-    <section class="section service-section">
-        @if(glan()=='ar')
-        <div class="container mt-5">
-			<div class="section-heading text-center">
-							<!-- <h5>سلسلة فنادق ميرا</h5> -->
-
-							<h2> سلسلة فنادق ميرا</h2>
-
-			</div>
-            @php
-                $hotels = [
-                    'فندق ميرا أعمال',
-                    'فندق ميرا تريو',
-                    'فندق ميرا الواجهة البحرية',
-                    'ميرا للاجنحة الفندقية'
-                ]
-            @endphp
-            <div class="row">
-                @foreach ($hotels as $hotel)
-				<div class="col-lg-3 col-md-6 col-sm-12 position-relative main-card">
-                    <div>
-                        <img src="{{ asset("public/frontend/images/hotels/$loop->index.jpg") }}" alt="">
-                    </div>
-                    <div class="col-9 text-card shadow" style="height: 280px">
-                        <h3>{{ $hotel }}</h3>
-                        <p class="paragraphe-text">
-						هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
-
-					</p>
-					<div class="social-media mt25 mt-2">
-						@php echo SocialMediaList(); @endphp
-					</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @else
-        <div class="container mt-5">
-			<div class="section-heading text-center">
-			<h2>Mira Hotels Group</h2>
-			</div>
-            @php
-                $hotels = [
-                    'Mira Business Hotel',
-                    'Mira Trio Hotel',
-                    'Mira Waterfront Hotel',
-                    'Mira Hotel Suites'
-                ]
-            @endphp
-            <div class="row">
-                @foreach ($hotels as $hotel)
-				<div class="col-lg-3 col-md-6 col-sm-12 position-relative main-card">
-                    <div>
-                        <img src="{{ asset("public/frontend/images/hotels/$loop->index.jpg") }}" alt="">
-                    </div>
-                    <div class="col-9 text-card shadow" style="height: 280px">
-                        <h3>{{ $hotel }}</h3>
-                        <p class="paragraphe-text">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-					</p>
-					<div class="social-media mt25 mt-2">
-						@php echo SocialMediaList(); @endphp
-					</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @endif
-             </section>
-            </div>
-        </div>
-
-            </div>
-        </div>
-	</section>
-	<!-- /Hotels Section -->
-
 	<!-- About Section/ -->
 	@if($about_us_section->is_publish == 1)
 	@foreach ($about_us as $row)
 	@php $aRow = json_decode($row->desc); @endphp
-	<section class="section about-section">
+	<section class="section about-section block-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-5 wow fadeInRight ">
@@ -288,47 +208,6 @@
 	@endif
 	<!-- /About Section/ -->
 
-    <!-- Testimonial Section/ -->
-    <section class="section testimonial-section bg-wite" style="
-        background-image: url('{{asset('public/frontend/images/bg/founders.png')}}');
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding-top: 40px;
-    ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="section-heading">
-                        <h1 class="text-white font-weight-bold">{{ __('Founders') }}</h1>
-                        <h2 class="text-white font-weight-bold">{{ __('Hotel founders') }}</h2>
-                        <p>{{ __("Get to know the hotel's founders") }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row testimonial-slider">
-                @foreach ($testimonial as $row)
-                <div class="col-md-12">
-                    <div class="testimonial-card">
-                        <div class="client">
-                            <div class="img-card">
-                                <img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
-                            </div>
-                            <div class="client-info">
-                                <h4>{{ $row->title }}</h4>
-                                <span>{{ __('Founder') }}</span>
-                            </div>
-                        </div>
-                        <div class="comment">{{ $row->desc }}</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-	<!-- /Testimonial Section/ -->
-
     <!-- Preview Video Section-->
 	@if($home_video['is_publish'] == 1)
 	<section class="preview-section">
@@ -345,12 +224,12 @@
 			</div>
 			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
 				<div class="preview-content">
-					<h5>{{ __('Preview') }}</h5>
-					<h2>{{ $home_video['title'] }}</h2>
+					<h5 class="text-white">{{ __('Preview') }}</h5>
+					<h2 class="text-white">{{ $home_video['title'] }}</h2>
 					@if($home_video['short_desc'] !='')
-					<p>{{ $home_video['short_desc'] }}</p>
+					<p class="text-white">{{ $home_video['short_desc'] }}</p>
 					@endif
-					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn theme-btn">{{ $home_video['button_text'] }}</a>
+					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn shadow btn-light">{{ $home_video['button_text'] }}</a>
 				</div>
 			</div>
 		</div>
@@ -359,7 +238,7 @@
 	<!-- /Preview Video Section/ -->
 
 	<!-- Blog Section/ -->
-	<section class="section blog-section">
+	<section class="section blog-section block-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
