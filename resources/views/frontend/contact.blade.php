@@ -51,7 +51,7 @@
 	<!-- Inner Section -->
 	@if($data['is_publish'] == 1)
 	@php $contact_form = $data['contact_form']; @endphp
-	<section class="inner-section contact_card inner-section-bg">
+	<section class="inner-section contact_card inner-section-bg block-bg">
 		<div class="container">
 			<div class="row ">
 				<div class="col-md-8 offset-md-2 ">
