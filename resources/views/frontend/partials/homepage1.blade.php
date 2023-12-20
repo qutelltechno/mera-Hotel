@@ -466,33 +466,6 @@
             </div>
 		</div>
 	</section>
-
-
-    <section class="section service-section block-bg">
-        <div class="container mt-5">
-            <div class="row">
-                @foreach ($our_services2 as $row)
-                <div class="col-lg-4 col-md-6 col-sm-12 position-relative main-card">
-                    <div>
-                        <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" alt="">
-                    </div>
-                    <div class="col-9 text-card">
-                        <h3>{{ $row->title }}</h3>
-                        <p class="paragraphe-text">
-                            {{ $row->desc }}.
-                        </p>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-            </section>
-            </div>
-        </div>
-
-            </div>
-        </div>
-	</section>
 	@endif
 	<!-- /Services Section/ -->
 

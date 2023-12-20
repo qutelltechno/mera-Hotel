@@ -33,7 +33,9 @@
 <style>
 .accordion-button:not(.collapsed) {
     color: black;
-    background-color: #e5e5e5;
+    background-color: #f7f8f2;
+    border-radius:4px;
+    margin-top: 10px;
 }
 
 .accordion-button {
@@ -48,7 +50,7 @@
 @endsection
 
 @section('content')
-<main class="main">
+<main class="main block-bg">
 	<!-- Page Breadcrumb -->
 	<!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/'.$gtext['blog_bg']) : '' }});">
 		<div class="container">
@@ -66,7 +68,7 @@
 	<!-- Inner Section -->
 
 	<!-- Faq Section -->
-	<section class="bg-white inner-section">
+	<section style="padding-bottom:200px">
 		<div class="container">
 			<div class="row">
                 <div class="col-md-8 offset-md-2">
