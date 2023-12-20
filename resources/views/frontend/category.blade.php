@@ -49,9 +49,14 @@
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
-	<section class="inner-section inner-section-bg">
+	<section class="inner-section inner-section-bg block-bg">
 		<div class="container">
 			<div class="row">
+                <div class="col-md-8 offset-md-2 pt-lg-5">
+                    <div class="section-heading">
+                        <h1>{{ __('Room List') }}</h1>
+                    </div>
+                </div>
 				@if(count($datalist)>0)
 				@foreach ($datalist as $row)
 				<div class="col-sm-12 col-md-6 col-lg-4">

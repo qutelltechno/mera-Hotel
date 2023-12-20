@@ -142,8 +142,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
-    <section class="inner-section inner-section-bg">
+    <section class="inner-section inner-section-bg block-bg">
     <div class="container gallery-container">
+            <div class="col-md-8 offset-md-2 pt-lg-5">
+                <div class="section-heading">
+                    <h1 style="text-shadow:none">{{ __('gallery') }}</h1>
+                </div>
+            </div>
+
         <div class="row">
           <div class="col-lg-12 text-center min-header">
             <div class="row justify-content-center">
