@@ -190,7 +190,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
                     @foreach ($rooms as $row)
                     <div class="col-lg-4">
                         <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
-                        <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                        <img src="{{ asset('public/media/'.$row->image) }}" height="350" alt="Park" />
                         <div class="overlay">
                             <h2 class="text-light">{{$row->title}}</h2>
                             <button type="button" class="btn btn-outline-light">
@@ -209,7 +209,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
                 @foreach ($restaurants as $row)
                 <div class="col-lg-4">
                     <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
-                      <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                      <img src="{{ asset('public/media/'.$row->image) }}" height="350" alt="Park" />
                       <div class="overlay">
                         <h2 class="text-light">{{$row->title}}</h2>
                         <button type="button" class="btn btn-outline-light">
@@ -228,7 +228,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.mi
                 @foreach ($spa as $row)
                 <div class="col-lg-4">
                     <a class="lightbox content" data-fslightbox="gallery" href="{{ asset('public/media/'.$row->image) }}">
-                    <img src="{{ asset('public/media/'.$row->image) }}" alt="Park" />
+                    <img src="{{ asset('public/media/'.$row->image) }}" height="350" alt="Park" />
                     <div class="overlay">
                         <h2 class="text-light">{{$row->title}}</h2>
                         <button type="button" class="btn btn-outline-light">

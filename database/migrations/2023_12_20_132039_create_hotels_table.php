@@ -18,11 +18,16 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('image');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->longText('map')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
 			$table->string('lan', 100)->nullable();
+            $table->boolean('is_main')->default(false);
             $table->timestamps();
         });
     }

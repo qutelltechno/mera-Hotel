@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Hotel;
 use App\Models\Contact;
-use PHPMailer\PHPMailer\PHPMailer;
+use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
@@ -33,8 +34,9 @@ class ContactController extends Controller
 			$data['is_publish'] = $row->is_publish;
 		}
 
+        $hotels = Hotel::where('lan', glan())->where('is_main', false)->get();
 
-        return view('frontend.contact', compact('contact_id', 'data'));
+        return view('frontend.contact', compact('contact_id', 'data', 'hotels'));
     }
 
 	//Sent Message

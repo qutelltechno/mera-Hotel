@@ -13,10 +13,15 @@ class Hotel extends Model
         'name',
         'description',
         'image',
+        'email',
+        'phone',
+        'address',
+        'map',
         'facebook',
         'twitter',
         'instagram',
         'youtube',
-        'lan'
+        'lan',
+        'is_main'
     ];
 }
