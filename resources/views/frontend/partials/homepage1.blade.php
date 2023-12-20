@@ -496,7 +496,7 @@
 	<!-- /Services Section/ -->
 
     <!-- Testimonial Section/ -->
-    <section class="section testimonial-section bg-wite">
+    <section class="section testimonial-section bg-wite" style="padding-top:0">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
