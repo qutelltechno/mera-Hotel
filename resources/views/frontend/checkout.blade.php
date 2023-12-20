@@ -49,13 +49,13 @@
 	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
-	<section class="inner-section inner-section-bg">
+    <section class="inner-section inner-section-bg block-bg">
 		<div class="container">
 			<form novalidate="" data-validate="parsley" id="checkout_formid">
 				@csrf
 				<div class="row">
 					<div class="col-lg-7">
-						<h5>{{ __('Booking Request Information') }}</h5>
+                        <h5>{{ __('Mira business') . ' - ' . __('Booking Request Information') }}</h5>
 						@auth
 						@else
 						<p>{{ __('Already have an account?') }} <strong><a href="{{ route('frontend.login') }}">{{ __('login') }}</a></strong></p>
@@ -250,7 +250,7 @@
 					<div class="col-lg-5">
 						<div class="sidebar">
 							<div class="widget-card">
-								<div class="widget-title">{{ __('Booking Summary') }}</div>
+								<div class="widget-title">{{ __('Mira business') . ' - ' . __('Booking Summary') }}</div>
 								<div class="widget-body">
 									<div class="row">
 										<div class="room-book-card">

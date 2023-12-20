@@ -53,7 +53,7 @@
 	@php $contact_form = $data['contact_form']; @endphp
 	<section class="inner-section contact_card inner-section-bg block-bg">
 		<div class="container">
-			<div class="row ">
+			<div class="row pt-lg-5">
 				<div class="col-md-8 offset-md-2 ">
 					<h1 class="heading text-center">{{ __('Contact Info') }}</h1>
 					@php $contact_info = $data['contact_info']; @endphp
@@ -186,14 +186,14 @@
 				<div class="row pt-md-5 pt-3">
 				<div class="col-md-8 offset-md-2 ">
 					<h3 class="heading text-center">معلومات التواصل للفروع الأخرى</h3>
-				
+
 					<p class="text-center text-dark">الفروع الثلاثه الأخرى</p>
-				
+
 				</div>
 			</div>
 			<div class="contact-info">
 				<div class="row  ">
-					
+
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 p-2">
 						<h4 class=" text-center text-dark">  فندق ميرا الواجهة البحرية </h4>
 
@@ -217,7 +217,7 @@
 									</div>
 							</div>
 
-							
+
 							<div class="info">
 								<span class="icon iconc">
 									<i class="bi bi-geo-alt"></i>
@@ -231,21 +231,21 @@
 						</div>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus" width="100%" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>							</div>
 
-                    
-				
 
-					
-             
+
+
+
+
 				</div>
 	</div>
-		
+
 		</div>
 
 	</section>
-	
+
 
 	@endif
-	
+
 	<!-- /Inner Section/ -->
 
     <!-- Map Section/ -->

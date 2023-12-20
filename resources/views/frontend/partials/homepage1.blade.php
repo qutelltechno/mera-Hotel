@@ -58,7 +58,6 @@
 
 	<!-- Hotels -->
     <section class="section service-section block-bg">
-        @if(glan()=='ar')
         <div class="container mt-5">
 			<div class="section-heading text-center">
 							<!-- <h5>سلسلة فنادق ميرا</h5> -->
@@ -66,74 +65,29 @@
 							<h2> سلسلة فنادق ميرا</h2>
 
 			</div>
-            @php
-                $hotels = [
-                    'فندق ميرا أعمال',
-                    'فندق ميرا تريو',
-                    'فندق ميرا الواجهة البحرية',
-                    'ميرا للاجنحة الفندقية'
-                ]
-            @endphp
             <div class="row">
                 @foreach ($hotels as $hotel)
 				<div class="col-lg-3 col-md-6 col-sm-12 main-card">
                     <div>
-                        <img src="{{ asset("public/frontend/images/hotels/$loop->index.jpg") }}" alt="">
+                        <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" alt="">
                     </div>
                     <div class="col-9 shadow p-4 bg-white" style="width: 100%">
-                        <h3>{{ $hotel }}</h3>
-                        <p class="paragraphe-text">
-						هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
-
-					</p>
+                        <h3>{{ $hotel->title }}</h3>
+                        <p class="paragraphe-text">{{ $hotel->description }}</p>
 					<div class="social-media mt25 mt-2">
-						@php echo SocialMediaList(); @endphp
+						<div class="social-media mt25 mt-2">
+                            <a href="{{$hotel->facebook}}" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="{{$hotel->twitter}}" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="{{$hotel->instagram}}" target="_blank"><i class="bi bi-instagram"></i></a>
+                            <a href="{{$hotel->youtube}}" target="_blank"><i class="bi bi-youtube"></i></a>
+                        </div>
 					</div>
                     </div>
                 </div>
                 @endforeach
             </div>
         </div>
-        @else
-        <div class="container mt-5">
-			<div class="section-heading text-center">
-                <h2>Mira Hotels Group</h2>
-			</div>
-            @php
-                $hotels = [
-                    'Mira Business Hotel',
-                    'Mira Trio Hotel',
-                    'Mira Waterfront Hotel',
-                    'Mira Hotel Suites'
-                ]
-            @endphp
-            <div class="row">
-                @foreach ($hotels as $hotel)
-				<div class="col-lg-3 col-md-6 col-sm-12 position-relative main-card">
-                    <div>
-                        <img src="{{ asset("public/frontend/images/hotels/$loop->index.jpg") }}" alt="">
-                    </div>
-                    <div class="col-9 text-card shadow" style="height: 280px">
-                        <h3>{{ $hotel }}</h3>
-                        <p class="paragraphe-text">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-					</p>
-					<div class="social-media mt25 mt-2">
-						@php echo SocialMediaList(); @endphp
-					</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @endif
-            </section>
-            </div>
-        </div>
-
-            </div>
-        </div>
-	</section>
+    </section>
 	<!-- /Hotels -->
 
 	<!-- Offer Section -->

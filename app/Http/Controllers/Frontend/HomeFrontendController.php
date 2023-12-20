@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Hotel;
 use App\Models\Slider;
-use App\Models\Section_content;
-use App\Models\Section_manage;
-use App\Models\Tp_option;
 use App\Models\Offer_ad;
+use App\Models\Tp_option;
+use Illuminate\Http\Request;
+use App\Models\Section_manage;
+use App\Models\Section_content;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class HomeFrontendController extends Controller
 {
@@ -167,6 +168,8 @@ class HomeFrontendController extends Controller
 
 		}
 
+        $hotels = Hotel::where('lan', $lan)->get();
+
         return view('frontend.home', compact(
 			'slider_hero_section',
 			'about_us_section',
@@ -183,7 +186,8 @@ class HomeFrontendController extends Controller
             'our_services2',
 			'home_video',
 			'testimonial',
-			'blogs'
+			'blogs',
+            'hotels'
 		));
     }
 }

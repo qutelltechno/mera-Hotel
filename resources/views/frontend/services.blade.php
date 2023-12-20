@@ -86,18 +86,15 @@
 	</section>
 
 	<!-- /Services Section/ -->
-	<!-- Services Section/ -->
-
-	<!-- /Services Section/ -->
 	<section class="section">
-        <div class="container mt-5">
+        <div class="mt-5">
             <div class="row">
                 @foreach ($our_services2 as $row)
-                <div class="col-lg-4 col-md-6 col-sm-12 position-relative main-card">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div>
                         <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" alt="">
                     </div>
-                    <div class="col-9 text-card">
+                    <div class="col-9 bg-white p-4" style="width:100%">
                         <h3>{{ $row->title }}</h3>
                         <p class="paragraphe-text">
                             {{ $row->desc }}.

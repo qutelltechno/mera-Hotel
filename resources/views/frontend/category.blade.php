@@ -54,7 +54,8 @@
 			<div class="row">
                 <div class="col-md-8 offset-md-2 pt-lg-5">
                     <div class="section-heading">
-                        <h1>{{ __('Room List') }}</h1>
+                        <h1>{{ __('Mira business') }}</h1>
+                        <h3>{{ __('Room List') }}</h3>
                     </div>
                 </div>
 				@if(count($datalist)>0)
