@@ -287,39 +287,45 @@
 	@endif
 	<!-- /About Section/ -->
 
-	<!-- Testimonial Section/ -->
-	<section class="section testimonial-section bg-wite">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 offset-md-2">
-					<div class="section-heading">
-						<h5>{{ __('Founders') }}</h5>
-						<h2>{{ __('Hotel founders') }}</h2>
-						<p>{{ __("Get to know the hotel's founders") }}</p>
-					</div>
-				</div>
-			</div>
-			<div class="row testimonial-slider">
-				@foreach ($testimonial as $row)
-				<div class="col-md-12">
-					<div class="testimonial-card">
-						<div class="client">
-							<div class="img-card">
-								<img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
-							</div>
-							<div class="client-info">
-								<h4>{{ $row->title }}</h4>
-								<span>{{ __('Founder') }}</span>
-							</div>
-						</div>
-						<div class="quote"><i class="bi bi-quote"></i></div>
-						<div class="comment">{{ $row->desc }}</div>
-					</div>
-				</div>
-				@endforeach
-			</div>
-		</div>
-	</section>
+    <!-- Testimonial Section/ -->
+    <section class="section testimonial-section bg-wite" style="
+        background-image: url('{{asset('public/frontend/images/bg/founders.png')}}');
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 40px;
+    ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="section-heading">
+                        <h1 class="text-white font-weight-bold">{{ __('Founders') }}</h1>
+                        <h2 class="text-white font-weight-bold">{{ __('Hotel founders') }}</h2>
+                        <p>{{ __("Get to know the hotel's founders") }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row testimonial-slider">
+                @foreach ($testimonial as $row)
+                <div class="col-md-12">
+                    <div class="testimonial-card">
+                        <div class="client">
+                            <div class="img-card">
+                                <img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
+                            </div>
+                            <div class="client-info">
+                                <h4>{{ $row->title }}</h4>
+                                <span>{{ __('Founder') }}</span>
+                            </div>
+                        </div>
+                        <div class="comment">{{ $row->desc }}</div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 	<!-- /Testimonial Section/ -->
 
     <!-- Preview Video Section-->

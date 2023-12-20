@@ -140,7 +140,6 @@
                             </div>
                             @endif
 
-
 						@if($aRow->button_text != '')
 						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
@@ -527,7 +526,6 @@
                                 <span>{{ __('Founder') }}</span>
                             </div>
                         </div>
-                        <div class="quote"><i class="bi bi-quote"></i></div>
                         <div class="comment">{{ $row->desc }}</div>
                     </div>
                 </div>
