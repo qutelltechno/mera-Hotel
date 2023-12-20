@@ -431,7 +431,7 @@
 
 	<!-- Services Section/ -->
 	@if($our_services_section->is_publish == 1)
-	<section class="section service-section">
+	<section class="section service-section" >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
@@ -495,6 +495,9 @@
 	@endif
 	<!-- /Services Section/ -->
 
+	<section class="clients" style="padding:100px;background:url({{ asset('public/frontend/images/backgrounds/1.png') }});background-size: cover;background-position: center;background-attachment: fixed;background-repeat: no-repeat;color: #ffffff;">
+					
+	</section>
 	<!-- Testimonial Section/ -->
 	@if($testimonial_section->is_publish == 1)
 	<section class="section testimonial-section">
@@ -534,9 +537,8 @@
 	@endif
 	<!-- /Testimonial Section/ -->
 
-	<!-- Blog Section/ -->
 	@if($our_blogs_section->is_publish == 1)
-	<section class="section blog-section">
+	<section class="section blog-section" >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 offset-md-2">
