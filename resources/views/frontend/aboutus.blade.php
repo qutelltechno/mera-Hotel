@@ -55,7 +55,7 @@
 	@foreach ($about_us as $row)
 	@php $aRow = json_decode($row->desc); @endphp
 	<section class="section about-section block-bg">
-		<div class="container">
+		<div class="container pt-lg-5">
 			<div class="row">
 				<div class="col-md-12 col-lg-5 wow fadeInRight ">
 					@if($row->image != '')

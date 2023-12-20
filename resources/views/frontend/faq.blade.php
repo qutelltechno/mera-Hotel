@@ -69,7 +69,7 @@
 
 	<!-- Faq Section -->
 	<section style="padding-bottom:200px">
-		<div class="container">
+		<div class="container pt-lg-5">
 			<div class="row">
                 <div class="col-md-8 offset-md-2">
 					<div class="section-heading" id="services">
