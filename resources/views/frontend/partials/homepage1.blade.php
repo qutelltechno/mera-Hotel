@@ -496,13 +496,20 @@
 	<!-- /Services Section/ -->
 
     <!-- Testimonial Section/ -->
-    <section class="section testimonial-section bg-wite" style="padding-top:0">
+    <section class="section testimonial-section bg-wite" style="
+        background-image: url('{{asset('public/frontend/images/bg/founders.png')}}');
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 40px;
+    ">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <div class="section-heading">
-                        <h5>{{ __('Founders') }}</h5>
-                        <h2>{{ __('Hotel founders') }}</h2>
+                        <h1 class="text-white font-weight-bold">{{ __('Founders') }}</h1>
+                        <h2 class="text-white font-weight-bold">{{ __('Hotel founders') }}</h2>
                         <p>{{ __("Get to know the hotel's founders") }}</p>
                     </div>
                 </div>
