@@ -34,8 +34,8 @@ $(function () {
 	$("#is_publish").chosen();
 	$("#is_publish").trigger("chosen:updated");
 
-	$("#on_services_image").on("click", function () {
-		image_type = 'services_image';
+	$("#on_hotel_image").on("click", function () {
+		image_type = 'hotel_image';
 		onGlobalMediaModalView();
     });
 
@@ -44,11 +44,11 @@ $(function () {
 		var large_image = $("#large_image").val();
 
 		if(large_image !=''){
-			$("#services_image").val(large_image);
-			$("#view_services_image").html('<img src="'+public_path+'/media/'+large_image+'">');
+			$("#hotel_image").val(large_image);
+			$("#view_hotel_image").html('<img src="'+public_path+'/media/'+large_image+'">');
 		}
 
-		$("#remove_services_image").show();
+		$("#remove_hotel_image").show();
 		$('#global_media_modal_view').modal('hide');
     });
 });
@@ -61,7 +61,7 @@ function onCheckAll() {
 
 function onPaginationDataLoad(page) {
 	$.ajax({
-		url:base_url + "/backend/getOurServicesTableData?page="+page,
+		url:base_url + "/backend/getHotelTableData?page="+page,
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -71,7 +71,7 @@ function onPaginationDataLoad(page) {
 
 function onRefreshData() {
 	$.ajax({
-		url:base_url + "/backend/getOurServicesTableData?search="+$("#search").val(),
+		url:base_url + "/backend/getHotelTableData?search="+$("#search").val(),
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -81,7 +81,7 @@ function onRefreshData() {
 
 function onSearch() {
 	$.ajax({
-		url: base_url + "/backend/getOurServicesTableData?search="+$("#search").val(),
+		url: base_url + "/backend/getHotelTableData?search="+$("#search").val(),
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -107,9 +107,9 @@ function onFormPanel() {
     resetForm("DataEntry_formId");
 	RecordId = '';
 
-	$("#remove_services_image").hide();
-	$('#services_image').val('');
-	$("#view_services_image").html('');
+	$("#remove_hotel_image").hide();
+	$('#hotel_image').val('');
+	$("#view_hotel_image").html('');
 
 	$("#is_publish").trigger("chosen:updated");
 
@@ -123,9 +123,9 @@ function onEditPanel() {
 }
 
 function onMediaImageRemove(type) {
-	$('#services_image').val('');
-	$("#remove_services_image").hide();
-	$("#view_services_image").html('');
+	$('#hotel_image').val('');
+	$("#remove_hotel_image").hide();
+	$("#view_hotel_image").html('');
 }
 
 function showPerslyError() {
@@ -156,7 +156,7 @@ function onConfirmWhenAddEdit() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/saveOurServicesData',
+		url: base_url + '/backend/saveHotelData',
 		data: $('#DataEntry_formId').serialize(),
 		success: function (response) {
 			var msgType = response.msgType;
@@ -186,14 +186,14 @@ function onLoadEditData() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/getOurServicesById',
+		url: base_url + '/backend/getHotelById',
 		data: 'id='+RecordId,
 		success: function (response) {
 			var data = response;
 			$("#RecordId").val(data.id);
 
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-			$("#services_title").val(data.title);
+			$("#Hotel_title").val(data.title);
 
  			if(data.desc != null){
 				$("#description").val(data.desc);
@@ -202,13 +202,13 @@ function onLoadEditData() {
 			}
 
  			if(data.image != null){
-				$("#services_image").val(data.image);
-				$("#view_services_image").html('<img src="'+public_path+'/media/'+data.image+'">');
-				$("#remove_services_image").show();
+				$("#hotel_image").val(data.image);
+				$("#view_hotel_image").html('<img src="'+public_path+'/media/'+data.image+'">');
+				$("#remove_hotel_image").show();
 			}else{
-				$("#services_image").val('');
-				$("#view_services_image").html('');
-				$("#remove_services_image").hide();
+				$("#hotel_image").val('');
+				$("#view_hotel_image").html('');
+				$("#remove_hotel_image").hide();
 			}
 
 			onEditPanel();
@@ -226,7 +226,7 @@ function onConfirmDelete() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/deleteOurService',
+		url: base_url + '/backend/deleteHotel',
 		data: 'id='+RecordId,
 		success: function (response) {
 			var msgType = response.msgType;
@@ -278,7 +278,7 @@ function onConfirmBulkAction() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/bulkActionOurServices',
+		url: base_url + '/backend/bulkActionHotel',
 		data: 'ids='+ids+'&BulkAction='+BulkAction,
 		success: function (response) {
 			var msgType = response.msgType;

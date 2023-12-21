@@ -295,6 +295,14 @@ Route::prefix('backend')->group(function(){
 	Route::post('/bulkActionFaq', [App\Http\Controllers\Backend\FaqController::class, 'bulkActionFaq'])->name('backend.bulkActionFaq')->middleware(['auth','is_admin']);
 	Route::post('/saveFaqData', [App\Http\Controllers\Backend\FaqController::class, 'saveFaqData'])->name('backend.saveFaqData')->middleware(['auth','is_admin']);
 
+    //hotel
+    Route::get('/Hotel', [App\Http\Controllers\Backend\HotelController::class, 'getHotelData'])->name('backend.Hotel')->middleware(['auth','is_admin']);
+	Route::get('/getHotelPaginationData', [App\Http\Controllers\Backend\HotelController::class, 'getHotelPaginationData'])->name('backend.getHotelPaginationData')->middleware(['auth','is_admin']);
+	Route::post('/getHotelById', [App\Http\Controllers\Backend\HotelController::class, 'getHotelById'])->name('backend.getHotelById')->middleware(['auth','is_admin']);
+	Route::post('/deleteHotel', [App\Http\Controllers\Backend\HotelController::class, 'deleteHotel'])->name('backend.deleteHotel')->middleware(['auth','is_admin']);
+	Route::post('/bulkActionHotel', [App\Http\Controllers\Backend\HotelController::class, 'bulkActionHotel'])->name('backend.bulkActionHotel')->middleware(['auth','is_admin']);
+	Route::post('/saveHotelData', [App\Http\Controllers\Backend\HotelController::class, 'saveHotelData'])->name('backend.saveHotelData')->middleware(['auth','is_admin']);
+
 	//Blog Categories
 	Route::get('/blog-categories', [App\Http\Controllers\Backend\Blog_categoriesController::class, 'getBlogCategoriesPageLoad'])->name('backend.blog-categories')->middleware(['auth','is_admin']);
 	Route::get('/getBlogCategoriesTableData', [App\Http\Controllers\Backend\Blog_categoriesController::class, 'getBlogCategoriesTableData'])->name('backend.getBlogCategoriesTableData')->middleware(['auth','is_admin']);

@@ -4,9 +4,7 @@
 			<tr>
 				<th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox"></th>
 				<th class="text-left" style="width:30%">{{ __('Title') }}</th>
-				<th class="text-left" style="width:35%">{{ __('URL') }}</th>
 				<th class="text-center" style="width:10%">{{ __('Language') }}</th>
-				<th class="text-center" style="width:10%">{{ __('Status') }}</th>
 				<th class="text-center" style="width:10%">{{ __('Action') }}</th>
 			</tr>
 		</thead>
@@ -15,18 +13,10 @@
 			@foreach($datalist as $row)
 			<tr>
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
-				<td class="text-left">{{ $row->title }}</td>
-				<td class="text-left">
-				<a target="_blank" href="{{ route('frontend.hotels', [$row->id, str_slug($row->title)]) }}">
-				{{ route('frontend.hotels', [$row->id, str_slug($row->title)]) }}
-				</a>
+				<td class="text-left">{{ $row->name }}</td>
 				</td>
 				<td class="text-center">{{ $row->language_name }}</td>
-				@if ($row->is_publish == 1)
-				<td class="text-center"><span class="enable_btn">{{ __($row->status) }}</span></td>
-				@else
-				<td class="text-center"><span class="disable_btn">{{ __($row->status) }}</span></td>
-				@endif
+
 				<td class="text-center">
 					<div class="btn-group action-group">
 						<a class="action-btn" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
