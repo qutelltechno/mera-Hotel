@@ -27,7 +27,7 @@
         </div>
 
         <div class="search-card">
-			<div class="col-3 mx-lg-5 shadow">
+			<div class="col-md-3 mx-lg-5 shadow">
 				<div class="search-card-inner wow fadeIn">
 
                     <h2 class="text-center">{{ __('Booking Your Hotel') }}</h2>
