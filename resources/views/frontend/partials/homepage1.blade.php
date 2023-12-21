@@ -62,10 +62,7 @@
     <section class="section service-section block-bg">
         <div class="container mt-5">
 			<div class="section-heading text-center">
-							<!-- <h5>سلسلة فنادق ميرا</h5> -->
-
-							<h2> سلسلة فنادق ميرا</h2>
-
+			<h2>{{__('Hotel group')}}</h2>
 			</div>
             <div class="row">
                 @foreach ($hotels as $hotel)
@@ -74,7 +71,7 @@
                         <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" alt="">
                     </div>
                     <div class="col-9 shadow p-4 bg-white" style="width: 100%">
-                        <h3>{{ $hotel->title }}</h3>
+                        <h3>{{ $hotel->name }}</h3>
                         <p class="paragraphe-text">{{ $hotel->description }}</p>
 					<div class="social-media mt25 mt-2">
 						<div class="social-media mt25 mt-2">

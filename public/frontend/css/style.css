@@ -5223,5 +5223,8 @@
 
     .slick-dots li.slick-active button:before {
         color: white;
+    }
 
+    .slick-dotted.slick-slider {
+        margin-bottom: 0;
     }
