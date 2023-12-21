@@ -175,9 +175,6 @@
 				<div class="row pt-md-5 pt-3">
 				<div class="col-md-8 offset-md-2 ">
 					<h3 class="heading text-center">{{__('Contact information for other branches')}}</h3>
-
-					<p class="text-center text-dark">{{__('The other three branches')}}</p>
-
 				</div>
 			</div>
 			<div class="contact-info">
