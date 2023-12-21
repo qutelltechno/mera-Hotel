@@ -2,26 +2,28 @@
 	<!-- Hero Section -->
 	@if($slider_hero_section->is_publish == 1)
 	<section class="hero-section">
-		@foreach ($slider as $row)
-		@php $aRow = json_decode($row->desc); @endphp
-		<div class="hero-screen hero-overlay" style="background-image: url({{ $row->image ? asset('public/media/'.$row->image) : '' }});">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-						<div class="hero-content">
-							<h1>{{ $row->title }}</h1>
-							@if($aRow->sub_title != '')
-							<p>{{ $aRow->sub_title }}</p>
-							@endif
-							@if($aRow->button_text != '')
-							<!-- <a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a> -->
-							@endif
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		@endforeach
+        <div class="hero-slider">
+            @foreach ($slider as $row)
+            @php $aRow = json_decode($row->desc); @endphp
+            <div class="hero-screen hero-overlay" style="background-image: url({{ $row->image ? asset('public/media/'.$row->image) : '' }});">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                            <div class="hero-content">
+                                <h1>{{ $row->title }}</h1>
+                                @if($aRow->sub_title != '')
+                                <p>{{ $aRow->sub_title }}</p>
+                                @endif
+                                @if($aRow->button_text != '')
+                                <!-- <a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a> -->
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
 
 		<div class="search-card">
 			<div class="container">

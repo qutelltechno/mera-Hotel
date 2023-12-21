@@ -1132,7 +1132,7 @@
        background-size: cover;
        height: 100%;
        width: 100%;
-       padding: 200px 0px 220px 0px;
+       padding: 260px 0px 260px 0px;
        position: relative;
    }
    .hero-overlay::before {
@@ -5179,4 +5179,49 @@
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 40px;
+    }
+
+    .slider-prev-button {
+        display: flex;
+        align-items: center;
+        padding: 12px 12px 12px 6px;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        z-index: 3;
+        transform: translateY(-50%);
+        color: var(--color-white);
+        background-color: var(--theme-color);
+        border: 0;
+        left: 0;
+        margin-left: 10px;
+    }
+
+    .slider-next-button {
+        display: flex;
+        align-items: center;
+        padding: 12px 12px 12px 6px;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        z-index: 3;
+        transform: translateY(-50%);
+        color: var(--color-white);
+        background-color: var(--theme-color);
+        border: 0;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    .slick-dots {
+        bottom: 120px;
+    }
+
+    .slick-dots li button:before{
+        color: white;
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: white;
+
     }
