@@ -762,10 +762,13 @@
        -webkit-transition: all 0.3s ease-out 0s;
        -moz-transition: all 0.3s ease-out 0s;
        transition: all 0.3s ease-out 0s;
+       border-bottom: 2px solid transparent;
    }
+
    .tp-menu ul li:hover > a,
    .tp-menu ul li.active > a {
        color: var(--theme-color);
+       border-bottom: 2px solid;
    }
 
    /*submenu*/
