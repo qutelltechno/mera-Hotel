@@ -25,7 +25,16 @@
 										{{ Auth::user()->name }}
 									</a>
 									<ul class="dropdown-menu dropdown-menu-end">
-										<li><a class="dropdown-item" href="{{ route('frontend.my-dashboard') }}">{{ __('My Dashboard') }}</a></li>
+                                        @if(isset(Auth::user()->role_id))
+                                            @if(Auth::user()->role_id == 1)
+                                                <li><a class="dropdown-item" href="{{ route('backend.dashboard') }}">{{ __('My Dashboard') }}</a></li>
+                                            @elseif(Auth::user()->role_id == 3)
+                                                <li><a href="{{ route('receptionist.dashboard') }}"><i class="bi bi-reply"></i>{{ __('My Dashboard') }}</a></li>
+                                            @else
+                                                <li><a class="dropdown-item" href="{{ route('frontend.my-dashboard') }}">{{ __('My Dashboard') }}</a></li>
+                                            @endif
+                                        @endif
+
 										<li><a class="dropdown-item" href="{{ route('logout') }}"
 										onclick="event.preventDefault();
 										document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

@@ -15,7 +15,7 @@
 			@if(isset(Auth::user()->role_id))
 				@if(Auth::user()->role_id == 1)
 					<li><a href="{{ route('backend.dashboard') }}"><i class="bi bi-reply"></i>{{ __('Goto Backend Dashboard') }}</a></li>
-				@elseif(Auth::user()->role_id == 3) 
+				@elseif(Auth::user()->role_id == 3)
 					<li><a href="{{ route('receptionist.dashboard') }}"><i class="bi bi-reply"></i>{{ __('Goto Backend Dashboard') }}</a></li>
 				@endif
 			@endif
