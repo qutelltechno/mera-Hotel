@@ -1168,7 +1168,7 @@
    .home_1 .search-card {
        position: absolute;
        z-index: 2;
-       bottom: 100px;
+       bottom: 70px;
        width: 100%;
    }
    .home_1 .search-card .search-card-inner {

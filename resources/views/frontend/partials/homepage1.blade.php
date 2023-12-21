@@ -29,7 +29,10 @@
         <div class="search-card">
 			<div class="col-2 mx-lg-5">
 				<div class="search-card-inner wow fadeIn">
-                    <h2 class="mb-4 text-center">{{ __('Booking Your Hotel') }}</h2>
+
+                    <h2 class="text-center">{{ __('Booking Your Hotel') }}</h2>
+                    <hr class="mb-4">
+
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
 							<div class="col-12 mb-3">
