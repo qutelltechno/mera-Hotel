@@ -551,5 +551,9 @@ img {
   font-weight: 700;
   margin-bottom: 15px;
 }
+
+.slick-dots{
+    z-index: 100;
+}
 </style>
 @endpush
