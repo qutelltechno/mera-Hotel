@@ -311,13 +311,13 @@
                             @endif
 
 						@if($aRow->button_text != '')
-						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+						<a href="{{ $row->url }}" class="btn theme-btn mb-4" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
 					</div>
 
 				</div>
 
-                <div class="about-card mt-lg-4 mb-lg-4 py-lg-5" style="padding-left: 100px; padding-right: 100px;">
+                <div class="about-card mt-lg-4 mb-lg-4 py-lg-5" style="padding-left: 120px; padding-right: 120px;">
                     <div class="row mb40">
                         @if($aRow->total_rooms != '')
                         <div class="col-12 col-sm-3 col-lg-3">
@@ -415,7 +415,7 @@
 
             <div class="item-content mt25">
                 <div class="item-title d-flex justify-content-center">
-                    <a class="btn theme-btn mb-4" href="{{ route('frontend.services') }}">{{__('Show More')}}</a>
+                    <a class="btn theme-btn" href="{{ route('frontend.services') }}">{{__('Show More')}}</a>
                  </div>
             </div>
 		</div>
