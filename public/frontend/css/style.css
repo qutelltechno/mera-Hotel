@@ -769,6 +769,8 @@
    .tp-menu ul li.active > a {
        color: var(--theme-color);
        border-bottom: 2px solid;
+       margin-right: 4px;
+       margin-left: 4px;
    }
 
    /*submenu*/
