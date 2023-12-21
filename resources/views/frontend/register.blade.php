@@ -64,7 +64,7 @@
 						<p>{{ __('Please fill in the information below') }}</p>
 
 						@if(Session::has('success'))
-						<d						iv class="alert alert-success">
+						<div class="alert alert-success">
 							{{Session::get('success')}}
 						</div>
 						@endif
@@ -73,39 +73,43 @@
 							{{Session::get('fail')}}
 						</div>
 						@endif
-						<form class="form" method="POST" action="{{ route('frontend.customer-register') }}">
-							@csrf
-							<div class="form-group">
-								<input name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required />
-                                @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
+
+						@if(!Session::has('success') && !Session::has('fail'))
+                            <form class="form" method="POST" action="{{ route('frontend.customer-register') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required />
+                                    @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required />
+                                    @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required />
+                                    @if ($errors->has('password'))
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input name="password_confirmation" type="password" class="form-control" placeholder="{{ __('Confirm password') }}" required />
+                                </div>
+                                @if($gtext['is_recaptcha'] == 1)
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="{{ $gtext['sitekey'] }}"></div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                    @endif
+                                </div>
                                 @endif
-							</div>
-							<div class="form-group">
-								<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required />
-                                @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-							</div>
-							<div class="form-group">
-								<input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required />
-                                @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                                @endif
-							</div>
-							<div class="form-group">
-								<input name="password_confirmation" type="password" class="form-control" placeholder="{{ __('Confirm password') }}" required />
-							</div>
-							@if($gtext['is_recaptcha'] == 1)
-							<div class="form-group">
-								<div class="g-recaptcha" data-sitekey="{{ $gtext['sitekey'] }}"></div>
-                                @if ($errors->has('g-recaptcha-response'))
-                                <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
-                                @endif
-							</div>
-							@endif
-							<input type="submit" class="btn theme-btn full" value="{{ __('Register') }}">
-						</form>
+                                <input type="submit" class="btn theme-btn full" value="{{ __('Register') }}">
+                            </form>
+						@endif
+
 						@if (Route::has('frontend.reset'))
 						<h3><a href="{{ route('frontend.reset') }}">{{ __('Forgot your password?') }}</a></h3>
 						@endif
@@ -123,6 +127,6 @@
 
 @push('scripts')
 @if($gtext['is_recaptcha'] == 1)
-<script src='https://www.go	ogle.com/recaptcha/api.js' async defer></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 @endif
 @endpush
