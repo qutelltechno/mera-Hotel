@@ -68,11 +68,11 @@
                 @foreach ($hotels as $hotel)
 				<div class="col-lg-3 col-md-6 col-sm-12 main-card">
                     <div>
-                        <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" alt="">
+                        <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" style="height:200px">
                     </div>
                     <div class="col-9 shadow p-4 bg-white" style="width: 100%">
                         <h3>{{ $hotel->name }}</h3>
-                        <p class="paragraphe-text">{{ $hotel->description }}</p>
+                        <p class="paragraphe-text" style="height:210px;overflow:auto;">{{ $hotel->description }}</p>
 					<div class="social-media mt25 mt-2">
 						<div class="social-media mt25 mt-2">
                             <a href="{{$hotel->facebook}}" target="_blank"><i class="bi bi-facebook"></i></a>
