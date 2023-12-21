@@ -57,9 +57,7 @@
 				<div class="col-md-8 offset-md-2 ">
 					<h1 class="heading text-center">{{ __('Contact Info') }}</h1>
 					@php $contact_info = $data['contact_info']; @endphp
-					@if($contact_info->short_desc != '')
-					<p class="text-center text-dark">{{ $contact_info->short_desc }}</p>
-					@endif
+					<h4 class="text-center text-dark">{{__('Mira Business Hotel')}}</h4>
 				</div>
 			</div>
 			<div class="contact-info">
@@ -171,17 +169,8 @@
 					</div>
 				</div>
 
-
-
 				<div class="col-lg-7">
-
-
 				  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>							</div>
-
-
-
-
-
 				</div>
 				<div class="row pt-md-5 pt-3">
 				<div class="col-md-8 offset-md-2 ">
