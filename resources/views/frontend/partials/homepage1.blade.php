@@ -31,19 +31,19 @@
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="checkin_date" class="form-label">{{ __('Check In') }}</label>
+								<label for="checkin_date" class="form-label text-dark">{{ __('Check In') }}</label>
 								<input name="checkin_date" id="checkin_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="checkout_date" class="form-label">{{ __('Check Out') }}</label>
+								<label for="checkout_date" class="form-label text-dark">{{ __('Check Out') }}</label>
 								<input name="checkout_date" id="checkout_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="total_adult" class="form-label">{{ __('Adult') }}</label>
+								<label for="total_adult" class="form-label text-dark">{{ __('Adult') }}</label>
 								<input name="total_adult" id="total_adult" type="number" class="form-control border" value="1" min="1">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="total_child" class="form-label">{{ __('Child') }}</label>
+								<label for="total_child" class="form-label text-dark">{{ __('Child') }}</label>
 								<input name="total_child" id="total_child" type="number" class="form-control border" value="0" min="0">
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
