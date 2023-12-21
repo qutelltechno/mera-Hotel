@@ -2,10 +2,11 @@
 	<!-- Hero Section -->
 	@if($slider_hero_section->is_publish == 1)
 	<section class="hero-section">
+
         <div class="hero-slider">
             @foreach ($slider as $row)
             @php $aRow = json_decode($row->desc); @endphp
-            <div class="hero-screen hero-overlay" style="background-image: url({{ $row->image ? asset('public/media/'.$row->image) : '' }});">
+            <div class="hero-screen hero-overlay" style="height:750px; background-image: url({{ $row->image ? asset('public/media/'.$row->image) : '' }});">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -25,28 +26,29 @@
             @endforeach
         </div>
 
-		<div class="search-card">
-			<div class="container">
+        <div class="search-card">
+			<div class="col-2 mx-lg-5">
 				<div class="search-card-inner wow fadeIn">
+                    <h2 class="mb-4 text-center">{{ __('Booking Your Hotel') }}</h2>
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
+							<div class="col-12 mb-3">
 								<label for="checkin_date" class="form-label text-dark">{{ __('Check In') }}</label>
 								<input name="checkin_date" id="checkin_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
+							<div class="col-12 mb-3">
 								<label for="checkout_date" class="form-label text-dark">{{ __('Check Out') }}</label>
 								<input name="checkout_date" id="checkout_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
+							<div class="col-12 mb-3">
 								<label for="total_adult" class="form-label text-dark">{{ __('Adult') }}</label>
 								<input name="total_adult" id="total_adult" type="number" class="form-control border" value="1" min="1">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
+							<div class="col-12 mb-3">
 								<label for="total_child" class="form-label text-dark">{{ __('Child') }}</label>
 								<input name="total_child" id="total_child" type="number" class="form-control border" value="0" min="0">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
+							<div class="col-12">
 								<button type="submit" class="btn theme-btn search-btn">{{ __('Check Availability') }}</button>
 							</div>
 						</div>
@@ -54,6 +56,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 	@endif
 	<!-- /Hero Section/ -->
