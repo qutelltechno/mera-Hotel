@@ -36,6 +36,10 @@
 				<li><a href="{{ route('backend.our-services') }}">{{ __('Our Services') }}</a></li>
 				<li><a href="{{ route('backend.home-video') }}">{{ __('Video Section') }}</a></li>
 				<li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li>
+<<<<<<< HEAD
+=======
+                {{-- <li><a href="{{ route('backend.hotels') }}">{{ __('hotels') }}</a></li> --}}
+>>>>>>> 7a4b3e7cc537e08537bd0468e10f38b05109cff3
 				<li><a href="{{ route('backend.offer-ads') }}">{{ __('Offer & Ads') }}</a></li>
 				<li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li>
 			</ul>

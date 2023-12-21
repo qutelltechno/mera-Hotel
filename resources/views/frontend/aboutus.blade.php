@@ -54,8 +54,8 @@
 	@if($about_us_section->is_publish == 1)
 	@foreach ($about_us as $row)
 	@php $aRow = json_decode($row->desc); @endphp
-	<section class="section about-section block-bg">
-		<div class="container pt-lg-5">
+	<section class="section about-section">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-5 wow fadeInRight ">
 					@if($row->image != '')
@@ -134,73 +134,73 @@
                             </div>
                             @endif
 
-
-                            <div class="about-card mt-2 mb-2">
-                                <div class="row mb40">
-                                    @if($aRow->total_rooms != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-buildings"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_rooms }}</h4>
-                                                <p>{{ __('Rooms') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_customers != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-emoji-smile"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_customers }}</h4>
-                                                <p>{{ __('Customers') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_amenities != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-pie-chart"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_amenities }}</h4>
-                                                <p>{{ __('Amenities') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_packages != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-percent"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_packages }}</h4>
-                                                <p>{{ __('Packages') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-
 						@if($aRow->button_text != '')
-						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+						<a href="{{ $row->url }}" class="btn theme-btn mb-4" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
 					</div>
 
 				</div>
+
+                <div class="about-card mt-lg-4 mb-lg-4 py-lg-5" style="padding-left: 120px; padding-right: 120px;">
+                    <div class="row mb40">
+                        @if($aRow->total_rooms != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-buildings"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_rooms }}</h4>
+                                    <p>{{ __('Rooms') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_customers != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-emoji-smile"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_customers }}</h4>
+                                    <p>{{ __('Customers') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_amenities != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-pie-chart"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_amenities }}</h4>
+                                    <p>{{ __('Amenities') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_packages != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-percent"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_packages }}</h4>
+                                    <p>{{ __('Packages') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
 			</div>
 		</div>
 	</section>

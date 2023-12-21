@@ -92,11 +92,11 @@
                 @foreach ($our_services2 as $row)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div>
-                        <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" alt="">
+                        <img style="height:250px" src="{{ asset('public/media/'.$row->image) }}" style="height:200px">
                     </div>
-                    <div class="col-9 bg-white p-4" style="width:100%">
+                    <div class="col-9 bg-white p-4 mb-4" style="width:100%">
                         <h3>{{ $row->title }}</h3>
-                        <p class="paragraphe-text">
+                        <p class="paragraphe-text" style="height:210px;overflow:auto;">
                             {{ $row->desc }}.
                         </p>
                     </div>

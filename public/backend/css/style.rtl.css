@@ -1281,6 +1281,7 @@ ul.tabs-nav li a.active {
 	float: left;
 	font-weight: 700;
 	margin-left: 30px;
+    text-decoration: none;
 }
 .view_website:hover {
 	background: var(--backend-theme-color);
@@ -2840,19 +2841,19 @@ table.order td p {
 }
 /* scrollbar  */
 ::-webkit-scrollbar {
-    width: 8px; 
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; 
+    background-color: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-		background-color: var(--backend-theme-color) ; 
-		border-radius: 6px; 
+		background-color: var(--backend-theme-color) ;
+		border-radius: 6px;
 	}
-	
+
 ::-webkit-scrollbar-thumb:hover {
-		background-color:var(--backend-theme-color); 
+		background-color:var(--backend-theme-color);
 	}
 

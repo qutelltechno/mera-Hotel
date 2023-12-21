@@ -33,7 +33,7 @@
 	}
 	.payment-method {
 		float: left;
-	}	
+	}
 }
 
 /* small mobile :320px. */
@@ -52,7 +52,7 @@
 	}
 	.hero-screen .hero-content h1 {
 		font-size: 45px;
-	}	
+	}
     .home_1 .search-card {
         position: relative;
         bottom: 0px;
@@ -97,7 +97,7 @@
 	}
 	.newsletter-card {
 		padding: 30px;
-	}	
+	}
 }
 
 /* Large Mobile :480px. */
@@ -113,7 +113,7 @@
     }
 	.hero-screen {
 		padding: 80px 0px 80px 0px;
-	}	
+	}
 	.hero-screen .hero-content h1 {
 		font-size: 45px;
 	}

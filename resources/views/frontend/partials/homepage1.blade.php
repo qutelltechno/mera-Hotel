@@ -2,49 +2,58 @@
 	<!-- Hero Section -->
 	@if($slider_hero_section->is_publish == 1)
 	<section class="hero-section">
-		@foreach ($slider as $row)
-		@php $aRow = json_decode($row->desc); @endphp
-		<div class="hero-screen hero-overlay" style="background-image: url({{ $row->image ? asset('public/media/'.$row->image) : '' }});">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-						<div class="hero-content">
-							<h1>{{ $row->title }}</h1>
-							@if($aRow->sub_title != '')
-							<p>{{ $aRow->sub_title }}</p>
-							@endif
-							@if($aRow->button_text != '')
-							<!-- <a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a> -->
-							@endif
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		@endforeach
 
-		<div class="search-card">
-			<div class="container">
+        <div class="hero-slider">
+            @foreach ($slider as $row)
+            @php $aRow = json_decode($row->desc); @endphp
+            <div>
+                <div class="hero-screen hero-overlay" style="height:750px; background-image: url({{ asset('public/media/'.$row->image) }});">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="hero-content">
+                                <h1>{{ $row->title }}</h1>
+                                @if($aRow->sub_title != '')
+                                <p>{{ $aRow->sub_title }}</p>
+                                @endif
+                                @if($aRow->button_text != '')
+                                <!-- <a href="{{ $row->url }}" class="btn theme-btn wow bounce" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a> -->
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            @endforeach
+        </div>
+
+        <div class="search-card">
+			<div class="col-md-3 mx-lg-5 shadow">
 				<div class="search-card-inner wow fadeIn">
+
+                    <h2 class="text-center">{{ __('Booking Your Hotel') }}</h2>
+                    <hr class="mb-4">
+
 					<form method="GET" action="{{ route('frontend.search') }}">
 						<div class="row g-2">
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="checkin_date" class="form-label">{{ __('Check In') }}</label>
+							<div class="col-12 mb-3">
+								<label for="checkin_date" class="form-label text-dark">{{ __('Check In') }}</label>
 								<input name="checkin_date" id="checkin_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="checkout_date" class="form-label">{{ __('Check Out') }}</label>
+							<div class="col-12 mb-3">
+								<label for="checkout_date" class="form-label text-dark">{{ __('Check Out') }}</label>
 								<input name="checkout_date" id="checkout_date" type="text" class="form-control border" placeholder="yyyy-mm-dd">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="total_adult" class="form-label">{{ __('Adult') }}</label>
+							<div class="col-12 mb-3">
+								<label for="total_adult" class="form-label text-dark">{{ __('Adult') }}</label>
 								<input name="total_adult" id="total_adult" type="number" class="form-control border" value="1" min="1">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 mb-3">
-								<label for="total_child" class="form-label">{{ __('Child') }}</label>
+							<div class="col-12 mb-3">
+								<label for="total_child" class="form-label text-dark">{{ __('Child') }}</label>
 								<input name="total_child" id="total_child" type="number" class="form-control border" value="0" min="0">
 							</div>
-							<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
+							<div class="col-12">
 								<button type="submit" class="btn theme-btn search-btn">{{ __('Check Availability') }}</button>
 							</div>
 						</div>
@@ -52,6 +61,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 	@endif
 	<!-- /Hero Section/ -->
@@ -60,20 +70,17 @@
     <section class="section service-section block-bg">
         <div class="container mt-5">
 			<div class="section-heading text-center">
-							<!-- <h5>سلسلة فنادق ميرا</h5> -->
-
-							<h2> سلسلة فنادق ميرا</h2>
-
+			<h2>{{__('Hotel group')}}</h2>
 			</div>
             <div class="row">
                 @foreach ($hotels as $hotel)
 				<div class="col-lg-3 col-md-6 col-sm-12 main-card">
                     <div>
-                        <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" alt="">
+                        <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" style="height:200px">
                     </div>
                     <div class="col-9 shadow p-4 bg-white" style="width: 100%">
-                        <h3>{{ $hotel->title }}</h3>
-                        <p class="paragraphe-text">{{ $hotel->description }}</p>
+                        <h3>{{ $hotel->name }}</h3>
+                        <p class="paragraphe-text" style="height:210px;overflow:auto;">{{ $hotel->description }}</p>
 					<div class="social-media mt25 mt-2">
 						<div class="social-media mt25 mt-2">
                             <a href="{{$hotel->facebook}}" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -227,7 +234,7 @@
 	@endif
 	<!-- /Preview Video Section/ -->
 
-    	<!-- About Section/ -->
+    <!-- About Section/ -->
 	@if($about_us_section->is_publish == 1)
 	@foreach ($about_us as $row)
 	@php $aRow = json_decode($row->desc); @endphp
@@ -311,72 +318,73 @@
                             </div>
                             @endif
 
-                            <div class="about-card mt-2 mb-2">
-                                <div class="row mb40">
-                                    @if($aRow->total_rooms != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-buildings"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_rooms }}</h4>
-                                                <p>{{ __('Rooms') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_customers != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-emoji-smile"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_customers }}</h4>
-                                                <p>{{ __('Customers') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_amenities != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-pie-chart"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_amenities }}</h4>
-                                                <p>{{ __('Amenities') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    @if($aRow->total_packages != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-percent"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h4>{{ $aRow->total_packages }}</h4>
-                                                <p>{{ __('Packages') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-
 						@if($aRow->button_text != '')
-						<a href="{{ $row->url }}" class="btn theme-btn" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
+						<a href="{{ $row->url }}" class="btn theme-btn mb-4" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
 						@endif
 					</div>
 
 				</div>
+
+                <div class="about-card mt-lg-4 mb-lg-4 py-lg-5" style="padding-left: 120px; padding-right: 120px;">
+                    <div class="row mb40">
+                        @if($aRow->total_rooms != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-buildings"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_rooms }}</h4>
+                                    <p>{{ __('Rooms') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_customers != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-emoji-smile"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_customers }}</h4>
+                                    <p>{{ __('Customers') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_amenities != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-pie-chart"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_amenities }}</h4>
+                                    <p>{{ __('Amenities') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if($aRow->total_packages != '')
+                        <div class="col-12 col-sm-3 col-lg-3">
+                            <div class="info-card mb15">
+                                <div class="icon">
+                                    <i class="bi bi-percent"></i>
+                                </div>
+                                <div>
+                                    <h4>{{ $aRow->total_packages }}</h4>
+                                    <p>{{ __('Packages') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
 			</div>
 		</div>
 	</section>
@@ -544,6 +552,10 @@ img {
   font-family: 'Cairo', sans-serif;
   font-weight: 700;
   margin-bottom: 15px;
+}
+
+.slick-dots{
+    z-index: 100;
 }
 </style>
 @endpush

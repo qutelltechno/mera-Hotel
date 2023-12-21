@@ -762,10 +762,13 @@
        -webkit-transition: all 0.3s ease-out 0s;
        -moz-transition: all 0.3s ease-out 0s;
        transition: all 0.3s ease-out 0s;
+       border-bottom: 2px solid transparent;
    }
+
    .tp-menu ul li:hover > a,
    .tp-menu ul li.active > a {
        color: var(--theme-color);
+       border-bottom: 2px solid;
    }
 
    /*submenu*/
@@ -1132,7 +1135,7 @@
        background-size: cover;
        height: 100%;
        width: 100%;
-       padding: 200px 0px 220px 0px;
+       padding: 260px 0px 260px 0px;
        position: relative;
    }
    .hero-overlay::before {
@@ -1165,7 +1168,7 @@
    .home_1 .search-card {
        position: absolute;
        z-index: 2;
-       bottom: -60px;
+       bottom: 70px;
        width: 100%;
    }
    .home_1 .search-card .search-card-inner {
@@ -5179,4 +5182,52 @@
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 40px;
+    }
+
+    .slider-prev-button {
+        display: flex;
+        align-items: center;
+        padding: 12px 12px 12px 6px;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        z-index: 3;
+        transform: translateY(-50%);
+        color: var(--color-white);
+        background-color: var(--theme-color);
+        border: 0;
+        left: 0;
+        margin-left: 10px;
+    }
+
+    .slider-next-button {
+        display: flex;
+        align-items: center;
+        padding: 12px 12px 12px 6px;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        z-index: 3;
+        transform: translateY(-50%);
+        color: var(--color-white);
+        background-color: var(--theme-color);
+        border: 0;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    .slick-dots {
+        bottom: 120px;
+    }
+
+    .slick-dots li button:before{
+        color: white;
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: white;
+    }
+
+    .slick-dotted.slick-slider {
+        margin-bottom: 0;
     }

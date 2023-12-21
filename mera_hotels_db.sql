@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 04:09 PM
+-- Generation Time: Dec 21, 2023 at 08:36 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -176,6 +176,13 @@ CREATE TABLE `booking_manages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `booking_manages`
+--
+
+INSERT INTO `booking_manages` (`id`, `booking_no`, `transaction_no`, `roomtype_id`, `customer_id`, `payment_method_id`, `payment_status_id`, `booking_status_id`, `total_room`, `total_price`, `discount`, `tax`, `subtotal`, `total_amount`, `paid_amount`, `due_amount`, `in_date`, `out_date`, `name`, `email`, `phone`, `country`, `state`, `zip_code`, `city`, `address`, `comments`, `created_at`, `updated_at`) VALUES
+(107, 'YDQ1224373AV', NULL, 56, NULL, 1, 2, 1, 3, 500.000, 0.000, 180.000, 3000.000, 3180.000, 0.000, 3180.000, '2023-12-26', '2023-12-27', 'Selma Sanford', 'caxasasuqa@mailinator.com', '+1 (198) 768-4353', 'United Kingdom', 'Repellendus Maiores', '32656', 'Alias est in veritat', 'Esse nulla consecte', 'Consequatur nihil l', '2023-12-19 10:24:37', '2023-12-19 10:24:37');
 
 -- --------------------------------------------------------
 
@@ -601,6 +608,45 @@ INSERT INTO `faqs` (`id`, `title`, `desc`, `is_publish`, `lan`, `created_at`, `u
 (15, 'Why should I read your reviews?', 'You\'ll get all the information you\'ll need to make important decisions about your website in one place. Our reviews are easy to read, free and full of value: you need this information, and we put it at your fingertips.', 1, 'en', '2023-12-17 10:57:59', '2023-12-17 10:57:59'),
 (16, 'How do you choose which services to review?', 'First, talented subject matter experts search the web. When we find something we like, we put it to the harshest tests. Then we carefully compare its advantages and shortcomings. Finally, we select the services that we found most amazing.', 1, 'en', '2023-12-17 11:00:06', '2023-12-17 11:00:06'),
 (17, 'Where can I find you online other than your website? Facebook characteristic? Twitter?', 'You\'ll get all the information you\'ll need to make important decisions about your website in one place. Our reviews are easy to read, free and full of value: you need this information, and we put it at your fingertips.', 1, 'en', '2023-12-17 11:08:22', '2023-12-17 11:08:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotels`
+--
+
+CREATE TABLE `hotels` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `description` longtext NOT NULL,
+  `image` varchar(191) NOT NULL,
+  `email` text NOT NULL,
+  `phone` text NOT NULL,
+  `address` text NOT NULL,
+  `map` text NOT NULL,
+  `facebook` varchar(191) DEFAULT NULL,
+  `twitter` varchar(191) DEFAULT NULL,
+  `instagram` varchar(191) DEFAULT NULL,
+  `youtube` varchar(191) DEFAULT NULL,
+  `lan` varchar(100) DEFAULT NULL,
+  `is_main` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hotels`
+--
+
+INSERT INTO `hotels` (`id`, `name`, `description`, `image`, `email`, `phone`, `address`, `map`, `facebook`, `twitter`, `instagram`, `youtube`, `lan`, `is_main`, `created_at`, `updated_at`) VALUES
+(1, 'فندق ميرا أعمال', 'يقع فندق ميرا للأعمال ف الرياض ضمن مسافة 500متر من الفيصلية مول ، ويقدم مطعما و  غرفا خالية من مسببات الحساسية ، وهو يبعد برج الفيصلية بمسافة حوالي 800 متر  ،و 3.2 كم من بانوراما مول ،و 3.6 كم  من مركز الملك عبدالعزيز التاريخي.', '0.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'ar', 1, NULL, NULL),
+(2, 'Mira Business Hotel', 'Mira Business Hotel is located in Riyadh, within 500 meters of Al Faisaliah Mall, and offers a restaurant and allergy-free rooms. It is about 800 meters away from Al Faisaliah Tower, 3.2 km from Panorama Mall, and 3.6 km from King Abdulaziz Historical Center.\r\n', '0.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'en', 1, NULL, NULL),
+(3, 'فندق ميرا تريو\r\n', 'في الرياض مدينة العراقة والتراث وفي شارع الامير محمد بن عبدالعزيز الشهير \"شارع التحلية\"اختارت شركة فنادق ميرا لتكون انطلاقتها بفندق \"ميرا تريو\"\r\nالذي تأسس ليقدم لنزلائه تجربة أقامة ممتعة ,حيث التصميم الفريد,والاثاث الفاخر , والخدمة الفندقية المميزة , فكل ماتراه العين يسر القلب', '1.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'ar', 0, NULL, NULL),
+(4, 'Mira Trio Hotel\r\n', 'In Riyadh, the city of tradition and heritage, and on the famous Prince Muhammad bin Abdulaziz Street, “Tahlia Street,” Mira Hotels Company chose as its launch the “Mira Trio” hotel.\r\nWhich was established to provide its guests with an enjoyable stay experience, with unique design, luxurious furniture, and distinguished hotel service. Everything that the eye sees pleases the heart.', '1.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'en\r\n', 0, NULL, NULL),
+(5, 'فندق ميرا الواجهة البحرية\r\n', 'فندق ميرا الوجهة البحرية واحد من سلسة فنادق ميرا ، التي تهتم غاية الاهتمام بتوفير الإقامة المريحة والهادئة وأعلي مستويات الخدمة لنزلآئها الكرام.، الفندق يبعد 15كم من مطار الملك عبد العزيز الدولي و 2كم من وسط مدينة جدة ، وقريب من مواقع الشركات والمراكز التجارية والبنوك وكافة الاماكن الحيوية ف جدة', '2.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'ar', 0, NULL, NULL),
+(6, 'Mira Waterfront Hotel\r\n', 'Mira Hotel, the sea destination, is one of the Mira Hotels chain, which is very concerned with providing comfortable and quiet accommodation and the highest levels of service to its valued guests. The hotel is 15 km from King Abdulaziz International Airport and 2 km from the center of Jeddah, and close to the locations of companies, commercial centers, banks and all places. Vitality in Jeddah\r\n', '2.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'en\r\n', 0, NULL, NULL),
+(7, 'ميرا للاجنحة الفندقية\r\n', 'فندق ميرا للاجنحة الفندقية الفاخرة طريق الامير سلطان بجدة. يتميز بحوض السباحة الخارجي وغرف خالية من المواد المحسسة ، وهو يوفر اقامة علي بعد 3.4كم من مركز آيس لاند الترفيهي . كورنيش جدة الوجهة البحرية يبعد اقل من 4كم', '3.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'ar', 0, NULL, NULL),
+(8, 'Mira Hotel Suites\r\n', 'Mira Hotel Luxury Suites, Prince Sultan Road, Jeddah. Featuring an outdoor swimming pool and allergy-free rooms, it offers accommodation 3.4 km from Ice Land Entertainment Centre. Jeddah Corniche, the sea destination, is less than 4 km away', '3.jpg', 'example@email.com', '010', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58001.81217113756!2d46.688045!3d24.688633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2a4e0047b25%3A0x8a10d3a1b417d8ff!2z2YHZhtiv2YIg2YXZitix2Kcg2KfYudmF2KfZhCDYp9mE2LnZhNmK2KcgTUlSQSBCVVNJTkVTUyBIT1RFTA!5e0!3m2!1sen!2sus!4v1702960856950!5m2!1sen!2sus', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'https://example.com/', 'en', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2308,7 +2354,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (41, '2023_01_22_153058_create_booking_status_table', 7),
 (42, '2023_01_22_153216_create_booking_manages_table', 7),
 (43, '2023_01_29_160950_create_room_assigns_table', 8),
-(44, '2023_12_16_184353_create_faqs_table', 9);
+(44, '2023_12_16_184353_create_faqs_table', 9),
+(45, '2023_12_20_132039_create_hotels_table', 10);
 
 -- --------------------------------------------------------
 
@@ -2935,7 +2982,7 @@ INSERT INTO `section_manages` (`id`, `manage_type`, `section`, `title`, `url`, `
 (387, 'home_1', 'testimonial', 'ما يقوله العملاء عنا', NULL, NULL, 'مع ميرا سترافقك ابتسامة الرضا ؛ للنها شركة سعودية مختصة تترجم ُكل خبراتها في إنشاء الفنادق وتشغيلها لتحقيق رضاك، من خلال الاللتزام بأرقى المواصفات والمقاييس العالمية .', 2, '2023-01-13 07:10:15', '2023-12-11 12:35:22', 'en'),
 (388, 'home_1', 'about_us', 'من نحن', NULL, NULL, 'من نحن', 1, '2023-01-13 06:52:00', '2023-12-10 12:54:05', 'ar'),
 (389, 'home_1', 'featured_rooms', 'الغرف المميزة', NULL, NULL, 'مع ميرا سترافقك ابتسامة الرضا ؛ ألانها شركة سعودية مختصة تترجم ُكل خبراتها في إنشاء الفنادق وتشغيلها لتحقيق رضاك، من خالل االلتزام بأرقى المواصفات والمقاييس العالمية .', 2, '2023-12-10 08:20:35', '2023-12-11 12:37:38', 'en'),
-(390, 'home_1', 'slider_hero', 'معاينة', NULL, '07012023043902-preview.jpg', 'فيديو معاينة لفندقنا', 2, '2023-12-10 22:22:37', '2023-12-10 22:24:31', 'en');
+(390, 'home_1', 'slider_hero', 'معاينة', NULL, '07012023043902-preview.jpg', 'فيديو معاينة لفندقنا', 1, '2023-12-10 22:22:37', '2023-12-10 22:24:31', 'en');
 
 -- --------------------------------------------------------
 
@@ -3326,7 +3373,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `sh
 (1, 'Admin', 'admin@themeposh.xyz', '2023-12-05 06:58:31', '$2y$10$AKDmqvsZlnRmjJwWP66/KurVIIMIbxVkQxRaeEWUeESpHzj32sQEa', NULL, NULL, '0123456789', '56 King Street, New York', NULL, NULL, NULL, NULL, '27122022160205-400x400-photo.png', 'YWRtaW4xMjM0NTY=', NULL, 1, 1, 'DybUigMB06zxLMD0UwHlYYnv7bqAQsCXWlAHJj5XUbDsMsd11oaDqmYZyiNK', '2021-03-26 13:22:14', '2023-12-05 05:21:06'),
 (75, 'Receptionist', 'receptionist@themeposh.xyz', '2023-12-05 06:58:24', '$2y$10$WrIBihqmTp4CODOyXa8SFuF6nLaRA/1G6T/hlw6npDNQX4i6aIl0W', NULL, NULL, '0123456789', '58 King Street, New York', NULL, NULL, NULL, NULL, '10012023044315-900x700-Rectangle 2-4.jpg', 'cmVjZXB0aW9uaXN0MTIzNDU2', NULL, 1, 3, 'jYqn80y86cpNZOZP6qkxV0rf1pNcNgvdK6IzjL98fSmQkvjgtU48ErGBobVx', '2023-02-09 21:41:55', '2023-12-04 20:19:41'),
 (110, 'Customer', 'customer@gmail.com', '2023-12-05 06:58:22', '$2y$10$MBzXeEMq4i9M/zjCHk9xuO/0sP6bGHyTy1emHBq6xYEHVUVPCO5FW', NULL, NULL, '0123456789', NULL, NULL, NULL, NULL, NULL, NULL, 'Y3VzdG9tZXIxMjM0NTY=', NULL, 1, 2, NULL, '2023-12-05 04:57:36', '2023-12-05 05:12:12'),
-(111, 'mariam', 'm.qassem4175@gmail.com', NULL, '$2y$10$dWAiBkALwSA5mOJrD0s68ebJkGOMxFys0gfm2y7A9gAEQEg2EVf5S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTIzNDU2Nzg5', NULL, 1, 2, NULL, '2023-12-14 07:22:54', '2023-12-14 07:22:54');
+(111, 'mariam', 'm.qassem4175@gmail.com', NULL, '$2y$10$dWAiBkALwSA5mOJrD0s68ebJkGOMxFys0gfm2y7A9gAEQEg2EVf5S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTIzNDU2Nzg5', NULL, 1, 2, NULL, '2023-12-14 07:22:54', '2023-12-14 07:22:54'),
+(112, 'Hope Ware', 'cizava@mailinator.com', NULL, '$2y$10$GWbOLbjtlIQF1oTmp6EtIuKM9Lc20yHFIacdpqwT46WI0sGy2WGz6', NULL, NULL, '+1 (324) 608-6228', 'Assumenda qui volupt', 'Harum minima modi se', 'Eum ut laboris excep', '58888', NULL, NULL, 'UGEkJHcwcmQh', NULL, 1, 2, NULL, '2023-12-19 10:13:54', '2023-12-19 10:13:54'),
+(113, 'Otto Norris', 'vesi@mailinator.com', NULL, '$2y$10$JOX6uog9m3ZSWOqQVV7n5uWpYFdx5VVSyDV6BKUaDkHMwUq6Ip15.', NULL, NULL, '+1 (615) 862-9142', 'Mollitia voluptatem', 'Quia dolorem autem e', 'Soluta velit natus', '62961', NULL, NULL, 'UGEkJHcwcmQh', NULL, 1, 2, NULL, '2023-12-19 10:14:50', '2023-12-19 10:14:50'),
+(114, 'Chantale Meyer', 'jozenabyla@mailinator.com', NULL, '$2y$10$YIHRGGo6UdsoD/QyQcLLTe3Apk4q71BshDdBdmWot0jIGCqWdaqxq', NULL, NULL, '+1 (196) 838-8664', 'Quam provident magn', 'Est praesentium qui', 'Et tenetur ullamco e', '86443', NULL, NULL, 'UGEkJHcwcmQh', NULL, 1, 2, NULL, '2023-12-19 10:15:31', '2023-12-19 10:15:31'),
+(115, 'Candice Rodriquez', 'qybadi@mailinator.com', NULL, '$2y$10$YWE/UZICcwXCKp011m279OCmPCGj6NuGvizxWeiOcRHqvdwqvbP/C', NULL, NULL, '+1 (542) 467-4066', 'Lorem enim deserunt', 'Non aut velit tempor', 'Numquam ut soluta in', '42999', NULL, NULL, 'UGEkJHcwcmQh', NULL, 1, 2, NULL, '2023-12-19 10:23:32', '2023-12-19 10:23:32'),
+(116, 'Francis Mccullough', 'gakanyhij@mailinator.com', NULL, '$2y$10$FcE4x10KLQIhqaJHKkbixe8319ZFQnOqDMSTAzn0bzAp7nlZwQfjC', NULL, NULL, '+1 (484) 397-8129', 'Et ipsa officiis qu', 'Architecto similique', 'Eveniet commodo ea', '27840', NULL, NULL, 'UGEkJHcwcmQh', NULL, 1, 2, NULL, '2023-12-19 10:24:09', '2023-12-19 10:24:09');
 
 -- --------------------------------------------------------
 
@@ -3449,6 +3501,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `faqs`
 --
 ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hotels`
+--
+ALTER TABLE `hotels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3683,7 +3741,7 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `booking_manages`
 --
 ALTER TABLE `booking_manages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `booking_status`
@@ -3726,6 +3784,12 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `faqs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `hotels`
+--
+ALTER TABLE `hotels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `languages`
@@ -3779,7 +3843,7 @@ ALTER TABLE `menu_parents`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `offer_ads`
@@ -3893,7 +3957,7 @@ ALTER TABLE `tp_status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `user_roles`

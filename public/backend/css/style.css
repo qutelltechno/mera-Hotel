@@ -30,6 +30,7 @@
 	background: #f1f5f9;
 	color: #686868;
 	font-size: 14px;
+    text-align: none;
 }
 .img, img {
 	max-width: 100%;
@@ -1265,6 +1266,7 @@ ul.tabs-nav li a.active {
 	float: left;
 	font-weight: 700;
 	margin-left: 30px;
+    text-decoration: none;
 }
 .view_website:hover {
 	background: var(--backend-theme-color);
@@ -2821,4 +2823,3 @@ table.order td p {
 .tpeditor .note-modal .note-modal-body .checkbox input {
 	margin-right: 5px;
 }
-
