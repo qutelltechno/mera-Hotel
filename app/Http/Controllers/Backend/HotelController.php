@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Section_content;
 use App\Models\Media_option;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Hotel;
@@ -39,22 +38,22 @@ class HotelController extends Controller
 		if($request->ajax()){
 
 			if($search != ''){
-				$datalist = DB::table('section_contents')
-					->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
-					->select('section_contents.*', 'tp_status.status')
+				$datalist = DB::table('Hotels')
+					->join('tp_status', 'Hotels.is_publish', '=', 'tp_status.id')
+					->select('Hotels.*', 'tp_status.status')
 					->where(function ($query) use ($search){
 						$query->where('name', 'like', '%'.$search.'%');
 					})
 					->where('section_type', '=', 'hotels')
-					->orderBy('section_contents.id','desc')
+					->orderBy('Hotels.id','desc')
 					->paginate(20);
 			}else{
 
-				$datalist = DB::table('section_contents')
-					->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
-					->select('section_contents.*', 'tp_status.status')
+				$datalist = DB::table('Hotels')
+					->join('tp_status', 'Hotels.is_publish', '=', 'tp_status.id')
+					->select('Hotels.*', 'tp_status.status')
 					->where('section_type', '=', 'hotel')
-					->orderBy('section_contents.id','desc')
+					->orderBy('Hotels.id','desc')
 					->paginate(20);
 			}
 
@@ -165,7 +164,7 @@ class HotelController extends Controller
 
             $id = $request->id;
 
-            $data = Section_content::where('id', $id)->first();
+            $data = Hotel::where('id', $id)->first();
 
             return response()->json($data);
         }
@@ -178,7 +177,7 @@ class HotelController extends Controller
             $id = $request->id;
 
             if($id != ''){
-                $response = Section_content::where('id', $id)->delete();
+                $response = Hotel::where('id', $id)->delete();
                 if($response){
                     $res['msgType'] = 'success';
                     $res['msg'] = __('Removed Successfully');
@@ -202,7 +201,7 @@ class HotelController extends Controller
             $BulkAction = $request->BulkAction;
 
             if($BulkAction == 'publish'){
-                $response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 1]);
+                $response = Hotel::whereIn('id', $idsArray)->update(['is_publish' => 1]);
                 if($response){
                     $res['msgType'] = 'success';
                     $res['msg'] = __('Updated Successfully');
@@ -213,7 +212,7 @@ class HotelController extends Controller
 
             }elseif($BulkAction == 'draft'){
 
-                $response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 2]);
+                $response = Hotel::whereIn('id', $idsArray)->update(['is_publish' => 2]);
                 if($response){
                     $res['msgType'] = 'success';
                     $res['msg'] = __('Updated Successfully');
@@ -223,7 +222,7 @@ class HotelController extends Controller
                 }
 
             }elseif($BulkAction == 'delete'){
-                $response = Section_content::whereIn('id', $idsArray)->delete();
+                $response = Hotel::whereIn('id', $idsArray)->delete();
                 if($response){
                     $res['msgType'] = 'success';
                     $res['msg'] = __('Removed Successfully');

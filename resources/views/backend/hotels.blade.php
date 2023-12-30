@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', __('Hotel'))
+@section('title', __('Hotels'))
 
 @section('content')
 <!-- main Section -->
@@ -13,7 +13,7 @@
 					<div class="card-header">
 						<div class="row">
 							<div class="col-lg-6">
-								<span>{{ __('Hotel') }}</span>
+								<span>{{ __('Hotels') }}</span>
 							</div>
 							<div class="col-lg-6">
 								<div class="float-right">

@@ -1,7 +1,8 @@
 /* ======================
-   Index
+   Inde
    1. Default css
    2. Preloader css
+
    3. Button css
    4. Header
    5. Menu css
@@ -140,7 +141,7 @@
        margin-bottom: 15px;
    }
    label {
-       color: var(--color-gray-dark);
+       color: #000;
        cursor: pointer;
        font-size: 14px;
        font-weight: 600;
@@ -198,9 +199,10 @@
        padding: 8px 10px;
        -webkit-border-radius: 0px;
        border-radius: 0px;
+       color: #000;
+       border: 1px solid lightgray !important;
        border-color: var(--color-gray-400);
        height: auto;
-       color: var(--color-gray-dark);
        font-size: 14px;
    }
    input.form-control:focus,
@@ -5231,3 +5233,8 @@
     .slick-dotted.slick-slider {
         margin-bottom: 0;
     }
+
+    .paragraphe-text {
+        text-align: justify;
+    }
+   

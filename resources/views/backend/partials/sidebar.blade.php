@@ -36,20 +36,20 @@
 				<li><a href="{{ route('backend.our-services') }}">{{ __('Our Services') }}</a></li>
 				<li><a href="{{ route('backend.home-video') }}">{{ __('Video Section') }}</a></li>
 				<li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li>
-<<<<<<< HEAD
-=======
-                {{-- <li><a href="{{ route('backend.hotels') }}">{{ __('hotels') }}</a></li> --}}
->>>>>>> 7a4b3e7cc537e08537bd0468e10f38b05109cff3
 				<li><a href="{{ route('backend.offer-ads') }}">{{ __('Offer & Ads') }}</a></li>
 				<li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li>
 			</ul>
 		</li>
 		<li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li>
-		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
+
+        <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
+
+
+		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.blog') }}">{{ __('Posts') }}</a></li>
 				<li><a href="{{ route('backend.blog-categories') }}">{{ __('Categories') }}</a></li>
-			</ul>
+			</ul> --}}
 		</li>
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
 			<ul class="dropdown-menu">
