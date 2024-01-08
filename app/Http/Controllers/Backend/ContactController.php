@@ -21,11 +21,12 @@ class ContactController extends Controller
 		$AllCount = Contact::count();
 		$PublishedCount = Contact::where('is_publish', '=', 1)->count();
 		$DraftCount = Contact::where('is_publish', '=', 2)->count();
-
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('contacts')
 			->join('tp_status', 'contacts.is_publish', '=', 'tp_status.id')
 			->join('languages', 'contacts.lan', '=', 'languages.language_code')
 			->select('contacts.*', 'tp_status.status', 'languages.language_name')
+			->where('contacts.lan',$currentLocale)
 			->orderBy('contacts.id','desc')
 			->paginate(20);
 

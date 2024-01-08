@@ -21,11 +21,12 @@ class FaqController extends Controller
 		$AllCount = Faq::count();
 		$PublishedCount = Faq::where('is_publish', '=', 1)->count();
 		$DraftCount = Faq::where('is_publish', '=', 2)->count();
-
+		$currentLocale = app()->getLocale(); 
 		$datalist = DB::table('faqs')
 			->join('tp_status', 'faqs.is_publish', '=', 'tp_status.id')
 			->join('languages', 'faqs.lan', '=', 'languages.language_code')
 			->select('faqs.*', 'tp_status.status', 'languages.language_name')
+			->where('faqs.lan',$currentLocale)
 			->orderBy('faqs.id','desc')
 			->paginate(20);
 

@@ -2,7 +2,6 @@
 
 @section('title', $metadata['name'])
 @php $gtext = gtext(); @endphp
-
 @section('meta-content')
 	<meta name="keywords" content="{{ $metadata['og_keywords'] }}" />
 	<meta name="description" content="{{ $metadata['og_description'] }}" />

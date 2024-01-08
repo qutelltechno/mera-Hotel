@@ -17,6 +17,8 @@
 		<li><a href="{{ route('backend.room-list') }}"><i class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-bed"></i>{{ __('Hotel Manage') }}</a>
 			<ul class="dropdown-menu">
+				
+				<li><a href="{{ route('backend.Hotel') }}">{{ __('Hotel Type') }}</a></li>
 				<li><a href="{{ route('backend.room-type') }}">{{ __('Room Type') }}</a></li>
 				<li><a href="{{ route('backend.categories') }}">{{ __('Categories') }}</a></li>
 				<li><a href="{{ route('backend.amenities') }}">{{ __('Amenities') }}</a></li>
@@ -40,17 +42,17 @@
 				<li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li>
 			</ul>
 		</li>
-		<li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li>
+		{{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
 
         <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
 
-
-		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
+{{-- 
+		<li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.blog') }}">{{ __('Posts') }}</a></li>
 				<li><a href="{{ route('backend.blog-categories') }}">{{ __('Categories') }}</a></li>
-			</ul> --}}
-		</li>
+			</ul>
+		</li> --}}
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li>
@@ -60,13 +62,13 @@
         <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
 		<li><a href="{{ route('backend.customers') }}"><i class="fa fa-users"></i>{{ __('Customers') }}</a></li>
 		<li><a href="{{ route('backend.contact') }}"><i class="fa fa-envelope"></i>{{ __('Contact') }}</a></li>
-		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-paper-plane"></i>{{ __('Newsletters') }}</a>
+		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-paper-plane"></i>{{ __('Newsletters') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.subscribers') }}">{{ __('Subscribers') }}</a></li>
 				<li><a href="{{ route('backend.subscribe-settings') }}">{{ __('Subscribe Settings') }}</a></li>
 				<li><a href="{{ route('backend.mailchimp-settings') }}">{{ __('MailChimp Settings') }}</a></li>
 			</ul>
-		</li>
+		</li> --}}
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-language"></i>{{ __('Languages') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.languages') }}">{{ __('Languages') }}</a></li>
