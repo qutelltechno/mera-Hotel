@@ -432,7 +432,7 @@
 	<!-- /Services Section/ -->
 
     <!-- Testimonial Section/ -->
-    <section class="section testimonial-section" style="
+    {{-- <section class="section testimonial-section" style="
         background-image: url('{{asset('public/frontend/images/bg/founders.png')}}');
         background-position: center;
         background-attachment: fixed;
@@ -469,7 +469,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 	<!-- /Testimonial Section/ -->
 
 	<!-- Blog Section/ -->

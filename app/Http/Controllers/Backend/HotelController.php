@@ -164,7 +164,8 @@ class HotelController extends Controller
 
             $id = $request->id;
 
-            $data = Hotel::where('id', $id)->first();
+            $data = Hotel::where('id', $id)
+			->first();
 
             return response()->json($data);
         }

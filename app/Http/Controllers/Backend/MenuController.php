@@ -20,10 +20,11 @@ class MenuController extends Controller
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		
 		$languagelist  = Language::where('status', 1)->orderBy('language_name', 'asc')->get();
-		
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('menus')
 			->join('tp_status', 'menus.status_id', '=', 'tp_status.id')
 			->select('menus.id', 'menus.menu_name', 'menus.menu_position', 'menus.lan', 'menus.status_id', 'tp_status.status')
+			->where('menus.lan',$currentLocale)
 			->orderBy('menus.id','desc')
 			->paginate(10);
 

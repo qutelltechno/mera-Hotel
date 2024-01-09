@@ -17,11 +17,12 @@ class OurServicesController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
         $languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('section_contents')
 			->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
 			->select('section_contents.*', 'tp_status.status')
 			->where('section_type', '=', 'our_services')
+			->where('section_contents.lan',$currentLocale )
 			->orderBy('section_contents.id','desc')
 			->paginate(20);
 

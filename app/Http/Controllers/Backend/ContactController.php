@@ -17,7 +17,6 @@ class ContactController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-
 		$AllCount = Contact::count();
 		$PublishedCount = Contact::where('is_publish', '=', 1)->count();
 		$DraftCount = Contact::where('is_publish', '=', 2)->count();
@@ -26,7 +25,7 @@ class ContactController extends Controller
 			->join('tp_status', 'contacts.is_publish', '=', 'tp_status.id')
 			->join('languages', 'contacts.lan', '=', 'languages.language_code')
 			->select('contacts.*', 'tp_status.status', 'languages.language_name')
-			->where('contacts.lan',$currentLocale)
+			->where('contacts.lan',$currentLocale )
 			->orderBy('contacts.id','desc')
 			->paginate(20);
 

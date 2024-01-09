@@ -23,12 +23,13 @@ class RoomsController extends Controller
 
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
 		$categorylist = Category::where('is_publish', 1)->orderBy('name','asc')->get();
-
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('rooms')
 			->join('tp_status', 'rooms.is_publish', '=', 'tp_status.id')
 			->join('languages', 'rooms.lan', '=', 'languages.language_code')
 			->join('categories', 'rooms.cat_id', '=', 'categories.id')
 			->select('rooms.*', 'categories.name as category_name', 'tp_status.status', 'languages.language_name')
+			->where('rooms.lan',$currentLocale)
 			->orderBy('rooms.id','desc')
 			->paginate(20);
 

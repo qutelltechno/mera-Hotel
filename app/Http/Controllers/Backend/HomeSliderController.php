@@ -18,10 +18,11 @@ class HomeSliderController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('sliders')
 			->join('tp_status', 'sliders.is_publish', '=', 'tp_status.id')
 			->select('sliders.*', 'tp_status.status')
+			->where('sliders.lan',$currentLocale)
 			->orderBy('sliders.id','desc')
 			->paginate(10);
 
