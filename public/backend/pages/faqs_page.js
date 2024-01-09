@@ -213,6 +213,8 @@ function onLoadEditData() {
 			var data = response;
 			$("#RecordId").val(data.id);
 			$("#title").val(data.title);
+			$("#description").val(data.desc);
+			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
 
 			var info = data.Faq_info;
 			if(info == null){
