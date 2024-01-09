@@ -36,4 +36,8 @@ class Room extends Model
 		'og_description',
 		'og_keywords',
     ];	
+	public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
+    }
 }

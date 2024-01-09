@@ -39,6 +39,7 @@ return new class extends Migration
 			$table->text('og_description')->nullable();
 			$table->text('og_keywords')->nullable();
             $table->timestamps();
+
         });
     }
 

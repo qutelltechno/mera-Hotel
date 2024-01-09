@@ -396,8 +396,8 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -535,8 +535,8 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -658,7 +658,9 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Http\\Controllers\\Backend\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/CustomerController.php',
         'App\\Http\\Controllers\\Backend\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/DashboardController.php',
         'App\\Http\\Controllers\\Backend\\ExportController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ExportController.php',
+        'App\\Http\\Controllers\\Backend\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/FaqController.php',
         'App\\Http\\Controllers\\Backend\\HomeSliderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/HomeSliderController.php',
+        'App\\Http\\Controllers\\Backend\\HotelController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/HotelController.php',
         'App\\Http\\Controllers\\Backend\\LanguagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/LanguagesController.php',
         'App\\Http\\Controllers\\Backend\\MediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MediaController.php',
         'App\\Http\\Controllers\\Backend\\MenuBuilderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MenuBuilderController.php',
@@ -678,13 +680,17 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Http\\Controllers\\Backend\\UploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UploadController.php',
         'App\\Http\\Controllers\\Backend\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UsersController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\AboutUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/AboutUsController.php',
         'App\\Http\\Controllers\\Frontend\\CheckoutFrontController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/CheckoutFrontController.php',
+        'App\\Http\\Controllers\\Frontend\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FaqController.php',
+        'App\\Http\\Controllers\\Frontend\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/GalleryController.php',
         'App\\Http\\Controllers\\Frontend\\HomeFrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeFrontendController.php',
         'App\\Http\\Controllers\\Frontend\\InvoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/InvoiceController.php',
         'App\\Http\\Controllers\\Frontend\\MyDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/MyDashboardController.php',
         'App\\Http\\Controllers\\Frontend\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PageController.php',
         'App\\Http\\Controllers\\Frontend\\RoomsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/RoomsController.php',
         'App\\Http\\Controllers\\Frontend\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/SearchController.php',
+        'App\\Http\\Controllers\\Frontend\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ServiceController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LocalizationController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocalizationController.php',
         'App\\Http\\Controllers\\Receptionist\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Receptionist/BookingController.php',
@@ -714,6 +720,8 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Models\\Complement' => __DIR__ . '/../..' . '/app/Models/Complement.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
+        'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
+        'App\\Models\\Hotel' => __DIR__ . '/../..' . '/app/Models/Hotel.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',
         'App\\Models\\Lankeyvalue' => __DIR__ . '/../..' . '/app/Models/Lankeyvalue.php',
         'App\\Models\\Media_option' => __DIR__ . '/../..' . '/app/Models/Media_option.php',

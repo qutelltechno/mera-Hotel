@@ -19,7 +19,7 @@
 					@if (session('message'))
 						<div class="alert alert-danger">{{ session('message') }}</div>
 					@endif
-					<form id="login_form" method="POST" action="{{ route('login') }}">
+					<form id="login_form" style="direction: rtl;text-align: right;" method="POST" action="{{ route('login') }}">
 						@csrf
 						
 						@if($errors->any())
@@ -36,7 +36,7 @@
 						<div class="form-group">
 							<input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required autocomplete="current-password">
 						</div>
-						<div class="tw_checkbox checkbox_group">
+						<div class="tw_checkbox checkbox_group" style="text-align: right;">
 							<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
 							<label for="remember">{{ __('Remember me') }}</label>
 							<span></span>

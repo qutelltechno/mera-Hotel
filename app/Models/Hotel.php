@@ -24,4 +24,8 @@ class Hotel extends Model
         'lan',
         'is_main'
     ];
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
 }

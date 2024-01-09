@@ -8,7 +8,7 @@
 	<div class="container-fluid">
 
 		<div class="row">
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-success">
 						<i class="fa fa-money"></i>
@@ -22,8 +22,8 @@
 						@endif
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			</div> --}}
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-warning">
 						<i class="fa fa-hourglass-end"></i>
@@ -37,8 +37,8 @@
 						@endif
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			</div> --}}
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-red">
 						<i class="fa fa-circle-o-notch"></i>
@@ -52,8 +52,8 @@
 						@endif
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			</div> --}}
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-danger">
 						<i class="fa fa-ban"></i>
@@ -67,7 +67,7 @@
 						@endif
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
 			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
@@ -219,7 +219,7 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-info">
 						<i class="fa fa-users"></i>
@@ -232,8 +232,8 @@
 						<a href="{{ route('backend.customers') }}"><i class="fa fa-eye"></i>{{ __('View') }}</a>
 					</span>
 				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
+			</div> --}}
+			{{-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-25">
 				<div class="desh-item-card">
 					<div class="icon-card tp-bg-danger">
 						<i class="fa fa-users"></i>
@@ -246,11 +246,11 @@
 						<a href="{{ route('backend.customers') }}"><i class="fa fa-eye"></i>{{ __('View') }}</a>
 					</span>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 
 		<div class="row">
-			<div class="col-lg-5 mt-25">
+			<div class="col-lg-12 mt-25">
 				<div class="card">
 					<div class="card-header">
 						<div class="row">
@@ -290,7 +290,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-7 mt-25">
+			{{-- <div class="col-lg-7 mt-25">
 				<div class="card">
 					<div class="card-header">
 						<div class="row">
@@ -303,10 +303,10 @@
 						<canvas id="monthly_earning_report" height="450"></canvas>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-lg-12 mt-25">
 				<div class="card">
 					<div class="card-header">
@@ -321,7 +321,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 
 @endsection
