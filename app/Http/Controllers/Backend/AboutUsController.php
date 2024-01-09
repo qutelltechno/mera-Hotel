@@ -17,11 +17,13 @@ class AboutUsController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-
+$curntLang=App()->getLocale();
+// dd($curntLang);
 		$datalist = DB::table('section_contents')
 			->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
 			->select('section_contents.*', 'tp_status.status')
 			->where('section_type', '=', 'about_us')
+			->where('lan',$curntLang)
 			->orderBy('section_contents.id','desc')
 			->paginate(10);
 

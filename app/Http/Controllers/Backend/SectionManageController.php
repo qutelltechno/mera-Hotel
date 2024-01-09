@@ -20,10 +20,11 @@ class SectionManageController extends Controller
 
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
-
-		$datalist = DB::table('section_manages')
+		$currentLocale = app()->getLocale(); 
+		$datalist = DB::table('section_manages')		
 			->join('tp_status', 'section_manages.is_publish', '=', 'tp_status.id')
 			->select('section_manages.*', 'tp_status.status')
+			->where('section_manages.lan',$currentLocale)
 			->orderBy('section_manages.id','asc')
 			->paginate(20);
 

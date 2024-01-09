@@ -13,6 +13,7 @@ class RoomListController extends Controller
     public function getRoomListPageLoad() {
 
 		$room_list = Room::where('is_publish', 1)->orderBy('title','asc')->get();
+		$currentLocale = app()->getLocale(); 
 
 		$datalist = DB::table('room_manages')
 			->join('tp_status', 'room_manages.is_publish', '=', 'tp_status.id')
@@ -21,6 +22,7 @@ class RoomListController extends Controller
 			->leftjoin('booking_manages', 'room_assigns.booking_id', '=', 'booking_manages.id')
 			->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no', 
 			'booking_manages.name', 'booking_manages.phone')
+			->where('rooms.lan',$currentLocale)
 			->orderBy('rooms.title','asc')
 			->orderBy('room_manages.room_no','asc')
 			->paginate(30);

@@ -62,7 +62,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="form-group">
-										<label for="address">{{ __('Address') }}<span class="red">*</span></label>
+										<label for="address">{{ __('address') }}<span class="red">*</span></label>
 										<textarea name="address" id="address" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>

@@ -182,37 +182,83 @@ function onEdit(id) {
 	onCustomModal(msg, "onLoadEditData");
 }
 
+// function onLoadEditData() {
+
+//     $.ajax({
+// 		type : 'POST',
+// 		url: base_url + '/backend/getHotelById',
+// 		data: 'id='+RecordId,
+// 		success: function (response) {
+// 			var data = response;
+// 			$("#RecordId").val(data.id);
+// 			$("#hotel_name").val(data.name);
+			
+// 			$("#address").val(data.address);
+
+// 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
+		
+
+//  			if(data.description != null){
+// 				$("#description").val(data.description);
+// 			}else{
+// 				$("#description").val('');
+// 			}
+
+//  			if(data.image != null){
+// 				$("#hotel_image").val(data.image);
+// 				$("#view_hotel_image").html('<img src="'+public_path+'/media/'+data.image+'">');
+// 				$("#remove_hotel_image").show();
+// 			}else{
+// 				$("#hotel_image").val('');
+// 				$("#view_hotel_image").html('');
+// 				$("#remove_hotel_image").hide();
+// 			}
+
+// 			onEditPanel();
+// 		}
+//     });
+// }
 function onLoadEditData() {
-
     $.ajax({
-		type : 'POST',
-		url: base_url + '/backend/getHotelById',
-		data: 'id='+RecordId,
-		success: function (response) {
-			var data = response;
-			$("#RecordId").val(data.id);
+        type: 'POST',
+        url: base_url + '/backend/getHotelById',
+        data: { id: RecordId }, // Pass data as an object
+        success: function(response) {
+            var data = response;
+            $("#hotel_name").val(data.name);
+            $("#RecordId").val(data.id);
+            $("#address").val(data.address);
+			$("#email").val(data.email);
+			$("#phone").val(data.phone);
+			$("#facebook").val(data.facebook);
+			$("#twitter").val(data.twitter);
+			$("#instagram").val(data.instagram);
+			$("#youtube").val(data.youtube);
+			$("#map").val(data.map);
 
-			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-			$("#hotel_name").val(data.name);
 
- 			if(data.desc != null){
-				$("#description").val(data.desc);
-			}else{
-				$("#description").val('');
-			}
+            // Check for data.desc or data.image and handle them accordingly
+            if (data.description !== null) {
+                $("#description").val(data.description);
+            } else {
+                $("#description").val('');
+            }
 
- 			if(data.image != null){
-				$("#hotel_image").val(data.image);
-				$("#view_hotel_image").html('<img src="'+public_path+'/media/'+data.image+'">');
-				$("#remove_hotel_image").show();
-			}else{
-				$("#hotel_image").val('');
-				$("#view_hotel_image").html('');
-				$("#remove_hotel_image").hide();
-			}
+            if (data.image !== null) {
+                $("#hotel_image").val(data.image);
+                $("#view_hotel_image").html('<img src="' + base_url + '/media/' + data.image + '">');
+                $("#remove_hotel_image").show();
+            } else {
+                $("#hotel_image").val('');
+                $("#view_hotel_image").html('');
+                $("#remove_hotel_image").hide();
+            }
 
-			onEditPanel();
-		}
+            // Triggering the chosen:updated event assuming you're using the Chosen plugin
+            $("#is_publish").val(data.is_publish).trigger("chosen:updated");
+
+            onEditPanel();
+        }
     });
 }
 
