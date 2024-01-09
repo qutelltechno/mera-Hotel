@@ -209,7 +209,7 @@
 	<!-- /About Section/ -->
 
     <!-- Preview Video Section-->
-	@if($home_video['is_publish'] == 1)
+	{{-- @if($home_video['is_publish'] == 1)
 	<section class="preview-section">
 		<div class="row align-items-center justify-content-center g-0">
 			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
@@ -234,7 +234,7 @@
 			</div>
 		</div>
 	</section>
-	@endif
+	@endif --}}
 	<!-- /Preview Video Section/ -->
 
 	<!-- Blog Section/ -->

@@ -165,7 +165,7 @@
 		var public_path = "{{ asset('public') }}";
 
 		//Cookie Consent
-		var is_publish_cookie_consent = "{{ $gtext['is_publish_cookie_consent'] }}";
+		/* var is_publish_cookie_consent = "{{ $gtext['is_publish_cookie_consent'] }}";
 		if(is_publish_cookie_consent == 1){
 			let cookieModal = document.querySelector(".cookie_consent_card");
 			let acceptCookieBtn = document.querySelector(".accept_btn");
@@ -181,7 +181,7 @@
 			}else{
 				cookieModal.classList.add("active");
 			}
-		}
+		} */
 	</script>
     <script src="{{ asset('public/frontend/js/aos.js')}}"></script>
 

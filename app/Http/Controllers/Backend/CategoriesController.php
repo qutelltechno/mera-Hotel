@@ -17,11 +17,12 @@ class CategoriesController extends Controller
 		
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('categories')
 			->join('tp_status', 'categories.is_publish', '=', 'tp_status.id')
 			->join('languages', 'categories.lan', '=', 'languages.language_code')
 			->select('categories.*', 'tp_status.status', 'languages.language_name')
+			->where('categories.lan',$currentLocale)
 			->orderBy('categories.id','desc')
 			->paginate(20);
 

@@ -19,14 +19,21 @@ class BlogController extends Controller
 		$blog_category = Blog_category::where('is_publish', 1)->orderBy('name', 'asc')->get();
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		
+		$currentLocale = app()->getLocale(); 
+		// dd($currentLocale);
 		$datalist = DB::table('blogs')
 			->join('tp_status', 'blogs.is_publish', '=', 'tp_status.id')
 			->join('languages', 'blogs.lan', '=', 'languages.language_code')
+			// ->join('languages', 'blogs.lan', '=', $currentLocale)
+
+
 			->join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
 			->select('blogs.*', 'tp_status.status', 'languages.language_name', 'blog_categories.name')
+			->where('blogs.lan',$currentLocale)
 			->orderBy('blogs.id','desc')
 			->paginate(20);
+			$lang=Blog::all();
+			// dd($datalist);
 
         return view('backend.blog', compact('media_datalist', 'blog_category', 'statuslist', 'languageslist', 'datalist'));
     }

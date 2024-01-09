@@ -12,6 +12,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			{{-- @dd($datalist) --}}
 			@if (count($datalist)>0)
 			@foreach($datalist as $row)
 			<tr>

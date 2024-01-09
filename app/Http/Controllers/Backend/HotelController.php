@@ -18,12 +18,12 @@ class HotelController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->orderBy('language_name', 'asc')->get();
-
-
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('hotels')
 			->join('languages', 'hotels.lan', '=', 'languages.language_code')
 			->select('hotels.*',  'languages.language_name')
 			->orderBy('hotels.id','desc')
+			->where('hotels.lan',$currentLocale)
 			->paginate(20);
 
             return view('backend.hotels', compact( 'media_datalist', 'datalist', 'statuslist', 'languageslist'));

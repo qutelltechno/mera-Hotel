@@ -155,3 +155,4 @@ var TEXT = [];
 </script>
 <script src="{{asset('public/backend/pages/room_type.js')}}"></script>
 @endpush
+ 
