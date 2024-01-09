@@ -46,15 +46,10 @@
 
         <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
 
-<<<<<<< HEAD
 
 
 
 		 {{-- <li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
-=======
-{{-- 
-		<li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
->>>>>>> 133bcca8351fd96182a63cdc55de3f6d48a2340c
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.blog') }}">{{ __('Posts') }}</a></li>
 				<li><a href="{{ route('backend.blog-categories') }}">{{ __('Categories') }}</a></li>
@@ -75,13 +70,8 @@
 				<li><a href="{{ route('backend.subscribe-settings') }}">{{ __('Subscribe Settings') }}</a></li>
 				<li><a href="{{ route('backend.mailchimp-settings') }}">{{ __('MailChimp Settings') }}</a></li>
 			</ul>
-<<<<<<< HEAD
 		</li>
 		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-language"></i>{{ __('Languages') }}</a>
-=======
-		</li> --}}
-		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-language"></i>{{ __('Languages') }}</a>
->>>>>>> 133bcca8351fd96182a63cdc55de3f6d48a2340c
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.languages') }}">{{ __('Languages') }}</a></li>
 				<li><a href="{{ route('backend.language-keywords') }}">{{ __('Language Keywords') }}</a></li>
