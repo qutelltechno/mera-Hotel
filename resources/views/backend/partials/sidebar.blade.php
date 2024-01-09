@@ -42,15 +42,17 @@
 		</li>
 		<li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li>
 
-        <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
+        <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
 
 
-		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
+
+
+		 {{-- <li class="dropdown"><a class="nav-link has-dropdown" href="{{ route('backend.blog') }}" data-toggle="dropdown"><i class="fa fa-rss-square"></i>{{ __('Blog') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.blog') }}">{{ __('Posts') }}</a></li>
 				<li><a href="{{ route('backend.blog-categories') }}">{{ __('Categories') }}</a></li>
-			</ul> --}}
-		</li>
+			</ul>
+		</li> --}}
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li>
@@ -67,12 +69,12 @@
 				<li><a href="{{ route('backend.mailchimp-settings') }}">{{ __('MailChimp Settings') }}</a></li>
 			</ul>
 		</li>
-		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-language"></i>{{ __('Languages') }}</a>
+		{{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-language"></i>{{ __('Languages') }}</a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ route('backend.languages') }}">{{ __('Languages') }}</a></li>
 				<li><a href="{{ route('backend.language-keywords') }}">{{ __('Language Keywords') }}</a></li>
 			</ul>
-		</li>
+		</li> --}}
 		<li><a href="{{ route('backend.media') }}"><i class="fa fa-picture-o"></i>{{ __('Media') }}</a></li>
 		<li><a id="active-settings" href="{{ route('backend.general') }}"><i class="fa fa-cogs"></i>{{ __('Settings') }}</a></li>
 		<li><a href="{{ route('backend.users') }}"><i class="fa fa-user-plus"></i>{{ __('Users') }}</a></li>

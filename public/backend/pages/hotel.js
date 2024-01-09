@@ -193,7 +193,7 @@ function onLoadEditData() {
 			$("#RecordId").val(data.id);
 
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-			$("#Hotel_title").val(data.title);
+			$("#hotel_name").val(data.name);
 
  			if(data.desc != null){
 				$("#description").val(data.desc);

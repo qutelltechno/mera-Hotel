@@ -297,7 +297,7 @@ Route::prefix('backend')->group(function(){
 
     //hotel
     Route::get('/Hotel', [App\Http\Controllers\Backend\HotelController::class, 'getHotelData'])->name('backend.Hotel')->middleware(['auth','is_admin']);
-	Route::get('/getHotelPaginationData', [App\Http\Controllers\Backend\HotelController::class, 'getHotelPaginationData'])->name('backend.getHotelPaginationData')->middleware(['auth','is_admin']);
+	Route::get('/getHotelTableData', [App\Http\Controllers\Backend\HotelController::class, 'getHotelTableData'])->name('backend.getHotelPaginationData')->middleware(['auth','is_admin']);
 	Route::post('/getHotelById', [App\Http\Controllers\Backend\HotelController::class, 'getHotelById'])->name('backend.getHotelById')->middleware(['auth','is_admin']);
 	Route::post('/deleteHotel', [App\Http\Controllers\Backend\HotelController::class, 'deleteHotel'])->name('backend.deleteHotel')->middleware(['auth','is_admin']);
 	Route::post('/bulkActionHotel', [App\Http\Controllers\Backend\HotelController::class, 'bulkActionHotel'])->name('backend.bulkActionHotel')->middleware(['auth','is_admin']);
