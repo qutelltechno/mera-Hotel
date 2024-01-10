@@ -18,16 +18,42 @@ class Offer_adsController extends Controller
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
         $languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		$currentLocale = app()->getLocale(); 
+		$currentLocale = app()->getLocale();
 		$datalist = DB::table('offer_ads')
 			->join('tp_status', 'offer_ads.is_publish', '=', 'tp_status.id')
 			->select('offer_ads.id', 'offer_ads.offer_ad_type', 'offer_ads.title', 'offer_ads.url', 'offer_ads.image', 'offer_ads.desc', 'offer_ads.is_publish', 'tp_status.status')
-			->where('offer_ads.lan',$currentLocale)
 			->orderBy('offer_ads.id','desc')
+            ->where('offer_ads.lan',$currentLocale)
+
 			->paginate(10);
 
         return view('backend.offer-ads', compact('media_datalist', 'statuslist', 'datalist','languageslist'));
     }
+
+    // public function getOfferAdsPageLoad() {
+    //     $media_datalist = Media_option::orderBy('id', 'desc')->paginate(28);
+    //     $statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
+    //     $languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
+    //     $currentLocale = app()->getLocale();
+
+    //     $datalist = DB::table('offer_ads')
+    //         ->join('tp_status', 'offer_ads.is_publish', '=', 'tp_status.id')
+    //         ->select(
+    //             'offer_ads.id',
+    //             'offer_ads.offer_ad_type',
+    //             'offer_ads.title',
+    //             'offer_ads.url',
+    //             'offer_ads.image',
+    //             'offer_ads.desc',
+    //             'offer_ads.is_publish',
+    //             'tp_status.status'
+    //         )
+    //         ->where('offer_ads.lan', $currentLocale)
+    //         ->orderBy('offer_ads.id', 'desc')
+    //         ->paginate(10);
+
+    //     return view('backend.offer-ads', compact('media_datalist', 'statuslist', 'datalist', 'languageslist'));
+    // }
 
 	//Get data for Offer Ads Pagination
 	public function getOfferAdsTableData(Request $request){

@@ -33,9 +33,9 @@ class RoomsController extends Controller
 			->orderBy('rooms.id','desc')
 			->paginate(20);
 
-		return view('backend.room-type', compact('languageslist', 'categorylist', 'datalist'));		
+		return view('backend.room-type', compact('languageslist', 'categorylist', 'datalist'));
 	}
-	
+
 	//Get data for Room Type Pagination
 	public function getRoomTypeTableData(Request $request){
 
@@ -79,7 +79,7 @@ class RoomsController extends Controller
 					->where(function ($query) use ($category_id){
 						$query->whereRaw("rooms.cat_id = '".$category_id."' OR '".$category_id."' = '0'");
 					})
-					
+
 					->orderBy('rooms.id','desc')
 					->paginate(20);
 			}
@@ -97,14 +97,14 @@ class RoomsController extends Controller
 		$slug = esc(str_slug($request->input('slug')));
 		$lan = $request->input('lan');
 		$cat_id = $request->input('categoryid');
-		
+
 		$validator_array = array(
 			'room_name' => $request->input('title'),
 			'slug' => $slug,
 			'language' => $request->input('lan'),
 			'category' => $request->input('categoryid')
 		);
-		
+
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
 			'room_name' => 'required',
@@ -114,13 +114,13 @@ class RoomsController extends Controller
 		]);
 
 		$errors = $validator->errors();
-		
+
 		if($errors->has('room_name')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('room_name');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('slug')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('slug');
@@ -132,7 +132,7 @@ class RoomsController extends Controller
 			$res['msg'] = $errors->first('language');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('category')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('category');
@@ -171,22 +171,22 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Delete data for Room Type
 	public function deleteRoomType(Request $request){
-		
+
 		$res = array();
 
 		$id = $request->id;
 
 		if($id != ''){
-			
+
 			Room_manage::where('roomtype_id', $id)->delete();
 			Room_image::where('room_id', $id)->delete();
-			
+
 			$response = Room::where('id', $id)->delete();
 			if($response){
 				$res['msgType'] = 'success';
@@ -196,18 +196,18 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//Bulk Action for Room Type
 	public function bulkActionRoomType(Request $request){
-		
+
 		$res = array();
 
 		$idsStr = $request->ids;
 		$idsArray = explode(',', $idsStr);
-		
+
 		$BulkAction = $request->BulkAction;
 
 		if($BulkAction == 'publish'){
@@ -219,9 +219,9 @@ class RoomsController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'draft'){
-			
+
 			$response = Room::whereIn('id', $idsArray)->update(['is_publish' => 2]);
 			if($response){
 				$res['msgType'] = 'success';
@@ -230,12 +230,12 @@ class RoomsController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'delete'){
-			
+
 			Room_manage::whereIn('roomtype_id', $idsArray)->delete();
 			Room_image::whereIn('room_id', $idsArray)->delete();
-			
+
 			$response = Room::whereIn('id', $idsArray)->delete();
 			if($response){
 				$res['msgType'] = 'success';
@@ -245,14 +245,14 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//has Room Slug
     public function hasRoomSlug(Request $request){
 		$res = array();
-		
+
 		$slug = str_slug($request->slug);
         $count = Room::where('slug', $slug) ->count();
 		if($count == 0){
@@ -261,21 +261,21 @@ class RoomsController extends Controller
 			$incr = $count+1;
 			$res['slug'] = $slug.'-'.$incr;
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
     //get Rooms
     public function getRoomPageData($id){
-		
+
 		$datalist = Room::where('id', $id)->first();
-		
+
 		$lan = $datalist->lan;
-		
+
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('id', 'asc')->get();
 		$categorylist = category::where('lan', '=', $lan)->where('is_publish', '=', 1)->orderBy('name','asc')->get();
-		
+
 		$taxlist = Tax::orderBy('title','asc')->get();
 		$amenity_list = Amenity::orderBy('name','asc')->get();
 		$complement_list = Complement::orderBy('name','asc')->get();
@@ -284,7 +284,7 @@ class RoomsController extends Controller
 
         return view('backend.room', compact('datalist', 'statuslist', 'languageslist', 'categorylist', 'taxlist', 'amenity_list', 'complement_list', 'bedtype_list', 'media_datalist'));
     }
-	
+
 	//Update data for Rooms
     public function updateRoomsData(Request $request){
 		$res = array();
@@ -306,7 +306,7 @@ class RoomsController extends Controller
 		$thumbnail = $request->input('f_thumbnail');
 		$cover_img = $request->input('cover_img');
 		$is_publish = $request->input('is_publish');
-		
+
 		$validator_array = array(
 			'room_name' => $request->input('title'),
 			'slug' => $slug,
@@ -320,7 +320,7 @@ class RoomsController extends Controller
 			'subheader_image' => $request->input('cover_img'),
 			'status' => $request->input('is_publish')
 		);
-		
+
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
 			'room_name' => 'required',
@@ -343,37 +343,37 @@ class RoomsController extends Controller
 			$res['msg'] = $errors->first('room_name');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('slug')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('slug');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('category')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('category');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('total_adult')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('total_adult');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('total_child')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('total_child');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('price')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('price');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('tax')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('tax');
@@ -385,25 +385,25 @@ class RoomsController extends Controller
 			$res['msg'] = $errors->first('language');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('featured_image')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('featured_image');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('subheader_image')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('subheader_image');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('status')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('status');
 			return response()->json($res);
 		}
-		
+
 		$amenities = NULL;
 		$i = 0;
 		if($amenity_list !=''){
@@ -414,7 +414,7 @@ class RoomsController extends Controller
 				$amenities .= $val;
 			}
 		}
-		
+
 		$complements = NULL;
 		$j = 0;
 		if($complement_list !=''){
@@ -425,7 +425,7 @@ class RoomsController extends Controller
 				$complements .= $val;
 			}
 		}
-		
+
 		$beds = NULL;
 		$k = 0;
 		if($bed_list !=''){
@@ -455,31 +455,31 @@ class RoomsController extends Controller
 			'is_publish' => $is_publish,
 			'lan' => $lan
 		);
-		
+
 		$response = Room::where('id', $id)->update($data);
 		if($response){
-			
+
 			//Update Parent and Child Menu
 			gMenuUpdate($id, 'product', $title, $slug);
-			
+
 			$res['msgType'] = 'success';
 			$res['msg'] = __('Updated Successfully');
 		}else{
 			$res['msgType'] = 'error';
 			$res['msg'] = __('Data update failed');
 		}
-		
+
 		return response()->json($res);
     }
-	
+
     //get Price
     public function getPricePageData($id){
-		
+
 		$datalist = Room::where('id', $id)->first();
 
         return view('backend.price', compact('datalist'));
     }
-	
+
 	//Save data for Price
     public function savePriceData(Request $request){
 		$res = array();
@@ -492,25 +492,25 @@ class RoomsController extends Controller
 		$validator_array = array(
 			'price' => $price
 		);
-		
+
 		$validator = Validator::make($validator_array, [
 			'price' => 'required'
 		]);
 
 		$errors = $validator->errors();
-		
+
 		if($errors->has('price')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('price');
 			return response()->json($res);
 		}
-		
+
 		$data = array(
 			'price' => $price,
 			'old_price' => $old_price,
 			'is_discount' => $is_discount
 		);
-		
+
 		$response = Room::where('id', $id)->update($data);
 		if($response){
 			$res['msgType'] = 'success';
@@ -519,32 +519,32 @@ class RoomsController extends Controller
 			$res['msgType'] = 'error';
 			$res['msg'] = __('Data update failed');
 		}
-		
+
 		return response()->json($res);
     }
 
     //get Room Images
     public function getRoomImagesPageData($id){
-		
+
 		$datalist = Room::where('id', $id)->first();
 		$imagelist = Room_image::where('room_id', $id)->orderBy('id','desc')->paginate(15);
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
-		
+
         return view('backend.room-images', compact('datalist', 'imagelist', 'media_datalist'));
     }
-	
+
 	//Get data for Room Images Pagination
 	public function getRoomImagesTableData(Request $request){
 
 		$id = $request->id;
-		
+
 		if($request->ajax()){
 			$imagelist = Room_image::where('room_id', $id)->orderBy('id','desc')->paginate(15);
 
 			return view('backend.partials.room_images_list', compact('imagelist'))->render();
 		}
 	}
-	
+
 	//Save data for Room Images
     public function saveRoomImagesData(Request $request){
 		$res = array();
@@ -552,11 +552,11 @@ class RoomsController extends Controller
 		$room_id = $request->input('room_id');
 		$thumbnail = $request->input('thumbnail');
 		$large_image = $request->input('large_image');
-		
+
 		$validator_array = array(
 			'image' => $request->input('thumbnail')
 		);
-		
+
 		$validator = Validator::make($validator_array, [
 			'image' => 'required'
 		]);
@@ -568,13 +568,13 @@ class RoomsController extends Controller
 			$res['msg'] = $errors->first('image');
 			return response()->json($res);
 		}
-		
+
 		$data = array(
 			'room_id' => $room_id,
 			'thumbnail' => $thumbnail,
 			'large_image' => $large_image
 		);
-		
+
 		$response = Room_image::create($data);
 		if($response){
 			$res['msgType'] = 'success';
@@ -583,7 +583,7 @@ class RoomsController extends Controller
 			$res['msgType'] = 'error';
 			$res['msg'] = __('Data insert failed');
 		}
-		
+
 		return response()->json($res);
     }
 
@@ -603,19 +603,19 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
     //get Room SEO
     public function getRoomSEOPageData($id){
-		
+
 		$datalist = Room::where('id', $id)->first();
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
-		
+
         return view('backend.room-seo', compact('datalist', 'media_datalist'));
 	}
-	
+
 	//Save data for Room SEO
     public function saveRoomSEOData(Request $request){
 		$res = array();
@@ -632,7 +632,7 @@ class RoomsController extends Controller
 			'og_description' => $og_description,
 			'og_keywords' => $og_keywords
 		);
-		
+
 		$response = Room::where('id', $id)->update($data);
 		if($response){
 			$res['msgType'] = 'success';
@@ -641,13 +641,13 @@ class RoomsController extends Controller
 			$res['msgType'] = 'error';
 			$res['msg'] = __('Data update failed');
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Room Manages page load
     public function getRoomsPageLoad($id){
-		
+
 		$datalist['id'] = $id;
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 
@@ -666,7 +666,7 @@ class RoomsController extends Controller
 
 		$search = $request->search;
 		$id = $request->roomtype_id;
-		
+
 		if($request->ajax()){
 
 			if($search != ''){
@@ -680,7 +680,7 @@ class RoomsController extends Controller
 					->orderBy('room_manages.id','asc')
 					->paginate(20);
 			}else{
-				
+
 				$RoomsDataList = DB::table('room_manages')
 					->join('tp_status', 'room_manages.is_publish', '=', 'tp_status.id')
 					->select('room_manages.*', 'tp_status.status')
@@ -692,20 +692,20 @@ class RoomsController extends Controller
 			return view('backend.partials.rooms_table', compact('RoomsDataList'))->render();
 		}
 	}
-	
+
 	//Save data for rooms
     public function saveRoomsData(Request $request){
 		$res = array();
-		
+
 		$id = $request->input('RecordId');
 		$roomtype_id = $request->input('roomtype_id');
 		$room_no = $request->input('room_no');
 		$is_publish = $request->input('is_publish');
-		
+
 		$validator_array = array(
 			'room_no' => $request->input('room_no')
 		);
-		
+
 		$validator = Validator::make($validator_array, [
 			'room_no' => 'required|max:191'
 		]);
@@ -744,23 +744,23 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Get data for Room by id
     public function getRoomById(Request $request){
 
 		$id = $request->id;
-		
+
 		$data = Room_manage::where('id', $id)->first();
-		
+
 		return response()->json($data);
 	}
-	
+
 	//Delete data for Room
 	public function deleteRoom(Request $request){
-		
+
 		$res = array();
 
 		$id = $request->id;
@@ -775,18 +775,18 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//Bulk Action for Room
 	public function bulkActionRoom(Request $request){
-		
+
 		$res = array();
 
 		$idsStr = $request->ids;
 		$idsArray = explode(',', $idsStr);
-		
+
 		$BulkAction = $request->BulkAction;
 
 		if($BulkAction == 'publish'){
@@ -798,9 +798,9 @@ class RoomsController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'draft'){
-			
+
 			$response = Room_manage::whereIn('id', $idsArray)->update(['is_publish' => 2]);
 			if($response){
 				$res['msgType'] = 'success';
@@ -809,7 +809,7 @@ class RoomsController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'delete'){
 			$response = Room_manage::whereIn('id', $idsArray)->delete();
 			if($response){
@@ -820,7 +820,7 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
-	}	
+	}
 }

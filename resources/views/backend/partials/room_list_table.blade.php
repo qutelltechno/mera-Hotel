@@ -66,7 +66,10 @@
 	</table>
 </div>
 <div class="row mt-15">
+{{-- @dd($datalist) --}}
 	<div class="col-lg-12 RoomList">
-		{{ $datalist->links() }}
+        {{ $datalist->appends(['locale' => app()->getLocale()])->links() }}
+		{{-- {{ $datalist->links() }} --}}
+        {{-- {{ $datalist->appends(['locale' => $currentLocale])->links() }} --}}
 	</div>
 </div>
