@@ -25,7 +25,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
-											<label for="whatsapp_id">Whatsapp Phone Number</label>
+											<label for="whatsapp_id">{{ __('Whatsapp Phone Number') }}</label>
 											<input value="{{ $datalist['whatsapp_id'] }}" type="text" name="whatsapp_id" id="whatsapp_id" class="form-control" placeholder="0123456789">
 										</div>
 									</div>
@@ -34,7 +34,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
-											<label for="whatsapp_text">Text</label>
+											<label for="whatsapp_text">{{ __('Text') }}</label>
 											<input value="{{ $datalist['whatsapp_text'] }}" type="text" name="whatsapp_text" id="whatsapp_text" class="form-control" placeholder="Text..">
 										</div>
 									</div>
@@ -43,10 +43,10 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="form-group">
-											<label for="position">Position</label>
+											<label for="position">{{ __('Position') }}</label>
 											<select name="position" id="position" class="chosen-rtl form-control">
-												<option {{ 'left' == $datalist['position'] ? "selected=selected" : '' }} value="left">Left</option>
-												<option {{ 'right' == $datalist['position'] ? "selected=selected" : '' }} value="right">Right</option>
+												<option {{ 'left' == $datalist['position'] ? "selected=selected" : '' }} value="left">{{ __('Left') }}</option>
+												<option {{ 'right' == $datalist['position'] ? "selected=selected" : '' }} value="right">{{ __('Right') }}</option>
 											</select>
 										</div>
 									</div>

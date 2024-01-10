@@ -1,8 +1,20 @@
 <div class="sidebar-wrapper">
 	<div class="logo">
+			<a href="{{ url('/') }}">
+
+							@if (app()->getLocale()=='ar')
+							<img src="{{ $gtext['back_logo'] ? asset('public/media/'.$gtext['back_logo']) : asset('public/frontend/images/ar-logo.png') }}" alt="logo">
+
+							@else
+							{{-- <img src="{{ $gtext['back_logo'] ? asset('public/media/'.$gtext['back_logo']) : asset('public/frontend/images/en-logo.png')  }}" alt="logo"> --}}
+
+							<img src="{{ asset('public/frontend/images/en-logo.png') }}" alt="logo">
+							@endif
+
+						 {{-- </a>
 		<a href="{{ route('backend.dashboard') }}">
 			<img src="{{ $gtext['back_logo'] ? asset('public/media/'.$gtext['back_logo']) : asset('public/backend/images/backend-logo.png') }}" alt="logo">
-		</a>
+		</a>  --}}
 	</div>
 	<ul class="left-navbar">
 		@if (Auth::user()->role_id == 1)
