@@ -144,7 +144,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="breadcrumb-card wow pulse">
-						<h2>{{ $metadata['name'] }}</h2>
+						{{-- <h2>{{ $metadata['name'] }}</h2> --}}
 					</div>
 				</div>
 			</div>

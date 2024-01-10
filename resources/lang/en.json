@@ -619,5 +619,10 @@
     "login": "Login",
     "reCAPTCHA is not valid. Please try again!": "reCAPTCHA is not valid. Please try again!",
     "Total User": "Total User",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "Whatsapp Phone Number":"Whatsapp Phone Number",
+    "Text":"Text",
+    "Position":"Position",
+    "Left":"Left",
+    "Right":"Right"
 }

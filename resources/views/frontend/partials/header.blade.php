@@ -46,12 +46,12 @@
 							</div>
 						</li>
 						@else
-						@if (Route::has('frontend.register'))
+						{{-- @if (Route::has('frontend.register'))
 						<li><a href="{{ route('frontend.register') }}"><i class="bi bi-person-plus"></i>{{ __('Register') }}</a></li>
 						@endif
 						@if (Route::has('login'))
 						<li><a href="{{ route('frontend.login') }}"><i class="bi bi-person"></i>{{ __('Sign in') }}</a></li>
-						@endif
+						@endif --}}
 						@endauth
 
 						@if($gtext['is_language_switcher'] == 1)
