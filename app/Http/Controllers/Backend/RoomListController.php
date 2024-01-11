@@ -11,25 +11,35 @@ class RoomListController extends Controller
 {
 	//Room List Page load
     public function getRoomListPageLoad() {
+        $currentLocale = app()->getLocale();
+		$room_list = Room::where('is_publish', 1)
+        ->where('lan', glan() )
+        ->orderBy('title','asc')->get();
 
-		$room_list = Room::where('is_publish', 1)->orderBy('title','asc')->get();
-		$currentLocale = app()->getLocale(); 
 
 		$datalist = DB::table('room_manages')
 			->join('tp_status', 'room_manages.is_publish', '=', 'tp_status.id')
 			->join('rooms', 'room_manages.roomtype_id', '=', 'rooms.id')
+            // ->join('rooms', function ($join) use ($currentLocale) {
+            //     $join->on('room_manages.roomtype_id', '=', 'rooms.id')
+            //         ->where('rooms.lan', '=', $currentLocale);
+            // })
 			->leftjoin('room_assigns', 'room_manages.id', '=', 'room_assigns.room_id')
+            // ->leftjoin('room_assigns', function ($join) use ($currentLocale) {
+            //     $join->on('room_manages.id', '=', 'room_assigns.room_id')
+            //         ->where('rooms.lan', '=', $currentLocale);
+            // })
 			->leftjoin('booking_manages', 'room_assigns.booking_id', '=', 'booking_manages.id')
-			->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no', 
+            			// ->where('rooms.lan',glan())
+			->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no',
 			'booking_manages.name', 'booking_manages.phone')
-			->where('rooms.lan',$currentLocale)
 			->orderBy('rooms.title','asc')
 			->orderBy('room_manages.room_no','asc')
 			->paginate(30);
 
         return view('backend.room-list', compact('room_list', 'datalist'));
     }
-	
+
 	//Get data for Room List Pagination
 	public function getRoomsListTableData(Request $request){
 
@@ -44,7 +54,7 @@ class RoomListController extends Controller
 					->join('rooms', 'room_manages.roomtype_id', '=', 'rooms.id')
 					->leftjoin('room_assigns', 'room_manages.id', '=', 'room_assigns.room_id')
 					->leftjoin('booking_manages', 'room_assigns.booking_id', '=', 'booking_manages.id')
-					->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no', 
+					->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no',
 					'booking_manages.name', 'booking_manages.phone')
 					->where(function ($query) use ($search){
 						$query->where('room_manages.room_no', 'like', '%'.$search.'%')
@@ -67,14 +77,14 @@ class RoomListController extends Controller
 					->join('rooms', 'room_manages.roomtype_id', '=', 'rooms.id')
 					->leftjoin('room_assigns', 'room_manages.id', '=', 'room_assigns.room_id')
 					->leftjoin('booking_manages', 'room_assigns.booking_id', '=', 'booking_manages.id')
-					->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no', 
+					->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no',
 					'booking_manages.name', 'booking_manages.phone')
 					->whereRaw("room_manages.roomtype_id = '".$roomtype_id."' OR '".$roomtype_id."' = '0'")
 					->orderBy('rooms.title','asc')
 					->orderBy('room_manages.room_no','asc')
 					->paginate(30);
 			}
-			
+
 			return view('backend.partials.room_list_table', compact('datalist'))->render();
 		}
 	}
