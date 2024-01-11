@@ -145,11 +145,23 @@
                                         <div class="form-group">
                                             <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
                                             <select name="lan" id="lan" class="chosen-rtl form-control">
-                                            @foreach($languageslist as $row)
-                                                <option value="{{ $row->language_code }}">
-                                                    {{ $row->language_name }}
-                                                </option>
-                                            @endforeach
+												@if (glan()==='ar')
+												<option selected  value="ar">
+													العربية 
+												</option>
+	
+												<option   value="en">
+													English 
+												</option>
+												@else
+												<option value="en">
+												English
+												</option>
+												<option value="ar">
+													العربيه
+													</option>
+												@endif
+												</option>
                                             </select>
                                         </div>
                                     </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\Hotel;
 use App\Models\Room;
 use App\Models\Room_image;
 
@@ -35,8 +36,30 @@ class RoomsController extends Controller
 		}
 
 		$datalist = Room::where('cat_id', '=', $id)->where('is_publish', '=', 1)->orderBy('id', 'desc')->paginate(9);
+		
+		// $hotel1 = Hotel::where('id',1)->with('rooms')->get();
+	
 
-        return view('frontend.category', compact('metadata', 'datalist'));
+
+		$hotelsAr=Hotel::where('lan','ar')->with('rooms')->get();
+		
+		$hotelsEn=Hotel::where('lan','en')->with('rooms')->get();
+		$curntLang=glan();
+
+		$hotelAr2 = $hotelsAr->skip(1)->first();
+
+// if ($hotelAr2) {
+//     // $hotelAr2->load('rooms'); // Eager load the rooms relationship
+//     $rooms2 = $hotelAr2->rooms;
+//     dd($rooms2);
+// } else {
+//     // Handle the case where there is no second row
+//     dd("No second row found");
+// }
+		
+		
+
+        return view('frontend.category', compact('metadata', 'datalist','hotelsAr','hotelsEn','curntLang'));
     }
 	
     //get Room Page
