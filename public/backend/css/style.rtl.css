@@ -1955,11 +1955,12 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	top: -1px;
 }
 .menu-item-handle .item-controls .item-type {
-	display: inline-block;
+	/* display: inline-block; */
 	padding: 10px 10px;
 	color: #686868;
 	font-size: 12px;
 	line-height: 1.5;
+	display: none;
 }
 .menu-item-handle .item-controls .item-edit {
 	position: relative;
@@ -1971,7 +1972,8 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	font-family: "FontAwesome";
 	position: absolute;
 	top: -4px;
-	right: -18px;
+	/* right: -18px; */
+	left:-628px !important ;
 	background: #fbfbfb;
 	text-align: center;
 	line-height: 25px;
@@ -1979,6 +1981,8 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	font-size: 14px;
 	color: #686868;
 }
+
+
 .menu-item-handle .item-controls .item-edit::before {
 	content: "\f106";
 }

@@ -55,7 +55,7 @@
         }
 
         .gallery-container .min-header {
-            height: 48px;
+            /* height: 48px; */
             border-bottom: 1px solid rgba(92, 92, 92, 0.404);
             margin-bottom: 20px;
         }
@@ -81,11 +81,11 @@
             background-color: transparent !important;
         }
 
-        @media (max-width: 767px) {
+        /* @media (max-width: 767px) {
             .min-header {
                 height: 175px;
             }
-        }
+        } */
 
         @keyframes example {
             from {
@@ -133,6 +133,11 @@
         #baguetteBox-overlay.visible {
             opacity: 1
         }
+       
+
+     .tz-gallery-noroom{
+        margin-top: 50px;
+     }
     </style>
 @endsection
 
@@ -337,7 +342,7 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <div class="text-center">
+                                    <div class="text-center   bottom: 8px;">
                                         <h1>لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
@@ -372,7 +377,7 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <div class="text-center">
+                                    <div class="text-center" >
                                         <h1>لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
@@ -407,14 +412,14 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <div class="text-center">
-                                        <h1>لايوجد غرف حاليآ</h1>
+                                    <div class="text-center bottom:8">
+                                        <h1 style="font-size: smaller;">لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
 
                             </div>
 
-                            <div class="tz-gallery" style="display: none" id="demo4">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
                                 @php
                                     $HotelAr4 = $hotelsAr->skip(3)->first();
                                     $rooms4 = $HotelAr4 ? $HotelAr4->rooms : null;
@@ -439,9 +444,13 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <div class="text-center">
+                                    <div class="text-center  bottom: 8px;">
                                         <h1>لايوجد غرف حاليآ</h1>
                                     </div>
+
+                                    {{-- <div class="text-center" style=" bottom: 8px; width: 100%;">
+                                        <h1 >لايوجد غرف حاليآ</h1>
+                                    </div> --}}
 
                                 @endif
                             </div>
