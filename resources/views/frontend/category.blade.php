@@ -11,7 +11,7 @@
     <meta property="og:description" content="{{ $metadata['og_description'] }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:image" content="{{ asset('public/media/' . $metadata['og_image']) }}" />
+    <meta property="og:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
     @if ($gtext['fb_publish'] == 1)
@@ -25,7 +25,7 @@
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="{{ $metadata['og_title'] }}">
     <meta name="twitter:description" content="{{ $metadata['og_description'] }}">
-    <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['og_image']) }}">
+    <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}">
 @endsection
 
 @section('header')
@@ -228,7 +228,7 @@
 				</div> --}}
 
                     {{-- @endif
-                </div> --}} 
+                </div> --}}
                 @if ($curntLang == 'ar')
                     <section class="inner-section inner-section-bg block-bg">
                         <div class="container gallery-container">
@@ -323,8 +323,8 @@
                                         @foreach ($rooms as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}" height="250"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
                                                         alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -358,8 +358,8 @@
                                         @foreach ($rooms2 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -393,8 +393,8 @@
                                         @foreach ($rooms3 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -425,8 +425,8 @@
                                         @foreach ($rooms4 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -543,8 +543,8 @@
                                         @foreach ($rooms as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -578,8 +578,8 @@
                                         @foreach ($rooms2 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -613,8 +613,8 @@
                                         @foreach ($rooms3 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
@@ -645,8 +645,8 @@
                                         @foreach ($rooms4 as $row)
                                             <div class="col-lg-4">
                                                 <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->og_image) }}">
-                                                    <img src="{{ asset('public/media/' . $row->og_image) }}"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
