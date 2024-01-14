@@ -316,7 +316,7 @@
 
 
                             <!-- Gallery 1 -->
-                            <div class="tz-gallery" id="demo">
+                            <div class="tz-gallery tz-gallery-noroom" id="demo">
                                 @php
 
                                     $firstHotelAr = $hotelsAr->first();
@@ -350,7 +350,7 @@
                             </div>
 
                             <!-- Gallery 2 -->
-                            <div class="tz-gallery" style="display: none" id="demo2">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
                                 @php
 
                                     $HotelAr2 = $hotelsAr->skip(1)->first();
@@ -385,7 +385,7 @@
                             </div>
 
                             <!-- Gallery 3 -->
-                            <div class="tz-gallery" style="display: none" id="demo3">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo3">
                                 @php
 
                                     $HotelAr3 = $hotelsAr->skip(2)->first();

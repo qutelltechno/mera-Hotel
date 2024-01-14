@@ -56,7 +56,7 @@
         }
 
         .gallery-container .min-header {
-            height: 48px;
+            /* height: 48px; */
             border-bottom: 1px solid rgba(92, 92, 92, 0.404);
             margin-bottom: 20px;
         }
@@ -82,11 +82,11 @@
             background-color: transparent !important;
         }
 
-        @media (max-width: 767px) {
+        /* @media (max-width: 767px) {
             .min-header {
                 height: 175px;
             }
-        }
+        } */
 
         @keyframes example {
             from {
@@ -134,6 +134,7 @@
         #baguetteBox-overlay.visible {
             opacity: 1
         }
+        
     </style>
 @endsection
 

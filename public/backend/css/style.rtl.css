@@ -691,6 +691,7 @@ a.viewIconBtn i {
 	content: '';
 }
 a.my-profile-info {
+	display: flex;
 	color: #686868;
 }
 .my-profile-info .my-profile {
@@ -705,6 +706,10 @@ a.my-profile-info {
 .avatar {
 	float: right;
 	margin-right: 10px;
+}
+.yousra{
+	background-color: #05a205 !important;
+	font-weight:bolder !important;
 }
 .avatar img {
 	width: 40px;
@@ -1951,16 +1956,16 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 .menu-item-handle .item-controls {
 	font-size: 12px;
 	position: absolute;
-	right: 20px;
+	left: 20px;
 	top: -1px;
 }
 .menu-item-handle .item-controls .item-type {
-	/* display: inline-block; */
+	display: inline-block;
 	padding: 10px 10px;
 	color: #686868;
 	font-size: 12px;
 	line-height: 1.5;
-	display: none;
+	/* display: none; */
 }
 .menu-item-handle .item-controls .item-edit {
 	position: relative;
@@ -1972,8 +1977,7 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	font-family: "FontAwesome";
 	position: absolute;
 	top: -4px;
-	/* right: -18px; */
-	left:-628px !important ;
+	left: -18px;
 	background: #fbfbfb;
 	text-align: center;
 	line-height: 25px;
