@@ -137,6 +137,9 @@
 
      .tz-gallery-noroom{
         margin-top: 50px;
+        text-shadow: 1px 1px 10px #787171;
+        font-size: 5px
+
      }
     </style>
 @endsection
@@ -239,7 +242,7 @@
                         <div class="container gallery-container">
                             <div class="col-md-8 offset-md-2 pt-lg-5">
                                 <div class="section-heading">
-                                    <h1 style="text-shadow:none">{{ __('Hotels') }}</h1>
+                                    <h1 >{{ __('Hotels') }}</h1>
                                 </div>
                             </div>
 
@@ -343,7 +346,7 @@
                                     </div>
                                 @else
                                     <div class="text-center   bottom: 8px;">
-                                        <h1>لايوجد غرف حاليآ</h1>
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
 
@@ -378,7 +381,7 @@
                                     </div>
                                 @else
                                     <div class="text-center" >
-                                        <h1>لايوجد غرف حاليآ</h1>
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
 
@@ -412,8 +415,8 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <div class="text-center bottom:8">
-                                        <h1 style="font-size: smaller;">لايوجد غرف حاليآ</h1>
+                                    <div class="text-center ">
+                                        <h1 style="font-size: 12px;" >لايوجد غرف حاليآ</h1>
                                     </div>
                                 @endif
 
@@ -445,7 +448,7 @@
                                     </div>
                                 @else
                                     <div class="text-center  bottom: 8px;">
-                                        <h1>لايوجد غرف حاليآ</h1>
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
                                     </div>
 
                                     {{-- <div class="text-center" style=" bottom: 8px; width: 100%;">
@@ -540,7 +543,7 @@
 
 
                             <!-- Gallery 1 -->
-                            <div class="tz-gallery" id="demo">
+                            <div class="tz-gallery tz-gallery-noroom" id="demo">
                                 @php
 
                                     $firstHotelEn = $hotelsEn->first();
@@ -567,14 +570,14 @@
                                     </div>
                                 @else
                                     <div class="text-center">
-                                        <h1>No rooms found </h1>
+                                        <h1  style="font-size: 12px;" >No rooms found </h1>
                                     </div>
                                 @endif
 
                             </div>
 
                             <!-- Gallery 2 -->
-                            <div class="tz-gallery" style="display: none" id="demo2">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
                                 @php
 
                                     $HotelEn2 = $hotelsEn->skip(1)->first();
@@ -602,14 +605,14 @@
                                     </div>
                                 @else
                                     <div class="text-center">
-                                        <h1> No rooms found </h1>
+                                        <h1  style="font-size: 12px;"> No rooms found </h1>
                                     </div>
                                 @endif
 
                             </div>
 
                             <!-- Gallery 3 -->
-                            <div class="tz-gallery" style="display: none" id="demo3">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo3">
                                 @php
 
                                     $HotelEn3 = $hotelsEn->skip(2)->first();
@@ -637,13 +640,13 @@
                                     </div>
                                 @else
                                     <div class="text-center">
-                                        <h1>No rooms found </h1>
+                                        <h1  style="font-size: 12px;">No rooms found </h1>
                                     </div>
                                 @endif
 
                             </div>
 
-                            <div class="tz-gallery" style="display: none" id="demo4">
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
                                 @php
                                     $HotelEn4 = $hotelsEn->skip(3)->first();
                                     $rooms4 = $HotelEn4 ? $HotelEn4->rooms : null;
@@ -669,7 +672,7 @@
                                     </div>
                                 @else
                                     <div class="text-center">
-                                        <h1> No rooms found </h1>
+                                        <h1  style="font-size: 12px;"> No rooms found </h1>
                                     </div>
 
                                 @endif

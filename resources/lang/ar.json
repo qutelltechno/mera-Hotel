@@ -669,5 +669,8 @@
     "Text":"النص",
     "Position":"الموضع",
     "Left":"يسار",
-    "Right":"يمين"
+    "Right":"يمين",
+    "Enter your message":"ادخل الرساله",
+    "subject":"الموضوع",
+    "Hotels":"الفنادق"
 }
