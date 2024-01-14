@@ -133,7 +133,7 @@
         #baguetteBox-overlay.visible {
             opacity: 1
         }
-       
+
 
      .tz-gallery-noroom{
         margin-top: 50px;
@@ -330,17 +330,20 @@
 
                                         @foreach ($rooms as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
-                                                        alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -365,17 +368,20 @@
 
                                         @foreach ($rooms2 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                                        height="250" alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -400,17 +406,20 @@
                                     <div class="row">
                                         @foreach ($rooms3 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                                        height="250" alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -432,17 +441,20 @@
                                     <div class="row">
                                         @foreach ($rooms4 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                                        height="250" alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -554,17 +566,20 @@
 
                                         @foreach ($rooms as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
+                                                <div class="lightbox content" data-fslightbox="gallery"
                                                     href="{{ asset('public/media/' . $row->cover_img) }}">
                                                     <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
+                                                        {{-- <button type="button" class="btn btn-outline-light">
                                                             {{ __('Browse') }}
-                                                        </button>
+
+                                                        </button> --}}
+                                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
                                                     </div>
-                                                </a>
+                                                </div>>
                                             </div>
                                         @endforeach
                                     </div>
@@ -589,17 +604,20 @@
 
                                         @foreach ($rooms2 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
+                                                <div class="lightbox content" data-fslightbox="gallery"
                                                     href="{{ asset('public/media/' . $row->cover_img) }}">
                                                     <img src="{{ asset('public/media/' . $row->cover_img) }}"
                                                         height="250" alt="Park" />
                                                     <div class="overlay">
                                                         <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
+                                                        {{-- <button type="button" class="btn btn-outline-light">
                                                             {{ __('Browse') }}
-                                                        </button>
+
+                                                        </button> --}}
+                                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -624,17 +642,20 @@
                                     <div class="row">
                                         @foreach ($rooms3 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                                        height="250" alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -656,17 +677,20 @@
                                     <div class="row">
                                         @foreach ($rooms4 as $row)
                                             <div class="col-lg-4">
-                                                <a class="lightbox content" data-fslightbox="gallery"
-                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                                        height="250" alt="Park" />
-                                                    <div class="overlay">
-                                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                                        <button type="button" class="btn btn-outline-light">
-                                                            {{ __('Browse') }}
-                                                        </button>
-                                                    </div>
-                                                </a>
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
