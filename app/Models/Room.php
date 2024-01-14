@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
-	
+
 	protected $table = 'rooms';
-	
+
     protected $fillable = [
+        'hotel_id',
 		'title',
 		'slug',
 		'thumbnail',
@@ -35,7 +36,7 @@ class Room extends Model
 		'og_image',
 		'og_description',
 		'og_keywords',
-    ];	
+    ];
 	public function hotel()
     {
         return $this->belongsTo(Hotel::class);

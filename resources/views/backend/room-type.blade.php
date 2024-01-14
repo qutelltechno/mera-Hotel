@@ -96,7 +96,7 @@
 										<input type="text" name="slug" id="slug" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-								<div class="col-lg-4">
+								{{-- <div class="col-lg-4">
 									<div class="form-group">
 										<label for="categoryid">{{ __('Category') }}<span class="red">*</span></label>
 										<select name="categoryid" id="categoryid" class="chosen-rtl form-control">
@@ -107,11 +107,24 @@
 											@endforeach
 										</select>
 									</div>
+								</div> --}}
+
+                                <div class="col-lg-4">
+									<div class="form-group">
+										<label for="hotel_id">{{ __('Hotel') }}<span class="red">*</span></label>
+										<select name="hotel_id" id="hotel_id" class="chosen-rtl form-control">
+											@foreach($hotels as $row)
+												<option value="{{ $row->id }}">
+													{{ $row->name }}
+												</option>
+											@endforeach
+										</select>
+									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-3">
-									<div class="form-group">
+									{{-- <div class="form-group">
 										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
 										<select name="lan" id="lan" class="chosen-rtl form-control">
 										@foreach($languageslist as $row)
@@ -119,6 +132,33 @@
 												{{ $row->language_name }}
 											</option>
 										@endforeach
+										</select>
+									</div> --}}
+
+                                    <div class="form-group">
+										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
+										<select name="lan"  class="chosen-rtl form-control">
+										{{-- @foreach($languageslist as $row)
+											<option value="{{ $row->language_code }}">
+												{{ $row->language_name }}
+											</option>
+										@endforeach --}}
+                                        @if ($currentLocale==='ar')
+                                        <option selected value="ar">
+                                            العربية
+                                        </option>
+                                        <option value="en">
+                                            English
+                                        </option>
+                                        @else
+                                        <option selected value="en">
+                                            English
+                                        </option>
+                                        <option value="ar">
+                                            العربية
+                                        </option>
+
+                                        @endif
 										</select>
 									</div>
 								</div>
@@ -155,4 +195,3 @@ var TEXT = [];
 </script>
 <script src="{{asset('public/backend/pages/room_type.js')}}"></script>
 @endpush
- 

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Room;
-use App\Models\Category;
 use App\Models\Tax;
-use App\Models\Media_option;
+use App\Models\Room;
+use App\Models\Hotel;
 use App\Models\Amenity;
-use App\Models\Complement;
 use App\Models\Bedtype;
+use App\Models\Category;
+use App\Models\Complement;
 use App\Models\Room_image;
 use App\Models\Room_manage;
+use App\Models\Media_option;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class RoomsController extends Controller
 {
@@ -23,7 +24,9 @@ class RoomsController extends Controller
 
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
 		$categorylist = Category::where('is_publish', 1)->orderBy('name','asc')->get();
+
 		$currentLocale = app()->getLocale();
+        $hotels=Hotel::where('lan',$currentLocale)->get();
 		$datalist = DB::table('rooms')
 			->join('tp_status', 'rooms.is_publish', '=', 'tp_status.id')
 			->join('languages', 'rooms.lan', '=', 'languages.language_code')
@@ -33,7 +36,7 @@ class RoomsController extends Controller
 			->orderBy('rooms.id','desc')
 			->paginate(20);
 
-		return view('backend.room-type', compact('languageslist', 'categorylist', 'datalist'));
+		return view('backend.room-type', compact('languageslist', 'categorylist', 'datalist','hotels','currentLocale'));
 	}
 
 	//Get data for Room Type Pagination
@@ -90,19 +93,22 @@ class RoomsController extends Controller
 
 	//Save data for Room Type
     public function saveRoomTypeData(Request $request){
+
 		$res = array();
 
 		$id = $request->input('RecordId');
 		$title = esc($request->input('title'));
 		$slug = esc(str_slug($request->input('slug')));
 		$lan = $request->input('lan');
-		$cat_id = $request->input('categoryid');
+		// $cat_id = $request->input('categoryid');
+        $hotel_id = $request->input('hotel_id');
 
 		$validator_array = array(
 			'room_name' => $request->input('title'),
 			'slug' => $slug,
 			'language' => $request->input('lan'),
-			'category' => $request->input('categoryid')
+			// 'category' => $request->input('categoryid'),
+            'hotel_id'=>$request->input('hotel_id'),
 		);
 
 		$rId = $id == '' ? '' : ','.$id;
@@ -110,7 +116,8 @@ class RoomsController extends Controller
 			'room_name' => 'required',
 			'slug' => 'required|max:191|unique:rooms,slug' . $rId,
 			'language' => 'required',
-			'category' => 'required'
+			// 'category' => 'required',
+            'hotel_id'=> 'required',
 		]);
 
 		$errors = $validator->errors();
@@ -133,16 +140,18 @@ class RoomsController extends Controller
 			return response()->json($res);
 		}
 
-		if($errors->has('category')){
+		if($errors->has('hotel_id')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('category');
+			$res['msg'] = $errors->first('hotel_id');
 			return response()->json($res);
 		}
 
 		$data = array(
 			'title' => $title,
+            'hotel_id' => $hotel_id,
 			'slug' => $slug,
-			'cat_id' => $cat_id,
+			// 'cat_id' => $cat_id,
+			// 'hotel_id' => $hotel_id,
 			'lan' => $lan,
 			'is_publish' => 2
 		);
@@ -171,7 +180,6 @@ class RoomsController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-
 		return response()->json($res);
     }
 
@@ -269,6 +277,8 @@ class RoomsController extends Controller
     public function getRoomPageData($id){
 
 		$datalist = Room::where('id', $id)->first();
+        $curntLan=glan();
+        $hotels=Hotel::where('lan',$curntLan)->get();
 
 		$lan = $datalist->lan;
 
@@ -282,7 +292,7 @@ class RoomsController extends Controller
 		$bedtype_list = Bedtype::orderBy('name','asc')->get();
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
 
-        return view('backend.room', compact('datalist', 'statuslist', 'languageslist', 'categorylist', 'taxlist', 'amenity_list', 'complement_list', 'bedtype_list', 'media_datalist'));
+        return view('backend.room', compact('datalist', 'statuslist', 'languageslist', 'categorylist', 'taxlist', 'amenity_list', 'complement_list', 'bedtype_list', 'media_datalist','hotels','curntLan'));
     }
 
 	//Update data for Rooms
@@ -293,7 +303,7 @@ class RoomsController extends Controller
 		$title = esc($request->input('title'));
 		$slug = esc(str_slug($request->input('slug')));
 		$description = $request->input('description');
-		$cat_id = $request->input('cat_id');
+		$hotel_id = $request->input('hotel_id');
 		$total_adult = $request->input('total_adult');
 		$total_child = $request->input('total_child');
 		$price = $request->input('price');
@@ -308,9 +318,10 @@ class RoomsController extends Controller
 		$is_publish = $request->input('is_publish');
 
 		$validator_array = array(
+            'hotel_id'=> $request->input('hotel_id'),
 			'room_name' => $request->input('title'),
 			'slug' => $slug,
-			'category' => $request->input('cat_id'),
+			// 'category' => $request->input('cat_id'),
 			'total_adult' => $request->input('total_adult'),
 			'total_child' => $request->input('total_child'),
 			'price' => $request->input('price'),
@@ -325,7 +336,8 @@ class RoomsController extends Controller
 		$validator = Validator::make($validator_array, [
 			'room_name' => 'required',
 			'slug' => 'required|max:191|unique:rooms,slug' . $rId,
-			'category' => 'required',
+			// 'category' => 'required',
+            'hotel_id'=>'required',
 			'total_adult' => 'required',
 			'total_child' => 'required',
 			'price' => 'required',
@@ -350,9 +362,9 @@ class RoomsController extends Controller
 			return response()->json($res);
 		}
 
-		if($errors->has('category')){
+		if($errors->has('hotel_id')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('category');
+			$res['msg'] = $errors->first('hotel_id');
 			return response()->json($res);
 		}
 
@@ -443,7 +455,7 @@ class RoomsController extends Controller
 			'thumbnail' => $thumbnail,
 			'cover_img' => $cover_img,
 			'description' => $description,
-			'cat_id' => $cat_id,
+			'hotel_id' => $hotel_id,
 			'total_adult' => $total_adult,
 			'total_child' => $total_child,
 			'price' => $price,
