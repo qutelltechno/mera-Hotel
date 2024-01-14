@@ -132,7 +132,7 @@
                                                     @if($row->type == 'text')
                                                         <input type="text" name="{{ str_slug($row->name) }}"
                                                             id="{{ str_slug($row->name) }}"
-                                                            placeholder="{{ $row->name == 'name' ? _('Name') : _('Subject') }}"
+                                                            placeholder="{{ $row->name == 'Name' ? __('Name') : __('Subject') }}"
                                                           
 															{{-- placeholder="@lang($row->placeholder == 'text' ? 'Enter your message' : 'Enter the subject')" 
                                                             placeholder="@lang($row->placeholder == 'text' ? 'ادخل الرساله' : 'ادخل الموضوع')"  --}}
