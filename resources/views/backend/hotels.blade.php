@@ -54,16 +54,26 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="hotel_name">{{ __('Title') }}<span class="red">*</span></label>
-										<input type="text" name="hotel_name" id="hotel_name" class="form-control parsley-validated" data-required="true">
+										<label for="hotel_name">Name<span class="red">*</span></label>
+										<input type="text" name="hotel_name_en" id="hotel_name" class="form-control parsley-validated" data-required="true">
+									</div>
+								</div>
+                                <div class="col-md-12">
+									<div class="form-group">
+										<label for="hotel_name">الاسم <span class="red">*</span></label>
+										<input type="text" name="hotel_name_ar" id="hotel_name" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="form-group">
-										<label for="address">{{ __('address') }}<span class="red">*</span></label>
-										<textarea name="address" id="address" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
+										<label for="address_en">Address<span class="red">*</span></label>
+										<textarea name="address_en" id="address_en" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
+									</div>
+                                    <div class="form-group">
+										<label for="address_ar">العنوان<span class="red">*</span></label>
+										<textarea name="address_ar" id="address_ar" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>
 
@@ -105,17 +115,15 @@
                             <div class="row">
 								<div class="col-lg-12">
 									<div class="form-group">
-										<label for="description">{{ __('Short Description') }}<span class="red">*</span></label>
-										<textarea name="description" id="description" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
+										<label for="description_en"> Description <span class="red">*</span></label>
+										<textarea name="description_en" id="description_en" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
+									</div>
+                                    <div class="form-group">
+										<label for="description_ar">الوصف<span class="red">*</span></label>
+										<textarea name="description_ar" id="description_ar" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>
-                            <div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="facebook">{{ __('facebook') }}<span class="red">*</span></label>
-                                        <textarea name="facebook" rows="1"  id="facebook" class="form-control parsley-validated" data-required="true"></textarea>
-									</div>
-								</div>
+
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="twitter">{{ __('Twitter') }}<span class="red">*</span></label>
@@ -127,6 +135,12 @@
                                         <textarea name="instagram" rows="1"  id="instagram" class="form-control parsley-validated" data-required="true"></textarea>
 
                                     </div>
+
+
+									<div class="form-group">
+										<label for="facebook">{{ __('facebook') }}<span class="red">*</span></label>
+                                        <textarea name="facebook" rows="1"  id="facebook" class="form-control parsley-validated" data-required="true"></textarea>
+									</div>
                                     <div class="form-group">
 										<label for="youtube">{{ __('youtube') }}<span class="red">*</span></label>
                                         <textarea name="youtube" rows="1"  id="youtube" class="form-control parsley-validated" data-required="true"></textarea>
@@ -142,20 +156,39 @@
 							</div>
 
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
+                            {{-- <div class="row">
+                                <div class="">
+                                    <div class="form-group" >
                                         <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
-                                        <select name="lan" id="lan" class="chosen-rtl form-control">
-                                        @foreach($languageslist as $row)
-                                            <option value="{{ $row->language_code }}">
-                                                {{ $row->language_name }}
+                                        <select name="lan" id="lan"  class="chosen-rtl form-control">
+											@if (glan()==='ar')
+											<option selected  value="ar">
+                                                العربية
                                             </option>
-                                        @endforeach
+
+											<option   value="en">
+                                                English
+                                            </option>
+											@else
+											<option value="en">
+                                            English
+                                            </option>
+											<option value="ar">
+												العربيه
+												</option>
+											@endif
+
+
+
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+							<br>
+							<br>
+							<br>
+							<br>
+
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
 								<div class="col-lg-12">

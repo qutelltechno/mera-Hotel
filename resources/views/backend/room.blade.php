@@ -52,13 +52,18 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
-											<label for="cat_id">{{ __('Category') }}<span class="red">*</span></label>
-											<select name="cat_id" id="cat_id" class="chosen-rtl form-control">
-											@foreach($categorylist as $row)
+											<label for="hotel_id">{{ __('Hotel') }}<span class="red">*</span></label>
+											<select name="hotel_id" id="hotel_id" class="chosen-rtl form-control">
+											{{-- @foreach($categorylist as $row)
 												<option {{ $row->id == $datalist['cat_id'] ? "selected=selected" : '' }} value="{{ $row->id }}">
 													{{ $row->name }}
 												</option>
-											@endforeach
+											@endforeach --}}
+                                            @foreach($hotels as $row)
+                                            <option value="{{ $row->id }}">
+                                                {{ $row->name }}
+                                            </option>
+                                        @endforeach
 											</select>
 										</div>
 									</div>
@@ -149,12 +154,28 @@
 									<div class="col-lg-3">
 										<div class="form-group">
 											<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
-											<select name="lan" id="lan" class="chosen-rtl form-control">
-											@foreach($languageslist as $row)
+											<select name="lan"  class="chosen-rtl form-control">
+											{{-- @foreach($languageslist as $row)
 												<option {{ $row->language_code == $datalist['lan'] ? "selected=selected" : '' }} value="{{ $row->language_code }}">
 													{{ $row->language_name }}
 												</option>
-											@endforeach
+											@endforeach --}}
+                                            @if ($curntLan==='ar')
+                                            <option selected value="ar">
+                                                العربية
+                                            </option>
+                                            <option value="en">
+                                                English
+                                            </option>
+                                            @else
+                                            <option selected value="en">
+                                                English
+                                            </option>
+                                            <option value="ar">
+                                                العربية
+                                            </option>
+
+                                            @endif
 											</select>
 										</div>
 									</div>

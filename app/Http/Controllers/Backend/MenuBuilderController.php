@@ -32,6 +32,7 @@ class MenuBuilderController extends Controller
 		$blog_category_datalist = Blog_category::where('lan', '=', $lan)->where('is_publish', '=', 1)->orderBy('id','desc')->paginate(10);
 		
 		$menulist = self::makeParentMenu($id);
+
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
 
 		return view('backend.menu-builder', compact('main_menu', 'page_datalist', 'menulist', 'media_datalist', 'product_category_datalist', 'product_datalist', 'blog_category_datalist'));
@@ -39,6 +40,7 @@ class MenuBuilderController extends Controller
 	
 	//Make Parent Menu
 	public function makeParentMenu($id){
+		
 		
 		$datalist = Menu_parent::where('menu_id', $id)->orderBy('sort_order','ASC')->get();
 		$menulist = '';
@@ -99,15 +101,18 @@ class MenuBuilderController extends Controller
 			
 			//menu_type, item_id, lan (custom_link == $row->id)
 			$TypeItemLan = 'data-typeitemlan="'.$row->menu_type.'-'.$item_id.'-'.$row->lan.'"';
+			$curntLang=glan();
+			$directionClass = ($curntLang === 'ar') ? 'rtl-direction' : 'ltr-direction';
 			
 			$menulist .= '<li '.$maintypeitemlan.' '.$TypeItemLan.' '.$data_childmenu_id.' id="menu_item'.$menu_item_id.'" class="menu-item '.$parent_menu_item_class.'">
-						<div class="menu-item-bar">
-							<div class="menu-item-handle">
+			
+			<div class="menu-item-bar    ">
+							<div class="menu-item-handle" >
 								<span class="item-title">
 									<span class="menu-item-title">'.$row->item_label.'</span>
 								</span>
-								<span class="item-controls">
-									<span class="item-type">'.$row->menu_type.'</span>
+								<span class="item-controls ">
+									<span class="item-type ">'.$row->menu_type.'</span>
 									<a href="javascript:void(0);" class="collapsed item-edit" data-toggle="collapse" data-target="#collapse_menu_item'.$menu_item_id.'" aria-expanded="true" aria-controls="collapse_menu_item'.$menu_item_id.'"><i class="fa fa-angle-down"></i></a>
 								</span>
 							</div>

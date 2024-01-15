@@ -249,7 +249,7 @@
 			</div> --}}
 		</div>
 
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-lg-12 mt-25">
 				<div class="card">
 					<div class="card-header">
@@ -290,7 +290,7 @@
 					</div>
 				</div>
 			</div>
-			{{-- <div class="col-lg-7 mt-25">
+			<div class="col-lg-7 mt-25">
 				<div class="card">
 					<div class="card-header">
 						<div class="row">
@@ -303,8 +303,8 @@
 						<canvas id="monthly_earning_report" height="450"></canvas>
 					</div>
 				</div>
-			</div> --}}
-		</div>
+			</div>
+		</div> --}}
 
 		{{-- <div class="row">
 			<div class="col-lg-12 mt-25">

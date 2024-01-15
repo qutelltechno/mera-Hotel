@@ -12,6 +12,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:image" content="{{ asset('public/media/' . $metadata['og_image']) }}" />
+    <meta property="og:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
     @if ($gtext['fb_publish'] == 1)
@@ -26,6 +27,7 @@
     <meta name="twitter:title" content="{{ $metadata['og_title'] }}">
     <meta name="twitter:description" content="{{ $metadata['og_description'] }}">
     <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['og_image']) }}">
+    <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}">
 @endsection
 
 @section('header')
@@ -56,6 +58,7 @@
 
         .gallery-container .min-header {
             height: 48px;
+            /* height: 48px; */
             border-bottom: 1px solid rgba(92, 92, 92, 0.404);
             margin-bottom: 20px;
         }
@@ -86,6 +89,11 @@
                 height: 175px;
             }
         }
+        /* @media (max-width: 767px) {
+            .min-header {
+                height: 175px;
+            }
+        } */
 
         @keyframes example {
             from {
@@ -133,6 +141,14 @@
         #baguetteBox-overlay.visible {
             opacity: 1
         }
+
+
+     .tz-gallery-noroom{
+        margin-top: 50px;
+        text-shadow: 1px 1px 10px #787171;
+        font-size: 5px
+
+     }
     </style>
 @endsection
 
@@ -156,6 +172,76 @@
         <section class="inner-section inner-section-bg block-bg">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-8 offset-md-2 pt-lg-5">
+                        <div class="section-heading">
+                            <h1>{{ __('Mira business') }}</h1>
+                            <h3>{{ __('Room List') }}</h3>
+                        </div>
+                    </div>
+                    @if (count($datalist) > 0)
+                        @foreach ($datalist as $row)
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="item-card">
+                                    <div class="item-image wow fadeInUp">
+                                        <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">
+                                            <img src="{{ asset('public/media/' . $row->thumbnail) }}"
+                                                alt="{{ $row->title }}" />
+                                        </a>
+                                        @if ($row->is_discount == 1 && $row->old_price != '')
+                                            @php
+                                                $discount = number_format((($row->old_price - $row->price) * 100) / $row->old_price);
+                                            @endphp
+                                            <span class="item-label">{{ $discount }}% {{ __('Off') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="item-title">
+                                            <a
+                                                href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{ str_limit($row->title) }}</a>
+                                        </div>
+                                        <div class="pric-card">
+                                            @if ($row->price != '')
+                                                @if ($gtext['currency_position'] == 'left')
+                                                    <div class="new-price">
+                                                        {{ $gtext['currency_icon'] }}{{ NumberFormat($row->price) }}</div>
+                                                @else
+                                                    <div class="new-price">
+                                                        {{ NumberFormat($row->price) }}{{ $gtext['currency_icon'] }}</div>
+                                                @endif
+                                            @endif
+                                            @if ($row->is_discount == 1 && $row->old_price != '')
+                                                @if ($gtext['currency_position'] == 'left')
+                                                    <div class="old-price">
+                                                        {{ $gtext['currency_icon'] }}{{ NumberFormat($row->old_price) }}
+                                                    </div>
+                                                @else
+                                                    <div class="old-price">
+                                                        {{ NumberFormat($row->old_price) }}{{ $gtext['currency_icon'] }}
+                                                    </div>
+                                                @endif
+                                            @endif
+                                            <div class="per-day-night">/ {{ __('Night') }}</div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-12">
+                     <div class="breadcrumb-card wow pulse">
+                      {{-- <h2>{{ $metadata['name'] }}</h2> --}}
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                 </section> -->
+        <!-- /Page Breadcrumb/ -->
+
+        <!-- Inner Section -->
+        <section class="inner-section inner-section-bg block-bg">
+            <div class="container">
+                {{-- <div class="row">
                     <div class="col-md-8 offset-md-2 pt-lg-5">
                         <div class="section-heading">
                             <h1>{{ __('Mira business') }}</h1>
@@ -239,27 +325,45 @@
                         </div>
 
                         <div class="row">
+                    {{-- @endif
+                </div> --}}
+                @if ($curntLang == 'ar')
+                    <section class="inner-section inner-section-bg block-bg">
+                        <div class="container gallery-container">
+                            <div class="col-md-8 offset-md-2 pt-lg-5">
+                                <div class="section-heading">
+                                    <h1 >{{ __('Hotels') }}</h1>
+                                </div>
+                            </div>
+
+                            {{-- <div class="row">
                             <div class="col-lg-12 text-center min-header">
                                 <div class="row justify-content-center">
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm1')">
                                             Hotel1
+                                            h1
                                         </button>
                                     </div>
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm2')">
                                             Hotel2
+                                            h2
                                         </button>
                                     </div>
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm3')">
                                             Hotel3
                                         </button>
+                                            h3
+                                        </button>
+
                                     </div>
 
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm3')">
                                             Hotel4
+                                            h4
                                         </button>
                                     </div>
                                 </div>
@@ -268,7 +372,7 @@
 
                         <!-- Gallery 1 -->
                         <div class="tz-gallery" id="demo">
-                             
+
                             {{-- <div class="row">
                                 @foreach ($rooms as $row)
                             <div class="col-lg-4">
@@ -329,6 +433,441 @@
 
                     </div>
                 </section>
+                        </div> --}}
+
+                            {{-- @dd($hotelsEn) --}}
+                            @if ($curntLang === 'en')
+                                <div class="row">
+                                    <div class="col-lg-12 text-center min-header">
+                                        <div class="row justify-content-center">
+
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($hotelsEn as $hotel)
+                                                <div class="col-md-4 col-lg-3">
+                                                    <button type="button" class="bttn col-md"
+                                                        onclick="myFunction('dm{{ ++$i }}')">
+                                                        {{ $hotel->name }}
+                                                    </button>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-lg-12 text-center min-header">
+                                        <div class="row justify-content-center">
+                                            @php
+                                                $w = 0;
+                                            @endphp
+                                            @foreach ($hotelsAr as $hotel)
+                                                <div class="col-md-4 col-lg-3">
+
+                                                    <button type="button" class="bttn col-md"
+                                                        onclick="myFunction('dm{{ ++$w }}')">
+                                                        {{ $hotel->name }}
+                                                    </button>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                            @endif
+
+
+                            <!-- Gallery 1 -->
+                            <div class="tz-gallery tz-gallery-noroom" id="demo">
+                                @php
+
+                                    $firstHotelAr = $hotelsAr->first();
+                                    $rooms = $firstHotelAr->rooms;
+                                @endphp
+                                @if ($rooms && count($rooms) > 0)
+                                    <div class="row">
+
+                                        @foreach ($rooms as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center   bottom: 8px;">
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <!-- Gallery 2 -->
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
+                                @php
+
+                                    $HotelAr2 = $hotelsAr->skip(1)->first();
+                                    $rooms2 = $HotelAr2->rooms;
+                                    // dd($HotelAr2)
+                                @endphp
+                                @if ($rooms2 && count($rooms2) > 0)
+                                    <div class="row">
+
+                                        @foreach ($rooms2 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center" >
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <!-- Gallery 3 -->
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo3">
+                                @php
+
+                                    $HotelAr3 = $hotelsAr->skip(2)->first();
+                                    $rooms3 = $HotelAr3->rooms;
+                                    // dd($HotelAr2)
+                                @endphp
+
+                                @if ($rooms3 && count($rooms3) > 0)
+                                    <div class="row">
+                                        @foreach ($rooms3 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center ">
+                                        <h1 style="font-size: 12px;" >لايوجد غرف حاليآ</h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
+                                @php
+                                    $HotelAr4 = $hotelsAr->skip(3)->first();
+                                    $rooms4 = $HotelAr4 ? $HotelAr4->rooms : null;
+                                @endphp
+
+                                @if ($rooms4 && count($rooms4) > 0)
+                                    <div class="row">
+                                        @foreach ($rooms4 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center  bottom: 8px;">
+                                        <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                                    </div>
+
+                                    {{-- <div class="text-center" style=" bottom: 8px; width: 100%;">
+                                        <h1 >لايوجد غرف حاليآ</h1>
+                                    </div> --}}
+
+                                @endif
+                            </div>
+
+
+                        </div>
+                    </section>
+                @else
+                    <section class="inner-section inner-section-bg block-bg">
+                        <div class="container gallery-container">
+                            <div class="col-md-8 offset-md-2 pt-lg-5">
+                                <div class="section-heading">
+                                    <h1 style="text-shadow:none">{{ __('Hotels') }}</h1>
+                                </div>
+                            </div>
+
+                            {{-- <div class="row">
+						<div class="col-lg-12 text-center min-header">
+							<div class="row justify-content-center">
+								<div class="col-md-4 col-lg-3">
+									<button type="button" class="bttn col-md" onclick="myFunction('dm1')">
+										h1
+									</button>
+								</div>
+								<div class="col-md-4 col-lg-3">
+									<button type="button" class="bttn col-md" onclick="myFunction('dm2')">
+										h2
+									</button>
+								</div>
+								<div class="col-md-4 col-lg-3">
+									<button type="button" class="bttn col-md" onclick="myFunction('dm3')">
+										h3
+									</button>
+
+								</div>
+
+								<div class="col-md-4 col-lg-3">
+									<button type="button" class="bttn col-md" onclick="myFunction('dm3')">
+										h4
+									</button>
+								</div>
+							</div>
+						</div>
+					</div> --}}
+
+                            {{-- @dd($hotelsEn) --}}
+                            @if ($curntLang === 'en')
+                                <div class="row">
+                                    <div class="col-lg-12 text-center min-header">
+                                        <div class="row justify-content-center">
+
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($hotelsEn as $hotel)
+                                                <div class="col-md-4 col-lg-3">
+                                                    <button type="button" class="bttn col-md"
+                                                        onclick="myFunction('dm{{ ++$i }}')">
+                                                        {{ $hotel->name }}
+                                                    </button>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-lg-12 text-center min-header">
+                                        <div class="row justify-content-center">
+                                            @php
+                                                $w = 0;
+                                            @endphp
+                                            @foreach ($hotelsAr as $hotel)
+                                                <div class="col-md-4 col-lg-3">
+
+                                                    <button type="button" class="bttn col-md"
+                                                        onclick="myFunction('dm{{ ++$w }}')">
+                                                        {{ $hotel->name }} {{ $w }}
+                                                    </button>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                            @endif
+
+
+                            <!-- Gallery 1 -->
+                            <div class="tz-gallery tz-gallery-noroom" id="demo">
+                                @php
+
+                                    $firstHotelEn = $hotelsEn->first();
+                                    $rooms = $firstHotelEn->rooms;
+                                @endphp
+                                @if ($rooms && count($rooms) > 0)
+                                    <div class="row">
+
+                                        @foreach ($rooms as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                        height="250" alt="Park" />
+                                                    <div class="overlay">
+                                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                                        {{-- <button type="button" class="btn btn-outline-light">
+                                                            {{ __('Browse') }}
+
+                                                        </button> --}}
+                                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                    </div>
+                                                </div>>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <h1  style="font-size: 12px;" >No rooms found </h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <!-- Gallery 2 -->
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
+                                @php
+
+                                    $HotelEn2 = $hotelsEn->skip(1)->first();
+                                    $rooms2 = $HotelEn2->rooms;
+                                    // dd($HotelAr2)
+                                @endphp
+                                @if ($rooms2 && count($rooms2) > 0)
+                                    <div class="row">
+
+                                        @foreach ($rooms2 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                    href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                        height="250" alt="Park" />
+                                                    <div class="overlay">
+                                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                                        {{-- <button type="button" class="btn btn-outline-light">
+                                                            {{ __('Browse') }}
+
+                                                        </button> --}}
+                                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <h1  style="font-size: 12px;"> No rooms found </h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <!-- Gallery 3 -->
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo3">
+                                @php
+
+                                    $HotelEn3 = $hotelsEn->skip(2)->first();
+                                    $rooms3 = $HotelEn3->rooms;
+                                    // dd($HotelAr2)
+                                @endphp
+
+                                @if ($rooms3 && count($rooms3) > 0)
+                                    <div class="row">
+                                        @foreach ($rooms3 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <h1  style="font-size: 12px;">No rooms found </h1>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
+                                @php
+                                    $HotelEn4 = $hotelsEn->skip(3)->first();
+                                    $rooms4 = $HotelEn4 ? $HotelEn4->rooms : null;
+                                @endphp
+
+                                @if ($rooms4 && count($rooms4) > 0)
+                                    <div class="row">
+                                        @foreach ($rooms4 as $row)
+                                            <div class="col-lg-4">
+                                                <div class="lightbox content" data-fslightbox="gallery"
+                                                href="{{ asset('public/media/' . $row->cover_img) }}">
+                                                <img src="{{ asset('public/media/' . $row->cover_img) }}"
+                                                    height="250" alt="Park" />
+                                                <div class="overlay">
+                                                    <h2 class="text-light">{{ $row->title }}</h2>
+                                                    {{-- <button type="button" class="btn btn-outline-light">
+                                                        {{ __('Browse') }}
+
+                                                    </button> --}}
+                                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <h1  style="font-size: 12px;"> No rooms found </h1>
+                                    </div>
+
+                                @endif
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                @endif
+
                 <div class="row mt30">
                     <div class="col-lg-12">
                         {{ $datalist->links() }}
@@ -350,14 +889,23 @@
                 document.getElementById('demo').style.display = 'block';
                 document.getElementById('demo2').style.display = 'none';
                 document.getElementById('demo3').style.display = 'none';
+                document.getElementById('demo4').style.display = 'none';
             } else if (p1 == 'dm2') {
                 document.getElementById('demo').style.display = 'none';
                 document.getElementById('demo2').style.display = 'block';
                 document.getElementById('demo3').style.display = 'none';
-            } else {
+                document.getElementById('demo4').style.display = 'none';
+
+            } else if (p1 == 'dm3') {
                 document.getElementById('demo').style.display = 'none';
                 document.getElementById('demo2').style.display = 'none';
                 document.getElementById('demo3').style.display = 'block';
+                document.getElementById('demo4').style.display = 'none';
+            } else {
+                document.getElementById('demo').style.display = 'none';
+                document.getElementById('demo2').style.display = 'none';
+                document.getElementById('demo3').style.display = 'none';
+                document.getElementById('demo4').style.display = 'block';
             }
         }
     </script>

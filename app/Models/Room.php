@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Room extends Model
 {
     use HasFactory;
-	
+    use HasTranslations;
+
 	protected $table = 'rooms';
-	
+    public $translatable = ['title','short_desc','description'];
+
     protected $fillable = [
+        'hotel_id',
 		'title',
 		'slug',
 		'thumbnail',
@@ -35,7 +39,7 @@ class Room extends Model
 		'og_image',
 		'og_description',
 		'og_keywords',
-    ];	
+    ];
 	public function hotel()
     {
         return $this->belongsTo(Hotel::class);

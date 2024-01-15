@@ -28,6 +28,7 @@ class ContactController extends Controller
 			->where('contacts.lan',$currentLocale )
 			->orderBy('contacts.id','desc')
 			->paginate(20);
+			
 
         return view('backend.contact', compact('AllCount', 'PublishedCount', 'DraftCount', 'datalist', 'statuslist', 'languageslist'));
     }
