@@ -192,11 +192,11 @@ function onEdit(id) {
 // 			var data = response;
 // 			$("#RecordId").val(data.id);
 // 			$("#hotel_name").val(data.name);
-			
+
 // 			$("#address").val(data.address);
 
 // 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-		
+
 
 //  			if(data.description != null){
 // 				$("#description").val(data.description);
