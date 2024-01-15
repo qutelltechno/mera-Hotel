@@ -35,13 +35,13 @@
 								<input type="hidden" id="view_by_status" value="0"/>
 							</div>
 
-							<div class="col-lg-4">
+							{{-- <div class="col-lg-8">
 								<div class="filter-form-group pull-right">
 									<input name="start_date" id="start_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
 									<input name="end_date" id="end_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
 									<button type="submit" onClick="onFilterAction()" class="btn btn-theme">{{ __('Filter') }}</button>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<div class="row">
 							<div class="col-lg-3 mb-5">
@@ -54,7 +54,15 @@
 								</div>
 							</div>
 							<div class="col-lg-5 mb-5">
+								{{-- <div class="col-lg-8"> --}}
+									<div class="filter-form-group pull-right">
+										<input name="start_date" id="start_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
+										<input name="end_date" id="end_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
+										<button type="submit" onClick="onFilterAction()" class="btn btn-theme">{{ __('Filter') }}</button>
+									</div>
+								{{-- </div> --}}
 							</div>
+
 							<div class="col-lg-4 mb-5">
 								<div class="form-group search-box">
 									<input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
