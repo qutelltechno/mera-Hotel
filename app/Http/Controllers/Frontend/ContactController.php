@@ -29,11 +29,12 @@ class ContactController extends Controller
 			$data['title'] = $row->title;
 			$data['contact_info'] = json_decode($row->contact_info);
 			$data['contact_form'] = json_decode($row->contact_form);
+			// dd($data['contact_form']);
 			$data['contact_map'] = json_decode($row->contact_map);
 			$data['is_recaptcha'] = $row->is_recaptcha;
 			$data['is_publish'] = $row->is_publish;
 		}
-
+		// dd($data['contact_form']);
         $hotels = Hotel::where('lan', glan())->where('is_main', false)->get();
 
         return view('frontend.contact', compact('contact_id', 'data', 'hotels'));
