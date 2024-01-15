@@ -13,6 +13,7 @@
 	<meta property="og:url" content="{{ url()->current() }}" />
 	<meta property="og:image" content="{{ asset('public/media/'.$gtext['og_image']) }}" />
 	<meta property="og:image:width" content="600" />
+
 	<meta property="og:image:height" content="315" />
 	@if($gtext['fb_publish'] == 1)
 	<meta name="fb:app_id" property="fb:app_id" content="{{ $gtext['fb_app_id'] }}" />
