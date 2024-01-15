@@ -109,13 +109,7 @@
 										<textarea name="description" id="description" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>
-                            <div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="facebook">{{ __('facebook') }}<span class="red">*</span></label>
-                                        <textarea name="facebook" rows="1"  id="facebook" class="form-control parsley-validated" data-required="true"></textarea>
-									</div>
-								</div>
+                         
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="twitter">{{ __('Twitter') }}<span class="red">*</span></label>
@@ -127,6 +121,12 @@
                                         <textarea name="instagram" rows="1"  id="instagram" class="form-control parsley-validated" data-required="true"></textarea>
 
                                     </div>
+									
+								
+									<div class="form-group">
+										<label for="facebook">{{ __('facebook') }}<span class="red">*</span></label>
+                                        <textarea name="facebook" rows="1"  id="facebook" class="form-control parsley-validated" data-required="true"></textarea>
+									</div>
                                     <div class="form-group">
 										<label for="youtube">{{ __('youtube') }}<span class="red">*</span></label>
                                         <textarea name="youtube" rows="1"  id="youtube" class="form-control parsley-validated" data-required="true"></textarea>
@@ -140,10 +140,8 @@
 								</div>
 
 							</div>
-
-
                             <div class="row">
-                                <div class="">
+                                <div class="col-md-6">
                                     <div class="form-group" >
                                         <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
                                         <select name="lan" id="lan"  class="chosen-rtl form-control">
@@ -170,12 +168,8 @@
                                     </div>
                                 </div>
                             </div>
-							<br>
-							<br>
-							<br>
-							<br>
-
-							<input type="text" name="RecordId" id="RecordId" class="dnone">
+						
+					    	<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
 								<div class="col-lg-12">
 									<a id="submit-form" href="javascript:void(0);" class="btn blue-btn mr-10">{{ __('Save') }}</a>

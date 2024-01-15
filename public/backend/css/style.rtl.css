@@ -457,12 +457,18 @@ a.viewIconBtn i {
 	background-color: rgba(40, 199, 111, 0.1);
 	border: 1px solid #26c56d;
 	color: #26c56d;
+	display: block;
+	text-align: center;
+
 }
 .disable_btn {
 	background-color: rgba(255, 159, 67, 0.1);
 	border: 1px solid #fe9e42;
 	color: #fe9e42;
+	display: block;
+	text-align: center;
 }
+
 .status_btn {
 	color: #fff;
 	padding: 3px 10px;
@@ -2864,4 +2870,16 @@ table.order td p {
 ::-webkit-scrollbar-thumb:hover {
 		background-color:var(--backend-theme-color);
 	}
+	@media (max-width: 666) {
+		disable_btn {
+			background-color: rgba(255, 159, 67, 0.1);
+			border: 1px solid #fe9e42;
+			color: #fe9e42;
+			display: block;
+			margin: auto !important;
+			padding-right: auto !important;
+			text-align: center !important;
+				display: block;
 
+	}
+	}
