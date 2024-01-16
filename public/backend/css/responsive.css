@@ -79,9 +79,8 @@
 
 @media (max-width: 767px) {
     .sidebar-wrapper {
-		display: inline-flex;
 
-		/* display: none; */
+		display: none;
 	}
 	#wrapper.toggled .tp-header {
 		padding: 10px 240px 10px 10px;
