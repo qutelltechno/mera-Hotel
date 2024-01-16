@@ -52,6 +52,26 @@ class RoomsController extends Controller
     }
 
     //get Room Page
+    public function getRoomPage($id, $title){
+
+		//Room details
+		$data = DB::table('rooms')
+			->join('categories', 'rooms.cat_id', '=', 'categories.id')
+			->select('rooms.*', 'categories.name as category_name', 'categories.slug as category_slug')
+			->where('rooms.id', '=', $id)
+			->where('rooms.is_publish', '=', 1)
+			->first();
+
+		$data->amenities = RoomDetailsList($data->amenities, 'amenities');
+		$data->complements = RoomDetailsList($data->complements, 'complements');
+		$data->beds = RoomDetailsList($data->beds, 'beds');
+
+		//Room images
+		$room_images = Room_image::where('room_id', $id)->get();
+
+        return view('frontend.room', compact('data', 'room_images'));
+    }
+}
     public function getRoomPage($id, $title)
     {
 
