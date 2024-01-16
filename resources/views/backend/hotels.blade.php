@@ -55,13 +55,13 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label for="hotel_name">Name<span class="red">*</span></label>
-										<input type="text" name="hotel_name_en" id="hotel_name" class="form-control parsley-validated" data-required="true">
+										<input type="text" name="hotel_name_en" id="hotel_name_en" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
                                 <div class="col-md-12">
 									<div class="form-group">
 										<label for="hotel_name">الاسم <span class="red">*</span></label>
-										<input type="text" name="hotel_name_ar" id="hotel_name" class="form-control parsley-validated" data-required="true">
+										<input type="text" name="hotel_name_ar" id="hotel_name_ar" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 							</div>

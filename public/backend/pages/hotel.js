@@ -225,10 +225,12 @@ function onLoadEditData() {
         data: { id: RecordId }, // Pass data as an object
         success: function(response) {
             var data = response;
-            $("#hotel_name").val(data.name);
             $("#RecordId").val(data.id);
-            $("#address").val(data.address);
-			$("#email").val(data.email);
+            $("#hotel_name_ar").val(data.name.ar);
+            $("#hotel_name_en").val(data.name.en);
+            $("#address_en").val(data.address.en);
+            $("#address_ar").val(data.address.ar);
+			$("#email").val(data.email)
 			$("#phone").val(data.phone);
 			$("#facebook").val(data.facebook);
 			$("#twitter").val(data.twitter);
@@ -237,11 +239,16 @@ function onLoadEditData() {
 			$("#map").val(data.map);
 
 
-            // Check for data.desc or data.image and handle them accordingly
-            if (data.description !== null) {
-                $("#description").val(data.description);
+            if (data.description.en !== null) {
+                $("#description_en").val(data.description.en);
             } else {
-                $("#description").val('');
+                $("#description_en").val('');
+            }
+
+            if (data.description.ar !== null) {
+                $("#description_ar").val(data.description.ar);
+            } else {
+                $("#description_ar").val('');
             }
 
             if (data.image !== null) {
