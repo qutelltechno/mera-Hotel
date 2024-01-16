@@ -11,6 +11,7 @@
     <meta property="og:description" content="{{ $metadata['og_description'] }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset('public/media/' . $metadata['og_image']) }}" />
     <meta property="og:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
@@ -25,6 +26,7 @@
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="{{ $metadata['og_title'] }}">
     <meta name="twitter:description" content="{{ $metadata['og_description'] }}">
+    <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['og_image']) }}">
     <meta name="twitter:image" content="{{ asset('public/media/' . $metadata['cover_img']) }}">
 @endsection
 
@@ -55,6 +57,7 @@
         }
 
         .gallery-container .min-header {
+            height: 48px;
             /* height: 48px; */
             border-bottom: 1px solid rgba(92, 92, 92, 0.404);
             margin-bottom: 20px;
@@ -81,6 +84,11 @@
             background-color: transparent !important;
         }
 
+        @media (max-width: 767px) {
+            .min-header {
+                height: 175px;
+            }
+        }
         /* @media (max-width: 767px) {
             .min-header {
                 height: 175px;
@@ -148,6 +156,76 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $metadata['thumbnail'] ? asset('public/media/' . $metadata['thumbnail']) : '' }});">
+      <div class="container">
+       <div class="row">
+        <div class="col-12">
+         <div class="breadcrumb-card wow pulse">
+          {{-- <h2>{{ $metadata['name'] }}</h2> --}}
+         </div>
+        </div>
+       </div>
+      </div>
+     </section> -->
+        <!-- /Page Breadcrumb/ -->
+
+        <!-- Inner Section -->
+        <section class="inner-section inner-section-bg block-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 pt-lg-5">
+                        <div class="section-heading">
+                            <h1>{{ __('Mira business') }}</h1>
+                            <h3>{{ __('Room List') }}</h3>
+                        </div>
+                    </div>
+                    @if (count($datalist) > 0)
+                        @foreach ($datalist as $row)
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="item-card">
+                                    <div class="item-image wow fadeInUp">
+                                        <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">
+                                            <img src="{{ asset('public/media/' . $row->thumbnail) }}"
+                                                alt="{{ $row->title }}" />
+                                        </a>
+                                        @if ($row->is_discount == 1 && $row->old_price != '')
+                                            @php
+                                                $discount = number_format((($row->old_price - $row->price) * 100) / $row->old_price);
+                                            @endphp
+                                            <span class="item-label">{{ $discount }}% {{ __('Off') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="item-title">
+                                            <a
+                                                href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{ str_limit($row->title) }}</a>
+                                        </div>
+                                        <div class="pric-card">
+                                            @if ($row->price != '')
+                                                @if ($gtext['currency_position'] == 'left')
+                                                    <div class="new-price">
+                                                        {{ $gtext['currency_icon'] }}{{ NumberFormat($row->price) }}</div>
+                                                @else
+                                                    <div class="new-price">
+                                                        {{ NumberFormat($row->price) }}{{ $gtext['currency_icon'] }}</div>
+                                                @endif
+                                            @endif
+                                            @if ($row->is_discount == 1 && $row->old_price != '')
+                                                @if ($gtext['currency_position'] == 'left')
+                                                    <div class="old-price">
+                                                        {{ $gtext['currency_icon'] }}{{ NumberFormat($row->old_price) }}
+                                                    </div>
+                                                @else
+                                                    <div class="old-price">
+                                                        {{ NumberFormat($row->old_price) }}{{ $gtext['currency_icon'] }}
+                                                    </div>
+                                                @endif
+                                            @endif
+                                            <div class="per-day-night">/ {{ __('Night') }}</div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                        class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+
                   <div class="container">
                    <div class="row">
                     <div class="col-12">
@@ -235,6 +313,18 @@
 					</div>
 				</div> --}}
 
+                    @endif
+                </div>
+
+                <section class="inner-section inner-section-bg block-bg">
+                    <div class="container gallery-container">
+                        <div class="col-md-8 offset-md-2 pt-lg-5">
+                            <div class="section-heading">
+                                <h1 style="text-shadow:none">{{ __('gallery') }}</h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
                     {{-- @endif
                 </div> --}}
                 @if ($curntLang == 'ar')
@@ -251,16 +341,20 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm1')">
+                                            Hotel1
                                             h1
                                         </button>
                                     </div>
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm2')">
+                                            Hotel2
                                             h2
                                         </button>
                                     </div>
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm3')">
+                                            Hotel3
+                                        </button>
                                             h3
                                         </button>
 
@@ -268,11 +362,77 @@
 
                                     <div class="col-md-4 col-lg-3">
                                         <button type="button" class="bttn col-md" onclick="myFunction('dm3')">
+                                            Hotel4
                                             h4
                                         </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Gallery 1 -->
+                        <div class="tz-gallery" id="demo">
+
+                            {{-- <div class="row">
+                                @foreach ($rooms as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                            @endforeach
+                            </div> --}}
+                        </div>
+
+                        <!-- Gallery 2 -->
+                        <div class="tz-gallery" style="display: none" id="demo2">
+                            <div class="row">
+                                {{-- @foreach ($restaurants as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach --}}
+                            </div>
+                        </div>
+
+                        <!-- Gallery 3 -->
+                        <div class="tz-gallery" style="display: none" id="demo3">
+                            <div class="row">
+                                {{-- @foreach ($spa as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach --}}
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
                         </div> --}}
 
                             {{-- @dd($hotelsEn) --}}

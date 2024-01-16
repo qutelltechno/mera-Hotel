@@ -1966,7 +1966,8 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	top: -1px;
 }
 .menu-item-handle .item-controls .item-type {
-	display: inline-block;
+	/* display: inline-block; */
+	display: none !important;
 	padding: 10px 10px;
 	color: #686868;
 	font-size: 12px;

@@ -15,7 +15,7 @@
 			</div>
 			<div class="my-profile">
 				<span>{{ Auth::user()->name }}</span>
-				<span>{{ Auth::user()->email }}</span>
+				<span class="email--profile">{{ Auth::user()->email }}</span>
 			</div>
 		</a>
 		<div class="dropdown-menu dropdown-menu-right my-profile-nav">

@@ -689,6 +689,13 @@ a.my-profile-info {
 	width: 100%;
 	display: inline-block;
 }
+
+/* Media width < 767  */
+@media screen and (max-width: 840px) {
+	.email--profile{
+		display: none !important;
+	}
+}
 .avatar {
 	float: right;
 	margin-left: 10px;
