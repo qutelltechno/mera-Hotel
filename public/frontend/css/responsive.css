@@ -21,7 +21,7 @@
         display: block;
     }
     .home_1 .search-card {
-        position: relative;
+        /* position: relative; */
         bottom: 0px;
         padding: 80px 0;
     }
