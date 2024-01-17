@@ -492,6 +492,10 @@ a.viewIconBtn i {
 	background-color: rgba(145, 147, 149, 0.1);
 	border: 1px solid #919395;
 	color: #919395;
+    display: grid;
+	width: 104px;
+    height: 32px;
+    text-align: center;
 }
 .ostatus_4 {
 	background-color: rgba(242, 89, 97, 0.1);
@@ -701,7 +705,8 @@ a.my-profile-info {
 	margin-left: 10px;
 }
 .avatar img {
-	width: 40px;
+	width: 50px;
+	object-fit: cover;
 	height: 40px;
 	border-radius: 50%;
 	border: 2px solid #ddd;
@@ -1119,6 +1124,18 @@ ul.tabs-nav li a.active {
 }
 .page-link {
 	color: var(--backend-theme-color);
+}
+@media (max-width:477px) {
+	
+	.page-link{
+		padding: 5px;
+	}
+	.pagination {
+		display: flex;
+		justify-content: center;
+	}
+	.pagination li{
+		margin: auto;}
 }
 .page-link:hover {
 	color: var(--backend-theme-color);
@@ -1898,6 +1915,8 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	padding: 7px 10px;
 	float: right;
 }
+
+
 .menu_pagination {
 	margin-top: 5px;
 	margin-bottom: 10px;

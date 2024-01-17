@@ -59,8 +59,8 @@
 						</div>
 						<div class="blog-content">
 							<div class="blog-meta-card">
-								<div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($data->created_at)) }}</div>
-								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $data->name }}</div>
+								{{-- <div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($data->created_at)) }}</div>
+								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $data->name }}</div> --}}
 							</div>
 							<div class="blog-title">
 								<h3>{{ $data->title }}</h3>

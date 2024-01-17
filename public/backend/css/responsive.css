@@ -79,6 +79,7 @@
 
 @media (max-width: 767px) {
     .sidebar-wrapper {
+
 		display: none;
 	}
 	#wrapper.toggled .tp-header {
@@ -98,7 +99,8 @@
 		padding: 75px 0px 40px 0px;
 	}
 	ul.tabs-nav {
-		width: 100%;
+		/* width: 100%; */
+		display: grid;
 	}
 	ul.tabs-nav li {
 		border-bottom: none;

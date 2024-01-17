@@ -49,7 +49,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													<h4><strong id="media_type"></strong></h4>
-													<p>The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.</p>
+													<p>{{__('The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.')}}</p>
 												</div>
 											</div>
 											<div class="row">

@@ -625,6 +625,8 @@
     "Position":"Position",
     "Left":"Left",
     "Right":"Right",
-    "Subject":"Subject"
+    "Subject":"Subject",
+    "Self":"Self",
+    "Blank":"Blank"
 
 }

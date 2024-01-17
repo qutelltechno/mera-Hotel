@@ -132,18 +132,15 @@ class MenuBuilderController extends Controller
 											<div class="form-group">
 												<label>'. __('Target Window') .'</label>
 												<ul class="checkboxlist child_menu_type_list w-100">
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>Self</label></li>
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>Blank</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>'. __('Self') .'</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>'. __('blank') .'</label></li>
 												</ul>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-6">
-											<div class="form-group">
-												<label for="css_class'.$menu_item_id.'">'. __('CSS Class (Optional)') .'</label>
-												<input type="text" name="css_class'.$menu_item_id.'" id="css_class'.$menu_item_id.'" class="form-control" value="'.$row->css_class.'">
-											</div>
+											
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group '.$dnone.'">
@@ -266,18 +263,15 @@ class MenuBuilderController extends Controller
 											<div class="form-group">
 												<label>'. __('Target Window') .'</label>
 												<ul class="checkboxlist child_menu_type_list w-100">
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>Self</label></li>
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>Blank</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>'. __('Self') .'</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>'. __('Blank') .'</label></li>
 												</ul>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-6">
-											<div class="form-group">
-												<label for="css_class'.$menu_item_id.'">'. __('CSS Class (Optional)') .'</label>
-												<input type="text" name="css_class'.$menu_item_id.'" id="css_class'.$menu_item_id.'" class="form-control" value="'.$row->css_class.'">
-											</div>
+											
 										</div>
 										<div class="col-lg-6"></div>
 									</div>
@@ -403,8 +397,8 @@ class MenuBuilderController extends Controller
 											<div class="form-group">
 												<label>'. __('Target Window') .'</label>
 												<ul class="checkboxlist child_menu_type_list w-100">
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>Self</label></li>
-													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>Blank</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_self" '.$self.'>'. __('Self') .'</label></li>
+													<li><label class="checkbox-title"><input type="radio" name="target_window'.$menu_item_id.'" value="_blank" '.$blank.'>'. __('Blank') .'</label></li>
 												</ul>
 											</div>
 										</div>
@@ -412,8 +406,7 @@ class MenuBuilderController extends Controller
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label for="css_class'.$menu_item_id.'">'. __('CSS Class (Optional)') .'</label>
-												<input type="text" name="css_class'.$menu_item_id.'" id="css_class'.$menu_item_id.'" class="form-control" value="'.$row->css_class.'">
+				
 											</div>
 										</div>
 										<div class="col-lg-6"></div>

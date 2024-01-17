@@ -31,7 +31,7 @@
 											<div class="form-group">
 												<label for="secretkey">{{ __('Secret Key') }}<span class="red">*</span></label>
 												<input type="text" name="secretkey" id="secretkey" class="form-control parsley-validated" data-required="true" value="{{ $datalist['secretkey'] }}">
-												<small class="form-text text-muted"><a target="_blank" href="https://www.google.com/recaptcha/admin/create">Create Google reCAPTCHA v2</a></small>
+												<small class="form-text text-muted"><a target="_blank" href="https://www.google.com/recaptcha/admin/create">{{__('Create Google reCAPTCHA v2')}}</a></small>
 											</div>
 										</div>
 										<div class="col-lg-4"></div>
