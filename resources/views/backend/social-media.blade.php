@@ -76,7 +76,7 @@
 												<label for="social_icon">{{ __('Social Icon') }} <span class="red">*</span></label>
 												<input type="text" name="social_icon" id="social_icon" class="form-control parsley-validated" data-required="true" placeholder="bi bi-facebook">
 											</div>
-											<em>Choose bootstrap icon <a href="https://icons.getbootstrap.com/" target="_blank">https://icons.getbootstrap.com/</a></em>
+											<em>{{__('Choose bootstrap icon')}} <a href="https://icons.getbootstrap.com/" target="_blank">https://icons.getbootstrap.com/</a></em>
 										</div>
 										<div class="col-md-3">
 											<div class="form-group">
