@@ -279,11 +279,11 @@ class RoomsController extends Controller
         $curntLan=glan();
         $hotels=Hotel::all();
 
-		$lan = $datalist->lan;
+		// $lan = $datalist->lan;
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('id', 'asc')->get();
-		$categorylist = category::where('lan', '=', $lan)->where('is_publish', '=', 1)->orderBy('name','asc')->get();
+		// $categorylist = category::where('lan', '=', $lan)->where('is_publish', '=', 1)->orderBy('name','asc')->get();
 
 		$taxlist = Tax::orderBy('title','asc')->get();
 		$amenity_list = Amenity::orderBy('name','asc')->get();
@@ -291,7 +291,7 @@ class RoomsController extends Controller
 		$bedtype_list = Bedtype::orderBy('name','asc')->get();
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
 
-        return view('backend.room', compact('datalist', 'statuslist', 'languageslist', 'categorylist', 'taxlist', 'amenity_list', 'complement_list', 'bedtype_list', 'media_datalist','hotels','curntLan'));
+        return view('backend.room', compact('datalist', 'statuslist', 'languageslist', 'taxlist', 'amenity_list', 'complement_list', 'bedtype_list', 'media_datalist','hotels','curntLan'));
     }
 
 	//Update data for Rooms
