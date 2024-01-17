@@ -670,6 +670,9 @@
     "Position":"الموضع",
     "Left":"يسار",
     "Right":"يمين",
-    "Subject":"الموضوع"
+    "Subject":"الموضوع",
+    "Self":"الذات",
+    "Blank":"فارغ",
+    "Create Google reCAPTCHA v2":"إنشاء Google reCAPTCHA v2"
     
 }

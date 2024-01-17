@@ -23,9 +23,11 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-lg-4">
-								<div class="form-group mb-10">
-									<select name="roomtype_id" id="roomtype_id" class="chosen-rtl form-control">
-										<option value="0" selected="selected">{{ __('All Room Type') }}</option>
+								<div class="form-group mb-10"    >
+									<select  name="roomtype_id" id="roomtype_id" class="chosen-rtl form-control">
+										{{-- <option value="0" selected="selected">{{ __('All Room Type') }}</option> --}}
+										<option value="0"  selected="selected" >{{ __('All Room Type') }}</option>
+
 										@foreach($room_list as $row)
 										<option value="{{ $row->id }}">
 											{{ $row->title }}

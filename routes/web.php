@@ -520,7 +520,7 @@ Route::prefix('backend')->group(function(){
 	Route::post('/StripeSettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'StripeSettingsUpdate'])->name('backend.StripeSettingsUpdate')->middleware(['auth','is_admin']);
 	Route::post('/PaypalSettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'PaypalSettingsUpdate'])->name('backend.PaypalSettingsUpdate')->middleware(['auth','is_admin']);
 	Route::post('/RazorpaySettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'RazorpaySettingsUpdate'])->name('backend.RazorpaySettingsUpdate')->middleware(['auth','is_admin']);
-	Route::post('/MollieSettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'MollieSettingsUpdate'])->name('backend.MollieSettingsUpdate')->middleware(['auth','is_admin']);
+	Route::post('/MollieSettinبgsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'MollieSettingsUpdate'])->name('backend.MollieSettingsUpdate')->middleware(['auth','is_admin']);
 	Route::post('/CODSettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'CODSettingsUpdate'])->name('backend.CODSettingsUpdate')->middleware(['auth','is_admin']);
 	Route::post('/BankSettingsUpdate', [App\Http\Controllers\Backend\SettingsController::class, 'BankSettingsUpdate'])->name('backend.BankSettingsUpdate')->middleware(['auth','is_admin']);
 

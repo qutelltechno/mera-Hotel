@@ -506,6 +506,10 @@ a.viewIconBtn i {
 	background-color: rgba(145, 147, 149, 0.1);
 	border: 1px solid #919395;
 	color: #919395;
+    display: grid;
+    width: 104px;
+    height: 32px;
+    text-align: center;
 }
 .ostatus_4 {
 	background-color: rgba(242, 89, 97, 0.1);
@@ -1885,7 +1889,7 @@ table.dataTable.table-theme {
 	position: absolute;
 	width: 40px;
 	top: 10px;
-	right: 0px;
+	left: 0px;
 	text-align: center;
 }
 .accordion-container ul.outer-border li.accordion-section h3.accordion-section-title::after {
