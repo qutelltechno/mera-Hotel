@@ -160,7 +160,7 @@ class HotelController extends Controller
                 'twitter' => $request->input('twitter'),
                 'instagram' => $request->input('instagram'),
                 'youtube' => $request->input('youtube'),
-                'lan' => $request->input('lan'),
+                'lan' => 'en',
             );
 
             $id = $request->input('RecordId');
