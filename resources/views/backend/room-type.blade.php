@@ -25,7 +25,7 @@
 					</div>
 					<!--Data grid-->
 					<div id="list-panel" class="card-body">
-						<div class="row mb-10">
+						{{-- <div class="row mb-10">
 							<div class="col-lg-3">
 								<div class="form-group mb-10">
 									<select name="language_code" id="language_code" class="chosen-rtl form-control">
@@ -52,7 +52,7 @@
 							</div>
 							<div class="col-lg-3"></div>
 							<div class="col-lg-3"></div>
-						</div>
+						</div> --}}
 
 						<div class="row">
 							<div class="col-lg-4">
@@ -86,8 +86,12 @@
 							<div class="row">
 								<div class="col-lg-4">
 									<div class="form-group">
-										<label for="title">{{ __('Room Type') }}<span class="red">*</span></label>
-										<input type="text" name="title" id="title" class="form-control parsley-validated" data-required="true">
+										<label for="title_en">Room Title<span class="red">*</span></label>
+										<input type="text" name="title_en" id="title_en" class="form-control parsley-validated" data-required="true">
+									</div>
+                                    <div class="form-group">
+										<label for="title_ar">عنوان الغرفة <span class="red">*</span></label>
+										<input type="text" name="title_ar" id="title_ar" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -135,14 +139,10 @@
 										</select>
 									</div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
 										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
 										<select name="lan"  class="chosen-rtl form-control">
-										{{-- @foreach($languageslist as $row)
-											<option value="{{ $row->language_code }}">
-												{{ $row->language_name }}
-											</option>
-										@endforeach --}}
+
                                         @if ($currentLocale==='ar')
                                         <option selected value="ar">
                                             العربية
@@ -160,7 +160,7 @@
 
                                         @endif
 										</select>
-									</div>
+									</div> --}}
 								</div>
 								<div class="col-lg-9"></div>
 							</div>

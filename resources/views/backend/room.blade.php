@@ -28,10 +28,15 @@
 							<!--Data Entry Form-->
 							<form novalidate="" data-validate="parsley" id="DataEntry_formId">
 								<div class="row">
+
 									<div class="col-lg-6">
 										<div class="form-group">
-											<label for="room_name">{{ __('Room Type') }}<span class="red">*</span></label>
-											<input value="{{ $datalist['title'] }}" type="text" name="title" id="product_name" class="form-control parsley-validated" data-required="true">
+											<label for="room_name">Room Name<span class="red">*</span></label>
+											<input value="{{ $datalist->getOriginal('title')['en'] }}" type="text" name="title_en" id="product_name" class="form-control parsley-validated" data-required="true">
+										</div>
+                                        <div class="form-group">
+											<label for="room_name">اسم الغرفة بالعربية <span class="red">*</span></label>
+											<input value="{{ $datalist->getOriginal('title')['ar'] }}" type="text" name="title_ar" id="product_name" class="form-control parsley-validated" data-required="true">
 										</div>
 									</div>
 									<div class="col-lg-6">
@@ -44,8 +49,13 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group tpeditor">
-											<label for="description">{{ __('Description') }}</label>
-											<textarea name="description" id="description" class="form-control" rows="4">{{ $datalist['description'] }}</textarea>
+											<label for="description_en">Description</label>
+                                            {{-- @dd( $datalist->getOriginal('description')['ar']  ?? '') --}}
+											<textarea name="description_en" id="description" class="form-control" rows="4"> {{ $datalist->getOriginal('description')['en'] ?? '' }}</textarea>
+										</div>
+                                        <div class="form-group tpeditor">
+											<label for="description_ar">الوصف بالعربية </label>
+											<textarea name="description_ar" id="description" class="form-control" rows="4">{{ $datalist->getOriginal('description')['ar']  ?? ''}}</textarea>
 										</div>
 									</div>
 								</div>

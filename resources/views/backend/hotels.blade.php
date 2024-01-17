@@ -60,7 +60,7 @@
 								</div>
                                 <div class="col-md-12">
 									<div class="form-group">
-										<label for="hotel_name">الاسم <span class="red">*</span></label>
+										<label for="hotel_name">الاسم بالعربية <span class="red">*</span></label>
 										<input type="text" name="hotel_name_ar" id="hotel_name_ar" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
@@ -72,7 +72,7 @@
 										<textarea name="address_en" id="address_en" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
                                     <div class="form-group">
-										<label for="address_ar">العنوان<span class="red">*</span></label>
+										<label for="address_ar">العنوان بالعربية <span class="red">*</span></label>
 										<textarea name="address_ar" id="address_ar" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>
@@ -119,7 +119,7 @@
 										<textarea name="description_en" id="description_en" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
                                     <div class="form-group">
-										<label for="description_ar">الوصف<span class="red">*</span></label>
+										<label for="description_ar">الوصف بالعربية<span class="red">*</span></label>
 										<textarea name="description_ar" id="description_ar" class="form-control parsley-validated" data-required="true" rows="3"></textarea>
 									</div>
 								</div>

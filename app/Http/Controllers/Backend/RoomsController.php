@@ -26,18 +26,19 @@ class RoomsController extends Controller
 		$categorylist = Category::where('is_publish', 1)->orderBy('name','asc')->get();
 
 		$currentLocale = app()->getLocale();
-        $hotels=Hotel::where('lan',$currentLocale)->get();
+        $hotels=Hotel::all();
 		$datalist = DB::table('rooms')
 			->join('tp_status', 'rooms.is_publish', '=', 'tp_status.id')
 			->join('languages', 'rooms.lan', '=', 'languages.language_code')
-			->join('categories', 'rooms.cat_id', '=', 'categories.id')
-			->select('rooms.*', 'categories.name as category_name', 'tp_status.status', 'languages.language_name')
-			->where('rooms.lan',$currentLocale)
+			->select('rooms.*', 'tp_status.status', 'languages.language_name')
+			// ->where('rooms.lan',$currentLocale)
 			->orderBy('rooms.id','desc')
 			->paginate(20);
 
 		return view('backend.room-type', compact('languageslist', 'categorylist', 'datalist','hotels','currentLocale'));
 	}
+
+
 
 	//Get data for Room Type Pagination
 	public function getRoomTypeTableData(Request $request){
@@ -97,34 +98,36 @@ class RoomsController extends Controller
 		$res = array();
 
 		$id = $request->input('RecordId');
-		$title = esc($request->input('title'));
+		$title_en =     $request->input('title_en');
+        $title_ar = $request->input('title_ar');
 		$slug = esc(str_slug($request->input('slug')));
-		$lan = $request->input('lan');
-		// $cat_id = $request->input('categoryid');
         $hotel_id = $request->input('hotel_id');
 
 		$validator_array = array(
-			'room_name' => $request->input('title'),
+			'room_name_en' => $request->input('title_en'),
+            'room_name_ar' => $request->input('title_ar'),
 			'slug' => $slug,
-			'language' => $request->input('lan'),
-			// 'category' => $request->input('categoryid'),
             'hotel_id'=>$request->input('hotel_id'),
 		);
 
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
-			'room_name' => 'required',
+			'room_name_en' => 'required',
+            'room_name_ar' => 'required',
 			'slug' => 'required|max:191|unique:rooms,slug' . $rId,
-			'language' => 'required',
-			// 'category' => 'required',
             'hotel_id'=> 'required',
 		]);
 
 		$errors = $validator->errors();
 
-		if($errors->has('room_name')){
+		if($errors->has('room_name_en')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('room_name');
+			$res['msg'] = $errors->first('room_name_en');
+			return response()->json($res);
+		}
+        if($errors->has('room_name_ar')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('room_name_ar');
 			return response()->json($res);
 		}
 
@@ -134,11 +137,6 @@ class RoomsController extends Controller
 			return response()->json($res);
 		}
 
-		if($errors->has('language')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('language');
-			return response()->json($res);
-		}
 
 		if($errors->has('hotel_id')){
 			$res['msgType'] = 'error';
@@ -147,14 +145,15 @@ class RoomsController extends Controller
 		}
 
 		$data = array(
-			'title' => $title,
+            'title' =>[
+                'en'=>$title_en,
+                'ar'=>$title_ar,
+            ],
             'hotel_id' => $hotel_id,
 			'slug' => $slug,
-			// 'cat_id' => $cat_id,
-			// 'hotel_id' => $hotel_id,
-			'lan' => $lan,
 			'is_publish' => 2
 		);
+
 
 		if($id ==''){
 			$response = Room::create($data)->id;
@@ -278,7 +277,7 @@ class RoomsController extends Controller
 
 		$datalist = Room::where('id', $id)->first();
         $curntLan=glan();
-        $hotels=Hotel::where('lan',$curntLan)->get();
+        $hotels=Hotel::all();
 
 		$lan = $datalist->lan;
 
@@ -300,9 +299,11 @@ class RoomsController extends Controller
 		$res = array();
 
 		$id = $request->input('RecordId');
-		$title = esc($request->input('title'));
+		$title_en = esc($request->input('title_en'));
+        $title_ar = esc($request->input('title_ar'));
 		$slug = esc(str_slug($request->input('slug')));
-		$description = $request->input('description');
+		$description_en = $request->input('description_en');
+        $description_ar = $request->input('description_ar');
 		$hotel_id = $request->input('hotel_id');
 		$total_adult = $request->input('total_adult');
 		$total_child = $request->input('total_child');
@@ -319,7 +320,8 @@ class RoomsController extends Controller
 
 		$validator_array = array(
             'hotel_id'=> $request->input('hotel_id'),
-			'room_name' => $request->input('title'),
+			'room_name_en' => $request->input('title_en'),
+            'room_name_ar' => $request->input('title_ar'),
 			'slug' => $slug,
 			// 'category' => $request->input('cat_id'),
 			'total_adult' => $request->input('total_adult'),
@@ -334,7 +336,8 @@ class RoomsController extends Controller
 
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
-			'room_name' => 'required',
+			'room_name_en' => 'required',
+            'room_name_ar' => 'required',
 			'slug' => 'required|max:191|unique:rooms,slug' . $rId,
 			// 'category' => 'required',
             'hotel_id'=>'required',
@@ -350,9 +353,14 @@ class RoomsController extends Controller
 
 		$errors = $validator->errors();
 
-		if($errors->has('room_name')){
+		if($errors->has('room_name_en')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('room_name');
+			$res['msg'] = $errors->first('room_name_en');
+			return response()->json($res);
+		}
+        if($errors->has('room_name_ar')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('room_name_ar');
 			return response()->json($res);
 		}
 
@@ -450,11 +458,21 @@ class RoomsController extends Controller
 		}
 
 		$data = array(
-			'title' => $title,
+            'title'=>[
+                'en'=>$title_en,
+                'ar'=> $title_ar,
+            ],
+			// 'title_en' => $title_en,
+			// 'title_ar' => $title_ar,
 			'slug' => $slug,
 			'thumbnail' => $thumbnail,
 			'cover_img' => $cover_img,
-			'description' => $description,
+            'description'=>[
+                'en'=>$description_en,
+                'ar'=>$description_ar,
+            ],
+			// 'description_en' => $description_en,
+            // 'description_ar' => $description_ar,
 			'hotel_id' => $hotel_id,
 			'total_adult' => $total_adult,
 			'total_child' => $total_child,
@@ -472,7 +490,8 @@ class RoomsController extends Controller
 		if($response){
 
 			//Update Parent and Child Menu
-			gMenuUpdate($id, 'product', $title, $slug);
+			gMenuUpdate($id, 'product', $title_en, $slug);
+            gMenuUpdate($id, 'product', $title_ar, $slug);
 
 			$res['msgType'] = 'success';
 			$res['msg'] = __('Updated Successfully');
