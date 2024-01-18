@@ -27,7 +27,7 @@
         </div>
             @endforeach
         </div>
-		
+
 
         <div class="search-card">
 			<div class="col-md-3 mx-lg-5 shadow">

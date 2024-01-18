@@ -168,7 +168,7 @@ class HomeFrontendController extends Controller
 
 		}
 
-        $hotels = Hotel::where('lan', $lan)->get();
+        $hotels = Hotel::all();
 
         return view('frontend.home', compact(
 			'slider_hero_section',
