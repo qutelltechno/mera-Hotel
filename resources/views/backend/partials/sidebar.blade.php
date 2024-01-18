@@ -28,16 +28,16 @@
 		<li><a href="{{ route('backend.room-list') }}"><i class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-bed"></i>{{ __('Hotel Manage') }}</a>
 			<ul class="dropdown-menu">
-				
+
 				<li><a href="{{ route('backend.room-type') }}">{{ __('Room Type') }}</a></li>
-				<li><a href="{{ route('backend.categories') }}">{{ __('Categories') }}</a></li>
+				{{-- <li><a href="{{ route('backend.categories') }}">{{ __('Categories') }}</a></li> --}}
 				<li><a href="{{ route('backend.amenities') }}">{{ __('Amenities') }}</a></li>
 				<li><a href="{{ route('backend.complements') }}">{{ __('Complements') }}</a></li>
 				<li><a href="{{ route('backend.bed-types') }}">{{ __('Bed Types') }}</a></li>
 				<li><a href="{{ route('backend.tax') }}">{{ __('Tax') }}</a></li>
 				<li><a href="{{ route('backend.currency') }}">{{ __('Currency') }}</a></li>
 				<li><a href="{{ route('backend.payment-methods') }}">{{ __('Payment Methods') }}</a></li>
-				<li><a href="{{ route('backend.countries') }}">{{ __('Countries') }}</a></li>
+				{{-- <li><a href="{{ route('backend.countries') }}">{{ __('Countries') }}</a></li> --}}
 			</ul>
 		</li>
 

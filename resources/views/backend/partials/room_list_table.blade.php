@@ -17,10 +17,14 @@
 			@if (count($datalist)>0)
 			@php $i = 1; @endphp
 			@foreach($datalist as $row)
+                @php
+                $translationTitle = json_decode($row->title, true);
+                $curnetLang=glan();
+            @endphp
 			<tr>
 				<td class="text-center">{{ $i++ }}</td>
 				<td class="text-left">{{ $row->room_no }}</td>
-				<td class="text-left">{{ $row->title }}</td>
+				<td class="text-left">{{  $translationTitle[$curnetLang] }}</td>
 				@if ($row->book_status == 1)
 				<td class="text-center"><span class="disable_btn">{{ __('Booked') }}</span></td>
 				@else
