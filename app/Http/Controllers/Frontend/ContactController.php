@@ -35,7 +35,7 @@ class ContactController extends Controller
 			$data['is_publish'] = $row->is_publish;
 		}
 		// dd($data['contact_form']);
-        $hotels = Hotel::where('lan', glan())->where('is_main', false)->get();
+        $hotels = Hotel::all();
 
         return view('frontend.contact', compact('contact_id', 'data', 'hotels'));
     }

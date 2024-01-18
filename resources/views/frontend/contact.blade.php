@@ -228,9 +228,9 @@
                     </div>
                     <div class="contact-info">
                         <div class="row">
-
+                            {{-- @dd($hotels) --}}
                             @foreach ($hotels as $hotel)
-                                <div class="col-12 col-sm-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
+                                <div class="col-12 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 p-2">
                                     <h4 class=" text-center text-dark"> {{ $hotel->name }} </h4>
 
                                     <div class=" bg-white p-5 rounded " style="">

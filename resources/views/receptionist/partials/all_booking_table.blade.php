@@ -18,18 +18,22 @@
 		<tbody>
 			@if (count($datalist)>0)
 			@foreach($datalist as $row)
+            @php
+            $translations = json_decode($row->title, true);
+                        $curnetLang=glan();
+            @endphp
 			<tr>
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
 				<td class="text-left"><a href="{{ route('receptionist.booking', [$row->id, 'all-booking']) }}">{{ $row->booking_no }}</a></td>
 				<td class="text-left">{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
 				<td class="text-left">{{ $row->name }}</td>
-				<td class="text-left">{{ $row->title }}</td>
+				<td class="text-left">{{$translations[ $curnetLang] }}</td>
 				<td class="text-center">{{ date('d-m-Y', strtotime($row->in_date)) }} <strong>to</strong> {{ date('d-m-Y', strtotime($row->out_date)) }}</td>
 				<td class="text-center">{{ $row->total_room }}</td>
 				<td class="text-center">{{ $row->method_name }}</td>
 				<td class="text-center"><span class="status_btn pstatus_{{ $row->payment_status_id }}">{{ $row->pstatus_name }}</span></td>
 				<td class="text-center"><span class="status_btn ostatus_{{ $row->booking_status_id }}">{{ $row->bstatus_name }}</span></td>
-				
+
 				<td class="text-center">
 					<div class="btn-group action-group">
 						<a class="action-btn" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
