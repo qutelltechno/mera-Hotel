@@ -532,7 +532,7 @@ class BookingController extends Controller
 		$idsArray = array();
 		foreach($RoomAssignList as $row){
 			$idsArray[] = $row->room_id;
-		} 
+		}
 
 		//Approved
 		if($booking_status_id == 2){

@@ -101,10 +101,15 @@
 											$old_price = $oPrice;
 											$cal_old_price = $caloPrice;
 										}
+
+                                       
+            $translationTitle = json_decode($mdata->title, true);
+            $curnetLang=glan();
+        
 									@endphp
 
 									<tr>
-										<td class="text-left" style="width:30%;">{{ $mdata->title }}</td>
+										<td class="text-left" style="width:30%;">{{ $translationTitle[$curnetLang] }}</td>
 										<td class="text-center" style="width:15%;">{{ $mdata->total_room }}</td>
 										<td class="text-center" style="width:10%;">{{ $total_price }} @php if($old_price !=''){ @endphp<br><span style="text-decoration:line-through;color:#ee0101;">{{ $old_price }}</span>@php } @endphp</td>
 										<td class="text-center" style="width:25%;">@php echo date('d-m-Y', strtotime($mdata->in_date)).'<br><strong>to</strong><br>'.date('d-m-Y', strtotime($mdata->out_date)); @endphp</td>

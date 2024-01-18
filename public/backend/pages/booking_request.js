@@ -13,13 +13,13 @@ $(function () {
 	});
 
 	$(document).on('click', '.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-	
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
@@ -67,7 +67,7 @@ function onSearch() {
 function onFilterAction() {
 	var start_date = $("#start_date").val();
 	var end_date = $("#end_date").val();
-	
+
 	$.ajax({
 		url: base_url + "/backend/getBookingRequestTableData?start_date="+start_date+"&end_date="+end_date,
 		success:function(data){
@@ -80,7 +80,7 @@ function onFilterAction() {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -99,7 +99,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -116,19 +116,19 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {
@@ -148,7 +148,7 @@ function onConfirmBulkAction() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -163,6 +163,7 @@ function onExcelExport() {
 	$.ajax({
 		url:FinalPath,
 		success:function(data){
+            // alert('done');
 			var filePath = base_url+'/public/export/'+data;
 			window.open(filePath);
 		}
@@ -174,7 +175,7 @@ function onCSVExport() {
 	var end_date = $("#end_date").val();
 
 	var FinalPath = base_url + "/backend/csv-export?booking_status_id=1&start_date="+start_date+"&end_date="+end_date;
-	
+
 	$.ajax({
 		url:FinalPath,
 		success:function(data){

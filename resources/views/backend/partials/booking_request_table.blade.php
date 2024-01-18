@@ -18,12 +18,16 @@
 		<tbody>
 			@if (count($datalist)>0)
 			@foreach($datalist as $row)
+            @php
+            $translationTitle = json_decode($row->title, true);
+            $curnetLang=glan();
+        @endphp
 			<tr>
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
 				<td class="text-left"><a href="{{ route('backend.booking', [$row->id, 'booking-request']) }}">{{ $row->booking_no }}</a></td>
 				<td class="text-left">{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
 				<td class="text-left">{{ $row->name }}</td>
-				<td class="text-left">{{ $row->title }}</td>
+				<td class="text-left">{{$translationTitle[ $curnetLang] }}</td>
 				<td class="text-center">{{ date('d-m-Y', strtotime($row->in_date)) }} <strong>to</strong> {{ date('d-m-Y', strtotime($row->out_date)) }}</td>
 				<td class="text-center">{{ $row->total_room }}</td>
 				<td class="text-center">{{ $row->method_name }}</td>

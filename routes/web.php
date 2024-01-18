@@ -144,7 +144,7 @@ Route::prefix('backend')->group(function(){
 	Route::get('/getAllBookingTableData', [App\Http\Controllers\Backend\BookingController::class, 'getAllBookingTableData'])->name('backend.getAllBookingTableData')->middleware(['auth','is_admin']);
 
 	//Book Room
-	Route::get('/book-room', [App\Http\Controllers\Backend\BookingController::class, 'getBoo    kRoomPageLoad'])->name('backend.book-room')->middleware(['auth','is_admin']);
+	Route::get('/book-room', [App\Http\Controllers\Backend\BookingController::class, 'getBookRoomPageLoad'])->name('backend.book-room')->middleware(['auth','is_admin']);
 	Route::post('/BookRoomRequest', [App\Http\Controllers\Backend\BookingController::class, 'BookRoomRequest'])->name('backend.BookRoomRequest')->middleware(['auth','is_admin']);
 	Route::post('/CheckRoomCount', [App\Http\Controllers\Backend\BookingController::class, 'CheckRoomCount'])->name('backend.CheckRoomCount')->middleware(['auth','is_admin']);
 
