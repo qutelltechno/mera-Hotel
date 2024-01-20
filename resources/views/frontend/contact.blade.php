@@ -230,7 +230,8 @@
                         <div class="row">
                             {{-- @dd($hotels) --}}
                             @foreach ($hotels as $hotel)
-                                <div class="col-12 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 p-2">
+                                @if($hotel->is_main==0)
+                                <div class="col-12 col-sm-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
                                     <h4 class=" text-center text-dark"> {{ $hotel->name }} </h4>
 
                                     <div class=" bg-white p-5 rounded " style="">
@@ -269,6 +270,7 @@
                                         allowfullscreen="" loading="lazy"
                                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
+                                @endif
                             @endforeach
 
                         </div>
