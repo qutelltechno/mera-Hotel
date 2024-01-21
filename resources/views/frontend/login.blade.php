@@ -85,12 +85,30 @@
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
 							</div>
-							<div class="tw_checkbox checkbox_group">
-								<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-								<label for="remember">{{ __('Remember me') }}</label>
-								<span></span>
+                            @if (glan()==='en')
+                            <div class="tw_checkbox checkbox_group">
+								<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} >
+								<label for="remember" >{{ __('Remember me') }}</label>
+								<span></span   >
 							</div>
-							<input type="submit" class="btn theme-btn full" value="{{ __('login') }}">
+                            @else
+                            {{-- <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
+                                <label for="remember" style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
+                                <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
+                                <span></span>
+                            </div> --}}
+                            <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
+                                <label for="remember" style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
+                                <span style="position: inherit !important ;">
+                                    <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
+                                </span>
+                                {{-- <span></span> --}}
+                            </div>
+
+
+                            @endif
+
+							<input type="submit" class="btn theme-btn full" value="{{ __('login') }}" >
 						</form>
 						@if (Route::has('frontend.reset'))
 						<h3><a href="{{ route('frontend.reset') }}">{{ __('Forgot your password?') }}</a></h3>

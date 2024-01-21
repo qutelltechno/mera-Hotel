@@ -111,7 +111,11 @@
                                             </span>
                                             <div class="desc "class="text-dark">
                                                 <span>{{ __('Phone') }}</span>
-                                                <p>{!! nl2br($contact_info->phone) !!}</p>
+                                                <br>
+                                                <span class="" style="direction: ltr !important;" >
+                                                    <p>{!! nl2br($contact_info->phone) !!}</p>
+                                                </span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -249,7 +253,10 @@
                                             </span>
                                             <div class="desc "class="text-dark">
                                                 <span>{{ __('Phone') }}</span>
-                                                <p>{{ $hotel->phone }}</p>
+                                                <br>
+                                                <span style="direction: ltr !important;" >
+                                                    <p >{{ $hotel->phone }}</p>
+                                                </span>
                                             </div>
                                         </div>
 

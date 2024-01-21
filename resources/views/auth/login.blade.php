@@ -21,7 +21,7 @@
 					@endif
 					<form id="login_form" style="direction: rtl;text-align: right;" method="POST" action="{{ route('login') }}">
 						@csrf
-						
+
 						@if($errors->any())
 							<ul class="errors-list">
 							@foreach($errors->all() as $error)
@@ -29,21 +29,43 @@
 							@endforeach
 							</ul>
 						@endif
-						
+
 						<div class="form-group">
 							<input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
 						</div>
 						<div class="form-group">
 							<input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required autocomplete="current-password">
 						</div>
-						<div class="tw_checkbox checkbox_group" style="text-align: right;">
+						{{-- <div class="tw_checkbox checkbox_group" style="text-align: right;">
 							<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
 							<label for="remember">{{ __('Remember me') }}</label>
 							<span></span>
-						</div>
+						</div> --}}
+                        @if (glan()==='en')
+                        <div class="tw_checkbox checkbox_group">
+                            <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} >
+                            <label for="remember" >{{ __('Remember me') }}</label>
+                            <span></span   >
+                        </div>
+                        @else
+                        {{-- <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
+                            <label for="remember" style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
+                            <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
+                            <span></span>
+                        </div> --}}
+                        <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
+                            <label for="remember" style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
+                            <span style="position: inherit !important ;">
+                                <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
+                            </span>
+                            {{-- <span></span> --}}
+                        </div>
+
+
+                        @endif
 						<input type="submit" class="btn login-btn" value="{{ __('Login') }}">
 					</form>
-					
+
 					@if (Route::has('password.request'))
 					<h3><a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a></h3>
 					@endif

@@ -54,7 +54,10 @@
 										</div>
 										<div class="contact-desc">
 											<h5 style="color: var( --color-gray-dark)">{{ __('Phone') }}</h5>
-											<p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                                            <div class=""style="direction: ltr !important;"  >
+                                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                                            </div>
+
 										</div>
 									</div>
 								</li>

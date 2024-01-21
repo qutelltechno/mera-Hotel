@@ -17,34 +17,34 @@ $(function () {
 	$("#room_name").on("blur", function () {
 		onRoomSlug();
 	});
-	
+
 	$("#on_f_thumbnail").on("click", function () {
 		image_type = 'f_thumbnail';
 		onGlobalMediaModalView();
     });
-	
+
 	$("#on_cover_img").on("click", function () {
 		image_type = 'cover_img';
 		onGlobalMediaModalView();
     });
-	
+
 	$("#media_select_file").on("click", function () {
 
 		if(image_type == 'f_thumbnail'){
-			
+
 			var thumbnail = $("#thumbnail").val();
-			
+
 			if(thumbnail !=''){
 				$("#f_thumbnail_thumbnail").val(thumbnail);
 				$("#view_thumbnail_image").html('<img src="'+public_path+'/media/'+thumbnail+'">');
 			}
 
 			$("#remove_f_thumbnail").show();
-			
+
 		} else if (image_type == 'cover_img') {
-			
+
 			var large_image = $("#large_image").val();
-			
+
 			if(large_image !=''){
 				$("#cover_img_thumbnail").val(large_image);
 				$("#view_cover_img").html('<img src="'+public_path+'/media/'+large_image+'">');
@@ -55,26 +55,26 @@ $(function () {
 
 		$('#global_media_modal_view').modal('hide');
     });
-	
+
 	$("#cat_id").chosen();
 	$("#cat_id").trigger("chosen:updated");
 
 	$("#tax_id").chosen();
 	$("#tax_id").trigger("chosen:updated");
-	
-	$("#is_featured").chosen();
-	$("#is_featured").trigger("chosen:updated");
-	
+
+	$("#is_featureddd").chosen();
+	$("#is_featureddd").trigger("chosen:updated");
+
 	$("#lan").chosen();
 	$("#lan").trigger("chosen:updated");
-	
+
 	$("#is_publish").chosen();
 	$("#is_publish").trigger("chosen:updated");
-	
+
 	$("#lan").on("change", function () {
 		onCategoryList();
 	});
-	
+
 	//Summernote
 	$('#description').summernote({
 		codeviewFilter: true,
@@ -92,16 +92,16 @@ $(function () {
 		  ['misc', ['undo', 'redo']],
 		  // ['view', ['codeview', 'help']]
 		]
-	});	
+	});
 });
 
 function onMediaImageRemove(type) {
 
 	if(type == 'f_thumbnail_thumbnail'){
-		
+
 		$('#f_thumbnail_thumbnail').val('');
 		$("#remove_f_thumbnail").hide();
-		
+
 	}else if(type == 'cover_img_thumbnail'){
 		$('#cover_img_thumbnail').val('');
 		$("#remove_cover_img").hide();
@@ -137,7 +137,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/updateRoomsData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 			if (msgType == "success") {
@@ -168,7 +168,7 @@ function onRoomSlug() {
 }
 
 function onCategoryList() {
-	
+
 	$.ajax({
 		type : 'POST',
 		url: base_url + '/backend/getCategoryList',
@@ -178,7 +178,7 @@ function onCategoryList() {
 			$.each(data, function (key, obj) {
 				html += '<option value="' + obj.id + '">' + obj.name + '</option>';
 			});
-			
+
 			$("#cat_id").html(html);
 			$("#cat_id").chosen();
 			$("#cat_id").trigger("chosen:updated");

@@ -101,8 +101,9 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label for="tax_id">{{ __('Tax') }}<span class="red">*</span></label>
-											<select name="tax_id" id="tax_id" class="chosen-rtl form-control">
+											<select name="tax_id"  class="chosen-rtl form-control">
 											@foreach($taxlist as $row)
+                                            {{-- @dd($datalist) --}}
 												<option {{ $row->id == $datalist['tax_id'] ? "selected=selected" : '' }} value="{{ $row->id }}">
 													{{ $row->title }}
 												</option>
@@ -154,8 +155,8 @@
 									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
-											<label for="is_featured">{{ __('Is Featured') }}</label>
-											<select name="is_featured" id="is_featured" class="chosen-rtl form-control">
+											<label for="is_featuredd">{{ __('Is Featured') }}</label>
+											<select name="is_featuredd" id="is_featureddd" class="chosen-rtl form-control">
 												<option {{ 1 == $datalist['is_featured'] ? "selected=selected" : '' }} value="1">{{ __('YES') }}</option>
 												<option {{ 0 == $datalist['is_featured'] ? "selected=selected" : '' }} value="0">{{ __('NO') }}</option>
 											</select>
