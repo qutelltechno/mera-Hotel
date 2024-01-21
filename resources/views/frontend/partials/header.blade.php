@@ -7,6 +7,7 @@
 				<div class="col-lg-6">
 					@if($gtext['is_publish'] == 1)
 					<ul class="top-list-1">
+                        {{-- @dd($gtext['address']) --}}
 						@if($gtext['address'] != '')
 						<li><i class="bi bi-geo-alt"></i>{{ $gtext['address'] }}</li>
 						@endif

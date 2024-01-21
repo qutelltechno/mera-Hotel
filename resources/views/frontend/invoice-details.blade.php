@@ -91,8 +91,11 @@
 													</tr>
 												</thead>
 												<tbody>
+                                                    @php
+                                                        $transTitle=json_decode($mdata['title'],true)
+                                                    @endphp
 													<tr>
-														<td>{{ $mdata['title'] }}</td>
+														<td>{{ $transTitle[glan()] }}</td>
 														<td class="text-center">{{ $mdata['total_room'] }}</td>
 														<td class="text-center">@php echo $pdata['total_price']; @endphp @php echo $pdata['old_price']; @endphp</td>
 														<td class="text-center">@php echo date('d-m-Y', strtotime($mdata['in_date'])); @endphp <br>to<br> @php echo date('d-m-Y', strtotime($mdata['out_date'])); @endphp</td>
