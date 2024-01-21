@@ -134,12 +134,15 @@
 		<div class="row">
 			@if (count($BookedRooms)>0)
 			@foreach($BookedRooms as $row)
+            @php
+                $transTitle=json_decode($row->title,true)
+            @endphp
 			<div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
 				<div class="ds-room-card">
 					<div class="title">{{ $row->room_no }}</div>
 					<div class="desc">
 						<p><strong><a href="{{ route('receptionist.booking', [$row->booking_id, 'all-booking']) }}">{{ $row->booking_no }}</a></strong></p>
-						<p>{{ $row->title }}</p>
+						<p>{{ $transTitle[glan()]}}</p>
 					</div>
 				</div>
 			</div>
