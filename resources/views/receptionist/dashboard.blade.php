@@ -159,11 +159,14 @@
 		<div class="row">
 			@if (count($TodaysAvailableRoom)>0)
 			@foreach($TodaysAvailableRoom as $row)
+            @php
+                $translateTitle=json_decode($row->title,true)
+            @endphp
 			<div class="col-sm-6 col-md-3 col-lg-2 col-xl-2">
 				<div class="ds-room-card">
-					<div class="title">{{ $row->room_no }}</div>
+					<div class="title">{{   $row->room_no }}</div>
 					<div class="desc">
-						<p>{{ $row->title }}</p>
+						<p>{{ $translateTitle[glan()]  }}</p>
 					</div>
 				</div>
 			</div>
