@@ -118,6 +118,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
+                    {{-- @dd($gtext['copyright']) --}}
 					@if($gtext['is_publish_copyright'] == 1)
 					<div class="copy-right ">
 						@php echo $gtext['copyright']; @endphp

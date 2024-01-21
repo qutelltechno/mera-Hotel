@@ -17,10 +17,18 @@
                           $num=substr($phone, 1);
                         @endphp
                         {{-- @dd($plus) --}}
+                        {{-- @dd( $gtext['phone_footer'] ) --}}
                         @if (glan()==='en')
-                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{   $plus}}{{  $num }}</li>
+
+                        {{-- <li><i class="bi bi-tablet"></i style="direction: ltr !important;" > {{ $gtext['phone_footer'] }}</li> --}}
+                            <li class=""style="direction: ltr !important;"  >
+                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                            </li>
                         @else
-                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{  $num }}{{$plus}}</li>
+                        {{-- <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{ $gtext['phone_footer']}}</li> --}}
+                            <li class=""style="direction: ltr !important;"  >
+                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                            </li>
                         @endif
 						@endif
 					</ul>
