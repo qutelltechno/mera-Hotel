@@ -11,7 +11,17 @@
 						<li><i class="bi bi-geo-alt"></i>{{ $gtext['address'] }}</li>
 						@endif
 						@if($gtext['phone'] != '')
-						<li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{ $gtext['phone'] }}</li>
+                        @php
+                          $phone=  $gtext['phone'];
+                          $plus = substr($phone, 0, 1);
+                          $num=substr($phone, 1);
+                        @endphp
+                        {{-- @dd($plus) --}}
+                        @if (glan()==='en')
+                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{   $plus}}{{  $num }}</li>
+                        @else
+                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{  $num }}{{$plus}}</li>
+                        @endif
 						@endif
 					</ul>
 					@endif
