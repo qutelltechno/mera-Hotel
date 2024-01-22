@@ -89,7 +89,7 @@
                             <div class="tw_checkbox checkbox_group">
 								<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} >
 								<label for="remember" >{{ __('Remember me') }}</label>
-                                
+
 								<span></span   >
 							</div>
                             @else
@@ -98,12 +98,18 @@
                                 <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
                                 <span></span>
                             </div> --}}
-                            <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
+                            {{-- <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
                                 <label for="remember" style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
                                 <span style="position: inherit !important ;">
                                     <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
                                 </span>
-                                {{-- <span></span> --}}
+                                <span></span>
+                            </div> --}}
+
+                            <div class="d-flex align-items-center justify-conetet-center gap-4">
+                                <p class="mt-2 ms-4">تذكرنى </p>
+                                <input id="remember" name="remember" type="checkbox"
+                                {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
                             </div>
 
 
