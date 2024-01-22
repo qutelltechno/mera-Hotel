@@ -13,9 +13,9 @@ $(function () {
         $("#DataEntry_formId").submit();
     });
 
-	$("#currency_position").chosen();
-	$("#currency_position").trigger("chosen:updated");
-	
+	// $("#currency_position").chosen();
+	// $("#currency_position").trigger("chosen:updated");
+
 });
 
 function showPerslyError() {
@@ -48,7 +48,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveCurrencyData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 

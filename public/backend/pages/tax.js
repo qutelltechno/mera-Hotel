@@ -13,8 +13,8 @@ $(function () {
         $("#DataEntry_formId").submit();
     });
 
-	$("#is_publish").chosen();
-	$("#is_publish").trigger("chosen:updated");
+	// $("#is_publish").chosen();
+	// $("#is_publish").trigger("chosen:updated");
 });
 
 function showPerslyError() {
@@ -47,7 +47,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveTaxData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 

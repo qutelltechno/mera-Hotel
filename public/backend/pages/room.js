@@ -62,13 +62,13 @@ $(function () {
 	$("#tax_id").chosen();
 	$("#tax_id").trigger("chosen:updated");
 
-	$("#is_featureddd").chosen();
-	$("#is_featureddd").trigger("chosen:updated");
+	// $("#is_featured").chosen();
+	$("#is_featured").trigger("chosen:updated");
 
 	$("#lan").chosen();
 	$("#lan").trigger("chosen:updated");
 
-	$("#is_publish").chosen();
+	// $("#is_publish").chosen();
 	$("#is_publish").trigger("chosen:updated");
 
 	$("#lan").on("change", function () {

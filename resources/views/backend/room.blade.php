@@ -155,8 +155,8 @@
 									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
-											<label for="is_featuredd">{{ __('Is Featured') }}</label>
-											<select name="is_featuredd" id="is_featureddd" class="chosen-rtl form-control">
+											<label for="is_featured">{{ __('Is Featured') }}</label>
+											<select name="is_featured" id="is_featured" class="chosen-rtl form-control">
 												<option {{ 1 == $datalist['is_featured'] ? "selected=selected" : '' }} value="1">{{ __('YES') }}</option>
 												<option {{ 0 == $datalist['is_featured'] ? "selected=selected" : '' }} value="0">{{ __('NO') }}</option>
 											</select>
