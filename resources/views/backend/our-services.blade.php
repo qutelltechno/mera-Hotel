@@ -109,11 +109,11 @@
                                         <select name="lan" id="lan" class="chosen-rtl form-control">
 											@if (glan()==='ar')
 											<option selected  value="ar">
-                                                العربية 
+                                                العربية
                                             </option>
 
 											<option   value="en">
-                                                English 
+                                                English
                                             </option>
 											@else
 											<option value="en">
@@ -123,8 +123,8 @@
 												العربيه
 												</option>
 											@endif
-                                            </option>                                         
-                                    
+                                            </option>
+
                                         </select>
                                     </div>
                                 </div>

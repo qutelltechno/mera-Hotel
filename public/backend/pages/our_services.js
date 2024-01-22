@@ -31,8 +31,8 @@ $(function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
 
-	$("#is_publish").chosen();
-	$("#is_publish").trigger("chosen:updated");
+	// $("#is_publish").chosen();
+	// $("#is_publish").trigger("chosen:updated");
 
 	$("#on_services_image").on("click", function () {
 		image_type = 'services_image';

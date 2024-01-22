@@ -13,29 +13,29 @@ $(function () {
 	});
 
 	resetForm("DataEntry_formId");
-	
+
 	$("#submit-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
-	
+
 	$(document).on('click', '.users_pagination nav ul.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-		
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
 
-	$("#status_id").chosen();
-	$("#status_id").trigger("chosen:updated");
-	
-	$("#role_id").chosen();
-	$("#role_id").trigger("chosen:updated");
-	
+	// $("#status_id").chosen();
+	// $("#status_id").trigger("chosen:updated");
+
+	// $("#role_id").chosen();
+	// $("#role_id").trigger("chosen:updated");
+
 	$('.toggle-password').on('click', function() {
 		$(this).toggleClass('fa-eye-slash');
 			let input = $($(this).attr('toggle'));
@@ -45,12 +45,12 @@ $(function () {
 			input.attr('type', 'password');
 		}
 	});
-	
+
 	$("#on_thumbnail").on("click", function () {
 		onGlobalMediaModalView();
     });
-	
-	$("#media_select_file").on("click", function () {	
+
+	$("#media_select_file").on("click", function () {
 		var thumbnail = $("#thumbnail").val();
 
 		if(thumbnail !=''){
@@ -61,7 +61,7 @@ $(function () {
 		$("#remove_photo_thumbnail").show();
 		$('#global_media_modal_view').modal('hide');
     });
-	
+
 });
 
 function onCheckAll() {
@@ -105,7 +105,7 @@ function resetForm(id) {
     $('#' + id).each(function () {
         this.reset();
     });
-	
+
 	$("#status_id").trigger("chosen:updated");
 	$("#role_id").trigger("chosen:updated");
 }
@@ -123,22 +123,22 @@ function onFormPanel() {
 		$(".toggle-password").addClass("fa-eye");
 		$('#password').attr('type', 'password');
 	}
-	
+
     resetForm("DataEntry_formId");
 	RecordId = '';
-	
+
 	$("#status_id").trigger("chosen:updated");
 
 	$("#remove_photo_thumbnail").hide();
 	$("#photo_thumbnail").html('');
-	
+
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
 }
 
 function onEditPanel() {
     $('#list-panel, .btn-form').hide();
-    $('#form-panel, .btn-list').show();	
+    $('#form-panel, .btn-list').show();
 }
 
 function onMediaImageRemove(type) {
@@ -176,7 +176,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveUsersData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -188,7 +188,7 @@ function onConfirmWhenAddEdit() {
 			} else {
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
 	});
@@ -197,7 +197,7 @@ function onConfirmWhenAddEdit() {
 function onEdit(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to edit this record"];
-	onCustomModal(msg, "onLoadEditData");	
+	onCustomModal(msg, "onLoadEditData");
 }
 
 function onLoadEditData() {
@@ -209,14 +209,14 @@ function onLoadEditData() {
 		success: function (response) {
 
 			var data = response;
-			
+
 			var passtype = $('#password').attr('type');
 			if(passtype == 'text'){
 				$(".toggle-password").removeClass("fa-eye-slash");
 				$(".toggle-password").addClass("fa-eye");
 				$('#password').attr('type', 'password');
 			}
-	
+
 			$("#RecordId").val(data.id);
 			$("#name").val(data.name);
 			$("#email").val(data.email);
@@ -244,7 +244,7 @@ function onLoadEditData() {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -263,7 +263,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -280,14 +280,14 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'active'){
 		var msg = TEXT["Do you really want to active this records"];
 	}else if(BulkAction == 'inactive'){
@@ -295,8 +295,8 @@ function onBulkAction() {
 	}else if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {
@@ -316,7 +316,7 @@ function onConfirmBulkAction() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });

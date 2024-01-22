@@ -2,21 +2,21 @@ var $ = jQuery.noConflict();
 
 $(function () {
 	"use strict";
-	
+
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
-	});	
-	
+	});
+
 	$("#active-settings").addClass("active");
 
 	$("#global-setting-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
-	
-	$("#timezone").chosen();
-	$("#timezone").trigger("chosen:updated");
+
+	// $("#timezone").chosen();
+	// $("#timezone").trigger("chosen:updated");
 });
 
 function showPerslyError() {
@@ -52,7 +52,7 @@ function onGeneralSettingUpdate() {
 		success: function (response) {
             var msgType = response.msgType;
             var msg = response.msg;
-			
+
             if (msgType == "success") {
 				onSuccessMsg(msg);
             } else {

@@ -213,17 +213,17 @@
 							</div>
 
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
                                         <select name="lan" id="lan" class="chosen-rtl form-control">
 											@if (glan()==='ar')
 											<option selected  value="ar">
-                                                العربية 
+                                                العربية
                                             </option>
 
 											<option   value="en">
-                                                English 
+                                                English
                                             </option>
 											@else
 											<option value="en">
@@ -233,14 +233,12 @@
 												العربيه
 												</option>
 											@endif
-                                            </option>                                        
-                                        
+                                            </option>
+
                                         </select>
                                     </div>
                                 </div>
-                                
-							<div class="row">
-								<div class="col-md-3">
+                                <div class="col-md-6">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
 										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">
@@ -252,8 +250,9 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-9"></div>
-							</div>
+                            </div>
+
+							
 
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">

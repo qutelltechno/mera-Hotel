@@ -14,52 +14,52 @@ $(function () {
 	});
 
 	resetForm("DataEntry_formId");
-	
+
 	$("#submit-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
 
 	$(document).on('click', '.tp_pagination nav ul.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-	
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
 
-	$("#is_publish").chosen();
-	$("#is_publish").trigger("chosen:updated");
-	
+	// $("#is_publish").chosen();
+	// $("#is_publish").trigger("chosen:updated");
+
 	$("#on_about_image1").on("click", function () {
 		image_type = 'about_image1';
 		onGlobalMediaModalView();
     });
-	
+
 	$("#on_about_image2").on("click", function () {
 		image_type = 'about_image2';
 		onGlobalMediaModalView();
     });
-	
+
 	$("#on_about_image3").on("click", function () {
 		image_type = 'about_image3';
 		onGlobalMediaModalView();
     });
 
 	$("#media_select_file").on("click", function () {
-		
+
 		var large_image = $("#large_image").val();
 
 		if(image_type == 'about_image1'){
-			
+
 			if(large_image !=''){
 				$("#about_image1").val(large_image);
 				$("#view_about_image1").html('<img src="'+public_path+'/media/'+large_image+'">');
 			}
-			
+
 			$("#remove_about_image1").show();
 
 		} else if (image_type == 'about_image2') {
@@ -67,29 +67,29 @@ $(function () {
 				$("#about_image2").val(large_image);
 				$("#view_about_image2").html('<img src="'+public_path+'/media/'+large_image+'">');
 			}
-			
+
 			$("#remove_about_image2").show();
-			
+
 		} else if (image_type == 'about_image3') {
 			if(large_image !=''){
 				$("#about_image3").val(large_image);
 				$("#view_about_image3").html('<img src="'+public_path+'/media/'+large_image+'">');
 			}
-			
+
 			$("#remove_about_image3").show();
 		}
 
 		$('#global_media_modal_view').modal('hide');
     });
-	
+
 	$("#page_type_filter").val(0).trigger("chosen:updated");
 	$("#page_type_filter").on("change", function () {
 		onRefreshData();
-	});	
-	
-	$("#page_type").chosen();
-	$("#page_type").trigger("chosen:updated");
-	
+	});
+
+            // $("#page_type").chosen();
+            // $("#page_type").trigger("chosen:updated");
+
 	$("#page_type").on("change", function () {
 		var page_type = $("#page_type").val();
 		if(page_type == 'home_1'){
@@ -120,7 +120,7 @@ $(function () {
 			$(".ynpHideShow").show();
 			$("#RecommendedText").text('Recommended image size width: 400px and height: 400px.');
 		}
-	});		
+	});
 });
 
 function onCheckAll() {
@@ -163,7 +163,7 @@ function resetForm(id) {
     $('#' + id).each(function () {
         this.reset();
     });
-	
+
 	$("#page_type").trigger("chosen:updated");
 	$("#is_publish").trigger("chosen:updated");
 }
@@ -177,12 +177,12 @@ function onListPanel() {
 function onFormPanel() {
     resetForm("DataEntry_formId");
 	RecordId = '';
-	
+
 	var page_type = $("#page_type_filter").val();
 	if(page_type == 0){
 		$("#page_type").trigger("chosen:updated");
 	}else{
-		$("#page_type").val(page_type).trigger("chosen:updated");	
+		$("#page_type").val(page_type).trigger("chosen:updated");
 	}
 
 	if(page_type == 'home_1'){
@@ -212,22 +212,22 @@ function onFormPanel() {
 		$(".image3HideShow").hide();
 		$(".ynpHideShow").show();
 		$("#RecommendedText").text('Recommended image size width: 400px and height: 400px.');
-	}	
+	}
 
 	$("#remove_about_image1").hide();
 	$('#about_image1').val('');
 	$("#view_about_image1").html('');
-	
+
 	$("#remove_about_image2").hide();
 	$('#about_image2').val('');
 	$("#view_about_image2").html('');
-	
+
 	$("#remove_about_image3").hide();
 	$('#about_image3').val('');
 	$("#view_about_image3").html('');
-	
+
 	$("#is_publish").trigger("chosen:updated");
-	
+
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
 }
@@ -235,7 +235,7 @@ function onFormPanel() {
 function onEditPanel() {
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
-	
+
 	var page_type = $("#page_type").val();
 
 	if(page_type == 'home_1'){
@@ -265,7 +265,7 @@ function onEditPanel() {
 		$(".image3HideShow").hide();
 		$(".ynpHideShow").show();
 		$("#RecommendedText").text('Recommended image size width: 400px and height: 400px.');
-	}	
+	}
 }
 
 function onMediaImageRemove(type) {
@@ -274,12 +274,12 @@ function onMediaImageRemove(type) {
 		$('#about_image1').val('');
 		$("#remove_about_image1").hide();
 		$("#view_about_image1").html('');
-		
+
 	} else if (type == 'about_image2') {
 		$('#about_image2').val('');
 		$("#remove_about_image2").hide();
 		$("#view_about_image2").html('');
-	
+
 	} else if (type == 'about_image3') {
 		$('#about_image3').val('');
 		$("#remove_about_image3").hide();
@@ -317,7 +317,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveAboutUsData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -329,7 +329,7 @@ function onConfirmWhenAddEdit() {
 			} else {
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
 	});
@@ -338,7 +338,7 @@ function onConfirmWhenAddEdit() {
 function onEdit(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to edit this record"];
-	onCustomModal(msg, "onLoadEditData");	
+	onCustomModal(msg, "onLoadEditData");
 }
 
 function onLoadEditData() {
@@ -350,7 +350,7 @@ function onLoadEditData() {
 		success: function (response) {
 			var data = response;
 			$("#RecordId").val(data.id);
-			
+
 			$("#page_type").val(data.page_type).trigger("chosen:updated");
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
 			$("#about_title").val(data.title);
@@ -365,10 +365,10 @@ function onLoadEditData() {
 				$("#view_about_image1").html('');
 				$("#remove_about_image1").hide();
 			}
-		
+
  			if(data.desc == null){
 				$("#description").val('');
-				
+
 				$("#total_rooms").val('');
 				$("#total_customers").val('');
 				$("#total_amenities").val('');
@@ -379,23 +379,23 @@ function onLoadEditData() {
 				$("#about_image2").val('');
 				$("#view_about_image2").html('');
 				$("#remove_about_image2").hide();
-				
+
 				$("#about_image3").val('');
 				$("#view_about_image3").html('');
 				$("#remove_about_image3").hide();
-				
+
 				$("#year").val('');
 				$("#tp_name").val('');
 				$("#position").val('');
-				
+
 			}else{
-				
+
 				if(data.desc.description != null){
 					$("#description").val(data.desc.description);
 				}else{
 					$("#description").val('');
 				}
-				
+
 				if(data.desc.image2 != null){
 					$("#about_image2").val(data.desc.image2);
 					$("#view_about_image2").html('<img src="'+public_path+'/media/'+data.desc.image2+'">');
@@ -405,7 +405,7 @@ function onLoadEditData() {
 					$("#view_about_image2").html('');
 					$("#remove_about_image2").hide();
 				}
-				
+
 				if(data.desc.image3 != null){
 					$("#about_image3").val(data.desc.image3);
 					$("#view_about_image3").html('<img src="'+public_path+'/media/'+data.desc.image3+'">');
@@ -414,8 +414,8 @@ function onLoadEditData() {
 					$("#about_image3").val('');
 					$("#view_about_image3").html('');
 					$("#remove_about_image3").hide();
-				}			
-			
+				}
+
 				if(data.desc.total_rooms != null){
 					$("#total_rooms").val(data.desc.total_rooms);
 				}else{
@@ -427,31 +427,31 @@ function onLoadEditData() {
 				}else{
 					$("#total_customers").val('');
 				}
-				
+
 				if(data.desc.total_amenities != null){
 					$("#total_amenities").val(data.desc.total_amenities);
 				}else{
 					$("#total_amenities").val('');
 				}
-				
+
 				if(data.desc.total_packages != null){
 					$("#total_packages").val(data.desc.total_packages);
 				}else{
 					$("#total_packages").val('');
 				}
-				
+
 				if(data.desc.button_text != null){
 					$("#button_text").val(data.desc.button_text);
 				}else{
 					$("#button_text").val('');
 				}
-				
+
 				if(data.desc.target != null){
 					$("#target").val(data.desc.target).trigger("chosen:updated");
 				}else{
 					$("#target").val('').trigger("chosen:updated");
 				}
-				
+
 				if(data.desc.year != null){
 					$("#year").val(data.desc.year);
 				}else{
@@ -468,7 +468,7 @@ function onLoadEditData() {
 					$("#position").val('');
 				}
 			}
-		
+
 			onEditPanel();
 		}
     });
@@ -477,7 +477,7 @@ function onLoadEditData() {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -496,7 +496,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -513,14 +513,14 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'publish'){
 		var msg = TEXT["Do you really want to publish this records"];
 	}else if(BulkAction == 'draft'){
@@ -528,8 +528,8 @@ function onBulkAction() {
 	}else if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {
@@ -549,7 +549,7 @@ function onConfirmBulkAction() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });

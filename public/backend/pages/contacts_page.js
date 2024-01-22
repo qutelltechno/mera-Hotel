@@ -461,8 +461,8 @@ function onLoadFormElements(fieldsArray) {
 	$("#FormElementId").html(FormElement);
 
 	$("#mail_subject").html(mail_subject);
-	$("#mail_subject").chosen();
-	$("#mail_subject").trigger("chosen:updated");
+	// $("#mail_subject").chosen();
+	// $("#mail_subject").trigger("chosen:updated");
 
 	var ArrayCount = contact_form.length;
 

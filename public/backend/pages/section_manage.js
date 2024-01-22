@@ -13,48 +13,48 @@ $(function () {
 	});
 
 	resetForm("DataEntry_formId");
-	
+
 	$("#submit-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
 
 	$(document).on('click', '.tp_pagination .pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-	
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
 
-	$("#manage_type").chosen();
-	$("#manage_type").trigger("chosen:updated");
-	
-	$("#section").chosen();
-	$("#section").trigger("chosen:updated");
-	
-	$("#is_publish").chosen();
-	$("#is_publish").trigger("chosen:updated");
-	
+	// $("#manage_type").chosen();
+	// $("#manage_type").trigger("chosen:updated");
+
+	// $("#section").chosen();
+	// $("#section").trigger("chosen:updated");
+
+	// $("#is_publish").chosen();
+	// $("#is_publish").trigger("chosen:updated");
+
 	$("#media_select_file").on("click", function () {
-		
+
 		var large_image = $("#large_image").val();
 		if(large_image !=''){
 			$("#section_image").val(large_image);
 			$("#view_section_image").html('<img src="'+public_path+'/media/'+large_image+'">');
 		}
-		
+
 		$("#remove_section_image").show();
 		$('#global_media_modal_view').modal('hide');
     });
-	
+
 	$("#manage_type_filter").val(0).trigger("chosen:updated");
 	$("#manage_type_filter").on("change", function () {
 		onRefreshData();
-	});	
+	});
 });
 
 function onCheckAll() {
@@ -97,7 +97,7 @@ function resetForm(id) {
     $('#' + id).each(function () {
         this.reset();
     });
-	
+
 	$("#manage_type").trigger("chosen:updated");
 	$("#section").trigger("chosen:updated");
 	$("#is_publish").trigger("chosen:updated");
@@ -112,27 +112,27 @@ function onListPanel() {
 function onFormPanel() {
     resetForm("DataEntry_formId");
 	RecordId = '';
-	
+
 	$("#remove_section_image").hide();
 	$("#section_image").html('');
-	
+
 	var manage_type = $("#manage_type_filter").val();
 	if(manage_type == 0){
 		$("#manage_type").trigger("chosen:updated");
 	}else{
-		$("#manage_type").val(manage_type).trigger("chosen:updated");	
+		$("#manage_type").val(manage_type).trigger("chosen:updated");
 	}
 
 	$("#section").trigger("chosen:updated");
 	$("#is_publish").trigger("chosen:updated");
-	
+
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
 }
 
 function onEditPanel() {
     $('#list-panel, .btn-form').hide();
-    $('#form-panel, .btn-list').show();	
+    $('#form-panel, .btn-list').show();
 }
 
 function onMediaImageRemove(type) {
@@ -170,7 +170,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveSectionManageData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -182,7 +182,7 @@ function onConfirmWhenAddEdit() {
 			} else {
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
 	});
@@ -191,7 +191,7 @@ function onConfirmWhenAddEdit() {
 function onEdit(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to edit this record"];
-	onCustomModal(msg, "onLoadEditData");	
+	onCustomModal(msg, "onLoadEditData");
 }
 
 function onLoadEditData() {
@@ -207,7 +207,7 @@ function onLoadEditData() {
 			$("#section").val(data.section).trigger("chosen:updated");
 			$("#section_title").val(data.title);
 			$("#sub_title").val(data.desc);
-			
+
  			if(data.image != null){
 				$("#section_image").val(data.image);
 				$("#view_section_image").html('<img src="'+public_path+'/media/'+data.image+'">');
@@ -218,7 +218,7 @@ function onLoadEditData() {
 				$("#remove_section_image").hide();
 			}
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-			
+
 			onEditPanel();
 		}
     });
@@ -227,7 +227,7 @@ function onLoadEditData() {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -246,7 +246,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -263,14 +263,14 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'publish'){
 		var msg = TEXT["Do you really want to publish this records"];
 	}else if(BulkAction == 'draft'){
@@ -278,8 +278,8 @@ function onBulkAction() {
 	}else if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {

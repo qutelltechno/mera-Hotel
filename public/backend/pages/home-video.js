@@ -13,21 +13,21 @@ $(function () {
         $("#DataEntry_formId").submit();
     });
 
-	$("#is_publish").chosen();
-	$("#is_publish").trigger("chosen:updated");
-	
-	$("#media_select_file").on("click", function () {	
-	
+	// $("#is_publish").chosen();
+	// $("#is_publish").trigger("chosen:updated");
+
+	$("#media_select_file").on("click", function () {
+
 		var large_image = $("#large_image").val();
 		if(large_image !=''){
 			$("#trending_image").val(large_image);
 			$("#view_trending_image").html('<img src="'+public_path+'/media/'+large_image+'">');
 		}
-	
+
 		$("#remove_trending_image").show();
 		$('#global_media_modal_view').modal('hide');
     });
-	
+
 });
 
 function onMediaImageRemove(type) {
@@ -65,7 +65,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveThemeOptionsHomeVideo',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
