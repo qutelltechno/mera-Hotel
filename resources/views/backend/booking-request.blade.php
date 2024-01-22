@@ -43,10 +43,19 @@
 								</div>
 							</div>
 							<div class="col-lg-4 mb-5">
-								<div class="form-group search-box">
+								<div class="form-group search-box  " >
 									<input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
-									<button type="submit" onClick="onSearch()" class="btn search-btn">{{ __('Search') }}</button>
+									<button style="" type="submit" onClick="onSearch()" class="btn search-btn ">{{ __('Search') }}</button>
 								</div>
+                                {{-- <div class="form-group search-box row">
+                                    <div class="col-md-9">
+                                        <input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button style="" type="submit" onClick="onSearch()" class="btn search-btn">{{ __('Search') }}</button>
+                                    </div>
+                                </div> --}}
+
 							</div>
 						</div>
 						<div id="tp_datalist">

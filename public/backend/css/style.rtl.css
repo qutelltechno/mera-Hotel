@@ -1813,8 +1813,10 @@ table.dataTable.table-theme {
 	color:#fff;
 	border-radius: 0px;
 	position: absolute;
+    /* display: none; */
 	top: 0;
-	right: 0;
+	left: 0;
+
 }
 .search-box .search-btn:hover {
 	color:#fff;
@@ -1932,7 +1934,7 @@ ul.outer-border li.accordion-section .accordion-section-content .itemchecklist {
 	padding: 1px 1px;
 }
 @media (max-width:477px) {
-	
+
 	.page-link{
 		padding: 5px;
 	}

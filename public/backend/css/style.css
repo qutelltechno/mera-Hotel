@@ -1126,7 +1126,7 @@ ul.tabs-nav li a.active {
 	color: var(--backend-theme-color);
 }
 @media (max-width:477px) {
-	
+
 	.page-link{
 		padding: 5px;
 	}
@@ -1798,6 +1798,9 @@ table.dataTable.table-theme {
 }
 .search-box input.form-control {
 	padding: 7px 90px 7px 10px;
+}
+.mailleidt{
+
 }
 .search-box .search-btn {
 	background-color: var(--backend-theme-color);

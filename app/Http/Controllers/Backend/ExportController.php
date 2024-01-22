@@ -327,6 +327,7 @@ class ExportController extends Controller
 			}
 
 			//Value Set for Cells
+            $transTitle=json_decode($row->title,true);
 			$spreadsheet->getActiveSheet()
 						->SetCellValue('A'.$j, $i)
 						->SetCellValue('B'.$j, $row->booking_no)
@@ -334,7 +335,7 @@ class ExportController extends Controller
 						->SetCellValue('D'.$j, $customer)
 						->SetCellValue('E'.$j, $row->phone)
 						->SetCellValue('F'.$j, $row->email)
-						->SetCellValue('G'.$j, $row->title)
+						->SetCellValue('G'.$j,  $transTitle[glan()])
 						->SetCellValue('H'.$j, $InOutDate)
 						->SetCellValue('I'.$j, $row->total_room)
 						->SetCellValue('J'.$j, $total_days)

@@ -32,15 +32,16 @@
                                 </ul>
                             @endif
 
-                            <div class="form-group">
+                            <div class="form-group ">
+
                                 <input type="email" id="email" name="email"
-                                    class="form-control @error('email') is-invalid @enderror"
+                                    class="form-control mailleidt "
                                     placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required
                                     autocomplete="email" autofocus>
                             </div>
                             <div class="form-group">
                                 <input type="password" id="password" name="password"
-                                    class="form-control @error('password') is-invalid @enderror"
+                                    class="form-control  @error('password') is-invalid @enderror"
                                     placeholder="{{ __('Password') }}" required autocomplete="current-password">
                             </div>
                             {{-- <div class="tw_checkbox checkbox_group" style="text-align: right;">
@@ -49,11 +50,18 @@
 							<span></span>
 						</div> --}}
                             @if (glan() === 'en')
-                                <div class="tw_checkbox checkbox_group">
-                                    <input id="remember" name="remember" type="checkbox"
-                                        {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="remember">{{ __('Remember me') }}</label>
-                                    <span></span>
+                                    {{-- <div class="tw_checkbox checkbox_group">
+                                        <input id="remember" name="remember" type="checkbox"
+                                            {{ old('remember') ? 'checked' : '' }}>
+                                        <label for="remember">{{ __('Remember me') }}</label>
+                                        <span></span>
+                                    </div> --}}
+
+
+                                <div class="d-flex align-items-center justify-conetet-center gap-4">
+                                    <p class="mt-2 ms-4 px-2">{{ __('Remember me') }} </p>
+                                    <input id="remember" name="remember" type="checkbox" class="pt-2"
+                                    {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
                                 </div>
                             @else
                                 {{-- <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
@@ -61,15 +69,13 @@
                             <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
                             <span></span>
                         </div> --}}
-                                <div class="tw_checkbox checkbox_group" style="direction: rtl !important;">
-                                    <label for="remember"
-                                        style="display: inline-block; margin-right: 5px;">{{ __('Remember me') }}</label>
-                                    <span style="position: inherit !important ;">
-                                        <input id="remember" name="remember" type="checkbox"
-                                            {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
-                                    </span>
-                                    {{-- <span></span> --}}
-                                </div>
+                        <div class="d-flex align-items-center justify-conetet-center gap-4">
+                            <p class="mt-2 ms-4">تذكرنى </p>
+                            <input id="remember" name="remember" type="checkbox"
+                            {{ old('remember') ? 'checked' : '' }} style="position: inherit !important ;">
+                        </div>
+
+
                             @endif
                             <input type="submit" class="btn login-btn" value="{{ __('login') }}">
 

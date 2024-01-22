@@ -74,7 +74,7 @@
 						<form class="form" method="POST" action="{{ route('frontend.customer-login') }}">
 							@csrf
 							<div class="form-group">
-								<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required />
+								<input name="email" type="email" class="form-control " placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required />
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
@@ -89,6 +89,7 @@
                             <div class="tw_checkbox checkbox_group">
 								<input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} >
 								<label for="remember" >{{ __('Remember me') }}</label>
+                                
 								<span></span   >
 							</div>
                             @else
