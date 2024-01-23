@@ -1,11 +1,15 @@
 @extends('layouts.frontend')
+@php
+$translateTitle=json_decode($data->title,true);
+@endphp
 
-@section('title', $data->title)
+@section('title', $translateTitle[glan()])
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
 	<meta name="keywords" content="{{ $data->og_keywords }}" />
 	<meta name="description" content="{{ $data->og_description ? $data->og_description : $data->short_desc }}" />
+
 	<meta property="og:title" content="{{ $data->og_title ? $data->og_title : $data->title }}" />
 	<meta property="og:site_name" content="{{ $gtext['site_name'] }}" />
 	<meta property="og:description" content="{{ $data->og_description ? $data->og_description : $data->short_desc }}" />
@@ -77,7 +81,8 @@
 					</div>
 					<div class="room-details-card">
 						<div class="item-title">
-							<h3>{{ $data->title }}</h3>
+
+							<h3>{{ $translateTitle[glan()] }}</h3>
 						</div>
 						<div class="pric-card">
 							@if($data->price != '')
@@ -117,8 +122,11 @@
 					@if($data->description != '')
 					<div class="room-details-card">
 						<h4 class="details-title">{{ __('Description') }}</h4>
+                        @php
+                        $translateDescription=json_decode($data->description,true);
+                        @endphp
 						<div class="entry">
-							@php echo $data->description; @endphp
+							@php echo  $translateDescription[glan()]; @endphp
 						</div>
 					</div>
 					@endif
