@@ -21,7 +21,7 @@ class SearchController extends Controller
 			->where('rooms.total_adult', '>=', $total_adult)
 			->where('rooms.total_child', '>=', $total_child)
 			// ->where('rooms.lan', '=', $lan)
-			->orderBy('rooms.id','desc')
+			->orderBy('rooms.id','desc') 
 			->get();
 
 		return view('frontend.search', compact('datalist'));

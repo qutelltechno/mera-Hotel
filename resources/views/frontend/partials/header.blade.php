@@ -22,13 +22,15 @@
                         @if (glan()==='en')
 
                         {{-- <li><i class="bi bi-tablet"></i style="direction: ltr !important;" > {{ $gtext['phone_footer'] }}</li> --}}
+                            <li><i class="bi bi-tablet"></i style="direction: ltr !important;" > </li>
                             <li class=""style="direction: ltr !important;"  >
                                 <p>{!! nl2br($gtext['phone_footer']) !!}</p>
                             </li>
                         @else
+                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" > </li>
                         {{-- <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{ $gtext['phone_footer']}}</li> --}}
                             <li class=""style="direction: ltr !important;"  >
-                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                               <p>{!! nl2br($gtext['phone_footer']) !!}</p>
                             </li>
                         @endif
 						@endif
@@ -72,7 +74,6 @@
 						<li><a href="{{ route('frontend.login') }}"><i class="bi bi-person"></i>{{ __('Sign in') }}</a></li>
 						@endif --}}
 						@endauth
-
 						@if($gtext['is_language_switcher'] == 1)
 						<li>
 							@php echo language(); @endphp
