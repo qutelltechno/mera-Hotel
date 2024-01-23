@@ -2,19 +2,19 @@ var $ = jQuery.noConflict();
 
 $(function () {
 	"use strict";
-	
+
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
-	});	
-	
+	});
+
 	$("#active-settings").addClass("active");
 
 	$("#submit-form").on("click", function () {
         $("#submit_formId").submit();
     });
-	
+
 	$("#mailer").on("change", function () {
 		var mailer = $("#mailer").val();
 		if(mailer == 'smtp'){
@@ -24,12 +24,12 @@ $(function () {
 		}
 	});
 
-	$("#mailer").chosen();
-	$("#mailer").trigger("chosen:updated");	
-	
-	$("#smtp_security").chosen();
-	$("#smtp_security").trigger("chosen:updated");	
-	
+	// $("#mailer").chosen();
+	// $("#mailer").trigger("chosen:updated");
+
+	// $("#smtp_security").chosen();
+	// $("#smtp_security").trigger("chosen:updated");
+
 });
 
 function showPerslyError() {
@@ -65,7 +65,7 @@ function onConfirmWhenAddEdit() {
 		success: function (response) {
             var msgType = response.msgType;
             var msg = response.msg;
-			
+
             if (msgType == "success") {
 				onSuccessMsg(msg);
             } else {
