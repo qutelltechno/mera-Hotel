@@ -1799,7 +1799,7 @@ table.dataTable.table-theme {
 	border-radius: 0px;
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 }
 .search-box {
 	position: relative;
