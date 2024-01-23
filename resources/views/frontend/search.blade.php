@@ -54,6 +54,9 @@
 			<div class="row">
 				@if(count($datalist)>0)
 				@foreach ($datalist as $row)
+                @php
+                    $translateTitle=json_decode($row->title);
+                @endphp
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="item-card">
 						<div class="item-image">
@@ -69,7 +72,9 @@
 						</div>
 						<div class="item-content">
 							<div class="item-title">
-								<a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{ str_limit($row->title) }}</a>
+								{{-- <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{ str_limit($row->title) }}</a> --}}
+                                <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{  str_limit($translateTitle->{glan()}) }}</a>
+
 							</div>
 							<div class="pric-card">
 								@if($row->price != '')

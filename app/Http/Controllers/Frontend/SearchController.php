@@ -20,7 +20,7 @@ class SearchController extends Controller
 			->where('rooms.is_publish', '=', 1)
 			->where('rooms.total_adult', '>=', $total_adult)
 			->where('rooms.total_child', '>=', $total_child)
-			->where('rooms.lan', '=', $lan)
+			// ->where('rooms.lan', '=', $lan)
 			->orderBy('rooms.id','desc')
 			->get();
 
