@@ -166,7 +166,7 @@
             <div class="container gallery-container">
                 <div class="col-md-8 offset-md-2 pt-lg-5">
                     <div class="section-heading">
-                        <h1 style="text-shadow:none">{{ __('Hotels') }}</h1>
+                        <h1 style="text-shadow:none">{{ __('Hotel room') }}</h1>
                     </div>
                 </div>
 

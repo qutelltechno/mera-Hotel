@@ -27,7 +27,7 @@
                                 <p>{!! nl2br($gtext['phone_footer']) !!}</p>
                             </li>
                         @else
-                        <li><i class="bi bi-tablet"></i style="direction: ltr !important;" > </li>
+                        <li class="px-0"><i class="bi bi-tablet"></i> </li>
                         {{-- <li><i class="bi bi-tablet"></i style="direction: ltr !important;" >{{ $gtext['phone_footer']}}</li> --}}
                             <li class=""style="direction: ltr !important;"  >
                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
