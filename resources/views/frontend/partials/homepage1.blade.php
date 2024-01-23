@@ -29,8 +29,8 @@
         </div>
 
 
-        <div class="search-card">
-			<div class="col-md-3 mx-lg-5 shadow">
+        <div class="search-card ">
+			<div class="col-md-3 col-sm-12  mx-lg-5 shadow">
 				<div class="search-card-inner wow fadeIn">
 
                     <h2 class="text-center">{{ __('Booking Your Hotel') }}</h2>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-9 shadow p-4 bg-white" style="width: 100%">
                         <h3>{{ $hotel->name }}</h3>
-                        <p class="paragraphe-text" style="height:210px;overflow:auto;">{{ $hotel->description }}</p>
+                        <p class="paragraphe-text" style="height:150px;overflow:auto;">{{ $hotel->description }}</p>
 					<div class="social-media mt25 mt-2">
 						<div class="social-media mt25 mt-2">
                             <a href="{{$hotel->facebook}}" target="_blank"><i class="bi bi-facebook"></i></a>

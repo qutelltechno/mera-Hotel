@@ -84,6 +84,7 @@
                         </div>
                     </div>
                     <div class="contact-info">
+                        {{-- @dd($contact_info) --}}
                         <div class="row  ">
                             @if ($contact_info->email != '')
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
