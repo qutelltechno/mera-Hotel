@@ -17,6 +17,7 @@
 		</thead>
 		<tbody>
 			@if (count($datalist)>0)
+            {{-- @dd($datalist) --}}
 			@foreach($datalist as $row)
             @php
             $translations = json_decode($row->title, true);
@@ -31,8 +32,9 @@
 				<td class="text-center">{{ date('d-m-Y', strtotime($row->in_date)) }} <strong>to</strong> {{ date('d-m-Y', strtotime($row->out_date)) }}</td>
 				<td class="text-center">{{ $row->total_room }}</td>
 				<td class="text-center">{{ $row->method_name }}</td>
-				<td class="text-center"><span class="status_btn pstatus_{{ $row->payment_status_id }}">{{ $row->pstatus_name }}</span></td>
-				<td class="text-center"><span class="status_btn ostatus_{{ $row->booking_status_id }}">{{ $row->bstatus_name }}</span></td>
+
+				<td class="text-center"> <span style="width: 110px;"   class="status_btn pstatus_{{ $row->payment_status_id }} ">{{ $row->pstatus_name }}</span></td>
+				<td class="text-center" ><span  style="width: 110px;"  class="status_btn ostatus_{{ $row->booking_status_id }}">{{ $row->bstatus_name }}</span></td>
 
 				<td class="text-center">
 					<div class="btn-group action-group">
