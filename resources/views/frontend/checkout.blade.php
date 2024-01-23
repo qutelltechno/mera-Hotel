@@ -347,7 +347,13 @@
 									<p>{{ __('If you need any help, feel free to contact us.') }}</p>
 
 									@if($gtext['phone_footer'] != '')
-									<p><strong>{{ __('Phone')}}:</strong> {!! nl2br($gtext['phone_footer']) !!}</p>
+									<p><strong>{{ __('Phone')}}:</strong style="direction: ltr !important;"     > {!! nl2br($gtext['phone_footer']) !!}</p>
+									{{-- <p><strong>{{ __('Phone')}}:</strong>
+                                        <span class=""style="direction: ltr !important;"  >
+                                            <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                                        </span>
+                                    </p> --}}
+
 									@endif
 
 									@if($gtext['email_footer'] != '')

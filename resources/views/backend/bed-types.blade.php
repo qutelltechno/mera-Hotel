@@ -56,7 +56,7 @@
 						<form novalidate="" data-validate="parsley" id="DataEntry_formId">
 							<div class="row">
 								<div class="col-md-6">
-									<div class="form-group">
+									<div class="form-group ">
 										<label for="name">{{ __('Bed Type') }}<span class="red">*</span></label>
 										<input type="text" name="name" id="name" class="form-control parsley-validated" data-required="true">
 									</div>
