@@ -382,6 +382,7 @@
 <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap-datetimepicker.css')}}">
 <script src="{{asset('public/frontend/js/bootstrap-datetimepicker.min.js')}}"></script>
 <script src="{{asset('public/frontend/js/parsley.min.js')}}"></script>
+{{-- <script src="{{asset('public/frontend/js/parsley.ar.js')}}"></script> --}}
 <script type="text/javascript">
 var maxRoom = "{{ $total_room }}";
 var theme_color = "{{ $gtext['theme_color'] }}";

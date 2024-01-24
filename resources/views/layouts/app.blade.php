@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{asset('public/backend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('public/backend/css/responsive.css')}}">
 	@stack('style')
-    
+
   </head>
   <body>
 	@yield('content')
@@ -31,5 +31,7 @@
 	<script src="{{asset('public/backend/js/popper.min.js')}}"></script>
 	<script src="{{asset('public/backend/js/bootstrap.min.js')}}"></script>
 	@stack('scripts')
+
+    
   </body>
 </html>

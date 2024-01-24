@@ -73,13 +73,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="text_1">Text 1<span class="red">*</span></label>
+										<label for="text_1">{{ __('Text 1') }}<span class="red">*</span></label>
 										<input type="text" name="text_1" id="text_1" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="text_2">Text 2<span class="red">*</span></label>
+										<label for="text_2">{{ __('Text 2') }}<span class="red">*</span></label>
 										<input type="text" name="text_2" id="text_2" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
@@ -166,7 +166,7 @@
                                 </div>
 
 							</div>
-						
+
 
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
