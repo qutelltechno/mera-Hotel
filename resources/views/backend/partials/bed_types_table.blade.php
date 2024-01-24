@@ -3,9 +3,9 @@
 		<thead>
 			<tr>
 				<th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox"></th>
-				<th class="text-left" style="width:75%">{{ __('Bed Type') }}</th>
-				<th class="text-center" style="width:10%">{{ __('Status') }}</th>
-				<th class="text-center" style="width:10%">{{ __('Action') }}</th>
+				<th class="text-center" style="width:auto">{{ __('Bed Type') }}</th>
+				<th class="text-center" style="width:auto">{{ __('Status') }}</th>
+				<th class="text-center" style="width:auto">{{ __('Action') }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -13,7 +13,7 @@
 			@foreach($datalist as $row)
 			<tr>
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
-				<td class="text-left">{{ $row->name }}</td>
+				<td class="text-center">{{ $row->name }}</td>
 				@if ($row->is_publish == 1)
 				<td class="text-center"><span class="enable_btn">{{ __($row->status) }}</span></td>
 				@else
