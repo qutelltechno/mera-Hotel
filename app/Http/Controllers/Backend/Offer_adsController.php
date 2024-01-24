@@ -26,6 +26,7 @@ class Offer_adsController extends Controller
             ->where('offer_ads.lan',$currentLocale)
 
 			->paginate(10);
+            // dd($datalist);
 
         return view('backend.offer-ads', compact('media_datalist', 'statuslist', 'datalist','languageslist'));
     }
