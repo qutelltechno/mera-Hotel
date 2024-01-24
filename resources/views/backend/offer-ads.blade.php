@@ -101,7 +101,7 @@
 								<div class="col-md-6"></div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
+								{{-- <div class="col-md-3">
 									<div class="form-group">
 										<label for="button_text">{{ __('Category') }}<span class="red">*</span></label>
                                         <select name="target" id="target" class="chosen-rtl form-control">
@@ -110,8 +110,8 @@
                                             <option value="spa">{{ __('SPA') }}</option>
                                         </select>
                                     </div>
-								</div>
-								<div class="col-md-3">
+								</div> --}}
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="target">{{ __('Target Window') }}<span class="red">*</span></label>
 										<select name="target" id="target" class="chosen-rtl form-control">
@@ -141,20 +141,17 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-7"></div>
-							</div>
-                            <div class="row">
-                                <div class="col-md-4">
+								<div class="col-md-3">
                                     <div class="form-group">
                                         <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
                                         <select name="lan" id="lan" class="chosen-rtl form-control">
 											@if (glan()==='ar')
 											<option selected  value="ar">
-                                                العربية 
+                                                العربية
                                             </option>
 
 											<option   value="en">
-                                                English 
+                                                English
                                             </option>
 											@else
 											<option value="en">
@@ -168,7 +165,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+							</div>
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
 								<div class="col-lg-12">
