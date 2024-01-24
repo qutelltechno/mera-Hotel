@@ -41,10 +41,10 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<div class="form-group">
+										{{-- <div class="form-group">
 											<label for="about_desc">{{ __('About Us') }}</label>
 											<textarea name="about_desc" id="about_desc" class="form-control" rows="2">{{ $datalist['about_desc'] }}</textarea>
-										</div>
+										</div> --}}
 									</div>
 								</div>
 
