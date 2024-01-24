@@ -99,7 +99,7 @@
 							<div class="col-lg-6">
 								<div class="form-group">
 									<label for="payment_status_id">{{ __('Payment Status') }}<span class="red">*</span></label>
-									<select name="payment_status_id" id="payment_status_id" class="chosen-select form-control">
+									<select name="payment_status_id" id="payment_status_id" class="form-control">
 									@foreach($payment_status_list as $row)
 									<option value="{{ $row->id }}">
 										{{ $row->pstatus_name }}
@@ -111,7 +111,7 @@
 							<div class="col-lg-6">
 								<div class="form-group">
 									<label for="booking_status_id">{{ __('Booking Status') }}<span class="red">*</span></label>
-									<select name="booking_status_id" id="booking_status_id" class="chosen-select form-control">
+									<select name="booking_status_id" id="booking_status_id" class="form-control">
 									@foreach($booking_status_list as $row)
 									<option value="{{ $row->id }}">
 										{{ $row->bstatus_name }}

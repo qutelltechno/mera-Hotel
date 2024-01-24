@@ -327,7 +327,7 @@
 @endsection
 
 @push('scripts')
-<script src="{{asset('public/backend/js/chart.js')}}"></script>
+{{-- <script src="{{asset('public/backend/js/chart.js')}}"></script> --}}
 <script src="{{asset('public/backend/pages/dashboard.js')}}"></script>
 <script type="text/javascript">
 var currency_position = "{{ $gtext['currency_position'] }}";
