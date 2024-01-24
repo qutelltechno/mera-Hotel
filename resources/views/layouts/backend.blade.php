@@ -68,6 +68,5 @@
 	</div>
 	<a href="#lightCustomModal" class="btn btn-warning btn-small lightCustomModal_open dnone">{{ __('Edit') }}</a>
 	@stack('scripts')
-
 </body>
 </html>

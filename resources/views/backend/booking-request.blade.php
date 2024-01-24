@@ -36,10 +36,10 @@
 								</div>
 							</div>
 							<div class="col-lg-5 mb-5">
-								<div class="filter-form-group">
-									<input name="start_date" id="start_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
+								<div class="filter-form-group" style="">
+                                    <input name="start_date" id="start_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
 									<input name="end_date" id="end_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
-									<button type="submit" onClick="onFilterAction()" class="btn btn-theme">{{ __('Filter') }}</button>
+									<button type="submit" onClick="onFilterAction()" class="btn btn-theme form-control">{{ __('Filter') }}</button>
 								</div>
 							</div>
 							<div class="col-lg-4 mb-5">

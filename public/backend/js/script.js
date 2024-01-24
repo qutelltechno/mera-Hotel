@@ -6,7 +6,7 @@ var $ = jQuery.noConflict();
 	//Menu active
 	var href = location.href;
 	var elem = '.left-navbar li a[href="' + href + '"]';
-	
+
 	$('ul.left-navbar li').parent().removeClass('active');
 	$('ul.left-navbar li a').parent().removeClass('active');
 
@@ -21,12 +21,12 @@ var $ = jQuery.noConflict();
 	//menu-toggle
 	$("#menu-toggle").on('click', function(e) {
 		e.preventDefault();
-		
+
 		$("#wrapper").toggleClass("toggled");
 		sidebar_nicescroll();
 		return false;
 	});
-	
+
 	//niceScroll
 	var sidebar_nicescroll = function() {
 		$(".sidebar-wrapper").getNiceScroll().resize();
@@ -34,12 +34,12 @@ var $ = jQuery.noConflict();
 			cursorborder:"",
 			cursorcolor:"#f1f5f9",
 			boxzoom:false,
-			scrollspeed: 60, 
+			scrollspeed: 60,
 			cursorwidth: "3px",
 			smoothscroll: true,
 		});
 	}
-	
+
 	//function for dropdown menu
 	var sidebar_dropdown = function() {
 		if($(".sidebar-wrapper").length) {
@@ -61,7 +61,7 @@ var $ = jQuery.noConflict();
 				$('.left-navbar li.dropdown.active').removeClass('active');
 
 				if(active == true) {
-					sidebar.parent().removeClass('active');          
+					sidebar.parent().removeClass('active');
 					sidebar.parent().find('> .dropdown-menu').slideUp(500, function(){
 						sidebar_nicescroll();
 						return false;
@@ -84,15 +84,15 @@ var $ = jQuery.noConflict();
 			});
 		}
 	}
-  
+
 	sidebar_dropdown();
 	sidebar_nicescroll();
-	
+
 	//Tabs Nav active
 	var href = location.href;
 	$('ul.tabs-nav li a').removeClass('active');
 	$('ul.tabs-nav li a[href="' + href + '"]').addClass('active');
-	
+
 }(jQuery));
 
 var config = {
