@@ -153,7 +153,7 @@ class RoomsController extends Controller
             'hotel_id' => $hotel_id,
 			'slug' => $slug,
 			'is_publish' => 2,
-            'lang'=>'en'
+            'lan'=>'en'
 		);
 
 
