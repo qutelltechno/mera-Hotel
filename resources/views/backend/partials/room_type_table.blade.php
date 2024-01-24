@@ -2,13 +2,13 @@
 	<table class="table table-borderless table-theme" style="width:100%;">
 		<thead>
 			<tr>
-				<th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox"></th>
-				<th class="text-left" style="width:40%">{{ __('Room Type') }}</th>
+				<th class="checkboxlist text-center" style="width:auto"><input class="tp-check-all checkAll" type="checkbox"></th>
+				<th class="text-center" style="width:auto">{{ __('Room Type') }}</th>
 				{{-- <th class="text-left" style="width:15%">{{ __('Category') }}</th> --}}
 				{{-- <th class="text-center" style="width:10%">{{ __('Language') }}</th> --}}
-				<th class="text-center" style="width:10%">{{ __('Image') }} </th>
-				<th class="text-center" style="width:10%">{{ __('Status') }}</th>
-				<th class="text-center" style="width:10%">{{ __('Action') }}</th>
+				<th class="text-center" style="width:auto">{{ __('Image') }} </th>
+				<th class="text-center" style="width:auto">{{ __('Status') }}</th>
+				<th class="text-center" style="width:auto">{{ __('Action') }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,7 +21,7 @@
             @endphp
             {{-- @dd($translationsTitle[$curnetLang] ) --}}
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
-				<td class="text-left"><a href="{{ route('backend.room', [$row->id]) }}" title="{{ __('Edit') }}">{{$translationsTitle[$curnetLang]??null}}</a></td>
+				<td class="text-center"><a href="{{ route('backend.room', [$row->id]) }}" title="{{ __('Edit') }}">{{$translationsTitle[$curnetLang]??null}}</a></td>
 				{{-- <td class="text-left">{{ $row->category_name }}</td> --}}
 				{{-- <td class="text-center">{{ $row->language_name }}</td> --}}
 
