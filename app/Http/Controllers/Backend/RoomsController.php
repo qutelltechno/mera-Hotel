@@ -108,7 +108,7 @@ class RoomsController extends Controller
             'room_name_ar' => $request->input('title_ar'),
 			'slug' => $slug,
             'hotel_id'=>$request->input('hotel_id'),
-            'lang'=>'en',
+
 		);
 
 		$rId = $id == '' ? '' : ','.$id;
@@ -152,7 +152,8 @@ class RoomsController extends Controller
             ],
             'hotel_id' => $hotel_id,
 			'slug' => $slug,
-			'is_publish' => 2
+			'is_publish' => 2,
+            'lang'=>'en'
 		);
 
 
