@@ -102,7 +102,7 @@
 							</div>
 							<div class="row">
 
-								<div class="col-md-3">
+								{{-- <div class="col-md-3">
 									<div class="form-group">
 										<label for="button_text">{{ __('Category') }}<span class="red">*</span></label>
                                         <select name="target" id="target" class="chosen-rtl form-control">
@@ -121,16 +121,14 @@
 											<option value="_blank">Blank</option>
 										</select>
 									</div>
-								</div>
-								<div class="col-md-6">
+								</div> --}}
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="url">{{ __('URL') }}<span class="red">*</span></label>
 										<input type="text" name="url" id="url" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
+                                <div class="col-md-4">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
 										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">
@@ -142,9 +140,6 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-7"></div>
-							</div>
-                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="lan">{{ __('Language') }}<span class="red">*</span></label>
@@ -169,7 +164,10 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+
+							</div>
+						
+
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">
 								<div class="col-lg-12">
