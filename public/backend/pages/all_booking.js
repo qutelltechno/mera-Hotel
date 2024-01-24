@@ -13,22 +13,22 @@ $(function () {
 	});
 
 	$(document).on('click', '.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-	
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
-	
+
 	$("#view_by_status").val(0);
-	
+
 	$("#SubmitBookingCheckOutForm").on("click", function () {
         $("#DataEntry_formId").submit();
-    });	
+    });
 });
 
 function onCheckAll() {
@@ -41,7 +41,7 @@ function onPaginationDataLoad(page) {
 	var status = $("#view_by_status").val();
 	var start_date = $("#start_date").val();
 	var end_date = $("#end_date").val();
-	
+
 	$.ajax({
 		url:base_url + "/backend/getAllBookingTableData?page="+page
 		+"&search="+$("#search").val()
@@ -57,7 +57,7 @@ function onPaginationDataLoad(page) {
 
 function onRefreshData() {
 	var status = $("#view_by_status").val();
-	
+
 	$.ajax({
 		url:base_url + "/backend/getAllBookingTableData?search="+$("#search").val()+"&status="+status,
 		success:function(data){
@@ -69,7 +69,7 @@ function onRefreshData() {
 
 function onSearch() {
 	var status = $("#view_by_status").val();
-	
+
 	$.ajax({
 		url: base_url + "/backend/getAllBookingTableData?search="+$("#search").val()+"&status="+status,
 		success:function(data){
@@ -82,7 +82,7 @@ function onSearch() {
 function onFilterAction() {
 	var start_date = $("#start_date").val();
 	var end_date = $("#end_date").val();
-	
+
 	$.ajax({
 		url: base_url + "/backend/getAllBookingTableData?start_date="+start_date+"&end_date="+end_date,
 		success:function(data){
@@ -95,10 +95,10 @@ function onFilterAction() {
 function onDataViewByStatus(status) {
 
 	$("#view_by_status").val(status);
-	
+
 	$(".orderstatus").removeClass('active')
 	$("#orderstatus_"+status).addClass('active');
-	
+
 	$.ajax({
 		url: base_url + "/backend/getAllBookingTableData?status="+status,
 		success:function(data){
@@ -111,7 +111,7 @@ function onDataViewByStatus(status) {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -130,7 +130,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -147,19 +147,19 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {
@@ -179,7 +179,7 @@ function onConfirmBulkAction() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -205,7 +205,7 @@ function onCSVExport() {
 	var end_date = $("#end_date").val();
 
 	var FinalPath = base_url + "/backend/csv-export?booking_status_id=0&start_date="+start_date+"&end_date="+end_date;
-	
+
 	$.ajax({
 		url:FinalPath,
 		success:function(data){
@@ -216,13 +216,13 @@ function onCSVExport() {
 }
 
 function onCheckOutModalView(payment_status_id, booking_status_id, booking_id) {
-	
+
 	$("#isnotify").prop("checked", false);
-	
+
 	$("#payment_status_id").val(payment_status_id).trigger("chosen:updated");
 	$("#booking_status_id").val(booking_status_id).trigger("chosen:updated");
 	$("#booking_id").val(booking_id);
-	
+
 	$('#CheckOutModalView').modal('show');
 }
 
@@ -253,7 +253,7 @@ jQuery('#DataEntry_formId').parsley({
 function onConfirmChangeBookingStatus() {
 
 	var update_btn = $('.update_btn').html();
-	
+
     $.ajax({
 		type : 'POST',
 		url: base_url + '/backend/updateBookingStatus',
@@ -261,7 +261,7 @@ function onConfirmChangeBookingStatus() {
 		beforeSend: function() {
 			$('.update_btn').html('<span class="spinner-border spinner-border-sm"></span> Please Wait...');
 		},
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -272,7 +272,7 @@ function onConfirmChangeBookingStatus() {
 			} else {
 				onErrorMsg(msg);
 			}
-			
+
 			$('.update_btn').html(update_btn);
 		}
 	});

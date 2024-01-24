@@ -50,7 +50,7 @@
 				<li><a href="{{ route('backend.home-video') }}">{{ __('Video Section') }}</a></li>
 				{{-- <li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li> --}}
 				<li><a href="{{ route('backend.offer-ads') }}">{{ __('Offer & Ads') }}</a></li>
-				<li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li>
+				{{-- <li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li> --}}
 			</ul>
 		</li>
 		{{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
@@ -68,7 +68,7 @@
 		</li> --}}
 		<li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
 			<ul class="dropdown-menu">
-				<li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li>
+				{{-- <li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li> --}}
 				<li><a href="{{ route('backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
 			</ul>
 		</li>
