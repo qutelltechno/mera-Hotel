@@ -591,6 +591,7 @@
     "We can not find a user with that email address": "We can not find a user with that email address",
     "We have emailed your password reset link!": "We have emailed your password reset link!",
     "We have received your booking request and will contact you as soon. You can find your booking information below.": "We have received your booking request and will contact you as soon. You can find your booking information below.",
+
     "Whatsapp": "Whatsapp",
     "White Color": "White Color",
     "Width": "Width",
@@ -628,6 +629,11 @@
     "Subject":"Subject",
     "Self":"Self",
     "Blank":"Blank",
-    "Hotel room":"Hotel room"
+    "Hotel room":"Hotel room",
+    "Create an Account Stripe":"Create an Account Stripe",
+    "Currencies":"Currencies",
+    "The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.":"The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.",
+    "Image sizes":"Image sizes"
+
 
 }

@@ -48,7 +48,7 @@
 										<form novalidate="" data-validate="parsley" id="DataEntry_formId">
 											<div class="row">
 												<div class="col-md-12">
-													<h4><strong id="media_type"></strong></h4>
+													<h4><span> {{ __('Image sizes') }}</span><strong id="media_type"> </strong> </h4>
 													<p>{{__('The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.')}}</p>
 												</div>
 											</div>

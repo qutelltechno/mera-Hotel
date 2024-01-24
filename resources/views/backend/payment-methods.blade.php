@@ -169,7 +169,7 @@
 												<div class="form-group">
 													<label for="stripe_secret">{{ __('Stripe Secret') }}<span class="red">*</span></label>
 													<input type="text" name="stripe_secret" id="stripe_secret" class="form-control parsley-validated" data-required="true" value="{{ $stripe_data_list['stripe_secret'] }}">
-													<small class="form-text text-muted"><a target="_blank" href="https://stripe.com/">Create an Account Stripe</a></small>
+													<small class="form-text text-muted"><a target="_blank" href="https://stripe.com/">{{ __('Create an Account Stripe') }}</a></small>
 												</div>
 												<div class="form-group">
 													<label for="currency">{{ __('Currency') }}<span class="red">*</span></label>

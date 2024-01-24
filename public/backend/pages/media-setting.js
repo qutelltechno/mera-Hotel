@@ -3,21 +3,21 @@ var RecordId = '';
 
 $(function () {
 	"use strict";
-	
+
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		}
-	});	
-	
+	});
+
 	$("#active-settings").addClass("active");
-	
+
 	$("#submit-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
-	
+
 	$(document).on('click', '.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
@@ -59,7 +59,7 @@ function onListPanel() {
 
 function onEditPanel() {
     $('#list-panel, .btn-form').hide();
-    $('#form-panel, .btn-list').show();	
+    $('#form-panel, .btn-list').show();
 }
 
 function showPerslyError() {
@@ -92,7 +92,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/MediaSettingsUpdate',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -110,7 +110,7 @@ function onConfirmWhenAddEdit() {
 function onEdit(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to edit this record"];
-	onCustomModal(msg, "onMediaSettingsEditData");	
+	onCustomModal(msg, "onMediaSettingsEditData");
 }
 
 function onMediaSettingsEditData() {
@@ -121,12 +121,12 @@ function onMediaSettingsEditData() {
 		data: 'id=' + RecordId,
 		success: function (response) {
 			var datalist = response;
-			
+
 			$("#RecordId").val(datalist.id);
-			$("#media_type").text(datalist.media_type+' Image sizes');
+			$("#media_type").text(datalist.media_type);
 			$("#media_width").val(datalist.media_width);
 			$("#media_height").val(datalist.media_height);
-			
+
 			onEditPanel();
         }
     });

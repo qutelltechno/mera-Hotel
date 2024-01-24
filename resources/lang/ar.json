@@ -676,6 +676,14 @@
     "Create Google reCAPTCHA v2":"إنشاء Google reCAPTCHA v2",
     "Social Icon":"أيقونة اجتماعية",
     "Choose bootstrap icon":"اختر أيقونة Bootstrap من",
-    "Hotel room":"غرف الفندق"
+    "Hotel room":"غرف الفندق",
+    "Create an Account Stripe":"أنشئ حسابًا على سترايب",
+    "Currencies":"العملات",
+    "The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media.":"الأحجام المُدرجة أدناه تحدد الأبعاد القصوى بالبيكسل المسموح بها عند إضافة صورة إلى الوسائط.",
+    "Image sizes":"أحجام الصور"
+
+
+
+
 
 }
