@@ -378,6 +378,6 @@ class InvoiceController extends Controller
 		PDF::writeHTML($html, true, false, true, false, '');
 
 		//Close and output PDF document
-		PDF::Output('invoice-'.$mdata['booking_no'].'.pdf', 'D');
+		PDF::Output('invoice-'.$mdata['booking_no'].time().'.pdf', 'D');
 	}
 }
