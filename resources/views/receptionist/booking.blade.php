@@ -19,7 +19,7 @@
 						<li class="order_no_date"><strong>{{ __('Booking Date') }}</strong>: {{ date('d-m-Y', strtotime($mdata->created_at)) }}</li>
 						<li class="order_no_date"><strong>{{ __('Payment Method') }}</strong>: {{ $mdata->method_name }}</li>
 						<li id="payment_status_class" class="pstatus_{{ $mdata->payment_status_id }}"><strong>{{ __('Payment Status') }}</strong>: <span id="pstatus_name">{{ $mdata->pstatus_name }}</span></li>
-						<li id="order_status_class" class="ostatus_{{ $mdata->booking_status_id }}"><strong>{{ __('Booking Status') }}</strong>: <span id="ostatus_name">{{ $mdata->bstatus_name }}</span></li>
+						<li style="  height: auto; width: auto;" id="order_status_class" class="ostatus_{{ $mdata->booking_status_id }}"><strong>{{ __('Booking Status') }}</strong>: <span id="ostatus_name">{{ $mdata->bstatus_name }}</span></li>
 					</ul>
 					</div>
 				</div>
@@ -107,7 +107,10 @@
 									@endphp
 
 									<tr>
-										<td class="text-left" style="width:30%;">{{ $mdata->title }}</td>
+                                        @php
+                                            $transTitle=json_decode($mdata->title,true);
+                                        @endphp
+										<td class="text-left" style="width:30%;">{{  $transTitle[glan()] }}</td>
 										<td class="text-center" style="width:15%;">{{ $mdata->total_room }}</td>
 										<td class="text-center" style="width:10%;">{{ $total_price }} @php if($old_price !=''){ @endphp<br><span style="text-decoration:line-through;color:#ee0101;">{{ $old_price }}</span>@php } @endphp</td>
 										<td class="text-center" style="width:25%;">@php echo date('d-m-Y', strtotime($mdata->in_date)).'<br><strong>to</strong><br>'.date('d-m-Y', strtotime($mdata->out_date)); @endphp</td>
