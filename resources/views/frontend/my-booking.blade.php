@@ -93,6 +93,7 @@
 												<td class="text-center"><span class="status_btn ostatus_{{ $row->booking_status_id }}">{{ $row->bstatus_name }}</span></td>
 												<td class="text-center">
 													<a title="{{ __('Invoice') }}" class="mr10" href="{{ route('frontend.invoice', [$row->id, $row->booking_no]) }}"><i class="bi bi-cloud-arrow-down"></i></a>
+													<a title="{{ __('Invoice') }}" class="mr10" href="{{ route('frontend.invoice2', [$row->id, $row->booking_no]) }}"><i class="bi bi-cloud-arrow-down"></i></a>
 													<a title="{{ __('View') }}" href="{{ route('frontend.invoice-details', [$row->id, $row->booking_no]) }}"><i class="bi bi-eye"></i></a>
 												</td>
 											</tr>

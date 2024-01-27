@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "ab-alselwi/laravel-arabic-html": "^0.2.0",
+        "barryvdh/laravel-dompdf": "^2.0",
         "bumbummen99/shoppingcart": "^4.2",
         "elibyy/tcpdf-laravel": "^9.1",
         "fruitcake/laravel-cors": "^2.0",
