@@ -33,7 +33,7 @@
 								@endforeach
 								</select>
 							</div>
-							<div class="form-group">
+							<div class="form-group d-none">
 								<label for="status_id">{{ __('Menu Status') }}<span class="red">*</span></label>
 								<select name="status_id" id="status_id" class="chosen-rtl form-control">
 								@foreach($statuslist as $row)

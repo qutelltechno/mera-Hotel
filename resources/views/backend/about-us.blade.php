@@ -238,7 +238,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 d-none">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
 										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">
@@ -252,7 +252,7 @@
 								</div>
                             </div>
 
-							
+
 
 							<input type="text" name="RecordId" id="RecordId" class="dnone">
 							<div class="row tabs-footer mt-15">

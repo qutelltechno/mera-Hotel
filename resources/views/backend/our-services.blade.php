@@ -87,7 +87,7 @@
 								<div class="col-md-6"></div>
 							</div>
 
-							<div class="row">
+							<div class="row d-none">
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>

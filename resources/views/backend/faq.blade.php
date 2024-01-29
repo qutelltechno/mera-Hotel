@@ -95,7 +95,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-3 d-none">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
 										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">

@@ -128,7 +128,7 @@
 										<input type="text" name="url" id="url" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 d-none">
 									<div class="form-group">
 										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
 										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">
