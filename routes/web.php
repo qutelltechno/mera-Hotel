@@ -117,6 +117,15 @@ Route::get('/invoice2/{id}/{booking_no}', [App\Http\Controllers\Frontend\Invoice
 Route::post('/frontend/saveSubscriber', [App\Http\Controllers\Backend\NewslettersController::class, 'saveSubscriberData'])->name('frontend.saveSubscriber');
 Route::post('/frontend/subscribePopupOff', [App\Http\Controllers\Backend\NewslettersController::class, 'subscribePopupOff'])->name('frontend.subscribePopupOff');
 
+Route::prefix('super-admin')->group(function () {
+
+    Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'getDashboardData'])->name('backend.dashboard')->middleware(['auth','is_superAdmin']);
+
+});
+
+
+
+
 Route::prefix('backend')->group(function(){
 
 	//Not Found Page
