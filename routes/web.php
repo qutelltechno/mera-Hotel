@@ -118,8 +118,32 @@ Route::post('/frontend/saveSubscriber', [App\Http\Controllers\Backend\Newsletter
 Route::post('/frontend/subscribePopupOff', [App\Http\Controllers\Backend\NewslettersController::class, 'subscribePopupOff'])->name('frontend.subscribePopupOff');
 
 Route::prefix('super-admin')->group(function () {
-
-    Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'getDashboardData'])->name('backend.dashboard')->middleware(['auth','is_superAdmin']);
+	Route::get('/slider', [App\Http\Controllers\Backend\HomeSliderController::class, 'getSliderPageLoad'])->name('super.backend.slider')->middleware(['auth','is_superAdmin']);
+    Route::get('/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'getDashboardData'])->name('super.backend.dashboard')->middleware(['auth','is_superAdmin']);
+	Route::get('/booking-request', [App\Http\Controllers\Backend\BookingController::class, 'getBookingRequestPageLoad'])->name('super.backend.booking-request')->middleware(['auth','is_superAdmin']);
+	Route::get('/book-room', [App\Http\Controllers\Backend\BookingController::class, 'getBookRoomPageLoad'])->name('super.backend.book-room')->middleware(['auth','is_superAdmin']);
+	Route::get('/all-booking', [App\Http\Controllers\Backend\BookingController::class, 'getAllBookingPageLoad'])->name('super.backend.all-booking')->middleware(['auth','is_superAdmin']);
+	Route::get('/room-list', [App\Http\Controllers\Backend\RoomListController::class, 'getRoomListPageLoad'])->name('super.backend.room-list')->middleware(['auth','is_superAdmin']);
+	Route::get('/room-type', [App\Http\Controllers\Backend\RoomsController::class, 'getRoomTypePageLoad'])->name('super.backend.room-type')->middleware(['auth','is_superAdmin']);
+	Route::get('/amenities', [App\Http\Controllers\Backend\AmenitiesController::class, 'getAmenitiesPageLoad'])->name('super.backend.amenities')->middleware(['auth','is_superAdmin']);
+	Route::get('/complements', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementsPageLoad'])->name('super.backend.complements')->middleware(['auth','is_superAdmin']);
+	Route::get('/bed-types', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesPageLoad'])->name('super.backend.bed-types')->middleware(['auth','is_superAdmin']);
+	Route::get('/tax', [App\Http\Controllers\Backend\TaxesController::class, 'getTaxPageLoad'])->name('super.backend.tax')->middleware(['auth','is_superAdmin']);
+	Route::get('/currency', [App\Http\Controllers\Backend\CurrencyController::class, 'getCurrencyPageLoad'])->name('super.backend.currency')->middleware(['auth','is_superAdmin']);
+	Route::get('/payment-methods', [App\Http\Controllers\Backend\SettingsController::class, 'loadPaymentMethodsPage'])->name('super.backend.payment-methods')->middleware(['auth','is_superAdmin']);
+	Route::get('/countries', [App\Http\Controllers\Backend\CountriesController::class, 'getCountriesPageLoad'])->name('super.backend.countries')->middleware(['auth','is_superAdmin']);
+    Route::get('/Hotel', [App\Http\Controllers\Backend\HotelController::class, 'getHotelData'])->name('super.backend.Hotel')->middleware(['auth','is_superAdmin']);
+	Route::get('/slider', [App\Http\Controllers\Backend\HomeSliderController::class, 'getSliderPageLoad'])->name('super.backend.slider')->middleware(['auth','is_superAdmin']);
+	Route::get('/about-us', [App\Http\Controllers\Backend\AboutUsController::class, 'getAboutUsPageLoad'])->name('super.backend.about-us')->middleware(['auth','is_superAdmin']);
+	Route::get('/our-services', [App\Http\Controllers\Backend\OurServicesController::class, 'getOurServicesPageLoad'])->name('super.backend.our-services')->middleware(['auth','is_superAdmin']);
+	Route::get('/home-video', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsHomeVideo'])->name('super.backend.home-video')->middleware(['auth','is_superAdmin']);
+	Route::get('/offer-ads', [App\Http\Controllers\Backend\Offer_adsController::class, 'getOfferAdsPageLoad'])->name('super.backend.offer-ads')->middleware(['auth','is_superAdmin']);
+	Route::get('/blog', [App\Http\Controllers\Backend\BlogController::class, 'getBlogPageLoad'])->name('super.backend.blog')->middleware(['auth','is_superAdmin']);
+	Route::get('/menu', [App\Http\Controllers\Backend\MenuController::class, 'getMenuPageLoad'])->name('super.backend.menu')->middleware(['auth','is_superAdmin']);
+	Route::get('/theme-options', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsPageLoad'])->name('super.backend.theme-options')->middleware(['auth','is_superAdmin']);
+    Route::get('/faq', [App\Http\Controllers\Backend\FaqController::class, 'getFaqData'])->name('super.backend.faq')->middleware(['auth','is_superAdmin']);
+	Route::get('/media', [App\Http\Controllers\Backend\MediaController::class, 'getMediaPageLoad'])->name('super.backend.media')->middleware(['auth','is_superAdmin']);
+	Route::get('/users', [App\Http\Controllers\Backend\UsersController::class, 'getUsersPageLoad'])->name('super.backend.users')->middleware(['auth','is_superAdmin']);
 
 });
 
