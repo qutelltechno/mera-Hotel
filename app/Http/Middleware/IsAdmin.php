@@ -18,7 +18,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
 		if(Auth::check()) {
-			if(auth()->user()->role_id == 1){
+			if(auth()->user()->role_id == 1 ||auth()->user()->role_id == 4 ){
 				return $next($request);
 			}else{
 				// return redirect('backend/notfound')->with('error', __('You do not have permission to access this page') );
