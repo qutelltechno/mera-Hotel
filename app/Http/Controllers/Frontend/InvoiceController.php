@@ -114,7 +114,7 @@ class InvoiceController extends Controller
         }
         $transTitle = json_decode($mdata['title'], true);
         $item_list = '<tr>
-				<td class="w-30" align="left">' . $transTitle[glan()] . '</td>
+				<td class="w-30" align="center">' . $transTitle[glan()] . '</td>
 				<td class="w-10" align="center">' . $mdata['total_room'] . '</td>
 				<td class="w-15" align="center"><p>' . $total_price . '</p>' . $old_price . '</td>
 				<td class="w-20" align="center"><p>' . date('d-m-Y', strtotime($mdata['in_date'])) . '</p><p>to</p><p>' . date('d-m-Y', strtotime($mdata['out_date'])) . '</p></td>
@@ -123,7 +123,7 @@ class InvoiceController extends Controller
 			</tr>';
 
             $item_listar = '<tr>
-            <td class="w-15" align="right"><p>' . $subtotal . '</p>' . $cal_old_price . '</td>
+            <td class="w-15" align="center"><p>' . $subtotal . '</p>' . $cal_old_price . '</td>
             <td class="w-10" align="center">' . $total_days . '</td>
             <td class="w-20" align="center"><p>' . date('d-m-Y', strtotime($mdata['in_date'])) . '</p><p>to</p><p>' . date('d-m-Y', strtotime($mdata['out_date'])) . '</p></td>
             <td class="w-15" align="center"><p>' . $total_price . '</p>' . $old_price . '</td>
