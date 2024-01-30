@@ -119,7 +119,7 @@ class InvoiceController extends Controller
 				<td class="w-15" align="center"><p>' . $total_price . '</p>' . $old_price . '</td>
 				<td class="w-20" align="center"><p>' . date('d-m-Y', strtotime($mdata['in_date'])) . '</p><p>to</p><p>' . date('d-m-Y', strtotime($mdata['out_date'])) . '</p></td>
 				<td class="w-10" align="center">' . $total_days . '</td>
-				<td class="w-15" align="right"><p>' . $subtotal . '</p>' . $cal_old_price . '</td>
+				<td class="w-15" align="center"><p>' . $subtotal . '</p>' . $cal_old_price . '</td>
 			</tr>';
 
             $item_listar = '<tr>
@@ -128,7 +128,7 @@ class InvoiceController extends Controller
             <td class="w-20" align="center"><p>' . date('d-m-Y', strtotime($mdata['in_date'])) . '</p><p>to</p><p>' . date('d-m-Y', strtotime($mdata['out_date'])) . '</p></td>
             <td class="w-15" align="center"><p>' . $total_price . '</p>' . $old_price . '</td>
             <td class="w-10" align="center">' . $mdata['total_room'] . '</td>
-            <td class="w-30" align="left">' . $transTitle[glan()] . '</td>
+            <td class="w-30" align="center">' . $transTitle[glan()] . '</td>
         </tr>';
 
         $RoomDataList = DB::table('room_manages')
@@ -324,7 +324,7 @@ class InvoiceController extends Controller
 
 		<table class="border-none" width="100%" cellpadding="6" cellspacing="0">
 			<tr>
-				<td class="w-30" align="left">
+				<td class="w-30" align="center">
 					<strong>' . __('Room Type') . '</strong>
 				</td>
 				<td class="w-10" align="center">
@@ -339,7 +339,7 @@ class InvoiceController extends Controller
 				<td class="w-10" align="center">
 					<strong>' . __('Total Days') . '</strong>
 				</td>
-				<td class="w-15" align="right">
+				<td class="w-15" align="center">
 					<strong>' . __('Total') . '</strong>
 				</td>
 			</tr>
@@ -571,7 +571,7 @@ class InvoiceController extends Controller
 
 		<table class="border-none" width="100%" cellpadding="6" cellspacing="0">
 			<tr>
-                <td class="w-15" align="left">
+                <td class="w-15" align="center">
                 <strong>' . __('Total') . '</strong>
                 </td>
                 <td class="w-10" align="center">
@@ -586,7 +586,7 @@ class InvoiceController extends Controller
                 <td class="w-10" align="center">
                 <strong>' . __('Total Room') . '</strong>
                 </td>
-				<td class="w-30" align="right">
+				<td class="w-30" align="center">
 					<strong>' . __('Room Type') . '</strong>
 				</td>
 			</tr>
