@@ -16,33 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('test', function () {
-    // Room::create([
-    //     'title' => [
-    //        'en' => 'Name in English',
-    //        'ar' => 'العنوان'
-    //     ],
-    //     'slug'=> 'iyutytr',
-
-    //  ]);
-
-    $model = new Room();
-    $model->title = [
-        'en' => 'Name in English',
-        'ar' => 'الاسم',
-    ];
-    $model->slug = 'gfbgbfgbgff';
-    $model->save();
-//      $jsonString = '{"en":"Name","ar":"\u0627\u0644\u0627\u0633\u0645"}';
-//      $data = json_decode($jsonString, true);
-// return      $data['en'];
-});
-
-Route::get('test2', function () {
-    $room = Room::where('id', 86)->first();
-    return $room->title;
-});
-
 Route::get('lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'index']);
 
 //Home
