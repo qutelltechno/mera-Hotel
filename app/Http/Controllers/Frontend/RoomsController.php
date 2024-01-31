@@ -12,11 +12,14 @@ use Illuminate\Support\Facades\DB;
 class RoomsController extends Controller
 {
     //get Category Page
-    public function getCategoryPage($id, $title)
+    public function getCategoryPage( $title)
     {
+        // $cat=Category::all();
+        // dd($cat);
+
         $lan = glan();
 
-        $mdata = Category::where('id', '=', $id)->where('is_publish', '=', 1)->first();
+        $mdata = Category::where('id', '=', 9)->where('is_publish', '=', 1)->first();
         if ($mdata != '') {
             $metadata = $mdata;
         } else {
@@ -35,7 +38,7 @@ class RoomsController extends Controller
             );
         }
 
-        $datalist = Room::where('cat_id', '=', $id)->where('is_publish', '=', 1)->orderBy('id', 'desc')->paginate(9);
+        $datalist = Room::where('cat_id', '=', 9)->where('is_publish', '=', 1)->orderBy('id', 'desc')->paginate(9);
         $curntLang = glan();
 
         $hotels = Hotel::with('rooms')->get();

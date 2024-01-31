@@ -13,11 +13,11 @@ use App\Http\Controllers\Controller;
 class ContactController extends Controller
 {
     //get Contact Data
-    public function getContactData($id, $title){
-		$contact_id = $id;
+    public function getContactData( $title){
+		$contact_id =6;
         // dd($id);
 
- 		$datalist = Contact::where('id', '=', $id)->get();
+ 		$datalist = Contact::where('id', '=',6)->get();
 		$data['title'] = '';
 		$data['contact_info'] = '';
 		$data['contact_form'] = '';

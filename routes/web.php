@@ -51,13 +51,13 @@ Route::get('/', [App\Http\Controllers\Frontend\HomeFrontendController::class, 'h
 //Home
 Route::get('/search', [App\Http\Controllers\Frontend\SearchController::class, 'getSearchData'])->name('frontend.search');
 
-Route::get('/contact/{id}/{title}', [App\Http\Controllers\Frontend\ContactController::class, 'getContactData'])->name('frontend.contact');
+Route::get('/contact/{title}', [App\Http\Controllers\Frontend\ContactController::class, 'getContactData'])->name('frontend.contact');
 Route::post('/frontend/sentMessage', [App\Http\Controllers\Frontend\ContactController::class, 'sentMessage'])->name('frontend.sentMessage');
 
 Route::get('/page/{id}/{title}', [App\Http\Controllers\Frontend\PageController::class, 'getPage'])->name('frontend.page');
 
 //Category
-Route::get('/category/{id}/{title}', [App\Http\Controllers\Frontend\RoomsController::class, 'getCategoryPage'])->name('frontend.category');
+Route::get('/category/{title}', [App\Http\Controllers\Frontend\RoomsController::class, 'getCategoryPage'])->name('frontend.category');
 
 // Room
 Route::get('/room/{id}/{title}', [App\Http\Controllers\Frontend\RoomsController::class, 'getRoomPage'])->name('frontend.room');
