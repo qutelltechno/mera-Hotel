@@ -15,11 +15,11 @@ class BlogController extends Controller
 	//Blog page load
     public function getBlogPageLoad() {
 		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
-		
+
 		$blog_category = Blog_category::where('is_publish', 1)->orderBy('name', 'asc')->get();
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		$currentLocale = app()->getLocale(); 
+		$currentLocale = app()->getLocale();
 		// dd($currentLocale);
 		$datalist = DB::table('blogs')
 			->join('tp_status', 'blogs.is_publish', '=', 'tp_status.id')
@@ -29,7 +29,7 @@ class BlogController extends Controller
 
 			->join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
 			->select('blogs.*', 'tp_status.status', 'languages.language_name', 'blog_categories.name')
-			->where('blogs.lan',$currentLocale)
+			// ->where('blogs.lan',$currentLocale)
 			->orderBy('blogs.id','desc')
 			->paginate(20);
 			$lang=Blog::all();
@@ -37,7 +37,7 @@ class BlogController extends Controller
 
         return view('backend.blog', compact('media_datalist', 'blog_category', 'statuslist', 'languageslist', 'datalist'));
     }
-	
+
 	//Get data for Blog Pagination
 	public function getBlogTableData(Request $request){
 
@@ -61,7 +61,7 @@ class BlogController extends Controller
 					})
 					->orderBy('blogs.id','desc')
 					->paginate(20);
-				
+
 			}else{
 				$datalist = DB::table('blogs')
 					->join('tp_status', 'blogs.is_publish', '=', 'tp_status.id')
@@ -76,17 +76,19 @@ class BlogController extends Controller
 			return view('backend.partials.blog_table', compact('datalist'))->render();
 		}
 	}
-	
+
 	//Save data for Blog
     public function saveBlogData(Request $request){
 		$res = array();
 
 		$id = $request->input('RecordId');
-		$blog_title = esc($request->input('blog_title'));
+		$blog_titleen = $request->input('blog_titleen');
+		$blog_titlear = $request->input('blog_titlear');
 		$slug = esc(str_slug($request->input('slug')));
 		$category_id = $request->input('category_id');
 		$thumbnail = $request->input('thumbnail');
-		$description = $request->input('description');
+		$descriptionen = $request->input('descriptionen');
+		$descriptionar = $request->input('descriptionar');
 		$lan = $request->input('lan');
 		$is_publish = $request->input('is_publish');
 		$og_title = $request->input('og_title');
@@ -94,18 +96,20 @@ class BlogController extends Controller
 		$og_description = $request->input('og_description');
 		$og_keywords = $request->input('og_keywords');
 		$user_id = $request->input('user_id');
-		
+
 		$validator_array = array(
-			'title' => $request->input('blog_title'),
+			'titleen' => $request->input('blog_titleen'),
+			'titlear' => $request->input('blog_titlear'),
 			'slug' => $slug,
 			'category' => $request->input('category_id'),
 			'language' => $request->input('lan'),
 			'is_publish' => $request->input('is_publish')
 		);
-		
+
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
-			'title' => 'required|max:191',
+			'titleen' => 'required|max:191',
+			'titlear' => 'required|max:191',
 			'slug' => 'required|max:191|unique:blogs,slug' . $rId,
 			'category' => 'required',
 			'language' => 'required',
@@ -114,30 +118,35 @@ class BlogController extends Controller
 
 		$errors = $validator->errors();
 
-		if($errors->has('title')){
+		if($errors->has('titleen')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('title');
 			return response()->json($res);
 		}
-		
+        if($errors->has('titlear')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('title');
+			return response()->json($res);
+		}
+
 		if($errors->has('slug')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('slug');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('language')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('language');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('category')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('category');
 			return response()->json($res);
 		}
-		
+
 		if($errors->has('is_publish')){
 			$res['msgType'] = 'error';
 			$res['msg'] = $errors->first('is_publish');
@@ -145,10 +154,16 @@ class BlogController extends Controller
 		}
 
 		$data = array(
-			'title' => $blog_title,
+			'title' => [
+                'en'=>$blog_titleen,
+                'ar'=>$blog_titlear,
+            ],
 			'slug' => $slug,
 			'thumbnail' => $thumbnail,
-			'description' => $description,
+			'description' => [
+                'en'=>$descriptionen,
+                'ar'=>$descriptionar,
+            ],
 			'lan' => $lan,
 			'category_id' => $category_id,
 			'is_publish' => $is_publish,
@@ -171,7 +186,7 @@ class BlogController extends Controller
 		}else{
 			$response = Blog::where('id', $id)->update($data);
 			if($response){
-				
+
 				$res['msgType'] = 'success';
 				$res['msg'] = __('Updated Successfully');
 			}else{
@@ -179,23 +194,23 @@ class BlogController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Get data for by id
     public function getBlogById(Request $request){
 
 		$id = $request->id;
-		
+
 		$data = Blog::where('id', $id)->first();
-		
+
 		return response()->json($data);
 	}
-	
+
 	//Delete data for Blog
 	public function deleteBlog(Request $request){
-		
+
 		$res = array();
 
 		$id = $request->id;
@@ -210,18 +225,18 @@ class BlogController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//Bulk Action for Blog
 	public function bulkActionBlog(Request $request){
-		
+
 		$res = array();
 
 		$idsStr = $request->ids;
 		$idsArray = explode(',', $idsStr);
-		
+
 		$BulkAction = $request->BulkAction;
 
 		if($BulkAction == 'publish'){
@@ -233,9 +248,9 @@ class BlogController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'draft'){
-			
+
 			$response = Blog::whereIn('id', $idsArray)->update(['is_publish' => 2]);
 			if($response){
 				$res['msgType'] = 'success';
@@ -244,7 +259,7 @@ class BlogController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'delete'){
 			$response = Blog::whereIn('id', $idsArray)->delete();
 			if($response){
@@ -255,14 +270,14 @@ class BlogController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
 
 	//has Blog Slug
     public function hasBlogSlug(Request $request){
 		$res = array();
-		
+
 		$slug = str_slug($request->slug);
         $count = Blog::where('slug', 'like', '%'.$slug.'%') ->count();
 		if($count == 0){
@@ -271,7 +286,7 @@ class BlogController extends Controller
 			$incr = $count+1;
 			$res['slug'] = $slug.'-'.$incr;
 		}
-		
+
 		return response()->json($res);
 	}
 }

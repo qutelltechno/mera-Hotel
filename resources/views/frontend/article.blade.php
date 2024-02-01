@@ -1,6 +1,8 @@
 @extends('layouts.frontend')
-
-@section('title', $data->title)
+@php
+$transTitle=json_decode($data->title,true);
+@endphp
+@section('title', $transTitle[glan()])
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
@@ -52,10 +54,11 @@
 	<section class="inner-section inner-section-bg">
 		<div class="container">
 			<div class="row">
+
 				<div class="col-12 col-md-12 col-lg-8">
 					<div class="blog-details-card">
 						<div class="blog-img ">
-							<img src="{{ asset('public/media/'.$data->thumbnail) }}" alt="{{ $data->title }}" />
+							<img src="{{ asset('public/media/'.$data->thumbnail) }}" alt="{{$transTitle[glan()] }}" />
 						</div>
 						<div class="blog-content">
 							<div class="blog-meta-card">
@@ -63,11 +66,11 @@
 								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $data->name }}</div> --}}
 							</div>
 							<div class="blog-title">
-								<h3>{{ $data->title }}</h3>
+								<h3>{{ $transTitle[glan()] }}</h3>
 							</div>
 							<div class="articles">
 								<div class="entry">
-									@php echo $data->description; @endphp
+									@php echo$transTitle[glan()]; @endphp
 								</div>
 							</div>
 						</div>

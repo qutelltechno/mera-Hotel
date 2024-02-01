@@ -43,7 +43,7 @@ class BlogController extends Controller
 		GROUP BY b.id, b.slug, b.name
 		ORDER BY b.name;";
 		$blog_categories_list = DB::select(DB::raw($sql));
-		
+
 		$datalist = Blog::where('is_publish', '=', 1)->where('lan', $lan)->whereNotIn('id', [$id])->orderBy('id','desc')->limit(8)->get();
 
         return view('frontend.article', compact('data', 'blog_categories_list', 'datalist'));

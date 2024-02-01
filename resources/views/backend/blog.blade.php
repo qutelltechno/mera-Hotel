@@ -73,14 +73,14 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="blog_title">{{ __('Title') }}<span class="red">*</span></label>
-										<input type="text" name="blog_title" id="blog_title" class="form-control parsley-validated" data-required="true">
+										<label for="blog_titleen">Title<span class="red">*</span></label>
+										<input type="text" name="blog_titleen" id="blog_titleen" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="slug">{{ __('Slug') }}<span class="red">*</span></label>
-										<input type="text" name="slug" id="slug" class="form-control parsley-validated" data-required="true">
+                                <div class="col-md-6 " >
+									<div class="form-group ">
+										<label style="" for="blog_titlear">العنوان بالعربية <span class="red">*</span></label>
+										<input type="text" name="blog_titlear" id="blog_titlear" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 							</div>
@@ -98,7 +98,15 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6">
+
+
+                                <div class="col-md-6">
+									<div class="form-group">
+										<label for="slug">{{ __('Slug') }}<span class="red">*</span></label>
+										<input type="text" name="slug" id="slug" class="form-control parsley-validated" data-required="true">
+									</div>
+								</div>
+								<div class="col-md-6 d-none">
 									<div class="form-group">
 										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
 										<select name="lan" id="lan" class="chosen-rtl form-control">
@@ -114,8 +122,16 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group tpeditor">
-										<label for="description">{{ __('Description') }}<span class="red">*</span></label>
-										<textarea name="description" id="description" class="form-control parsley-validated" data-required="true" rows="5"></textarea>
+										<label for="descriptionen">Description<span class="red">*</span></label>
+										<textarea name="descriptionen" id="descriptionen" class="form-control parsley-validated" data-required="true" rows="5"></textarea>
+									</div>
+								</div>
+							</div>
+                            <div class="row">
+								<div class="col-md-12">
+									<div class="form-group tpeditor">
+										<label for="descriptionar">الوصف بالعربية <span class="red">*</span></label>
+										<textarea name="descriptionar" id="descriptionar" class="form-control parsley-validated" data-required="true" rows="5"></textarea>
 									</div>
 								</div>
 							</div>

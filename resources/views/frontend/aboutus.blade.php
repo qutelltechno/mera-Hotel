@@ -254,11 +254,15 @@
 			</div>
 			<div class="row wow fadeIn">
 				@foreach ($blogs as $row)
+                @php
+                                    $transTitle=json_decode($row->title,true);
+                @endphp
+                {{-- @dd( $transTitle[glan()]) --}}
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="blog-card">
 						<div class="blog-img">
 							<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">
-								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{ $row->title }}" />
+								<img src="{{ asset('public/media/'.$row->thumbnail) }}" alt="{{  $transTitle[glan()] }}" />
 							</a>
 						</div>
 						<div class="blog-content">
@@ -267,7 +271,7 @@
 								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $row->name }}</div> --}}
 							</div>
 							<div class="blog-title">
-								<h4><a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">{{ $row->title }}</a></h4>
+								<h4><a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">{{ $transTitle[glan()] }}</a></h4>
 							</div>
 							<div class="read-more-btn">
 								<a href="{{ route('frontend.article', [$row->id, $row->slug]) }}">

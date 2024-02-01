@@ -65,7 +65,6 @@ class AboutUsController extends Controller
 
         //Blogs
         $blogs = DB::table('blogs')
-        ->where('lan', $lan)
         ->join('users', 'blogs.user_id', '=', 'users.id')
         ->select('blogs.*', 'users.name')
         ->orderBy('id','desc')
