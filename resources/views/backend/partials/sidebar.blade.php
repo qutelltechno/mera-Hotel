@@ -43,7 +43,7 @@
             </li>
 
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-pencil-square-o"></i>{{ __('Home Page Manage') }}</a>
+                        class="fa fa-pencil-square-o"></i>{{ __('Content Manage') }}</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('backend.Hotel') }}">{{ __('Hotels') }}</a></li>
                     <li><a href="{{ route('backend.slider') }}">{{ __('Slider/Hero Section') }}</a></li>
@@ -148,7 +148,7 @@
             </li>
 
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-pencil-square-o"></i>{{ __('Home Page Manage') }}</a>
+                        class="fa fa-pencil-square-o"></i>{{ __('Content Manage') }}</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('super.backend.Hotel') }}">{{ __('Hotels') }}</a></li>
                     <li><a href="{{ route('super.backend.slider') }}">{{ __('Slider/Hero Section') }}</a></li>
