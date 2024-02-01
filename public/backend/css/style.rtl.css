@@ -715,7 +715,6 @@ a.my-profile-info {
 }
 .avatar {
 	float: right;
-	margin-right: 10px;
 }
 .yousra{
 	background-color: #05a205 !important;
@@ -876,6 +875,7 @@ a.my-profile-info {
 .sidebar-wrapper ul.left-navbar li.dropdown.active ul.dropdown-menu li:hover::after {
 	background-color: var(--backend-theme-color);
 }
+
 
 /* ======================
    Main Body css
