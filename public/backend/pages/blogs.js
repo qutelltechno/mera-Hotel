@@ -263,7 +263,8 @@ function onLoadEditData() {
 		success: function (response) {
 			var data = response;
 			$("#RecordId").val(data.id);
-			$("#blog_title").val(data.title);
+			$("#blog_titleen").val(data.title['en']);
+			$("#blog_titlear").val(data.title['ar']);
 			$("#slug").val(data.slug);
 
 			$("#lan").val(data.lan).trigger("chosen:updated");
@@ -271,9 +272,11 @@ function onLoadEditData() {
 			$("#category_id").val(data.category_id).trigger("chosen:updated");
 
 			if(data.description != null){
-				$('#description').summernote('code', data.description);
+				$('#descriptionen').summernote('code', data.description['en']);
+				$('#descriptionar').summernote('code', data.description['ar']);
 			}else{
-				$('#description').summernote('code', '');
+				$('#descriptionen').summernote('code', '');
+				$('#descriptionar').summernote('code', '');
 			}
 
  			if(data.thumbnail != null){
