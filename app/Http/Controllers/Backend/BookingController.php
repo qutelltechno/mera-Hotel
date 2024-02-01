@@ -22,7 +22,6 @@ class BookingController extends Controller
 
 		$booking_status_list = DB::table('booking_status')->get();
 		$payment_status_list = DB::table('payment_status')->get();
-
 		$datalist = DB::table('booking_manages')
 			->join('rooms', 'booking_manages.roomtype_id', '=', 'rooms.id')
 			->join('payment_method', 'booking_manages.payment_method_id', '=', 'payment_method.id')
