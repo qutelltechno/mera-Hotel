@@ -134,9 +134,9 @@
                             </div>
                             @endif
 
-						@if($aRow->button_text != '')
+						{{-- @if($aRow->button_text != '')
 						<a href="{{ $row->url }}" class="btn theme-btn mb-4" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
-						@endif
+						@endif --}}
 					</div>
 
 				</div>
