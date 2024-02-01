@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="articles">
                                     <div class="entry">
-                                        @php echo$$transDescription[glan()]; @endphp
+                                        @php echo $transDescription[glan()]; @endphp
                                     </div>
                                 </div>
                             </div>
