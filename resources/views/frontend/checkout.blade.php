@@ -345,7 +345,7 @@
 								<div class="widget-title">{{ __('Contact') }}</div>
 								<div class="widget-body">
 									<p>{{ __('If you need any help, feel free to contact us.') }}</p>
-
+                                    <br>
 									@if($gtext['phone_footer'] != '')
 									<p><strong>{{ __('Phone')}}:</strong style="direction: ltr !important;"     ><strong style="direction: ltr !important;"> {!! nl2br($gtext['phone_footer']) !!}</strong></p>
 									{{-- <p><strong>{{ __('Phone')}}:</strong>

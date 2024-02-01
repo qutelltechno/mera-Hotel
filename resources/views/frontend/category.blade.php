@@ -221,7 +221,7 @@
                         </div>
                     @else
                         <div class="text-center   bottom: 8px;">
-                            <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
                         </div>
                     @endif
                 </div>
@@ -261,7 +261,7 @@
                         </div>
                     @else
                         <div class="text-center" >
-                            <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
                         </div>
                     @endif
 
@@ -297,7 +297,7 @@
                         </div>
                     @else
                         <div class="text-center ">
-                            <h1 style="font-size: 12px;" >لايوجد غرف حاليآ</h1>
+                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
                         </div>
                     @endif
 
@@ -335,7 +335,7 @@
                         </div>
                     @else
                         <div class="text-center  bottom: 8px;">
-                            <h1 style="font-size: 12px;">لايوجد غرف حاليآ</h1>
+                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
                         </div>
 
 
