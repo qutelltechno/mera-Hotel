@@ -102,7 +102,7 @@
 							</div>
 							<div class="row">
 
-								{{-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="form-group">
 										<label for="button_text">{{ __('Category') }}<span class="red">*</span></label>
                                         <select name="target" id="target" class="chosen-rtl form-control">
@@ -121,7 +121,7 @@
 											<option value="_blank">Blank</option>
 										</select>
 									</div>
-								</div> --}}
+								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="url">{{ __('URL') }}<span class="red">*</span></label>
