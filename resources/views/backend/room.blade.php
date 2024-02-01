@@ -162,15 +162,11 @@
 											</select>
 										</div>
 									</div>
-									<div class="col-lg-3">
+									<div class="col-lg-3 d-none">
 										<div class="form-group">
 											<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
 											<select name="lan"  class="chosen-rtl form-control">
-											{{-- @foreach($languageslist as $row)
-												<option {{ $row->language_code == $datalist['lan'] ? "selected=selected" : '' }} value="{{ $row->language_code }}">
-													{{ $row->language_name }}
-												</option>
-											@endforeach --}}
+
                                             @if ($curntLan==='ar')
                                             <option selected value="ar">
                                                 العربية
