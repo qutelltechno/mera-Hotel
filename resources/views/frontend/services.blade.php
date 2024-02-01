@@ -64,7 +64,7 @@
 						<h5>{{ __('Our Services') }}</h5>
 						<h2>{{ $our_services_section->title }}</h2>
 						@if($our_services_section->desc != '')
-						<p>{{ $our_services_section->desc }}</p>
+						<p class="text-black">{{ $our_services_section->desc }}</p>
 						@endif
 					</div>
 				</div>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col-9 bg-white p-4 mb-4" style="width:100%">
                         <h3>{{ $row->title }}</h3>
-                        <p class="paragraphe-text" style="height:210px;overflow:auto;">
+                        <p class="paragraphe-text text-black" style="height:210px;overflow:auto;">
                             {{ $row->desc }}.
                         </p>
                     </div>

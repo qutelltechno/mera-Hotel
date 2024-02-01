@@ -261,7 +261,7 @@
 											</div>
 											<div class="room-book-content">
 												<div class="room-title">
-													<a href="{{ route('frontend.room', [$rtdata->id, $rtdata->slug]) }}">{{ $rtdata->title }}</a>
+													<a href="{{ route('frontend.room', [$rtdata->id, $rtdata->slug]) }}"><span class="text-black">{{ $rtdata->title }}</span> </a>
 												</div>
 												<div class="room-price">
 													@if($rtdata->price != '')
@@ -273,16 +273,16 @@
 													@endif
 													@if(($rtdata->is_discount == 1) && ($rtdata->old_price !=''))
 														@if($gtext['currency_position'] == 'left')
-														<div class="old-price">{{ $gtext['currency_icon'] }}{{ NumberFormat($rtdata->old_price) }}</div>
+														<div class="old-price text-black">{{ $gtext['currency_icon'] }}{{ NumberFormat($rtdata->old_price) }}</div>
 														@else
-														<div class="old-price">{{ NumberFormat($rtdata->old_price) }}{{ $gtext['currency_icon'] }}</div>
+														<div class="old-price text-black">{{ NumberFormat($rtdata->old_price) }}{{ $gtext['currency_icon'] }}</div>
 														@endif
 													@endif
 													<div class="per-day-night">/ {{ __('Night') }}</div>
 												</div>
 												<ul class="room-meta">
-													<li>{{ __('Adult') }} {{ $rtdata->total_adult }}</li>
-													<li>{{ __('Child') }} {{ $rtdata->total_child }}</li>
+													<li class="text-black">{{ __('Adult') }} {{ $rtdata->total_adult }}</li>
+													<li class="text-black">{{ __('Child') }} {{ $rtdata->total_child }}</li>
 												</ul>
 											</div>
 										</div>
@@ -306,9 +306,9 @@
 										</div>
 										<div class="col-12 mb15">
 											<div class="r_extra">
-												<strong>{{ __('Availability') }}:</strong>
+												<strong class="text-black">{{ __('Availability') }}:</strong>
 												@if($total_room > 0)
-												<span class="instock">{{ $total_room }} {{ __('Room') }}</span>
+												<span class="instock  "   >{{ $total_room }} {{ __('Room') }}</span>
 												@else
 												<span class="stockout">{{ $total_room }} {{ __('Room') }}</span>
 												@endif
@@ -317,10 +317,10 @@
 										<div class="col-12 mb15" id="TotalPrice">
 											<table class="table total-price-card">
 												<tbody>
-													<tr><td><span class="title">{{ __('Subtotal') }}</span><span class="price">0</span></td></tr>
-													<tr><td><span class="title">{{ __('Tax') }}</span><span class="price">0</span></td></tr>
-													<tr><td><span class="title">{{ __('Discount') }}</span><span class="price">0</span></td></tr>
-													<tr><td><span class="title">{{ __('Total') }}</span><span class="price">0</span></td></tr>
+													<tr><td><span class="title text-black">{{ __('Subtotal') }}</span><span class="price">0</span></td></tr>
+													<tr><td><span class="title text-black">{{ __('Tax') }}</span><span class="price">0</span></td></tr>
+													<tr><td><span class="title text-black">{{ __('Discount') }}</span><span class="price">0</span></td></tr>
+													<tr><td><span class="title text-black">{{ __('Total') }}</span><span class="price">0</span></td></tr>
 												</tbody>
 											</table>
 										</div>
@@ -344,10 +344,10 @@
 							<div class="widget-card">
 								<div class="widget-title">{{ __('Contact') }}</div>
 								<div class="widget-body">
-									<p>{{ __('If you need any help, feel free to contact us.') }}</p>
+									<p class="text-black">{{ __('If you need any help, feel free to contact us.') }}</p>
                                     <br>
 									@if($gtext['phone_footer'] != '')
-									<p><strong>{{ __('Phone')}}:</strong style="direction: ltr !important;"     ><strong style="direction: ltr !important;"> {!! nl2br($gtext['phone_footer']) !!}</strong></p>
+									<p class="text-black"><strong>{{ __('Phone')}}:</strong style="direction: ltr !important;"     ><strong style="direction: ltr !important;"> {!! nl2br($gtext['phone_footer']) !!}</strong></p>
 									{{-- <p><strong>{{ __('Phone')}}:</strong>
                                         <span class=""style="direction: ltr !important;"  >
                                             <p>{!! nl2br($gtext['phone_footer']) !!}</p>
@@ -358,11 +358,11 @@
 									@endif
 
 									@if($gtext['email_footer'] != '')
-									<p><strong>{{ __('Email') }}:</strong> {{ $gtext['email_footer'] }}</p>
+									<p class="text-black"><strong>{{ __('Email') }}:</strong> {{ $gtext['email_footer'] }}</p>
 									@endif
 
 									@if($gtext['address_footer'] != '')
-																		<p class="mb0"><strong>{{ __('Address') }}:</strong> {{ $gtext['address_footer'] }}</p>
+																		<p class="mb0 text-black"><strong>{{ __('Address') }}:</strong> {{ $gtext['address_footer'] }}</p>
 									@endif
 								</div>
 							</div>
