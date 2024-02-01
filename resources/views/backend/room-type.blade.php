@@ -67,12 +67,12 @@
 								</div>
 							</div>
 							<div class="col-lg-3"></div>
-							<div class="col-lg-5">
+							{{-- <div class="col-lg-5">
 								<div class="form-group search-box">
 									<input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
 									<button type="submit" onClick="onSearch()" class="btn search-btn">{{ __('Search') }}</button>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<div id="tp_datalist">
 							@include('backend.partials.room_type_table')

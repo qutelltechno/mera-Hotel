@@ -42,7 +42,6 @@ class RoomsController extends Controller
 
 	//Get data for Room Type Pagination
 	public function getRoomTypeTableData(Request $request){
-
 		$search = $request->search;
 		$language_code = $request->language_code;
 		$category_id = $request->category_id;
@@ -50,11 +49,14 @@ class RoomsController extends Controller
 		if($request->ajax()){
 
 			if($search != ''){
+
 				$datalist = DB::table('rooms')
 					->join('tp_status', 'rooms.is_publish', '=', 'tp_status.id')
 					->join('languages', 'rooms.lan', '=', 'languages.language_code')
 					->join('categories', 'rooms.cat_id', '=', 'categories.id')
 					->select('rooms.*', 'categories.name as category_name', 'tp_status.status', 'languages.language_name')
+
+
 					->where(function ($query) use ($search){
 						$query->where('rooms.title', 'like', '%'.$search.'%')
 							->orWhere('categories.name', 'like', '%'.$search.'%')

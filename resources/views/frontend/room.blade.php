@@ -178,7 +178,7 @@ $translateTitle=json_decode($data->title,true);
 
 						@if(count($room_images)>0)
 						<div class="widget-card">
-							<div class="widget-title">Gallery View</div>
+							<div class="widget-title">{{ __('Gallery View') }}</div>
 							<div class="widget-body">
 								<ul class="gallery-card room_gallery_view">
 								@foreach ($room_images as $key => $row)

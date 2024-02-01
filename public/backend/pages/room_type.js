@@ -13,19 +13,19 @@ $(function () {
 	});
 
 	resetForm("DataEntry_formId");
-	
+
 	$("#submit-form").on("click", function () {
         $("#DataEntry_formId").submit();
     });
 
 	$(document).on('click', '.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onPaginationDataLoad(page);
 	});
-	
+
 	$('input:checkbox').prop('checked',false);
-	
+
     $(".checkAll").on("click", function () {
         $("input:checkbox").not(this).prop("checked", this.checked);
     });
@@ -41,18 +41,18 @@ $(function () {
 		onCategoryList();
 		onRefreshData();
 	});
-	
+
 	$("#category_id").val(0).trigger("chosen:updated");
 	$("#category_id").on("change", function () {
 		onRefreshData();
 	});
-	
+
 	$("#lan").chosen();
 	$("#lan").trigger("chosen:updated");
 	$("#lan").on("change", function () {
 		onCategoryListForform();
 	});
-	
+
 });
 
 function onCheckAll() {
@@ -105,7 +105,7 @@ function resetForm(id) {
     $('#' + id).each(function () {
         this.reset();
     });
-	
+
 	$("#lan").trigger("chosen:updated");
 }
 
@@ -120,16 +120,16 @@ function onFormPanel() {
 	RecordId = '';
 
 	$("#lan").trigger("chosen:updated");
-	
+
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
-	
+
 	onCategoryListForform();
 }
 
 function onEditPanel() {
     $('#list-panel, .btn-form').hide();
-    $('#form-panel, .btn-list').show();	
+    $('#form-panel, .btn-list').show();
 }
 
 function showPerslyError() {
@@ -162,7 +162,7 @@ function onConfirmWhenAddEdit() {
 		type : 'POST',
 		url: base_url + '/backend/saveRoomTypeData',
 		data: $('#DataEntry_formId').serialize(),
-		success: function (response) {			
+		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
 
@@ -175,7 +175,7 @@ function onConfirmWhenAddEdit() {
 			} else {
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
 	});
@@ -184,7 +184,7 @@ function onConfirmWhenAddEdit() {
 function onDelete(id) {
 	RecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmDelete");	
+	onCustomModal(msg, "onConfirmDelete");
 }
 
 function onConfirmDelete() {
@@ -203,7 +203,7 @@ function onConfirmDelete() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -220,14 +220,14 @@ function onBulkAction() {
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	BulkAction = $("#bulk-action").val();
 	if(BulkAction == ''){
 		var msg = TEXT["Please select action"];
 		onErrorMsg(msg);
 		return;
 	}
-	
+
 	if(BulkAction == 'publish'){
 		var msg = TEXT["Do you really want to publish this records"];
 	}else if(BulkAction == 'draft'){
@@ -235,8 +235,8 @@ function onBulkAction() {
 	}else if(BulkAction == 'delete'){
 		var msg = TEXT["Do you really want to delete this records"];
 	}
-	
-	onCustomModal(msg, "onConfirmBulkAction");	
+
+	onCustomModal(msg, "onConfirmBulkAction");
 }
 
 function onConfirmBulkAction() {
@@ -256,7 +256,7 @@ function onConfirmBulkAction() {
 			}else{
 				onErrorMsg(msg);
 			}
-			
+
 			onCheckAll();
 		}
     });
@@ -281,7 +281,7 @@ function onRoomSlug() {
 }
 
 function onCategoryList() {
-	
+
 	$.ajax({
 		type : 'POST',
 		url: base_url + '/backend/getCategoryList',
@@ -291,7 +291,7 @@ function onCategoryList() {
 			$.each(data, function (key, obj) {
 				html += '<option value="' + obj.id + '">' + obj.name + '</option>';
 			});
-			
+
 			$("#category_id").html(html);
 			$("#category_id").chosen();
 			$("#category_id").trigger("chosen:updated");
@@ -300,7 +300,7 @@ function onCategoryList() {
 }
 
 function onCategoryListForform() {
-	
+
 	$.ajax({
 		type : 'POST',
 		url: base_url + '/backend/getCategoryList',
@@ -310,7 +310,7 @@ function onCategoryListForform() {
 			$.each(data, function (key, obj) {
 				html += '<option value="' + obj.id + '">' + obj.name + '</option>';
 			});
-			
+
 			$("#categoryid").html(html);
 			$("#categoryid").chosen();
 			$("#categoryid").trigger("chosen:updated");
