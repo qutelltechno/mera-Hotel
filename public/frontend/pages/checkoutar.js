@@ -194,7 +194,7 @@ function onConfirmMakeOrder() {
 		url: base_url + '/frontend/send_booking_request',
 		data: $('#checkout_formid').serialize(),
 		beforeSend: function() {
-			$('.checkout_btn').html('<span class="spinner-border spinner-border-sm"></span> Please Wait...');
+			$('.checkout_btn').html('<span class="spinner-border spinner-border-sm"></span>من فضلك انتظر ');
 		},
 		success: function (response) {
 			var msgType = response.msgType;

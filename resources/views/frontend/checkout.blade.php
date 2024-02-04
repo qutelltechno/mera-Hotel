@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                          <div class="container">
-                                                           <div class="row">
-                                                            <div class="col-12">
-                                                             <div class="breadcrumb-card wow pulse">
-                                                              <h2>{{ __('Booking Request') }}</h2>
-                                                             </div>
-                                                            </div>
-                                                           </div>
-                                                          </div>
-                                                         </section> -->
+                                                                              <div class="container">
+                                                                               <div class="row">
+                                                                                <div class="col-12">
+                                                                                 <div class="breadcrumb-card wow pulse">
+                                                                                  <h2>{{ __('Booking Request') }}</h2>
+                                                                                 </div>
+                                                                                </div>
+                                                                               </div>
+                                                                              </div>
+                                                                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -315,7 +315,7 @@
 
                                                     <div class="room-price">
                                                         @if (glan() === 'ar')
-                                                            <div class="per-day-night ">&nbsp;   / {{ __('Night') }}
+                                                            <div class="per-day-night ">&nbsp; / {{ __('Night') }}
                                                             </div>
                                                         @endif
 
@@ -492,6 +492,7 @@
         var TEXT = [];
         TEXT['Please type valid card number'] = "{{ __('Please type valid card number') }}";
     </script>
+
     @if ($gtext['stripe_isenable'] == 1)
         <script src="https://js.stripe.com/v3/"></script>
         <script type="text/javascript">
@@ -509,5 +510,12 @@
             var razorpay_currency = "{{ $gtext['razorpay_currency'] }}";
         </script>
     @endif
-    <script src="{{ asset('public/frontend/pages/checkout.js') }}"></script>
+    @if (glan() === 'ar')
+        <script src="{{ asset('public/frontend/pages/checkoutar.js') }}"></script>
+    @else
+        <script src="{{ asset('public/frontend/pages/checkout.js') }}"></script>
+    @endif
+    {{-- <script>
+        window.trans = @json(app('translator')->get('messages'));
+    </script> --}}
 @endpush
