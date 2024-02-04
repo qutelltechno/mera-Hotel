@@ -71,7 +71,7 @@
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
                         class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li>
+                    {{-- <li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li> --}}
                     <li><a href="{{ route('backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
                 </ul>
             </li>
@@ -92,9 +92,9 @@
 			</ul>
 		</li> --}}
             <li><a href="{{ route('backend.media') }}"><i class="fa fa-picture-o"></i>{{ __('Media') }}</a></li>
-            <li><a id="active-settings" href="{{ route('backend.general') }}"><i
-                        class="fa fa-cogs"></i>{{ __('Settings') }}</a></li>
-            <li><a href="{{ route('backend.users') }}"><i class="fa fa-user-plus"></i>{{ __('Users') }}</a></li>
+            {{-- <li><a id="active-settings" href="{{ route('backend.general') }}"><i
+                        class="fa fa-cogs"></i>{{ __('Settings') }}</a></li> --}}
+            {{-- <li><a href="{{ route('backend.users') }}"><i class="fa fa-user-plus"></i>{{ __('Users') }}</a></li> --}}
         @elseif (Auth::user()->role_id == 3)
             <li><a href="{{ route('receptionist.dashboard') }}"><i
                         class="fa fa-tachometer"></i>{{ __('Dashboard') }}</a></li>
