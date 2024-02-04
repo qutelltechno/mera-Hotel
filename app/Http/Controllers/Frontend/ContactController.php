@@ -12,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
+
+    public function getContactUsData(){
+        return $this->getContactData('contact-us');
+    }
+
+
     //get Contact Data
     public function getContactData( $title){
 		$contact_id =6;

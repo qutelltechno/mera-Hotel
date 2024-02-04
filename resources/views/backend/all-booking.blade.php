@@ -20,7 +20,7 @@
 									<button type="button" onClick="onCSVExport()" class="btn btn-theme mb0 btn-padding"><i class="fa fa-download"></i> {{ __('CSV') }}</button>
 								</div>
 							</div>
-						</div>
+						    </div>
 					</div>
 					<!--Data grid-->
 					<div class="card-body">

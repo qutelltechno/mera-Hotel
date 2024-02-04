@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class RoomsController extends Controller
 {
+
+
+    public function getCategoryRoomsPage( )
+    {
+        return $this->getCategoryPage("hotel");
+    }
+    
     //get Category Page
     public function getCategoryPage( $title)
     {
