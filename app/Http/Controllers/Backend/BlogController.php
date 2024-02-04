@@ -108,8 +108,8 @@ class BlogController extends Controller
 
 		$rId = $id == '' ? '' : ','.$id;
 		$validator = Validator::make($validator_array, [
-			'titleen' => 'required|max:191',
-			'titlear' => 'required|max:191',
+			'titleen' => 'required',
+			'titlear' => 'required',
 			'slug' => 'required|max:191|unique:blogs,slug' . $rId,
 			'category' => 'required',
 			'language' => 'required',

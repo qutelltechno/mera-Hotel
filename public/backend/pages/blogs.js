@@ -241,6 +241,7 @@ function onConfirmWhenAddEdit() {
 				onListPanel();
 			} else {
 				onErrorMsg(msg);
+                console.log(msg);
 			}
 
 			onCheckAll();

@@ -4,29 +4,29 @@
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
-	<meta name="keywords" content="{{ $gtext['og_keywords'] }}" />
-	<meta name="description" content="{{ $gtext['og_description'] }}" />
-	<meta property="og:title" content="{{ $gtext['og_title'] }}" />
-	<meta property="og:site_name" content="{{ $gtext['site_name'] }}" />
-	<meta property="og:description" content="{{ $gtext['og_description'] }}" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="{{ url()->current() }}" />
-	<meta property="og:image" content="{{ asset('public/media/'.$gtext['og_image']) }}" />
-	<meta property="og:image:width" content="600" />
+    <meta name="keywords" content="{{ $gtext['og_keywords'] }}" />
+    <meta name="description" content="{{ $gtext['og_description'] }}" />
+    <meta property="og:title" content="{{ $gtext['og_title'] }}" />
+    <meta property="og:site_name" content="{{ $gtext['site_name'] }}" />
+    <meta property="og:description" content="{{ $gtext['og_description'] }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset('public/media/' . $gtext['og_image']) }}" />
+    <meta property="og:image:width" content="600" />
 
-	<meta property="og:image:height" content="315" />
-	@if($gtext['fb_publish'] == 1)
-	<meta name="fb:app_id" property="fb:app_id" content="{{ $gtext['fb_app_id'] }}" />
-	@endif
-	<meta name="twitter:card" content="summary_large_image">
-	@if($gtext['twitter_publish'] == 1)
-	<meta name="twitter:site" content="{{ $gtext['twitter_id'] }}">
-	<meta name="twitter:creator" content="{{ $gtext['twitter_id'] }}">
-	@endif
-	<meta name="twitter:url" content="{{ url()->current() }}">
-	<meta name="twitter:title" content="{{ $gtext['og_title'] }}">
-	<meta name="twitter:description" content="{{ $gtext['og_description'] }}">
-	<meta name="twitter:image" content="{{ asset('public/media/'.$gtext['og_image']) }}">
+    <meta property="og:image:height" content="315" />
+    @if ($gtext['fb_publish'] == 1)
+        <meta name="fb:app_id" property="fb:app_id" content="{{ $gtext['fb_app_id'] }}" />
+    @endif
+    <meta name="twitter:card" content="summary_large_image">
+    @if ($gtext['twitter_publish'] == 1)
+        <meta name="twitter:site" content="{{ $gtext['twitter_id'] }}">
+        <meta name="twitter:creator" content="{{ $gtext['twitter_id'] }}">
+    @endif
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="{{ $gtext['og_title'] }}">
+    <meta name="twitter:description" content="{{ $gtext['og_description'] }}">
+    <meta name="twitter:image" content="{{ asset('public/media/' . $gtext['og_image']) }}">
     <meta name="keywords" content="{{ $gtext['og_keywords'] }}" />
     <meta name="description" content="{{ $gtext['og_description'] }}" />
     <meta property="og:title" content="{{ $gtext['og_title'] }}" />
@@ -59,16 +59,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- 	<section class="breadcrumb-section" style="background-image: url({{ $gtext['contact_bg'] ? asset('public/media/' . $gtext['contact_bg']) : '' }});">
-      <div class="container">
-       <div class="row">
-        <div class="col-12">
-         <div class="breadcrumb-card wow pulse">
-          <h2>{{ $data['title'] }}</h2>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section> -->
+          <div class="container">
+           <div class="row">
+            <div class="col-12">
+             <div class="breadcrumb-card wow pulse">
+              <h2>{{ $data['title'] }}</h2>
+             </div>
+            </div>
+           </div>
+          </div>
+         </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -113,7 +113,7 @@
                                             <div class="desc "class="text-dark">
                                                 <span>{{ __('Phone') }}</span>
                                                 <br>
-                                                <span class="" style="direction: ltr !important;" >
+                                                <span class="" style="direction: ltr !important;">
                                                     <p>{!! nl2br($contact_info->phone) !!}</p>
                                                 </span>
 
@@ -157,24 +157,20 @@
                                                         <label for="{{ str_slug($row->name) }}">{{ $row->label }}
                                                             @php echo $row->mandatory == 'yes' ? '<span class="red">*</span>' : ''; @endphp</label>
                                                     @endif
-                                                    @if($row->type == 'text')
+                                                    @if ($row->type == 'text')
                                                         <input type="text" name="{{ str_slug($row->name) }}"
                                                             id="{{ str_slug($row->name) }}"
                                                             placeholder="{{ $row->name == 'Name' ? __('Name') : __('Subject') }}"
-
-															{{-- placeholder="@lang($row->placeholder == 'text' ? 'Enter your message' : 'Enter the subject')"
+                                                            {{-- placeholder="@lang($row->placeholder == 'text' ? 'Enter your message' : 'Enter the subject')"
                                                             placeholder="@lang($row->placeholder == 'text' ? 'ادخل الرساله' : 'ادخل الموضوع')"  --}}
-
                                                             class="form-control {{ $row->mandatory == 'yes' ? 'parsley-validated' : '' }}"
                                                             {{ $row->mandatory == 'yes' ? 'data-required="true"' : '' }}>
-
                                                     @elseif($row->type == 'email')
                                                         <input type="email" name="{{ str_slug($row->name) }}"
                                                             id="{{ str_slug($row->name) }}"
                                                             placeholder="{{ __('Email Address') }}"
                                                             class="form-control {{ $row->mandatory == 'yes' ? 'parsley-validated' : '' }}"
                                                             {{ $row->mandatory == 'yes' ? 'data-required="true"' : '' }}>
-
                                                     @elseif($row->type == 'dropdown')
                                                         <select name="{{ str_slug($row->name) }}"
                                                             id="{{ str_slug($row->name) }}"
@@ -235,49 +231,49 @@
                         <div class="row">
                             {{-- @dd($hotels) --}}
                             @foreach ($hotels as $hotel)
-                                @if($hotel->is_main==0)
-                                <div class="col-12 col-sm-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
-                                    <h4 class=" text-center text-dark"> {{ $hotel->name }} </h4>
+                                @if ($hotel->is_main == 0)
+                                    <div class="col-12 col-sm-12 col-lg-4 col-xl-4 col-xxl-4 p-2">
+                                        <h4 class=" text-center text-dark"> {{ $hotel->name }} </h4>
 
-                                    <div class=" bg-white p-5 rounded " style="">
-                                        <div class="info">
-                                            <span class="icon iconc">
-                                                <i class="bi bi-envelope-paper"></i>
-                                            </span>
-                                            <div class="desc">
-                                                <span>{{ __('Email Address') }}</span>
-                                                <p><a href="mailto:" style="color:#000">{{ $hotel->email }}</a></p>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <span class="icon iconc">
-                                                <i class="bi bi-telephone"></i>
-                                            </span>
-                                            <div class="desc "class="text-dark">
-                                                <span>{{ __('Phone') }}</span>
-                                                <br>
-                                                <span style="direction: ltr !important;" >
-                                                    <p >{{ $hotel->phone }}</p>
+                                        <div class=" bg-white p-5 rounded " style="">
+                                            <div class="info">
+                                                <span class="icon iconc">
+                                                    <i class="bi bi-envelope-paper"></i>
                                                 </span>
+                                                <div class="desc">
+                                                    <span>{{ __('Email Address') }}</span>
+                                                    <p><a href="mailto:" style="color:#000">{{ $hotel->email }}</a></p>
+                                                </div>
                                             </div>
-                                        </div>
-
-
-                                        <div class="info">
-                                            <span class="icon iconc">
-                                                <i class="bi bi-geo-alt"></i>
-                                            </span>
-                                            <div class="desc">
-                                                <span>{{ __('Address') }}</span>
-                                                <p>{{ $hotel->address }}</p>
+                                            <div class="info">
+                                                <span class="icon iconc">
+                                                    <i class="bi bi-telephone"></i>
+                                                </span>
+                                                <div class="desc "class="text-dark">
+                                                    <span>{{ __('Phone') }}</span>
+                                                    <br>
+                                                    <span style="direction: ltr !important;">
+                                                        <p>{{ $hotel->phone }}</p>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
 
+
+                                            <div class="info">
+                                                <span class="icon iconc">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                </span>
+                                                <div class="desc">
+                                                    <span>{{ __('Address') }}</span>
+                                                    <p>{{ $hotel->address }}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <iframe src="{{ $hotel->map }}" width="100%" height="200px"
+                                            style="border:0;" allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                                     </div>
-                                    <iframe src="{{ $hotel->map }}" width="100%" height="200px" style="border:0;"
-                                        allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
                                 @endif
                             @endforeach
 
@@ -365,5 +361,3 @@
     </script>
     <script src="{{ asset('public/frontend/pages/contact_us.js') }}"></script>
 @endpush
-
-
