@@ -166,6 +166,7 @@ function onConfirmWhenAddEdit() {
 				onSuccessMsg(msg);
 				onListPanel();
 			} else {
+                console.log("Error")
 				onErrorMsg(msg);
 			}
 

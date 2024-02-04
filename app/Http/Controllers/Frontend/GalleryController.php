@@ -14,7 +14,8 @@ class GalleryController extends Controller
     public function getgalleryPage(){
         $lan = glan();
 
-        $spa = Offer_ad::where('lan', $lan)->where('desc->button_text', 'spa')->orderBy('id', 'asc')->get();
+        // $spa = Offer_ad::where('lan', $lan)->where('desc->button_text', 'spa')->orderBy('id', 'asc')->get();
+        $spa = Offer_ad::where('desc->button_text', 'spa')->orderBy('id', 'asc')->get();
         $restaurants = Offer_ad::where('lan', $lan)->where('desc->button_text', 'restaurant')->orderBy('id', 'asc')->get();
         $rooms = Offer_ad::where('lan', $lan)->where('desc->button_text', 'room')->orderBy('id', 'asc')->get();
 
