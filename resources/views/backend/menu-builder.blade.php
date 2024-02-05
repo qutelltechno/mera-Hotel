@@ -162,7 +162,7 @@
 							<div class="col-lg-6">
 								<div class="float-right">
 									<a onclick="onSortableItemList()" href="javascript:void(0);" class="btn blue-btn mt5 mr-10">{{ __('Save Menu') }}</a>
-									<a href="{{ route('backend.menu') }}" class="btn warning-btn mt5"><i class="fa fa-reply"></i> {{ __('Back to List') }}</a>
+									<a href="{{ route('super.backend.menu') }}" class="btn warning-btn mt5"><i class="fa fa-reply"></i> {{ __('Back to List') }}</a>
 								</div>
 							</div>
 						</div>
