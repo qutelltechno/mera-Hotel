@@ -763,7 +763,7 @@ Route::prefix('backend')->group(function () {
     Route::post('/bulkActionSlider', [App\Http\Controllers\Backend\HomeSliderController::class, 'bulkActionSlider'])->name('backend.bulkActionSlider')->middleware(['auth', 'is_admin']);
 
     //About Us
-    Route::get('/about-us', [App\Http\Controllers\Backend\AboutUsController::class, 'getAboutUsPageLoad'])->name('backend.about-us')->middleware(['auth', 'is_admin']);
+    // Route::get('/about-us', [App\Http\Controllers\Backend\AboutUsController::class, 'getAboutUsPageLoad'])->name('backend.about-us')->middleware(['auth', 'is_admin']);
     Route::get('/getAboutUsTableData', [App\Http\Controllers\Backend\AboutUsController::class, 'getAboutUsTableData'])->name('backend.getAboutUsTableData')->middleware(['auth', 'is_admin']);
     Route::post('/saveAboutUsData', [App\Http\Controllers\Backend\AboutUsController::class, 'saveAboutUsData'])->name('backend.saveAboutUsData')->middleware(['auth', 'is_admin']);
     Route::post('/getAboutUsById', [App\Http\Controllers\Backend\AboutUsController::class, 'getAboutUsById'])->name('backend.getAboutUsById')->middleware(['auth', 'is_admin']);

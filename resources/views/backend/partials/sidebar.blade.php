@@ -47,7 +47,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('backend.Hotel') }}">{{ __('Hotels') }}</a></li>
                     <li><a href="{{ route('backend.slider') }}">{{ __('Slider/Hero Section') }}</a></li>
-                    <li><a href="{{ route('backend.about-us') }}">{{ __('About Us') }}</a></li>
+                    {{-- <li><a href="{{ route('backend.about-us') }}">{{ __('About Us') }}</a></li> --}}
                     <li><a href="{{ route('backend.our-services') }}">{{ __('Our Services') }}</a></li>
                     <li><a href="{{ route('backend.home-video') }}">{{ __('Video Section') }}</a></li>
                     {{-- <li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li> --}}
