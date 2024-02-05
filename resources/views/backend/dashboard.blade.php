@@ -215,7 +215,7 @@
                         </div>
                         @if (Auth::user()->role_id == 4)
                         <span class="btn-view">
-                            <a href="{{ route('backend.users') }}"><i class="fa fa-eye"></i>{{ __('View') }}</a>
+                            <a href="{{ route('super.backend.users') }}"><i class="fa fa-eye"></i>{{ __('View') }}</a>
                         </span>
                         @else
 

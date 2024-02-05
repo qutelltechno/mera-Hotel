@@ -116,8 +116,6 @@
                 @csrf
             </form>
         @elseif (Auth::user()->role_id == 4)
-
-
             <li><a href="{{ route('super.backend.dashboard') }}"><i
                         class="fa fa-tachometer"></i>{{ __('Dashboard') }}</a></li>
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
@@ -200,7 +198,7 @@
 		</li> --}}
             <li><a href="{{ route('super.backend.media') }}"><i
                         class="fa fa-picture-o"></i>{{ __('Media') }}</a></li>
-            <li><a id="active-settings" href="{{ route('backend.general') }}"><i
+            <li><a id="active-settings" href="{{ route('super.backend.general') }}"><i
                         class="fa fa-cogs"></i>{{ __('Settings') }}</a></li>
             <li><a href="{{ route('super.backend.users') }}"><i
                         class="fa fa-user-plus"></i>{{ __('Users') }}</a></li>
