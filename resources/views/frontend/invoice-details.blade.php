@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['booking_bg'] ? asset('public/media/' . $gtext['booking_bg']) : '' }});">
-                          <div class="container">
-                           <div class="row">
-                            <div class="col-12">
-                             <div class="breadcrumb-card wow pulse">
-                              <h2>{{ __('Invoice Details') }}</h2>
-                             </div>
-                            </div>
-                           </div>
-                          </div>
-                         </section> -->
+                                              <div class="container">
+                                               <div class="row">
+                                                <div class="col-12">
+                                                 <div class="breadcrumb-card wow pulse">
+                                                  <h2>{{ __('Invoice Details') }}</h2>
+                                                 </div>
+                                                </div>
+                                               </div>
+                                              </div>
+                                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -69,21 +69,40 @@
                                             <p class="mb5">{{ $mdata['customer_email'] }}</p>
                                             <p class="mb5">{{ $mdata['customer_phone'] }}</p>
                                         </div>
-                                        <div class="col-lg-6 mb10 order_status ">
-                                            <p class="mb10"><strong>{{ __('Booking No') }}</strong>:
-                                                {{ $mdata['booking_no'] }}</p>
-                                            <p class="mb10"><strong>{{ __('Booking Date') }}</strong>:
-                                                {{ date('d-m-Y', strtotime($mdata['created_at'])) }}</p>
-                                            <p class="mb10"><strong>{{ __('Payment Method') }}</strong>:
-                                                {{ $mdata['method_name'] }}</p>
-                                            <p class="mb10"><strong>{{ __('Payment Status') }}</strong>: <span
-                                                    class="status_btn pstatus_{{ $mdata['payment_status_id'] }}">{{ $mdata['pstatus_name'] }}</span>
-                                            </p>
-                                            <br>
-                                            <p class="mb10"><strong>{{ __('Booking Status') }}</strong>: <span
-                                                    class="status_btn ostatus_{{ $mdata['booking_status_id'] }}">{{ $mdata['bstatus_name'] }}</span>
-                                            </p>
-                                        </div>
+                                        @if (glan() == 'en')
+                                            <div class="col-lg-6 mb10 order_status order_st_en ">
+                                                <p class="mb10"><strong>{{ __('Booking No') }}</strong>:
+                                                    {{ $mdata['booking_no'] }}</p>
+                                                <p class="mb10"><strong>{{ __('Booking Date') }}</strong>:
+                                                    {{ date('d-m-Y', strtotime($mdata['created_at'])) }}</p>
+                                                <p class="mb10"><strong>{{ __('Payment Method') }}</strong>:
+                                                    {{ $mdata['method_name'] }}</p>
+                                                <p class="mb10"><strong>{{ __('Payment Status') }}</strong>: <span
+                                                        class="status_btn pstatus_{{ $mdata['payment_status_id'] }}">{{ $mdata['pstatus_name'] }}</span>
+                                                </p>
+                                                <br>
+                                                <p class="mb10"><strong>{{ __('Booking Status') }}</strong>: <span
+                                                        class="status_btn ostatus_{{ $mdata['booking_status_id'] }}">{{ $mdata['bstatus_name'] }}</span>
+                                                </p>
+                                            </div>
+                                        @else
+                                            <div class="col-lg-6 mb10 order_status order_st_ar ">
+                                                <p class="mb10"><strong>{{ __('Booking No') }}</strong>:
+                                                    {{ $mdata['booking_no'] }}</p>
+                                                <p class="mb10"><strong>{{ __('Booking Date') }}</strong>:
+                                                    {{ date('d-m-Y', strtotime($mdata['created_at'])) }}</p>
+                                                <p class="mb10"><strong>{{ __('Payment Method') }}</strong>:
+                                                    {{ $mdata['method_name'] }}</p>
+                                                <p class="mb10"><strong>{{ __('Payment Status') }}</strong>: <span
+                                                        class="status_btn pstatus_{{ $mdata['payment_status_id'] }}">{{ $mdata['pstatus_name'] }}</span>
+                                                </p>
+                                                <br>
+                                                <p class="mb10"><strong>{{ __('Booking Status') }}</strong>: <span
+                                                        class="status_btn ostatus_{{ $mdata['booking_status_id'] }}">{{ $mdata['bstatus_name'] }}</span>
+                                                </p>
+                                            </div>
+                                        @endif
+
                                     </div>
                                     <div class="row mt15">
                                         <div class="col-lg-12">
