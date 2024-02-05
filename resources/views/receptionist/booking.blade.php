@@ -19,7 +19,7 @@
 						<li class="order_no_date"><strong>{{ __('Booking Date') }}</strong>: {{ date('d-m-Y', strtotime($mdata->created_at)) }}</li>
 						<li class="order_no_date"><strong>{{ __('Payment Method') }}</strong>: {{ $mdata->method_name }}</li>
 						<li id="payment_status_class" class="pstatus_{{ $mdata->payment_status_id }}"><strong>{{ __('Payment Status') }}</strong>: <span id="pstatus_name">{{ $mdata->pstatus_name }}</span></li>
-						<li style="  height: auto; width: auto;" id="order_status_class" class="ostatus_{{ $mdata->booking_status_id }}"><strong>{{ __('Booking Status') }}</strong>: <span id="ostatus_name">{{ $mdata->bstatus_name }}</span></li>
+						<li  style=" display: flex;  width: auto; height:auto;" id="order_status_class" class="ostatus_{{ $mdata->booking_status_id }}"><strong>{{ __('Booking Status') }}</strong>: <span id="ostatus_name">{{ $mdata->bstatus_name }}</span></li>
 					</ul>
 					</div>
 				</div>
