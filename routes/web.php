@@ -819,16 +819,16 @@ Route::prefix('backend')->group(function () {
     Route::post('/bulkActionSectionManage', [App\Http\Controllers\Backend\SectionManageController::class, 'bulkActionSectionManage'])->name('backend.bulkActionSectionManage')->middleware(['auth', 'is_admin']);
 
     //Theme Logo
-    Route::get('/theme-options', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsPageLoad'])->name('backend.theme-options')->middleware(['auth', 'is_admin']);
-    Route::post('/saveThemeLogo', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveThemeLogo'])->name('backend.saveThemeLogo')->middleware(['auth', 'is_admin']);
+    // Route::get('/theme-options', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsPageLoad'])->name('backend.theme-options')->middleware(['auth', 'is_admin']);
+    // Route::post('/saveThemeLogo', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveThemeLogo'])->name('backend.saveThemeLogo')->middleware(['auth', 'is_admin']);
 
     //Theme Options Header
-    Route::get('/theme-options-header', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsHeaderPageLoad'])->name('backend.theme-options-header')->middleware(['auth', 'is_admin']);
-    Route::post('/saveThemeOptionsHeader', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveThemeOptionsHeader'])->name('backend.saveThemeOptionsHeader')->middleware(['auth', 'is_admin']);
+    // Route::get('/theme-options-header', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getThemeOptionsHeaderPageLoad'])->name('backend.theme-options-header')->middleware(['auth', 'is_admin']);
+    // Route::post('/saveThemeOptionsHeader', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveThemeOptionsHeader'])->name('backend.saveThemeOptionsHeader')->middleware(['auth', 'is_admin']);
 
     //Subheader BG Images
-    Route::get('/subheader-images', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getSubheaderBGImagesPageLoad'])->name('backend.subheader-images')->middleware(['auth', 'is_admin']);
-    Route::post('/saveSubheaderBGImages', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveSubheaderBGImages'])->name('backend.saveSubheaderBGImages')->middleware(['auth', 'is_admin']);
+    // Route::get('/subheader-images', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getSubheaderBGImagesPageLoad'])->name('backend.subheader-images')->middleware(['auth', 'is_admin']);
+    // Route::post('/saveSubheaderBGImages', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'saveSubheaderBGImages'])->name('backend.saveSubheaderBGImages')->middleware(['auth', 'is_admin']);
 
     //Language Switcher
     Route::get('/language-switcher', [App\Http\Controllers\Backend\ThemeOptionsController::class, 'getLanguageSwitcher'])->name('backend.language-switcher')->middleware(['auth', 'is_admin']);

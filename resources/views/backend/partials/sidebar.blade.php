@@ -68,13 +68,13 @@
 				<li><a href="{{ route('backend.blog-categories') }}">{{ __('Categories') }}</a></li>
 			</ul>
 		</li> --}}
-            <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
+            {{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
                         class="fa fa-wrench"></i>{{ __('Appearance') }}</a>
                 <ul class="dropdown-menu">
-                    {{-- <li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li> --}}
+                    <li><a href="{{ route('backend.menu') }}">{{ __('Menu') }}</a></li>
                     <li><a href="{{ route('backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
             {{-- <li><a href="{{ route('backend.customers') }}"><i class="fa fa-users"></i>{{ __('Customers') }}</a></li> --}}
             {{-- <li><a href="{{ route('backend.contact') }}"><i class="fa fa-envelope"></i>{{ __('Contact') }}</a></li> --}}
