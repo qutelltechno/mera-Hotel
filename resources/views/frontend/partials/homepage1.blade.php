@@ -31,7 +31,7 @@
 
 
             <div class="search-card ">
-                <div class="col-md-3 col-sm-12  mx-lg-5 shadow">
+                <div class="col-lg-3 col-md-12 mx-lg-5 shadow">
                     <div class="search-card-inner wow fadeIn">
 
                         <h2 class="text-center">{{ __('Booking Your Hotel') }}</h2>
@@ -82,7 +82,7 @@
             </div>
             <div class="row">
                 @foreach ($hotels as $hotel)
-                    <div class="d-flex flex-column col-lg-3 col-md-6 col-sm-12 align-self-stretch">
+                    <div class="d-flex flex-column col-lg-3 col-md-6 col-sm-12 align-self-stretch py-3">
                         <div>
                             <img src="{{ asset('public/frontend/images/hotels/') . '/' . $hotel->image }}"
                                 style="height:200px">
@@ -90,10 +90,10 @@
                         <div class="d-flex flex-column col-9 shadow p-4 bg-white justify-content-between"
                             style="width: 100%; flex: 1 1 auto; ">
                             <div class="">
-                                    <h3>{{ $hotel->name }}</h3>
-                                    <p class="paragraphe-text text-black">
-                                        {{ $hotel->description }}
-                                    </p>
+                                <h3>{{ $hotel->name }}</h3>
+                                <p class="paragraphe-text text-black">
+                                    {{ $hotel->description }}
+                                </p>
                             </div>
 
                             <div class="social-media mt25 mt-2">
@@ -341,7 +341,8 @@
                                     <h2>{{ $row->title }}</h2>
                                 </div>
                                 @if ($aRow->description != '')
-                                    <p  class ="mb20 text-black" style="text-align: justify">{{ $aRow->description }}</p>
+                                    <p class ="mb20 text-black" style="text-align: justify">{{ $aRow->description }}
+                                    </p>
                                 @endif
                                 <hr>
                                 @if (glan() == 'ar')
@@ -357,7 +358,8 @@
 
                                     <div class="about-title">
                                         <h5>القـيــــــم</h5>
-                                        <p class="text-black" >بدأت سلسلة فنادق ميرا بالاتساع لتغطي مدينتي الرياض وجدة بأربعة فنادق فاخرة
+                                        <p class="text-black">بدأت سلسلة فنادق ميرا بالاتساع لتغطي مدينتي الرياض وجدة
+                                            بأربعة فنادق فاخرة
                                             تقدم لنزلائها الكرام عددا كبيراً من الغرف والأجنحة الراقية المتنوعة التي
                                             تُناسب متطلبات مختلف شرائح النُزلاء، وقد نبحث في إعطاء افضل الانطباعات
                                             الإيجابية لديهم عن خدماتها المميزة.</p>
@@ -365,7 +367,8 @@
 
                                     <div class="about-title">
                                         <h5>باقة متكاملة من الخدمات</h5>
-                                        <p class="text-black">الاهتمام بالتفاصيل هو إحدى علاماتنا الفارقة، فبالإضافة إلى الإقامة المريحة
+                                        <p class="text-black">الاهتمام بالتفاصيل هو إحدى علاماتنا الفارقة، فبالإضافة
+                                            إلى الإقامة المريحة
                                             المُترفة، تقدم فنادق ميرا باقة متكاملة من الخدمات الفندقية الإضافية، كغرف
                                             الاجتماعات، ومواقف السيارات، والنوادي الصحية والرياضية بما في
                                             ذلك المسابح وقاعات المساج والسبا.
@@ -374,7 +377,8 @@
                                 @else
                                     <div class="about-title">
                                         <h5>Our Vision Leads Our Work</h5>
-                                        <p class="text-black">Mira Hotels have a clear vision to serve you. Aiming to be one of the largest
+                                        <p class="text-black">Mira Hotels have a clear vision to serve you. Aiming to
+                                            be one of the largest
                                             companies operating in hotel sector, relying on its high hotel experience,
                                             accurate future studies and attracting most important administrative and
                                             executive cadres.</p>
@@ -382,7 +386,8 @@
 
                                     <div class="about-title">
                                         <h5>Our Values</h5>
-                                        <p class="text-black">The Mira Hotel chain has grown to cover cities of Riyadh and Jeddah with four
+                                        <p class="text-black">The Mira Hotel chain has grown to cover cities of Riyadh
+                                            and Jeddah with four
                                             luxury hotels offering guests large number of rooms and suites that match
                                             all needs of various guest segments, Mira Hotel chain succeeded to give
                                             guests the best impressions of services.</p>
@@ -390,7 +395,8 @@
 
                                     <div class="about-title">
                                         <h5>Perfect Package Of Services</h5>
-                                        <p class="text-black">Concerning about detail is one of our distinguishing marks. In addition to
+                                        <p class="text-black">Concerning about detail is one of our distinguishing
+                                            marks. In addition to
                                             the comfortable and luxurious accommodation, Mira offers perfect package of
                                             additional hotel services such as meeting rooms, parking, health and sports
                                             clubs including swimming pools, massage rooms and spa</p>
