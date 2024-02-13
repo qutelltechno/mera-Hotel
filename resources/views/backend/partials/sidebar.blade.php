@@ -37,7 +37,7 @@
                     <li><a href="{{ route('backend.bed-types') }}">{{ __('Bed Types') }}</a></li>
                     <li><a href="{{ route('backend.tax') }}">{{ __('Tax') }}</a></li>
                     <li><a href="{{ route('backend.currency') }}">{{ __('Currency') }}</a></li>
-                    <li><a href="{{ route('backend.payment-methods') }}">{{ __('Payment Methods') }}</a></li>
+                    {{-- <li><a href="{{ route('backend.payment-methods') }}">{{ __('Payment Methods') }}</a></li> --}}
                     <li><a href="{{ route('backend.countries') }}">{{ __('Countries') }}</a></li>
                 </ul>
             </li>
