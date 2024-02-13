@@ -96,7 +96,7 @@
                                 </p>
                             </div>
 
-                            <div class="social-media mt25 mt-2">
+                            <div class="social-media mt25 mt-2 d-none">
                                 <div class="social-media mt25 mt-2">
                                     <a href="{{ $hotel->facebook }}" target="_blank"><i class="bi bi-facebook"></i></a>
                                     <a href="{{ $hotel->twitter }}" target="_blank"><i class="bi bi-twitter"> </i></a>
