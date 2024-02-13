@@ -14,7 +14,7 @@ class AmenitiesController extends Controller
     public function getAmenitiesPageLoad() {
 
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
-		
+
 		$datalist = DB::table('amenities')
 			->join('tp_status', 'amenities.is_publish', '=', 'tp_status.id')
 			->select('amenities.*', 'tp_status.status')
@@ -23,16 +23,16 @@ class AmenitiesController extends Controller
 
         return view('backend.amenities', compact('statuslist', 'datalist'));
     }
-	
+
 	//Get data for Amenities Pagination
 	public function getAmenitiesTableData(Request $request){
 
 		$search = $request->search;
-		
+
 		if($request->ajax()){
 
 			if($search != ''){
-				
+
 				$datalist = DB::table('amenities')
 					->join('tp_status', 'amenities.is_publish', '=', 'tp_status.id')
 					->select('amenities.*', 'tp_status.status')
@@ -42,7 +42,7 @@ class AmenitiesController extends Controller
 					->orderBy('amenities.id','desc')
 					->paginate(10);
 			}else{
-				
+
 				$datalist = DB::table('amenities')
 					->join('tp_status', 'amenities.is_publish', '=', 'tp_status.id')
 					->select('amenities.*', 'tp_status.status')
@@ -53,33 +53,44 @@ class AmenitiesController extends Controller
 			return view('backend.partials.amenities_table', compact('datalist'))->render();
 		}
 	}
-	
+
 	//Save data for Amenities
     public function saveAmenitiesData(Request $request){
 		$res = array();
-		
+
 		$id = $request->input('RecordId');
-		$name = $request->input('name');
+		$name_en = $request->input('name_en');
+		$name_ar = $request->input('name_ar');
 		$is_publish = $request->input('is_publish');
-		
+
 		$validator_array = array(
-			'name' => $request->input('name')
+			'name_en' => $request->input('name_en'),
+			'name_ar' => $request->input('name_ar')
 		);
-		
+
 		$validator = Validator::make($validator_array, [
-			'name' => 'required|max:191'
+			'name_en' => 'required|max:191',
+			'name_ar' => 'required|max:191'
 		]);
 
 		$errors = $validator->errors();
 
-		if($errors->has('name')){
+		if($errors->has('name_en')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('name');
+			$res['msg'] = $errors->first('name_en');
+			return response()->json($res);
+		}
+        if($errors->has('name_ar')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('name_ar');
 			return response()->json($res);
 		}
 
 		$data = array(
-			'name' => $name,
+			'name' => [
+                'en'=>  $name_en,
+                'ar'=>  $name_ar,
+            ],
 			'is_publish' => $is_publish
 		);
 
@@ -102,23 +113,23 @@ class AmenitiesController extends Controller
 				$res['msg'] = __('Data update failed');
 			}
 		}
-		
+
 		return response()->json($res);
     }
-	
+
 	//Get data for Amenity by id
     public function getAmenityById(Request $request){
 
 		$id = $request->id;
-		
+
 		$data = Amenity::where('id', $id)->first();
-		
+
 		return response()->json($data);
 	}
-	
+
 	//Delete data for Amenity
 	public function deleteAmenity(Request $request){
-		
+
 		$res = array();
 
 		$id = $request->id;
@@ -133,18 +144,18 @@ class AmenitiesController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
-	
+
 	//Bulk Action for Amenity
 	public function bulkActionAmenity(Request $request){
-		
+
 		$res = array();
 
 		$idsStr = $request->ids;
 		$idsArray = explode(',', $idsStr);
-		
+
 		$BulkAction = $request->BulkAction;
 
 		if($BulkAction == 'publish'){
@@ -156,9 +167,9 @@ class AmenitiesController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'draft'){
-			
+
 			$response = Amenity::whereIn('id', $idsArray)->update(['is_publish' => 2]);
 			if($response){
 				$res['msgType'] = 'success';
@@ -167,7 +178,7 @@ class AmenitiesController extends Controller
 				$res['msgType'] = 'error';
 				$res['msg'] = __('Data update failed');
 			}
-			
+
 		}elseif($BulkAction == 'delete'){
 			$response = Amenity::whereIn('id', $idsArray)->delete();
 			if($response){
@@ -178,7 +189,7 @@ class AmenitiesController extends Controller
 				$res['msg'] = __('Data remove failed');
 			}
 		}
-		
+
 		return response()->json($res);
 	}
 }

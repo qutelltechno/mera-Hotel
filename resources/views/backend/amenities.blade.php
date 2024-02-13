@@ -57,11 +57,16 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="name">{{ __('Amenity') }}<span class="red">*</span></label>
-										<input type="text" name="name" id="name" class="form-control parsley-validated" data-required="true">
+										<label for="name_en">Amenity<span class="red">*</span></label>
+										<input type="text" name="name_en" id="name_en" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-								<div class="col-md-6"></div>
+								<div class="col-md-6">
+                                    <div class="form-group">
+										<label for="name_ar">وسائل الراحة<span class="red">*</span></label>
+										<input type="text" name="name_ar" id="name_ar" class="form-control parsley-validated" data-required="true">
+									</div>
+                                </div>
 							</div>
 							<div class="row">
 								<div class="col-md-4">
