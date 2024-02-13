@@ -99,7 +99,7 @@
                             <div class="social-media mt25 mt-2">
                                 <div class="social-media mt25 mt-2">
                                     <a href="{{ $hotel->facebook }}" target="_blank"><i class="bi bi-facebook"></i></a>
-                                    <a href="{{ $hotel->twitter }}" target="_blank"><i class="bi bi-twitter"></i></a>
+                                    <a href="{{ $hotel->twitter }}" target="_blank"><i class="bi bi-twitter"> </i></a>
                                     <a href="{{ $hotel->instagram }}" target="_blank"><i
                                             class="bi bi-instagram"></i></a>
                                     <a href="{{ $hotel->youtube }}" target="_blank"><i class="bi bi-youtube"></i></a>

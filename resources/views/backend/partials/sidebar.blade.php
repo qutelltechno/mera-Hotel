@@ -27,7 +27,7 @@
             </li>
             <li><a href="{{ route('backend.room-list') }}"><i class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-bed"></i>{{ __('Hotel Manage') }}</a>
+                        class="fa fa-bed"></i>{{ __('Mira Hotel branches') }}</a>
                 <ul class="dropdown-menu">
 
                     <li><a href="{{ route('backend.room-type') }}">{{ __('Room Type') }}</a></li>
@@ -53,11 +53,16 @@
                     {{-- <li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li> --}}
                     <li><a href="{{ route('backend.offer-ads') }}">{{ __('Offer & Ads') }}</a></li>
                     {{-- <li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li> --}}
+
+                    <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
+                    <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
+                    </li>
                 </ul>
             </li>
             {{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
 
-            <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
+
+
 
 
 
@@ -75,7 +80,6 @@
                     <li><a href="{{ route('backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
                 </ul>
             </li> --}}
-            <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
             {{-- <li><a href="{{ route('backend.customers') }}"><i class="fa fa-users"></i>{{ __('Customers') }}</a></li> --}}
             {{-- <li><a href="{{ route('backend.contact') }}"><i class="fa fa-envelope"></i>{{ __('Contact') }}</a></li> --}}
             {{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-paper-plane"></i>{{ __('Newsletters') }}</a>
@@ -91,7 +95,7 @@
 				<li><a href="{{ route('backend.language-keywords') }}">{{ __('Language Keywords') }}</a></li>
 			</ul>
 		</li> --}}
-            <li><a href="{{ route('backend.media') }}"><i class="fa fa-picture-o"></i>{{ __('Media') }}</a></li>
+            {{-- <li><a href="{{ route('backend.media') }}"><i class="fa fa-picture-o"></i>{{ __('Media') }}</a></li> --}}
             {{-- <li><a id="active-settings" href="{{ route('backend.general') }}"><i
                         class="fa fa-cogs"></i>{{ __('Settings') }}</a></li> --}}
             {{-- <li><a href="{{ route('backend.users') }}"><i class="fa fa-user-plus"></i>{{ __('Users') }}</a></li> --}}
@@ -130,7 +134,7 @@
             <li><a href="{{ route('super.backend.room-list') }}"><i
                         class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-bed"></i>{{ __('Hotel Manage') }}</a>
+                        class="fa fa-bed"></i>{{ __('Mira Hotel branches') }}</a>
                 <ul class="dropdown-menu">
 
                     <li><a href="{{ route('super.backend.room-type') }}">{{ __('Room Type') }}</a></li>
@@ -155,13 +159,18 @@
                     <li><a href="{{ route('super.backend.home-video') }}">{{ __('Video Section') }}</a></li>
                     {{-- <li><a href="{{ route('backend.testimonial') }}">{{ __('Testimonial') }}</a></li> --}}
                     <li><a href="{{ route('super.backend.offer-ads') }}">{{ __('Offer & Ads') }}</a></li>
+
+
+                    <li><a href="{{ route('super.backend.faq') }}"><i
+                                class="bi bi-filter"></i>{{ __('Faq') }}</a>
+                    </li>
+                    <li><a href="{{ route('super.backend.blog') }}"><i
+                                class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
                     {{-- <li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li> --}}
                 </ul>
             </li>
             {{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
 
-            <li><a href="{{ route('super.backend.blog') }}"><i
-                        class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
 
 
 
@@ -179,8 +188,7 @@
                     <li><a href="{{ route('super.backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('super.backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a>
-            </li>
+
             {{-- <li><a href="{{ route('backend.customers') }}"><i class="fa fa-users"></i>{{ __('Customers') }}</a></li> --}}
             {{-- <li><a href="{{ route('backend.contact') }}"><i class="fa fa-envelope"></i>{{ __('Contact') }}</a></li> --}}
             {{-- <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i class="fa fa-paper-plane"></i>{{ __('Newsletters') }}</a>
