@@ -74,9 +74,9 @@
             box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery-container .tz-gallery .lightbox img:hover {
+        /* .gallery-container .tz-gallery .lightbox img:hover {
             filter: brightness(0.3);
-        }
+        } */
 
         .gallery-container .baguetteBox-button {
             background-color: transparent !important;
@@ -127,9 +127,9 @@
             text-shadow: 1px 1px 10px #000;
         }
 
-        .gallery-container a {
+        /* .gallery-container a {
             display: flex !important;
-        }
+        } */
 
         #baguetteBox-overlay.visible {
             opacity: 1
@@ -212,9 +212,12 @@
                                             {{ __('Browse') }}
 
                                         </button> --}}
-                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                       <div class="button-container">
+    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}" class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+    <a href="{{ route('frontend.room', [$row->id, md5($row->slug)]) }}" class="btn theme-btn book-now-btn">{{ __('Details') }}</a>
+</div>
                                     </div>
+
                                 </div>
                                 </div>
                             @endforeach
