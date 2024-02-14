@@ -57,6 +57,8 @@
                     <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
                     <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
                     </li>
+                    <li><a href="{{ route('backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a></li>
+
                 </ul>
             </li>
             {{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
@@ -186,6 +188,8 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('super.backend.menu') }}">{{ __('Menu') }}</a></li>
                     <li><a href="{{ route('super.backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
+                    <li><a href="{{ route('super.backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a></li>
+
                 </ul>
             </li>
 
@@ -208,6 +212,8 @@
                         class="fa fa-picture-o"></i>{{ __('Media') }}</a></li>
             <li><a id="active-settings" href="{{ route('super.backend.general') }}"><i
                         class="fa fa-cogs"></i>{{ __('Settings') }}</a></li>
+
+
             <li><a href="{{ route('super.backend.users') }}"><i
                         class="fa fa-user-plus"></i>{{ __('Users') }}</a></li>
             }
