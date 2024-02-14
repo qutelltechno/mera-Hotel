@@ -57,14 +57,23 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="name">{{ __('Complement') }}<span class="red">*</span></label>
-										<input type="text" name="name" id="name" class="form-control parsley-validated" data-required="true">
+										<label for="name_ar">الاضافات<span class="red">*</span></label>
+										<input type="text" name="name_ar" id="name_ar" class="form-control parsley-validated" data-required="true">
 									</div>
+									<div class="form-group">
+										<label for="name_en">Complement<span class="red">*</span></label>
+										<input type="text" name="name_en" id="name_en" class="form-control parsley-validated" data-required="true">
+									</div>
+									
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="item">{{ __('Item') }}<span class="red">*</span></label>
-										<input type="text" name="item" id="item" class="form-control parsley-validated" data-required="true">
+										<label for="item_ar">عنصر<span class="red">*</span></label>
+										<input type="text" name="item_ar" id="item_ar" class="form-control parsley-validated" data-required="true">
+									</div>
+									<div class="form-group">
+										<label for="item_en">Item<span class="red">*</span></label>
+										<input type="text" name="item_en" id="item_en" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 							</div>

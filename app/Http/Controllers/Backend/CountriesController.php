@@ -59,27 +59,40 @@ class CountriesController extends Controller
 		$res = array();
 		
 		$id = $request->input('RecordId');
-		$country_name = $request->input('country_name');
+		$country_name_ar = $request->input('country_name_ar');
+		$country_name_en= $request->input('country_name_en');
 		$is_publish = $request->input('is_publish');
 		
 		$validator_array = array(
-			'country_name' => $request->input('country_name')
+			'country_name_ar' => $request->input('country_name_ar'),
+			'country_name_en' => $request->input('country_name_en'),
+
 		);
 		
 		$validator = Validator::make($validator_array, [
-			'country_name' => 'required|max:191'
+			'country_name_ar' => 'required|max:191',
+			'country_name_en' => 'required|max:191'
+
 		]);
 
 		$errors = $validator->errors();
 
-		if($errors->has('country_name')){
+		if($errors->has('country_name_ar')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('country_name');
+			$res['msg'] = $errors->first('country_name_ar');
+			return response()->json($res);
+		}
+		if($errors->has('country_name_en')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('country_name_en');
 			return response()->json($res);
 		}
 
 		$data = array(
-			'country_name' => $country_name,
+			'country_name' => [
+                'en'=>  $country_name_en,
+                'ar'=>  $country_name_ar,
+            ],
 			'is_publish' => $is_publish
 		);
 

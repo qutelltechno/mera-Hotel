@@ -57,8 +57,12 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="country_name">{{ __('Country') }}<span class="red">*</span></label>
-										<input type="text" name="country_name" id="country_name" class="form-control parsley-validated" data-required="true">
+										<label for="country_name_ar">الدول<span class="red">*</span></label>
+										<input type="text" name="country_name_ar" id="country_name_ar" class="form-control parsley-validated" data-required="true">
+									</div>
+									<div class="form-group">
+										<label for="country_name_en">Country<span class="red">*</span></label>
+										<input type="text" name="country_name_en" id="country_name_en" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
 								<div class="col-md-6"></div>
