@@ -641,11 +641,15 @@
     "please_wait": "Please Wait...",
     "Service 1": "Service 1",
     "Service 2": "Service 2",
+<<<<<<< HEAD
+    "Details":"Details"
+=======
     "Reservation Policy":"Reservation Policy",
     "Policy":"Policy",
     "Policy Reservation":"Policy Reservation"
 
 
+>>>>>>> 32a2e3a97b669ed3ec7796a24172794d51032297
 
 
 
