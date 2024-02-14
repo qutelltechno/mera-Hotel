@@ -75,18 +75,18 @@
         }
 
         /* .gallery-container .tz-gallery .lightbox img:hover {
-            filter: brightness(0.3);
-        } */
+                            filter: brightness(0.3);
+                        } */
 
         .gallery-container .baguetteBox-button {
             background-color: transparent !important;
         }
 
         /* @media (max-width: 767px) {
-                .min-header {
-                    height: 175px;
-                }
-            } */
+                                .min-header {
+                                    height: 175px;
+                                }
+                            } */
 
         @keyframes example {
             from {
@@ -110,16 +110,16 @@
             left: 0;
             width: 100%;
             transition: 0.5s;
-            opacity: 0;
+            opacity: 1;
             color: #fff;
             font-size: 20px;
             padding: 15px;
             text-align: center;
         }
 
-        .gallery-container .content:hover .overlay {
-            opacity: 1;
-        }
+        /* .gallery-container .content:hover .overlay {
+                opacity: 1;
+            } */
 
         .gallery-container h1 {
             margin: 0;
@@ -128,20 +128,19 @@
         }
 
         /* .gallery-container a {
-            display: flex !important;
-        } */
+                            display: flex !important;
+                        } */
 
         #baguetteBox-overlay.visible {
             opacity: 1
         }
 
 
-        .tz-gallery-noroom{
-        margin-top: 50px;
-        text-shadow: 1px 1px 10px #787171;
-        font-size: 5px
-
-     }
+        .tz-gallery-noroom {
+            margin-top: 50px;
+            text-shadow: 1px 1px 10px #787171;
+            font-size: 5px
+        }
     </style>
 @endsection
 
@@ -149,16 +148,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-          <div class="container">
-           <div class="row">
-            <div class="col-12">
-             <div class="breadcrumb-card wow pulse">
-              <h2>{{ __('gallery') }}</h2>
-             </div>
-            </div>
-           </div>
-          </div>
-         </section> -->
+                          <div class="container">
+                           <div class="row">
+                            <div class="col-12">
+                             <div class="breadcrumb-card wow pulse">
+                              <h2>{{ __('gallery') }}</h2>
+                             </div>
+                            </div>
+                           </div>
+                          </div>
+                         </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -174,16 +173,16 @@
                     <div class="col-lg-12 text-center min-header">
                         <div class="row justify-content-center">
                             @php
-                            $i = 0;
-                        @endphp
+                                $i = 0;
+                            @endphp
                             @forelse ($hotels as $row)
                                 <div class="col-md-4 col-lg-3">
-                                    <button type="button" class="bttn col-md"  onclick="myFunction('dm{{ ++$i }}')">
+                                    <button type="button" class="bttn col-md"
+                                        onclick="myFunction('dm{{ ++$i }}')">
                                         {{ $row->name }}
                                     </button>
                                 </div>
                             @empty
-
                             @endforelse
 
                         </div>
@@ -203,28 +202,30 @@
                             @foreach ($rooms as $row)
                                 <div class="col-lg-4">
                                     <div class="lightbox content" data-fslightbox="gallery"
-                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                        height="250" alt="Park" />
-                                    <div class="overlay">
-                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                        {{-- <button type="button" class="btn btn-outline-light">
+                                        href="{{ asset('public/media/' . $row->cover_img) }}">
+                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
+                                            alt="Park" />
+                                        <div class="overlay">
+                                            <h2 class="text-light">{{ $row->title }}</h2>
+                                            {{-- <button type="button" class="btn btn-outline-light">
                                             {{ __('Browse') }}
 
                                         </button> --}}
-                                       <div class="button-container">
-    <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}" class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
-    <a href="{{ route('frontend.room', [$row->id, md5($row->slug)]) }}" class="btn theme-btn book-now-btn">{{ __('Details') }}</a>
-</div>
-                                    </div>
+                                            <div class="button-container">
+                                                <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                    class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                                <a href="{{ route('frontend.room', [$row->id, md5($row->slug)]) }}"
+                                                    class="btn theme-btn book-now-btn">{{ __('Details') }}</a>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
                     @else
                         <div class="text-center   bottom: 8px;">
-                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
+                            <h1 style="font-size: 12px;"> {{ __('There are no rooms currently') }} </h1>
                         </div>
                     @endif
                 </div>
@@ -234,7 +235,6 @@
 
                 <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
                     @php
-
 
                         // dd($HotelAr2)
                         $firstHote2 = $hotels->skip(1)->first();
@@ -246,25 +246,25 @@
                             @foreach ($rooms2 as $row)
                                 <div class="col-lg-4">
                                     <div class="lightbox content" data-fslightbox="gallery"
-                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                        height="250" alt="Park" />
-                                    <div class="overlay">
-                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                        {{-- <button type="button" class="btn btn-outline-light">
+                                        href="{{ asset('public/media/' . $row->cover_img) }}">
+                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
+                                            alt="Park" />
+                                        <div class="overlay">
+                                            <h2 class="text-light">{{ $row->title }}</h2>
+                                            {{-- <button type="button" class="btn btn-outline-light">
                                             {{ __('Browse') }}
 
                                         </button> --}}
-                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             @endforeach
                         </div>
                     @else
-                        <div class="text-center" >
-                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
+                        <div class="text-center">
+                            <h1 style="font-size: 12px;"> {{ __('There are no rooms currently') }} </h1>
                         </div>
                     @endif
 
@@ -282,32 +282,32 @@
                             @foreach ($rooms3 as $row)
                                 <div class="col-lg-4">
                                     <div class="lightbox content" data-fslightbox="gallery"
-                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                        height="250" alt="Park" />
-                                    <div class="overlay">
-                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                        {{-- <button type="button" class="btn btn-outline-light">
+                                        href="{{ asset('public/media/' . $row->cover_img) }}">
+                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
+                                            alt="Park" />
+                                        <div class="overlay">
+                                            <h2 class="text-light">{{ $row->title }}</h2>
+                                            {{-- <button type="button" class="btn btn-outline-light">
                                             {{ __('Browse') }}
 
                                         </button> --}}
-                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             @endforeach
                         </div>
                     @else
                         <div class="text-center ">
-                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
+                            <h1 style="font-size: 12px;"> {{ __('There are no rooms currently') }} </h1>
                         </div>
                     @endif
 
                 </div>
 
 
-                   {{-- <!-- Gallery 4 --> --}}
+                {{-- <!-- Gallery 4 --> --}}
                 <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
                     @php
 
@@ -320,25 +320,25 @@
                             @foreach ($rooms4 as $row)
                                 <div class="col-lg-4">
                                     <div class="lightbox content" data-fslightbox="gallery"
-                                    href="{{ asset('public/media/' . $row->cover_img) }}">
-                                    <img src="{{ asset('public/media/' . $row->cover_img) }}"
-                                        height="250" alt="Park" />
-                                    <div class="overlay">
-                                        <h2 class="text-light">{{ $row->title }}</h2>
-                                        {{-- <button type="button" class="btn btn-outline-light">
+                                        href="{{ asset('public/media/' . $row->cover_img) }}">
+                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
+                                            alt="Park" />
+                                        <div class="overlay">
+                                            <h2 class="text-light">{{ $row->title }}</h2>
+                                            {{-- <button type="button" class="btn btn-outline-light">
                                             {{ __('Browse') }}
 
                                         </button> --}}
-                                        <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                            class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
+                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             @endforeach
                         </div>
                     @else
                         <div class="text-center  bottom: 8px;">
-                            <h1 style="font-size: 12px;"> {{__('There are no rooms currently')}} </h1>
+                            <h1 style="font-size: 12px;"> {{ __('There are no rooms currently') }} </h1>
                         </div>
 
 
