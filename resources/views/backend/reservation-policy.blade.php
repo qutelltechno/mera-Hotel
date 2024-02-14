@@ -61,17 +61,35 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="title">{{ __('Policy') }}<span class="red">*</span></label>
-                                            <input type="text" name="title" id="title"
+                                            <label for="title_en">Policy <span class="red">*</span></label>
+                                            <input type="text" name="title_en" id="title_en"
                                                 class="form-control parsley-validated" data-required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="value">{{ __('Text') }}<span class="red">*</span></label>
-                                            <input type="text" name="value" id="value"
+                                            <label for="title_ar">  السياسة بالعربية  <span class="red">*</span></label>
+                                            <input type="text" name="title_ar" id="title_ar"
                                                 class="form-control parsley-validated" data-required="true">
                                         </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="value_en">Policy Text<span class="red">*</span></label>
+                                            <textarea name="value_en" id="value_en" class="form-control parsley-validated" data-required="true"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="value_ar">نص السياسة بالعربية <span class="red">*</span></label>
+                                            <textarea name="value_ar" id="value_ar" class="form-control parsley-validated" data-required="true"></textarea>
+                                        </div>
+
                                     </div>
                                 </div>
                                 {{-- <div class="row">

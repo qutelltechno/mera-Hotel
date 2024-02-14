@@ -13,9 +13,15 @@
             @if (count($datalist) > 0)
                 @foreach ($datalist as $row)
                     <tr>
+                        @php
+                            $transTitle = json_decode($row->title, true);
+                            $transValue = json_decode($row->value, true);
+                        @endphp
+                        {{-- @dd($row->value) --}}
+
                         <td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}"
                                 class="tp-checkbox selected_item" type="checkbox"></td>
-                        <td class="text-center">{{ $row->title }}</td>
+                        <td class="text-center"> {{ $row->title }}</td>
                         <td class="text-center">{{ $row->value }}</td>
 
                         <td class="text-center">

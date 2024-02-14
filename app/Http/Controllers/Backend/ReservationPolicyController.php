@@ -16,45 +16,45 @@ class ReservationPolicyController extends Controller
 
         $statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 
-        // $datalist = DB::table('complements')
-        //     ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
-        //     ->select('complements.*', 'tp_status.status')
-        //     ->orderBy('complements.id','desc')
-        //     ->paginate(10);
         $datalist = ReservationPolicy::orderBy('id', 'desc')->paginate(10);
         return view('backend.reservation-policy', compact('statuslist', 'datalist'));
     }
 
     //Get data for Complements Pagination
-    // public function getComplementsTableData(Request $request){
+    public function getPolicyTableData(Request $request){
 
-    //     $search = $request->search;
+        $search = $request->search;
 
-    //     if($request->ajax()){
+        if($request->ajax()){
 
-    //         if($search != ''){
+            if($search != ''){
 
-    //             $datalist = DB::table('complements')
-    //                 ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
-    //                 ->select('complements.*', 'tp_status.status')
-    //                 ->where(function ($query) use ($search){
-    //                     $query->where('complements.name', 'like', '%'.$search.'%')
-    //                     ->orWhere('complements.item', 'like', '%'.$search.'%');
-    //                 })
-    //                 ->orderBy('complements.id','desc')
-    //                 ->paginate(10);
-    //         }else{
+                // $datalist = DB::table('complements')
+                //     ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
+                //     ->select('complements.*', 'tp_status.status')
+                //     ->where(function ($query) use ($search){
+                //         $query->where('complements.name', 'like', '%'.$search.'%')
+                //         ->orWhere('complements.item', 'like', '%'.$search.'%');
+                //     })
+                //     ->orderBy('complements.id','desc')
+                //     ->paginate(10);
 
-    //             $datalist = DB::table('complements')
-    //                 ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
-    //                 ->select('complements.*', 'tp_status.status')
-    //                 ->orderBy('complements.id','desc')
-    //                 ->paginate(10);
-    //         }
+            }else{
 
-    //         return view('backend.partials.complements_table', compact('datalist'))->render();
-    //     }
-    // }
+                // $datalist = DB::table('complements')
+                //     ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
+                //     ->select('complements.*', 'tp_status.status')
+                //     ->orderBy('complements.id','desc')
+                //     ->paginate(10);
+
+                    $datalist = ReservationPolicy::orderBy('id','desc')->paginate(10);
+
+
+            }
+
+            return view('backend.partials.complements_table', compact('datalist'))->render();
+        }
+    }
 
     //Save data for Complements
     public function savePolicyData(Request $request)
@@ -62,24 +62,37 @@ class ReservationPolicyController extends Controller
         $res = array();
 
         $id = $request->input('RecordId');
-        $title = $request->input('title');
-        $value = $request->input('value');
+        $title_en = $request->input('title_en');
+        $value_en = $request->input('value_en');
+          $title_ar = $request->input('title_ar');
+        $value_ar = $request->input('value_ar');
 
         $validator_array = array(
-            'title' => $request->input('title'),
-            'value' => $request->input('value'),
+            'title_en' => $request->input('title_en'),
+            'value_en' => $request->input('value_en'),
+
+            'title_ar' => $request->input('title_ar'),
+            'value_ar' => $request->input('value_ar'),
         );
 
         $validator = Validator::make($validator_array, [
-            'title' => 'required|max:191',
-            'value' => 'required|max:191',
+            'title_en' => 'required|max:191',
+            'value_en' => 'required|max:191',
+
+            'title_ar' => 'required|max:191',
+            'value_ar' => 'required|max:191',
         ]);
 
         $errors = $validator->errors();
 
-        if ($errors->has('title')) {
+        if ($errors->has('title_en')) {
             $res['msgType'] = 'error';
-            $res['msg'] = $errors->first('title');
+            $res['msg'] = $errors->first('title_en');
+            return response()->json($res);
+        }
+        if ($errors->has('title_ar')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('title_ar');
             return response()->json($res);
         }
 
@@ -90,8 +103,14 @@ class ReservationPolicyController extends Controller
         }
 
         $data = array(
-            'title' => $title,
-            'value' => $value,
+            'title' =>[
+                'en'=>$title_en,
+                'ar'=>$title_ar,
+            ],
+            'value' =>[
+                'en'=>$value_en,
+                'ar'=>$value_ar,
+            ]
         );
 
         if ($id == '') {

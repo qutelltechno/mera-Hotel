@@ -186,8 +186,8 @@ Route::prefix('super-admin')->group(function () {
     Route::post('/deleteComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'deleteComplement'])->name('super.backend.deleteComplement')->middleware(['auth', 'is_superAdmin']);
     Route::post('/bulkActionComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'bulkActionComplement'])->name('super.backend.bulkActionComplement')->middleware(['auth', 'is_superAdmin']);
     // reservation_policies
-    Route::get('/reservation-policies', [ReservationPolicyController::class, 'getPlicyPageLoad'])->name('super.backend.reservationplicy')->middleware(['auth', 'is_superAdmin']);
-    // Route::get('/getPolicyTableData', [ReservationPolicyController::class, 'getComplementsTableData'])->name('super.backend.getComplementsTableData')->middleware(['auth', 'is_superAdmin']);
+    Route::get('/reservation-policies', [ReservationPolicyController::class, 'getPlicyPageLoad'])->name('super.backend.reservationpolicy')->middleware(['auth', 'is_superAdmin']);
+    Route::get('/getPolicyTableData', [ReservationPolicyController::class, 'getPolicyTableData'])->name('super.backend.getPolicyTableData')->middleware(['auth', 'is_superAdmin']);
     Route::post('/savePolicyData', [ReservationPolicyController::class, 'savePolicyData'])->name('super.backend.savePolicyData')->middleware(['auth', 'is_superAdmin']);
     Route::post('/getPolicyById', [ReservationPolicyController::class, 'getPolicyById'])->name('super.backend.getPolicyById')->middleware(['auth', 'is_superAdmin']);
     Route::post('/deletePolicy', [ReservationPolicyController::class, 'deletePolicy'])->name('super.backend.deletePolicy')->middleware(['auth', 'is_superAdmin']);
@@ -624,7 +624,13 @@ Route::prefix('backend')->group(function () {
     Route::post('/getComplementById', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementById'])->name('backend.getComplementById')->middleware(['auth', 'is_admin']);
     Route::post('/deleteComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'deleteComplement'])->name('backend.deleteComplement')->middleware(['auth', 'is_admin']);
     Route::post('/bulkActionComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'bulkActionComplement'])->name('backend.bulkActionComplement')->middleware(['auth', 'is_admin']);
-
+    ################reservation-policies
+    Route::get('/reservation-policies', [ReservationPolicyController::class, 'getPlicyPageLoad'])->name('backend.reservationpolicy')->middleware(['auth', 'is_admin']);
+    Route::get('/getPolicyTableData', [ReservationPolicyController::class, 'getPolicyTableData'])->name('backend.getPolicyTableData')->middleware(['auth', 'is_admin']);
+    Route::post('/savePolicyData', [ReservationPolicyController::class, 'savePolicyData'])->name('backend.savePolicyData')->middleware(['auth', 'is_admin']);
+    Route::post('/getPolicyById', [ReservationPolicyController::class, 'getPolicyById'])->name('backend.getPolicyById')->middleware(['auth', 'is_admin']);
+    Route::post('/deletePolicy', [ReservationPolicyController::class, 'deletePolicy'])->name('backend.deletePolicy')->middleware(['auth', 'is_admin']);
+    Route::post('/bulkActionPolicy', [ReservationPolicyController::class, 'bulkActionPolicy'])->name('backend.bulkActionPolicy')->middleware(['auth', 'is_admin']);
     //Bed Types
     Route::get('/bed-types', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesPageLoad'])->name('backend.bed-types')->middleware(['auth', 'is_admin']);
     Route::get('/getBedTypesTableData', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesTableData'])->name('backend.getBedTypesTableData')->middleware(['auth', 'is_admin']);

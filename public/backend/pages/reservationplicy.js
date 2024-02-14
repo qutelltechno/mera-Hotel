@@ -163,9 +163,12 @@ function onLoadEditData() {
 		success: function (response) {
 			var data = response;
 			$("#RecordId").val(data.id);
-			$("#title").val(data.title);
-			$("#value").val(data.value);
-			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
+			$("#title_en").val(data.title['en']);
+			$("#value_en").val(data.value['en']);
+
+            $("#title_ar").val(data.title['ar']);
+			$("#value_ar").val(data.value['ar']);
+			// $("#is_publish").val(data.is_publish).trigger("chosen:updated");
 			onEditPanel();
 		}
     });
