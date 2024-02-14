@@ -185,7 +185,7 @@
     "Do you really want to edit this record": "Do you really want to edit this record?",
     "Do you really want to inactive this records": "Do you really want to inactive this records",
     "Do you really want to publish this records": "Do you really want to publish this records?",
-    "Draft": "Draft",
+    "Draft": "Service 2",
     "Dropdown": "Dropdown",
     "Dropdown Menu": "Dropdown Menu",
     "Dropdown Values": "Dropdown Values",
@@ -395,7 +395,7 @@
     "Profile Photo": "Profile Photo",
     "Profile Subheader Background Image": "Profile Subheader Background Image",
     "Profile photo size 300x300 pixels": "Profile photo size 300x300 pixels",
-    "Publish": "Publish",
+    "Publish": "Service 1",
     "Publishable Key": "Publishable Key",
     "Published": "Published",
     "Purchase Code": "Purchase Code",
@@ -640,7 +640,11 @@
     "There are no rooms currently":"There are no rooms currently",
     "please_wait": "Please Wait...",
     "Service 1": "Service 1",
-    "Service 2": "Service 2"
+    "Service 2": "Service 2",
+    "Reservation Policy":"Reservation Policy",
+    "Policy":"Policy"
+
+
 
 
 
