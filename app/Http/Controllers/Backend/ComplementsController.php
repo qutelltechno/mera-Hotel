@@ -60,37 +60,63 @@ class ComplementsController extends Controller
 		$res = array();
 		
 		$id = $request->input('RecordId');
-		$name = $request->input('name');
-		$item = $request->input('item');
+		$name_ar = $request->input('name_ar');
+		$name_en = $request->input('name_en');
+		$item_ar = $request->input('item_ar');
+		$item_en= $request->input('item_en');
 		$is_publish = $request->input('is_publish');
 		
 		$validator_array = array(
-			'name' => $request->input('name'),
-			'item' => $request->input('item')
+			'name_ar' => $request->input('name_ar'),
+			'name_en' => $request->input('name_en'),
+			'item_ar' => $request->input('item_ar'),
+			'item_en' => $request->input('item_en')
 		);
 		
 		$validator = Validator::make($validator_array, [
-			'name' => 'required|max:191',
-			'item' => 'required|max:191'
+			'name_ar' => 'required|max:191',
+			'name_en' => 'required|max:191',
+			'item_ar' => 'required|max:191',
+			'item_en' => 'required|max:191'
 		]);
 
 		$errors = $validator->errors();
 
-		if($errors->has('name')){
+		if($errors->has('name_ar')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('name');
+			$res['msg'] = $errors->first('name_ar');
+			return response()->json($res);
+		}
+		if($errors->has('name_en')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('name_en');
 			return response()->json($res);
 		}
 		
-		if($errors->has('item')){
+		if($errors->has('item_ar')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('item');
+			$res['msg'] = $errors->first('item_ar');
+			return response()->json($res);
+		}
+		if($errors->has('item_en')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('item_en');
 			return response()->json($res);
 		}
 
 		$data = array(
-			'name' => $name,
-			'item' => $item,
+			'name' => [
+				'en'=>$name_en,
+				'ar'=>$name_ar,
+
+
+			],
+			'item' => [
+				'en'=>$item_en,
+                'ar'=>$item_ar,
+				
+
+			],
 			'is_publish' => $is_publish
 		);
 

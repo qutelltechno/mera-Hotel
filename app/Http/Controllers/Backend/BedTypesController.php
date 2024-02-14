@@ -59,27 +59,35 @@ class BedTypesController extends Controller
 		$res = array();
 		
 		$id = $request->input('RecordId');
-		$name = $request->input('name');
+		$name_en = $request->input('name_en');
+		$name_ar = $request->input('name_ar');
 		$is_publish = $request->input('is_publish');
 		
 		$validator_array = array(
-			'name' => $request->input('name')
-		);
+			'name_en' => $request->input('name_en'),
+			'name_ar' => $request->input('name_ar')		);
 		
 		$validator = Validator::make($validator_array, [
-			'name' => 'required|max:191'
-		]);
+			'name_en' => 'required|max:191',
+			'name_ar' => 'required|max:191'		]);
 
 		$errors = $validator->errors();
 
-		if($errors->has('name')){
+		if($errors->has('name_en')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('name');
+			$res['msg'] = $errors->first('name_en');
 			return response()->json($res);
 		}
-
+        if($errors->has('name_ar')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('name_ar');
+			return response()->json($res);
+		}
 		$data = array(
-			'name' => $name,
+			'name' => [
+                'en'=>  $name_en,
+                'ar'=>  $name_ar,
+            ],
 			'is_publish' => $is_publish
 		);
 

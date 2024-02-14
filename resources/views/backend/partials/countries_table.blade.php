@@ -12,8 +12,16 @@
 			@if (count($datalist)>0)
 			@foreach($datalist as $row)
 			<tr>
+			@php
+                $transName = json_decode($row->country_name, true);
+            @endphp
+			
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
-				<td class="text-left">{{ $row->country_name }}</td>
+				<td class="text-left"> 
+					
+					{{$transName[glan()]}}
+				
+					</td>
 				@if ($row->is_publish == 1)
 				<td class="text-center"><span class="enable_btn">{{ __($row->status) }}</span></td>
 				@else

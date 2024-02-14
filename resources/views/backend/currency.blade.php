@@ -28,6 +28,7 @@
 										<label for="currency_name">{{ __('Currency Name') }}<span class="red">*</span></label>
 										<input value="{{ $datalist['currency_name'] }}" type="text" name="currency_name" id="currency_name" class="form-control parsley-validated" data-required="true" placeholder="USD">
 									</div>
+								
 								</div>
 								<div class="col-lg-4">
 									<div class="form-group">

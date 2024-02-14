@@ -163,7 +163,8 @@ function onLoadEditData() {
 		success: function (response) {
 			var data = response;
 			$("#RecordId").val(data.id);
-			$("#name").val(data.name);
+			$("#name_en").val(data.name['en']);
+			$("#name_ar").val(data.name['ar']);
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
 			onEditPanel();
 		}
