@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ReservationPolicyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -184,6 +185,18 @@ Route::prefix('super-admin')->group(function () {
     Route::post('/getComplementById', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementById'])->name('super.backend.getComplementById')->middleware(['auth', 'is_superAdmin']);
     Route::post('/deleteComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'deleteComplement'])->name('super.backend.deleteComplement')->middleware(['auth', 'is_superAdmin']);
     Route::post('/bulkActionComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'bulkActionComplement'])->name('super.backend.bulkActionComplement')->middleware(['auth', 'is_superAdmin']);
+    // reservation_policies
+    Route::get('/reservation-policies', [ReservationPolicyController::class, 'getPlicyPageLoad'])->name('super.backend.reservationplicy')->middleware(['auth', 'is_superAdmin']);
+    // Route::get('/getPolicyTableData', [ReservationPolicyController::class, 'getComplementsTableData'])->name('super.backend.getComplementsTableData')->middleware(['auth', 'is_superAdmin']);
+    Route::post('/savePolicyData', [ReservationPolicyController::class, 'savePolicyData'])->name('super.backend.savePolicyData')->middleware(['auth', 'is_superAdmin']);
+    Route::post('/getPolicyById', [ReservationPolicyController::class, 'getPolicyById'])->name('super.backend.getPolicyById')->middleware(['auth', 'is_superAdmin']);
+    Route::post('/deletePolicy', [ReservationPolicyController::class, 'deletePolicy'])->name('super.backend.deletePolicy')->middleware(['auth', 'is_superAdmin']);
+    Route::post('/bulkActionPolicy', [ReservationPolicyController::class, 'bulkActionPolicy'])->name('super.backend.bulkActionPolicy')->middleware(['auth', 'is_superAdmin']);
+
+
+
+
+
 
     //Bed Types
     Route::get('/bed-types', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesPageLoad'])->name('super.backend.bed-types')->middleware(['auth', 'is_superAdmin']);
