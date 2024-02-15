@@ -27,7 +27,7 @@
             </li>
             <li><a href="{{ route('backend.room-list') }}"><i class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-bed"></i>{{ __('Mira Hotel branches') }}</a>
+                        class="fa fa-bed"></i>{{ __('Hotel management') }}</a>
                 <ul class="dropdown-menu">
 
                     <li><a href="{{ route('backend.room-type') }}">{{ __('Room Type') }}</a></li>
@@ -136,7 +136,7 @@
             <li><a href="{{ route('super.backend.room-list') }}"><i
                         class="fa fa-braille"></i>{{ __('Room List') }}</a></li>
             <li class="dropdown"><a class="nav-link has-dropdown" href="#" data-toggle="dropdown"><i
-                        class="fa fa-bed"></i>{{ __('Mira Hotel branches') }}</a>
+                        class="fa fa-bed"></i>{{ __('Hotel management') }}</a>
                 <ul class="dropdown-menu">
 
                     <li><a href="{{ route('super.backend.room-type') }}">{{ __('Room Type') }}</a></li>
@@ -168,6 +168,8 @@
                     </li>
                     <li><a href="{{ route('super.backend.blog') }}"><i
                                 class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
+                    <li><a href="{{ route('super.backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a>
+                    </li>
                     {{-- <li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li> --}}
                 </ul>
             </li>
@@ -188,7 +190,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('super.backend.menu') }}">{{ __('Menu') }}</a></li>
                     <li><a href="{{ route('super.backend.theme-options') }}">{{ __('Theme Options') }}</a></li>
-                    <li><a href="{{ route('super.backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a></li>
+
 
                 </ul>
             </li>
