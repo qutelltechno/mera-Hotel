@@ -75,18 +75,18 @@
         }
 
         /* .gallery-container .tz-gallery .lightbox img:hover {
-                            filter: brightness(0.3);
-                        } */
+                                filter: brightness(0.3);
+                            } */
 
         .gallery-container .baguetteBox-button {
             background-color: transparent !important;
         }
 
         /* @media (max-width: 767px) {
-                                .min-header {
-                                    height: 175px;
-                                }
-                            } */
+                                    .min-header {
+                                        height: 175px;
+                                    }
+                                } */
 
         @keyframes example {
             from {
@@ -118,8 +118,8 @@
         }
 
         /* .gallery-container .content:hover .overlay {
-                opacity: 1;
-            } */
+                    opacity: 1;
+                } */
 
         .gallery-container h1 {
             margin: 0;
@@ -128,8 +128,8 @@
         }
 
         /* .gallery-container a {
-                            display: flex !important;
-                        } */
+                                display: flex !important;
+                            } */
 
         #baguetteBox-overlay.visible {
             opacity: 1
@@ -148,16 +148,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-                          <div class="container">
-                           <div class="row">
-                            <div class="col-12">
-                             <div class="breadcrumb-card wow pulse">
-                              <h2>{{ __('gallery') }}</h2>
-                             </div>
-                            </div>
-                           </div>
-                          </div>
-                         </section> -->
+                              <div class="container">
+                               <div class="row">
+                                <div class="col-12">
+                                 <div class="breadcrumb-card wow pulse">
+                                  <h2>{{ __('gallery') }}</h2>
+                                 </div>
+                                </div>
+                               </div>
+                              </div>
+                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -165,7 +165,7 @@
             <div class="container gallery-container">
                 <div class="col-md-8 offset-md-2 pt-lg-5">
                     <div class="section-heading">
-                        <h1 style="text-shadow:none">{{ __('Hotel room') }}</h1>
+                        <h1 style="text-shadow:none">{{ __('Booking') }}</h1>
                     </div>
                 </div>
 
