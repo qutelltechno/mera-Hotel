@@ -44,7 +44,7 @@
                         @endphp
                         @foreach ($policies as $policy)
                             <li>
-                                <h2> <span>{{ ++$i }} -</span> {{ $policy->title }}</h2>
+                                <h2> {{ $policy->title }}</h2>
                                 <p>{{ $policy->value }}</p>
                             </li>
                         @endforeach
