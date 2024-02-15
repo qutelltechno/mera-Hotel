@@ -23,6 +23,7 @@ Route::get('/', [App\Http\Controllers\Frontend\HomeFrontendController::class, 'h
 
 //Home
 Route::get('/search', [App\Http\Controllers\Frontend\SearchController::class, 'getSearchData'])->name('frontend.search');
+Route::get('/reservation-policy', [App\Http\Controllers\Frontend\ReservationPolicyController::class, 'index'])->name('frontend.reservation-policy');
 
 Route::get('/contactus', [App\Http\Controllers\Frontend\ContactController::class, 'getContactUsData'])->name('frontend.contactus');
 Route::get('/contact/{title}', [App\Http\Controllers\Frontend\ContactController::class, 'getContactData'])->name('frontend.contact');
