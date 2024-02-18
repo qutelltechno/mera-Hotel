@@ -194,11 +194,6 @@ Route::prefix('super-admin')->group(function () {
     Route::post('/deletePolicy', [ReservationPolicyController::class, 'deletePolicy'])->name('super.backend.deletePolicy')->middleware(['auth', 'is_superAdmin']);
     Route::post('/bulkActionPolicy', [ReservationPolicyController::class, 'bulkActionPolicy'])->name('super.backend.bulkActionPolicy')->middleware(['auth', 'is_superAdmin']);
 
-
-
-
-
-
     //Bed Types
     Route::get('/bed-types', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesPageLoad'])->name('super.backend.bed-types')->middleware(['auth', 'is_superAdmin']);
     Route::get('/getBedTypesTableData', [App\Http\Controllers\Backend\BedTypesController::class, 'getBedTypesTableData'])->name('super.backend.getBedTypesTableData')->middleware(['auth', 'is_superAdmin']);
@@ -686,12 +681,12 @@ Route::prefix('backend')->group(function () {
     Route::post('/profileUpdate', [App\Http\Controllers\Backend\UsersController::class, 'profileUpdate'])->name('backend.profileUpdate')->middleware(['auth', 'is_admin']);
 
     //Media Page
-    // Route::get('/media', [App\Http\Controllers\Backend\MediaController::class, 'getMediaPageLoad'])->name('backend.media')->middleware(['auth', 'is_admin']);
-    // Route::post('/getMediaById', [App\Http\Controllers\Backend\MediaController::class, 'getMediaById'])->name('backend.getMediaById')->middleware(['auth', 'is_admin']);
-    // Route::post('/mediaUpdate', [App\Http\Controllers\Backend\MediaController::class, 'mediaUpdate'])->name('backend.mediaUpdate')->middleware(['auth', 'is_admin']);
-    // Route::post('/onMediaDelete', [App\Http\Controllers\Backend\MediaController::class, 'onMediaDelete'])->name('backend.onMediaDelete')->middleware(['auth', 'is_admin']);
-    // Route::get('/getGlobalMediaData', [App\Http\Controllers\Backend\MediaController::class, 'getGlobalMediaData'])->name('backend.getGlobalMediaData')->middleware(['auth', 'is_admin']);
-    // Route::get('/getMediaPaginationData', [App\Http\Controllers\Backend\MediaController::class, 'getMediaPaginationData'])->name('backend.getMediaPaginationData')->middleware(['auth', 'is_admin']);
+    Route::get('/media', [App\Http\Controllers\Backend\MediaController::class, 'getMediaPageLoad'])->name('backend.media')->middleware(['auth', 'is_admin']);
+    Route::post('/getMediaById', [App\Http\Controllers\Backend\MediaController::class, 'getMediaById'])->name('backend.getMediaById')->middleware(['auth', 'is_admin']);
+    Route::post('/mediaUpdate', [App\Http\Controllers\Backend\MediaController::class, 'mediaUpdate'])->name('backend.mediaUpdate')->middleware(['auth', 'is_admin']);
+    Route::post('/onMediaDelete', [App\Http\Controllers\Backend\MediaController::class, 'onMediaDelete'])->name('backend.onMediaDelete')->middleware(['auth', 'is_admin']);
+    Route::get('/getGlobalMediaData', [App\Http\Controllers\Backend\MediaController::class, 'getGlobalMediaData'])->name('backend.getGlobalMediaData')->middleware(['auth', 'is_admin']);
+    Route::get('/getMediaPaginationData', [App\Http\Controllers\Backend\MediaController::class, 'getMediaPaginationData'])->name('backend.getMediaPaginationData')->middleware(['auth', 'is_admin']);
 
     //Menu Page
     // Route::get('/menu', [App\Http\Controllers\Backend\MenuController::class, 'getMenuPageLoad'])->name('backend.menu')->middleware(['auth', 'is_admin']);
