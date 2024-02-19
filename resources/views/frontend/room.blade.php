@@ -42,16 +42,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- 	<section class="breadcrumb-section" style="background-image: url({{ $data->cover_img ? asset('public/media/' . $data->cover_img) : '' }});">
-      <div class="container">
-       <div class="row">
-        <div class="col-12">
-         <div class="breadcrumb-card wow pulse">
-          <h2>{{ $data->title }}</h2>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section> -->
+              <div class="container">
+               <div class="row">
+                <div class="col-12">
+                 <div class="breadcrumb-card wow pulse">
+                  <h2>{{ $data->title }}</h2>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -69,7 +69,8 @@
                                 @endforeach
                             @else
                                 <div class="item">
-                                    <img src="{{ asset('public/media/' . $data->thumbnail) }}" alt="{{ $data->title }}" />
+                                    <img src="{{ asset('public/media/' . $data->thumbnail) }}"
+                                        alt="{{ $data->title }}" />
                                 </div>
                             @endif
                         </div>
@@ -189,7 +190,7 @@
                                 </div>
                             @endif
 
-                            @if (count($room_images) > 0)
+                            {{-- @if (count($room_images) > 0)
                                 <div class="widget-card">
                                     <div class="widget-title">{{ __('Gallery View') }}</div>
                                     <div class="widget-body">
@@ -205,7 +206,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                 </div>

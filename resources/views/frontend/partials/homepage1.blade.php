@@ -340,8 +340,8 @@
                                     <h5>{{ __('About Us') }}</h5>
                                     <h2>{{ $row->title }}</h2>
                                 </div>
-                                @if ($aRow->description != '')
-                                    <p class ="mb20 text-black" style="text-align: justify">{{ $aRow->description }}
+                                @if ($aRow->welcom_Description != '')
+                                    <p class ="mb20 text-black" style="text-align: justify">{{ $aRow->welcom_Description }}
                                     </p>
                                 @endif
                                 <hr>

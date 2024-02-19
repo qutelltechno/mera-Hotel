@@ -29,30 +29,17 @@ class ReservationPolicyController extends Controller
 
             if($search != ''){
 
-                // $datalist = DB::table('complements')
-                //     ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
-                //     ->select('complements.*', 'tp_status.status')
-                //     ->where(function ($query) use ($search){
-                //         $query->where('complements.name', 'like', '%'.$search.'%')
-                //         ->orWhere('complements.item', 'like', '%'.$search.'%');
-                //     })
-                //     ->orderBy('complements.id','desc')
-                //     ->paginate(10);
-
             }else{
 
-                // $datalist = DB::table('complements')
-                //     ->join('tp_status', 'complements.is_publish', '=', 'tp_status.id')
-                //     ->select('complements.*', 'tp_status.status')
-                //     ->orderBy('complements.id','desc')
-                //     ->paginate(10);
 
                     $datalist = ReservationPolicy::orderBy('id','desc')->paginate(10);
 
 
             }
+            $datalist = ReservationPolicy::orderBy('id','desc')->paginate(10);
 
-            return view('backend.partials.complements_table', compact('datalist'))->render();
+
+            return view('backend.partials.reservation_policy_table', compact('datalist'))->render();
         }
     }
 

@@ -9,13 +9,13 @@ $(function () {
     });
 
 	$(document).on('click', '.global_media_pagination nav ul.pagination a', function(event){
-		event.preventDefault(); 
+		event.preventDefault();
 		var page = $(this).attr('href').split('page=')[1];
 		onGlobalMediaPaginationDataLoad(page);
 	});
 
 });
- 
+
 function onUploadListPanel() {
     $('.up-btn-form').show();
     $('#upload-form-panel, .up-btn-list').hide();
@@ -65,7 +65,7 @@ function onGlobalMediaSearch() {
 function onMediaDelete(id) {
 	MediaRecordId = id;
 	var msg = TEXT["Do you really want to delete this record"];
-	onCustomModal(msg, "onConfirmMediaDelete");	
+	onCustomModal(msg, "onConfirmMediaDelete");
 }
 
 function onConfirmMediaDelete() {
@@ -95,7 +95,7 @@ function onMediaModalView(id) {
 		url: base_url + '/backend/getMediaById',
 		data: 'id='+id,
 		success: function (response) {
-			
+
 			var data = response;
 
 			$("#title").val(data.title);
@@ -111,7 +111,7 @@ function onMediaModalView(id) {
 
 			$("ul.media-view li.active").removeClass("active");
 			$("#media_item_"+id).addClass("active");
-			
+
 			$("#tp_media_right").show();
 			$("#media_select_file").prop("disabled", false);
 		}
@@ -121,7 +121,7 @@ function onMediaModalView(id) {
 //upload attachment
 function upload_form() {
 	$("#upload-loader").show();
-	
+
 	var data = new FormData();
 		data.append('FileName', $('#load_attachment')[0].files[0]);
 		data.append('media_type', media_type);
@@ -130,9 +130,9 @@ function upload_form() {
 	var size  =  $('#load_attachment')[0].files[0].size;
 
 	var ext =  imgname.substr((imgname.lastIndexOf('.') +1));
-	
+
 	if(ext=='jpg' || ext=='JPG' || ext=='jpeg' || ext=='JPEG' || ext=='png' || ext=='PNG' || ext=='gif' || ext=='ico' || ext=='ICO' || ext=='svg' || ext=='SVG'){
-		
+
 		$.ajax({
 			url: base_url + '/backend/MediaUpload',
 			type: "POST",
@@ -149,9 +149,9 @@ function upload_form() {
 				var msg = dataList.msg;
 				var thumbnail = dataList.thumbnail;
 				var id = dataList.id;
-				
+
 				if (msgType == "success") {
-					
+
 					$("#upload-loader").hide();
 					onSuccessMsg(msg);
 					onGlobalMediaModalDataLoad();
@@ -161,9 +161,9 @@ function upload_form() {
 			},
 			error: function(){
 				return false;
-			}				
+			}
 		});
-		
+
 	}else{
 		onErrorMsg(TEXT['Sorry only you can upload jpg, png and gif file type']);
 	}

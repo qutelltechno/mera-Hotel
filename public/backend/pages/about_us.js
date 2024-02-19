@@ -353,7 +353,14 @@ function onLoadEditData() {
 
 			$("#page_type").val(data.page_type).trigger("chosen:updated");
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-			$("#about_title").val(data.title);
+console.log(data);
+
+$("#welcome_title").val(JSON.parse(data.title).welcome_title);
+$("#vision_title").val(JSON.parse(data.title).vision_title);
+$("#values_title").val(JSON.parse(data.title).values_title);
+$("#welcome_title").val(JSON.parse(data.title).package_title);
+
+
 			$("#image_url").val(data.url);
 
  			if(data.image != null){
@@ -390,10 +397,25 @@ function onLoadEditData() {
 
 			}else{
 
-				if(data.desc.description != null){
-					$("#description").val(data.desc.description);
+				if(data.desc.welcom_Description != null){
+					$("#welcom_Description").val(data.desc.welcom_Description	);
 				}else{
-					$("#description").val('');
+					$("#welcom_Description").val('');
+				}
+				if(data.desc.welcom_Description != null){
+					$("#vision_description").val(data.desc.vision_description	);
+				}else{
+					$("#vision_description").val('');
+				}
+				if(data.desc.welcom_Description != null){
+					$("#values_description").val(data.desc.values_description	);
+				}else{
+					$("#values_description").val('');
+				}
+				if(data.desc.welcom_Description != null){
+					$("#package_description").val(data.desc.package_description	);
+				}else{
+					$("#package_description").val('');
 				}
 
 				if(data.desc.image2 != null){

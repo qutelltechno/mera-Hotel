@@ -74,8 +74,18 @@ $curntLang=App()->getLocale();
 		$id = $request->input('RecordId');
 		$lan = $request->input('lan');
 		$page_type = $request->input('page_type');
-		$title = $request->input('about_title');
-		$description = $request->input('description');
+		//
+		$welcome_title = $request->input('welcome_title');
+		$vision_title = $request->input('vision_title');
+		$values_title = $request->input('values_title');
+		$package_title = $request->input('package_title');
+
+		//
+		$welcom_Description = $request->input('welcom_Description');
+		$vision_description = $request->input('vision_description');
+		$values_description = $request->input('values_description');
+		$package_description = $request->input('package_description');
+		//
 		$image = $request->input('image');
 		$image2 = $request->input('image2');
 		$image3 = $request->input('image3');
@@ -94,16 +104,25 @@ $curntLang=App()->getLocale();
 		$validator_array = array(
 			'manage_page' => $request->input('page_type'),
 			'image' => $request->input('image'),
-			'title' => $request->input('about_title'),
+
+			'welcome_title' => $request->input('welcome_title'),
+			'vision_title' => $request->input('vision_title'),
+			'values_title' => $request->input('values_title'),
+			'package_title' => $request->input('package_title'),
+
 			'is_publish' => $request->input('is_publish')
 		);
 
 		$validator = Validator::make($validator_array, [
 			'manage_page' => 'required',
 			'image' => 'required',
-			'title' => 'required',
+			'welcome_title' => 'required',
+			'vision_title' => 'required',
+			'values_title' => 'required',
+			'package_title' => 'required',
 			'is_publish' => 'required'
 		]);
+	
 
 		$errors = $validator->errors();
 
@@ -119,9 +138,24 @@ $curntLang=App()->getLocale();
 			return response()->json($res);
 		}
 
-		if($errors->has('title')){
+		if($errors->has('welcome_title')){
 			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('title');
+			$res['msg'] = $errors->first('welcome_title');
+			return response()->json($res);
+		}
+		if($errors->has('vision_title')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('vision_title');
+			return response()->json($res);
+		}
+		if($errors->has('values_title')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('values_title');
+			return response()->json($res);
+		}
+		if($errors->has('package_title')){
+			$res['msgType'] = 'error';
+			$res['msg'] = $errors->first('package_title');
 			return response()->json($res);
 		}
 
@@ -131,8 +165,14 @@ $curntLang=App()->getLocale();
 			return response()->json($res);
 		}
 
+
+
+
 		$option = array(
-			'description' => $description,
+			'welcom_Description' => $welcom_Description,
+			'vision_description' => $vision_description,
+			'values_description' => $values_description,
+			'package_description' => $package_description,
 			'total_rooms' => $total_rooms,
 			'total_customers' => $total_customers,
 			'total_amenities' => $total_amenities,
@@ -146,12 +186,19 @@ $curntLang=App()->getLocale();
 			'position' => $position
 		);
 
+		$optionTitle = array(
+			'welcome_title' => $welcome_title,
+			'vision_title' => $vision_title,
+			'values_title' => $values_title,
+			'package_title' => $package_title,
+			
+		);
 		$data = array(
 			'section_type' => 'about_us',
 			'page_type' => $page_type,
 			'image' => $image,
 			'url' => $url,
-			'title' => $title,
+			'title' => json_encode($optionTitle),
 			'desc' => json_encode($option),
             'lan' => $lan,
 			'is_publish' => $is_publish
