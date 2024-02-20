@@ -353,7 +353,6 @@ function onLoadEditData() {
 
 			$("#page_type").val(data.page_type).trigger("chosen:updated");
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
-console.log(data);
 
 $("#welcome_title").val(JSON.parse(data.title).welcome_title);
 $("#vision_title").val(JSON.parse(data.title).vision_title);
