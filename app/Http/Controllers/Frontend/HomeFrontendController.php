@@ -94,8 +94,12 @@ class HomeFrontendController extends Controller
 			$slider = Slider::where('lan', $lan)->where('slider_type', '=', 'home_1')->where('is_publish', '=', 1)->orderBy('id', 'desc')->get();
 
             //About Us
-			$about_us = Section_content::where('lan', $lan)->where('lan', $lan)->where('page_type', '=', 'home_1')->where('section_type', '=', 'about_us')->where('is_publish', '=', 1)->orderBy('id', 'desc')->limit(1)->get();
-
+			$about_us = Section_content::where('lan', $lan)->where('lan', $lan)->where('page_type', '=', 'home_1')->where('section_type', '=', 'about_us')->where('is_publish', '=', 1)->orderBy('id', 'desc')->first();
+// dd($about_us);
+// $titleArray =json_decode($about_us->title,true);
+// $welcomeTitle = $titleArray['welcome_title'];
+// dd($welcomeTitle);
+//  dd($about_us);
 			//Offer & Ads
 			$OfferAds = Offer_ad::where('lan', $lan)->where('offer_ad_type', '=', 'homepage1')->where('is_publish', '=', 1)->orderBy('id', 'asc')->get();
 

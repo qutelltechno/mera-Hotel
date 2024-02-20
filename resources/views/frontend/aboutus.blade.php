@@ -103,7 +103,7 @@
                                         <p class="mb20 text-black" style="text-align: justify">
                                             {{ $aRow->welcom_Description }}</p>
                                     @endif --}}
-                                    {{-- <hr> --}}
+                                    <hr>
 								
                                         <div class="about-title">
 
@@ -114,7 +114,6 @@
                                                    
                                                 </p>
                                         </div>
-                                        <hr>
 
                                         <div class="about-title">
                                             <h5>{{ $title->vision_title }}</h5>
@@ -122,7 +121,6 @@
 												{{ $aRow->vision_description }}
 												</p>
                                         </div>
-                                        <hr>
                                         <div class="about-title">
                                             <h5>{{ $title->values_title }}</h5>
                                             <p class="text-black">
@@ -132,7 +130,7 @@
 											
                                             </p>
                                         </div>
-										<hr>
+										
                                         <div class="about-title">
                                             <h5>{{ $title->package_title }}</h5>
                                             <p class="text-black">

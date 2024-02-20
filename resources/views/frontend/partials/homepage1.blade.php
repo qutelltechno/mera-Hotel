@@ -297,17 +297,24 @@
 
     <!-- About Section/ -->
     @if ($about_us_section->is_publish == 1)
-        @foreach ($about_us as $row)
-            @php $aRow = json_decode($row->desc); @endphp
+        {{-- @foreach ($about_us as $row) --}}
+            @php
+                $descriptio = json_decode($about_us->desc);
+                $S = json_decode($about_us->title);
+            @endphp
+            {{-- @dd(  $descriptio->image2) --}}
+
+            {{-- @php $aRow = json_decode($row->desc);
+            @endphp --}}
             <section class="section about-section">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-5 wow fadeInRight ">
-                            @if ($row->image != '')
+                            @if ($about_us->image != '')
                                 <div class="row">
                                     <div class="col-lg-12 ">
                                         <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $row->image) }}"
+                                            <img src="{{ asset('public/media/' . $about_us->image) }}"
                                                 alt="{{ $row->title }}">
                                         </div>
                                     </div>
@@ -315,18 +322,18 @@
                             @endif
 
                             <div class="row">
-                                @if ($aRow->image2 != '')
+                                @if ($descriptio->image2 != '')
                                     <div class="col-12 col-md-6">
                                         <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $aRow->image2) }}"
+                                            <img src="{{ asset('public/media/' . $descriptio->image2) }}"
                                                 alt="{{ $row->title }}">
                                         </div>
                                     </div>
                                 @endif
-                                @if ($aRow->image3 != '')
+                                @if ($descriptio->image3 != '')
                                     <div class="col-12 col-md-6">
                                         <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $aRow->image3) }}"
+                                            <img src="{{ asset('public/media/' . $descriptio->image3) }}"
                                                 alt="{{ $row->title }}">
                                         </div>
                                     </div>
@@ -338,74 +345,53 @@
                             <div class="about-card">
                                 <div class="about-title">
                                     <h5>{{ __('About Us') }}</h5>
-                                    <h2>{{ $row->title }}</h2>
+                                    {{-- <h2>{{ $row->title }}</h2> --}}
                                 </div>
-                                @if ($aRow->welcom_Description != '')
-                                    <p class ="mb20 text-black" style="text-align: justify">{{ $aRow->welcom_Description }}
+                                {{-- @if ($aRow->welcom_Description != '')
+                                    <p class ="mb20 text-black" style="text-align: justify">
+                                        {{ $aRow->welcom_Description }}
                                     </p>
-                                @endif
+                                @endif --}}
                                 <hr>
-                                @if (glan() == 'ar')
+                                
                                     <div class="about-title">
-                                        <h5>رؤيتنا تقود عملنا</h5>
+                                        <h5> {{$S->welcome_title}}</h5>
                                         <p class="text-black">
-                                            لشركة ميرا للفنادق رؤية واضحة تصب في خدمتك، وهي أن تكون الشركة إحدى كُبريات
-                                            الشركات العاملة في القطاع الفندقي، معتمدةً على خبرتها الفندقية العالية،
-                                            ودراساتها المستقبلية الدقيقة، واستقطابها لأهم الكوادر
-                                            الإدارية والتنفيذية الخبيرة.
+                                            {{$descriptio->welcom_Description}}
                                         </p>
                                     </div>
-
+                                    <hr>
                                     <div class="about-title">
-                                        <h5>القـيــــــم</h5>
-                                        <p class="text-black">بدأت سلسلة فنادق ميرا بالاتساع لتغطي مدينتي الرياض وجدة
-                                            بأربعة فنادق فاخرة
-                                            تقدم لنزلائها الكرام عددا كبيراً من الغرف والأجنحة الراقية المتنوعة التي
-                                            تُناسب متطلبات مختلف شرائح النُزلاء، وقد نبحث في إعطاء افضل الانطباعات
-                                            الإيجابية لديهم عن خدماتها المميزة.</p>
+                                        <h5>{{$S->vision_title}}</h5>
+                                        <p class="text-black">
+                                            {{$descriptio->vision_description}}
+
+                                             </p>
                                     </div>
-
+                                    <hr>
                                     <div class="about-title">
-                                        <h5>باقة متكاملة من الخدمات</h5>
-                                        <p class="text-black">الاهتمام بالتفاصيل هو إحدى علاماتنا الفارقة، فبالإضافة
-                                            إلى الإقامة المريحة
-                                            المُترفة، تقدم فنادق ميرا باقة متكاملة من الخدمات الفندقية الإضافية، كغرف
-                                            الاجتماعات، ومواقف السيارات، والنوادي الصحية والرياضية بما في
-                                            ذلك المسابح وقاعات المساج والسبا.
+                                        <h5>  {{$S->values_title}}</h5>
+                                        <p class="text-black">
+                                            {{$descriptio->values_description}}
+
                                         </p>
                                     </div>
-                                @else
-                                    <div class="about-title">
-                                        <h5>Our Vision Leads Our Work</h5>
-                                        <p class="text-black">Mira Hotels have a clear vision to serve you. Aiming to
-                                            be one of the largest
-                                            companies operating in hotel sector, relying on its high hotel experience,
-                                            accurate future studies and attracting most important administrative and
-                                            executive cadres.</p>
-                                    </div>
+                                    <hr>
+
 
                                     <div class="about-title">
-                                        <h5>Our Values</h5>
-                                        <p class="text-black">The Mira Hotel chain has grown to cover cities of Riyadh
-                                            and Jeddah with four
-                                            luxury hotels offering guests large number of rooms and suites that match
-                                            all needs of various guest segments, Mira Hotel chain succeeded to give
-                                            guests the best impressions of services.</p>
+                                        <h5>  {{$S->package_title}}</h5>
+                                        <p class="text-black">
+                                            {{$descriptio->package_description}}
+                                        </p>
                                     </div>
+                                
+                                    <hr>
+                             
 
-                                    <div class="about-title">
-                                        <h5>Perfect Package Of Services</h5>
-                                        <p class="text-black">Concerning about detail is one of our distinguishing
-                                            marks. In addition to
-                                            the comfortable and luxurious accommodation, Mira offers perfect package of
-                                            additional hotel services such as meeting rooms, parking, health and sports
-                                            clubs including swimming pools, massage rooms and spa</p>
-                                    </div>
-                                @endif
-
-                                @if ($aRow->button_text != '')
+                                @if ($descriptio->button_text != '')
                                     <a href="{{ $row->url }}" class="btn theme-btn mb-4"
-                                        {{ $aRow->target == '' ? '' : 'target=' . $aRow->target }}>{{ $aRow->button_text }}</a>
+                                        {{ $aRow->target == '' ? '' : 'target=' . $descriptio->target }}>{{ $descriptio->button_text }}</a>
                                 @endif
                             </div>
 
@@ -414,56 +400,56 @@
                         <div class="about-card mt-lg-4 mb-lg-4 py-lg-5"
                             style="padding-left: 120px; padding-right: 120px;">
                             <div class="row mb40">
-                                @if ($aRow->total_rooms != '')
+                                @if ($descriptio->total_rooms != '')
                                     <div class="col-12 col-sm-3 col-lg-3">
                                         <div class="info-card mb15">
                                             <div class="icon">
                                                 <i class="bi bi-buildings"></i>
                                             </div>
                                             <div>
-                                                <h4>{{ $aRow->total_rooms }}</h4>
+                                                <h4>{{ $descriptio->total_rooms }}</h4>
                                                 <p>{{ __('Rooms') }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @endif
 
-                                @if ($aRow->total_customers != '')
+                                @if ($descriptio->total_customers != '')
                                     <div class="col-12 col-sm-3 col-lg-3">
                                         <div class="info-card mb15">
                                             <div class="icon">
                                                 <i class="bi bi-emoji-smile"></i>
                                             </div>
                                             <div>
-                                                <h4>{{ $aRow->total_customers }}</h4>
+                                                <h4>{{ $descriptio->total_customers }}</h4>
                                                 <p>{{ __('Customers') }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @endif
 
-                                @if ($aRow->total_amenities != '')
+                                @if ($descriptio->total_amenities != '')
                                     <div class="col-12 col-sm-3 col-lg-3">
                                         <div class="info-card mb15">
                                             <div class="icon">
                                                 <i class="bi bi-pie-chart"></i>
                                             </div>
                                             <div>
-                                                <h4>{{ $aRow->total_amenities }}</h4>
+                                                <h4>{{ $descriptio->total_amenities }}</h4>
                                                 <p>{{ __('Amenities') }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @endif
 
-                                @if ($aRow->total_packages != '')
+                                @if ($descriptio->total_packages != '')
                                     <div class="col-12 col-sm-3 col-lg-3">
                                         <div class="info-card mb15">
                                             <div class="icon">
                                                 <i class="bi bi-percent"></i>
                                             </div>
                                             <div>
-                                                <h4>{{ $aRow->total_packages }}</h4>
+                                                <h4>{{ $descriptio->total_packages }}</h4>
                                                 <p>{{ __('Packages') }}</p>
                                             </div>
                                         </div>
@@ -475,7 +461,6 @@
                     </div>
                 </div>
             </section>
-        @endforeach
     @endif
     <!-- /About Section/ -->
 
