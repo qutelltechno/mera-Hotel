@@ -357,7 +357,7 @@ function onLoadEditData() {
 $("#welcome_title").val(JSON.parse(data.title).welcome_title);
 $("#vision_title").val(JSON.parse(data.title).vision_title);
 $("#values_title").val(JSON.parse(data.title).values_title);
-$("#welcome_title").val(JSON.parse(data.title).package_title);
+$("#package_title").val(JSON.parse(data.title).package_title);
 
 
 			$("#image_url").val(data.url);
