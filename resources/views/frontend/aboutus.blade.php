@@ -110,7 +110,7 @@
                                             <h5>{{ $title->welcome_title }} </h5>
                                                 <p class="text-black">
 
-                                                    {{ $aRow->welcom_Description }}
+                                                    {!! $aRow->welcom_Description !!}
                                                    
                                                 </p>
                                         </div>
@@ -118,7 +118,7 @@
                                         <div class="about-title">
                                             <h5>{{ $title->vision_title }}</h5>
                                             <p class="text-black">
-												{{ $aRow->vision_description }}
+												{!! $aRow->vision_description !!}
 												</p>
                                         </div>
                                         <hr>
@@ -126,7 +126,7 @@
                                             <h5>{{ $title->values_title }}</h5>
                                             <p class="text-black">
 												
-												{{ $aRow->values_description }}
+												{!! $aRow->values_description !!}
 
 											
                                             </p>
@@ -136,7 +136,7 @@
                                             <h5>{{ $title->package_title }}</h5>
                                             <p class="text-black">
 												
-												{{ $aRow->package_description }}
+												{!! $aRow->package_description !!}
 
                                             </p>
                                         </div>

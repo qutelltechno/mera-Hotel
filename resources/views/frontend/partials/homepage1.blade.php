@@ -357,14 +357,15 @@
                                     <div class="about-title">
                                         <h5> {{$S->welcome_title}}</h5>
                                         <p class="text-black">
-                                            {{$descriptio->welcom_Description}}
+                                           
+                                            {!! $descriptio->welcom_Description  !!}
                                         </p>
                                     </div>
                                     <hr>
                                     <div class="about-title">
                                         <h5>{{$S->vision_title}}</h5>
                                         <p class="text-black">
-                                            {{$descriptio->vision_description}}
+                                            {!!$descriptio->vision_description!!}
 
                                              </p>
                                     </div>
@@ -372,7 +373,7 @@
                                     <div class="about-title">
                                         <h5>  {{$S->values_title}}</h5>
                                         <p class="text-black">
-                                            {{$descriptio->values_description}}
+                                            {!!$descriptio->values_description!!}
 
                                         </p>
                                     </div>
@@ -382,7 +383,7 @@
                                     <div class="about-title">
                                         <h5>  {{$S->package_title}}</h5>
                                         <p class="text-black">
-                                            {{$descriptio->package_description}}
+                                            {!!$descriptio->package_description!!}
                                         </p>
                                     </div>
                                 
