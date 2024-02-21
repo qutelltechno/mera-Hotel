@@ -387,12 +387,14 @@
                                     </div>
                                 
                                     <hr>
-                             
+                                    <div class="item-title d-flex justify-content-center">
+                                        <a class="btn theme-btn" href="{{ route('frontend.aboutus') }}">{{ __('Show More') }}</a>
+                                    </div>
 
-                                @if ($descriptio->button_text != '')
+                                {{-- @if ($descriptio->button_text != '')
                                     <a href="{{ $row->url }}" class="btn theme-btn mb-4"
                                         {{ $aRow->target == '' ? '' : 'target=' . $descriptio->target }}>{{ $descriptio->button_text }}</a>
-                                @endif
+                                @endif --}}
                             </div>
 
                         </div>

@@ -165,6 +165,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
 
                                 {{-- ##### --}}
 
@@ -378,6 +379,8 @@
 
 @push('scripts')
     <!-- css/js -->
+    <link href="{{ asset('public/backend/editor/summernote-lite.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('public/backend/editor/summernote-lite.min.js') }}"></script>
     <script type="text/javascript">
         var media_type = 'Thumbnail';
         var TEXT = [];
