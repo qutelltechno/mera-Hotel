@@ -422,7 +422,7 @@ function onLoadEditData() {
 			$("#page_type").val(data.page_type).trigger("chosen:updated");
 			$("#is_publish").val(data.is_publish).trigger("chosen:updated");
 
-$("#a").val(JSON.parse(data.title).welcome_title);
+$("#welcome_title").val(JSON.parse(data.title).welcome_title);
 $("#vision_title").val(JSON.parse(data.title).vision_title);
 $("#values_title").val(JSON.parse(data.title).values_title);
 $("#package_title").val(JSON.parse(data.title).package_title);
@@ -465,18 +465,15 @@ $("#package_title").val(JSON.parse(data.title).package_title);
 			}else{
 
 				if(data.desc.welcom_Description != null){
-					// $("#welcom_Description").val(data.desc.welcom_Description	);
 					$('#welcom_Description').summernote('code',data.desc.welcom_Description	);
 
 				}else{
-					// $("#welcom_Description").val('');
 					$('#welcom_Description').summernote('code', '');
 
 				}
 				if(data.desc.welcom_Description != null){
 					$('#vision_description').summernote('code',data.desc.vision_description	);
 
-					// $("#vision_description").val(data.desc.vision_description	);
 				}else{
 					$("#vision_description").summernote('code', '');
 				}

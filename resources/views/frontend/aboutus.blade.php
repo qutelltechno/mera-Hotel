@@ -114,13 +114,14 @@
                                                    
                                                 </p>
                                         </div>
-
+                                        <hr>
                                         <div class="about-title">
                                             <h5>{{ $title->vision_title }}</h5>
                                             <p class="text-black">
 												{{ $aRow->vision_description }}
 												</p>
                                         </div>
+                                        <hr>
                                         <div class="about-title">
                                             <h5>{{ $title->values_title }}</h5>
                                             <p class="text-black">
@@ -130,7 +131,7 @@
 											
                                             </p>
                                         </div>
-										
+                                        <hr>
                                         <div class="about-title">
                                             <h5>{{ $title->package_title }}</h5>
                                             <p class="text-black">
