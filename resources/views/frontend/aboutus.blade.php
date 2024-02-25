@@ -150,7 +150,7 @@
                             </div>
 
                             <div class="about-card mt-lg-4 mb-lg-4 py-lg-5"
-                                style="padding-left: 120px; padding-right: 120px;">
+                            style="padding-top: 20px;padding-left: 120px;padding-right: 120px;">
                                 <div class="row mb40">
                                     @if ($aRow->total_rooms != '')
                                         <div class="col-12 col-sm-3 col-lg-3">
