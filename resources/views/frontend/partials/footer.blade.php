@@ -30,7 +30,7 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 footer-border">
                     @if ($gtext['is_publish_contact'] == 1)
-                        <div class="footer-widget-card">
+                        <div class="footer-widget-card"  style="color: white">
                             <div>
                                 <ul class="widget-contact">
                                     @if ($gtext['email_footer'] != '')
@@ -86,9 +86,9 @@
                     @if (FooterMenuList('footer') != '')
                         <div class="footer-widget-card">
                             <div class="footer-widget mb25">
-                                <h3 class="widget-title" style="color: var( --color-gray-dark)">{{ __('Quick links') }}
+                                <h3 class="widget-title" style="color: white">{{ __('Quick links') }}
                                 </h3>
-                                <ul class="widget-list">
+                                <ul class="widget-list"  style="color: white">
                                     @php echo FooterMenuList('footer'); @endphp
                                 </ul>
                             </div>
@@ -148,8 +148,8 @@
 <!-- /Whatsapp -->
 @if ($gtext['is_whatsapp_publish'] == 1)
     <div class="whatsapp-{{ $gtext['position'] }}">
-        <a href="https://wa.me/{{ $gtext['whatsapp_id'] }}/?text={{ urlencode($gtext['whatsapp_text']) }}" target="_blank"
-            class="whatsapp-btn">
+        <a href="https://wa.me/{{ $gtext['whatsapp_id'] }}/?text={{ urlencode($gtext['whatsapp_text']) }}"
+            target="_blank" class="whatsapp-btn">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48"
                 style=" fill:#000000;">
                 <path fill="#fff"
