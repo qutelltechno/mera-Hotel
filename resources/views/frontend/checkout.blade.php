@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                              <div class="container">
-                                                                               <div class="row">
-                                                                                <div class="col-12">
-                                                                                 <div class="breadcrumb-card wow pulse">
-                                                                                  <h2>{{ __('Booking Request') }}</h2>
-                                                                                 </div>
-                                                                                </div>
-                                                                               </div>
-                                                                              </div>
-                                                                             </section> -->
+                                                                                              <div class="container">
+                                                                                               <div class="row">
+                                                                                                <div class="col-12">
+                                                                                                 <div class="breadcrumb-card wow pulse">
+                                                                                                  <h2>{{ __('Booking Request') }}</h2>
+                                                                                                 </div>
+                                                                                                </div>
+                                                                                               </div>
+                                                                                              </div>
+                                                                                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -442,18 +442,17 @@
                                         <div class="widget-body">
                                             <p class="text-black">
                                                 {{ __('If you need any help, feel free to contact us.') }}</p>
-                                            <br>
+
                                             @if ($gtext['phone_footer'] != '')
                                                 <p class="text-black"><strong>{{ __('Phone') }}:</strong
                                                         style="direction: ltr !important;"><strong
                                                         style="direction: ltr !important;">
                                                         {!! nl2br($gtext['phone_footer']) !!}</strong></p>
                                                 {{-- <p><strong>{{ __('Phone')}}:</strong>
-                                        <span class=""style="direction: ltr !important;"  >
-                                            <p>{!! nl2br($gtext['phone_footer']) !!}</p>
-                                        </span>
-                                    </p> --}}
-                                                <br>
+                                                            <span class=""style="direction: ltr !important;"  >
+                                                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
+                                                            </span>
+                                                        </p> --}}
                                             @endif
 
                                             @if ($gtext['email_footer'] != '')
