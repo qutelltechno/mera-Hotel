@@ -740,9 +740,9 @@ ul.top-list-1 li i {
     line-height: 1;
 }
 
-.top-header ul.top-list li a:hover {
-    color: var(--color-gray-dark);
-}
+/* .top-header ul.top-list li a:hover {
+    color: white;
+} */
 
 .top-header ul.top-list li a i {
     margin-right: 5px;
