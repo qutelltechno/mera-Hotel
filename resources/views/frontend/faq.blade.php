@@ -74,7 +74,7 @@
                 <div class="col-md-8 offset-md-2">
 					<div class="section-heading" id="services">
 						<h5>{{ __('Faq') }}</h5>
-						<h2>{{ __('Here you will find frequently asked questions') . '.' }}</h2>
+						{{-- <h2>{{ __('Here you will find frequently asked questions') . '.' }}</h2> --}}
 						<p></p>
 					</div>
 				</div>

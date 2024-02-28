@@ -86,7 +86,7 @@
 			--color-light: {{ $gtext['light_color'] }};
 			--color-blue: {{ $gtext['blue_color'] }};
 			--color-gray: {{ $gtext['gray_color'] }};
-			--color-gray-dark: {{ $gtext['dark_gray_color'] }};
+			/* --color-gray-dark: {{ $gtext['dark_gray_color'] }}; */
 			--color-gray-400: {{ $gtext['gray400_color'] }};
 			--color-gray-500: {{ $gtext['gray500_color'] }};
 			--color-black: {{ $gtext['black_color'] }};

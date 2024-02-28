@@ -83,6 +83,7 @@ body.rtl .mobile-menu li > a {
 	font-family: 'Cairo', sans-serif;
 }
 body.rtl .about-card {
+    /* padding-top:30px; */
     padding-left: 24px;
     padding-right: 24px;
 }
