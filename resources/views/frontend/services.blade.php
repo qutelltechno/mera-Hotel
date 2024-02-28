@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-                      <div class="container">
-                       <div class="row">
-                        <div class="col-12">
-                         <div class="breadcrumb-card wow pulse">
-                          <h2>{{ __('Our Services') }}</h2>
-                         </div>
-                        </div>
-                       </div>
-                      </div>
-                     </section> -->
+                                                  <div class="container">
+                                                   <div class="row">
+                                                    <div class="col-12">
+                                                     <div class="breadcrumb-card wow pulse">
+                                                      <h2>{{ __('Our Services') }}</h2>
+                                                     </div>
+                                                    </div>
+                                                   </div>
+                                                  </div>
+                                                 </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -98,7 +98,8 @@
                                         </div>
                                         <div class="col-9 bg-white p-4 mb-4" style="width:100%">
                                             <h3>{{ $row->title }}</h3>
-                                            <p class="paragraphe-text text-black" style="height:210px;overflow:auto;">
+                                            <p id="scroll1" class="paragraphe-text text-black"
+                                                style="height:210px;overflow:auto;">
                                                 {{ $row->desc }}.
                                             </p>
                                         </div>

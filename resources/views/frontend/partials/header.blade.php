@@ -91,13 +91,13 @@
 						@endif --}}
                         @endauth
                         {{-- @dd(language()) --}}
-                       
+
                             @if ($gtext['is_language_switcher'] == 1)
                                 <li>
                                     @php echo language(); @endphp
                                 </li>
                             @endif
-                       
+
                     </ul>
                 </div>
             </div>
