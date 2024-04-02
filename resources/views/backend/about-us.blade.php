@@ -116,13 +116,18 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-18">
                                         <div class="form-group">
                                             <label for="vision_description">{{ __('Vision Description') }}</label>
                                             <textarea name="vision_description" id="vision_description" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
+                                
 								{{-- // --}}
 
 									{{-- // --}}

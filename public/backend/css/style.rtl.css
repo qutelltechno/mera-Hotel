@@ -586,8 +586,9 @@ a.viewIconBtn i {
     background-color: rgba(40, 199, 111, 0.1);
     border: 1px solid #26c56d;
     color: #26c56d;
-    display: block;
+    display:  ruby;
     text-align: center;
+    padding: 3px 27px;
 
 }
 
@@ -595,8 +596,10 @@ a.viewIconBtn i {
     background-color: rgba(255, 159, 67, 0.1);
     border: 1px solid #fe9e42;
     color: #fe9e42;
-    display: block;
+    display: ruby;
     text-align: center;
+    padding: 4px 17px;
+
 }
 
 .status_btn {

@@ -163,32 +163,7 @@
         <!-- Inner Section -->
         <section class="inner-section inner-section-bg block-bg">
             <div class="container gallery-container">
-                <div class="col-md-8 offset-md-2 pt-lg-5">
-                    <div class="section-heading">
-                        <h1 style="text-shadow:none">{{ __('Booking') }}</h1>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12 text-center min-header">
-                        <div class="row justify-content-center">
-                            @php
-                                $i = 0;
-                            @endphp
-                            @forelse ($hotels as $row)
-                                <div class="col-md-4 col-lg-3">
-                                    <button type="button" class="bttn col-md"
-                                        onclick="myFunction('dm{{ ++$i }}')">
-                                        {{ $row->name }}
-                                    </button>
-                                </div>
-                            @empty
-                            @endforelse
-
-                        </div>
-                    </div>
-                </div>
-
+                
                 <!-- Gallery 1 -->
                 <div class="tz-gallery tz-gallery-noroom" id="demo">
                     @php
@@ -230,120 +205,7 @@
                     @endif
                 </div>
 
-                {{-- {{-- <!-- Gallery 2 --> --}}
-
-
-                <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo2">
-                    @php
-
-                        // dd($HotelAr2)
-                        $firstHote2 = $hotels->skip(1)->first();
-                        $rooms2 = $firstHote2->rooms;
-                    @endphp
-                    @if ($rooms2 && count($rooms2) > 0)
-                        <div class="row">
-
-                            @foreach ($rooms2 as $row)
-                                <div class="col-lg-4">
-                                    <div class="lightbox content" data-fslightbox="gallery"
-                                        href="{{ asset('public/media/' . $row->cover_img) }}">
-                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
-                                            alt="Park" />
-                                        <div class="overlay">
-                                            <h2 class="text-light">{{ $row->title }}</h2>
-                                            {{-- <button type="button" class="btn btn-outline-light">
-                                            {{ __('Browse') }}
-
-                                        </button> --}}
-                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @else
-                        <div class="text-center">
-                            <h1 style="font-size: 12px;"> {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
-                        </div>
-                    @endif
-
-                </div>
-
-                {{-- <!-- Gallery 3 --> --}}
-                <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo3">
-                    @php
-                        $firstHote3 = $hotels->skip(2)->first();
-                        $rooms3 = $firstHote3->rooms;
-                    @endphp
-
-                    @if ($rooms3 && count($rooms3) > 0)
-                        <div class="row">
-                            @foreach ($rooms3 as $row)
-                                <div class="col-lg-4">
-                                    <div class="lightbox content" data-fslightbox="gallery"
-                                        href="{{ asset('public/media/' . $row->cover_img) }}">
-                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
-                                            alt="Park" />
-                                        <div class="overlay">
-                                            <h2 class="text-light">{{ $row->title }}</h2>
-                                            {{-- <button type="button" class="btn btn-outline-light">
-                                            {{ __('Browse') }}
-
-                                        </button> --}}
-                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @else
-                        <div class="text-center ">
-                            <h1 style="font-size: 12px;"> {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
-                        </div>
-                    @endif
-
-                </div>
-
-
-                {{-- <!-- Gallery 4 --> --}}
-                <div class="tz-gallery tz-gallery-noroom" style="display: none" id="demo4">
-                    @php
-
-                        $firstHote4 = $hotels->skip(3)->first();
-                        $rooms4 = $firstHote4->rooms;
-                    @endphp
-
-                    @if ($rooms4 && count($rooms4) > 0)
-                        <div class="row">
-                            @foreach ($rooms4 as $row)
-                                <div class="col-lg-4">
-                                    <div class="lightbox content" data-fslightbox="gallery"
-                                        href="{{ asset('public/media/' . $row->cover_img) }}">
-                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
-                                            alt="Park" />
-                                        <div class="overlay">
-                                            <h2 class="text-light">{{ $row->title }}</h2>
-                                            {{-- <button type="button" class="btn btn-outline-light">
-                                            {{ __('Browse') }}
-
-                                        </button> --}}
-                                            <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                                class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @else
-                        <div class="text-center  bottom: 8px;">
-                            <h1 style="font-size: 12px;"> {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
-                        </div>
-
-
-                    @endif
-                </div>
+             
 
             </div>
         </section>
