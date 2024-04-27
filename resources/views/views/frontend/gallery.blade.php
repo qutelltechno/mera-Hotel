@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', __('Hotels'))
+@section('title', __('gallery'))
 @php $gtext = gtext(); @endphp
 
 @section('meta-content')
@@ -74,19 +74,19 @@
             box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
         }
 
-        /* .gallery-container .tz-gallery .lightbox img:hover {
-                                filter: brightness(0.3);
-                            } */
+        .gallery-container .tz-gallery .lightbox img:hover {
+            filter: brightness(0.3);
+        }
 
         .gallery-container .baguetteBox-button {
             background-color: transparent !important;
         }
 
         /* @media (max-width: 767px) {
-                                    .min-header {
-                                        height: 175px;
-                                    }
-                                } */
+            .min-header {
+                height: 175px;
+            }
+        } */
 
         @keyframes example {
             from {
@@ -110,16 +110,16 @@
             left: 0;
             width: 100%;
             transition: 0.5s;
-            opacity: 1;
+            opacity: 0;
             color: #fff;
             font-size: 20px;
             padding: 15px;
             text-align: center;
         }
 
-        /* .gallery-container .content:hover .overlay {
-                    opacity: 1;
-                } */
+        .gallery-container .content:hover .overlay {
+            opacity: 1;
+        }
 
         .gallery-container h1 {
             margin: 0;
@@ -127,20 +127,14 @@
             text-shadow: 1px 1px 10px #000;
         }
 
-        /* .gallery-container a {
-                                display: flex !important;
-                            } */
+        .gallery-container a {
+            display: flex !important;
+        }
 
         #baguetteBox-overlay.visible {
             opacity: 1
         }
-
-
-        .tz-gallery-noroom {
-            margin-top: 50px;
-            text-shadow: 1px 1px 10px #787171;
-            font-size: 5px
-        }
+        
     </style>
 @endsection
 
@@ -148,65 +142,108 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-                              <div class="container">
-                               <div class="row">
-                                <div class="col-12">
-                                 <div class="breadcrumb-card wow pulse">
-                                  <h2>{{ __('gallery') }}</h2>
-                                 </div>
-                                </div>
-                               </div>
-                              </div>
-                             </section> -->
+      <div class="container">
+       <div class="row">
+        <div class="col-12">
+         <div class="breadcrumb-card wow pulse">
+          <h2>{{ __('gallery') }}</h2>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
         <section class="inner-section inner-section-bg block-bg">
-            <h2 class="text-center">حجز غرف ميرا أعمال </h2>
             <div class="container gallery-container">
-                
-                <!-- Gallery 1 -->
-                <div class="tz-gallery tz-gallery-noroom" id="demo">
-                    @php
-
-                        $firstHotel = $hotels->first();
-                        $rooms = $firstHotel->rooms;
-                    @endphp
-                    @if ($rooms && count($rooms) > 0)
-                        <div class="row">
-
-                            @foreach ($rooms as $row)
-                                <div class="col-lg-4">
-                                    <div class="lightbox content" data-fslightbox="gallery"
-                                        href="{{ asset('public/media/' . $row->cover_img) }}">
-                                        <img src="{{ asset('public/media/' . $row->cover_img) }}" height="250"
-                                            alt="Park" />
-                                        <div class="overlay">
-                                            <h2 class="text-light">{{ $row->title }}</h2>
-                                            {{-- <button type="button" class="btn btn-outline-light">
-                                            {{ __('Browse') }}
-
-                                        </button> --}}
-                                            <div class="button-container">
-                                                <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
-                                                    class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>
-                                                <a href="{{ route('frontend.room', [$row->id, md5($row->slug)]) }}"
-                                                    class="btn theme-btn book-now-btn">{{ __('Details') }}</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @else
-                        <div class="text-center   bottom: 8px;">
-                            <h1 style="font-size: 12px;"> {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
-                        </div>
-                    @endif
+                <div class="col-md-8 offset-md-2 pt-lg-5">
+                    <div class="section-heading">
+                        <h1 style="text-shadow:none">{{ __('gallery') }}</h1>
+                    </div>
                 </div>
 
-             
+                <div class="row">
+                    <div class="col-lg-12 text-center min-header">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-lg-3">
+                                <button type="button" class="bttn col-md" onclick="myFunction('dm1')">
+                                    {{ __('ROOMS & SUITES') }}
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <button type="button" class="bttn col-md" onclick="myFunction('dm2')">
+                                    {{ __('RESTAURANTS & CAFES') }}
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <button type="button" class="bttn col-md" onclick="myFunction('dm3')">
+                                    {{ __('SPA') }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery 1 -->
+                <div class="tz-gallery" id="demo">
+                    <div class="row">
+                        @foreach ($rooms as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Gallery 2 -->
+                <div class="tz-gallery" style="display: none" id="demo2">
+                    <div class="row">
+                        @foreach ($restaurants as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Gallery 3 -->
+                <div class="tz-gallery" style="display: none" id="demo3">
+                    <div class="row">
+                        @foreach ($spa as $row)
+                            <div class="col-lg-4">
+                                <a class="lightbox content" data-fslightbox="gallery"
+                                    href="{{ asset('public/media/' . $row->image) }}">
+                                    <img src="{{ asset('public/media/' . $row->image) }}" height="250" alt="Park" />
+                                    <div class="overlay">
+                                        <h2 class="text-light">{{ $row->title }}</h2>
+                                        <button type="button" class="btn btn-outline-light">
+                                            {{ __('Browse') }}
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -223,23 +260,14 @@
                 document.getElementById('demo').style.display = 'block';
                 document.getElementById('demo2').style.display = 'none';
                 document.getElementById('demo3').style.display = 'none';
-                document.getElementById('demo4').style.display = 'none';
             } else if (p1 == 'dm2') {
                 document.getElementById('demo').style.display = 'none';
                 document.getElementById('demo2').style.display = 'block';
                 document.getElementById('demo3').style.display = 'none';
-                document.getElementById('demo4').style.display = 'none';
-
-            } else if (p1 == 'dm3') {
-                document.getElementById('demo').style.display = 'none';
-                document.getElementById('demo2').style.display = 'none';
-                document.getElementById('demo3').style.display = 'block';
-                document.getElementById('demo4').style.display = 'none';
             } else {
                 document.getElementById('demo').style.display = 'none';
                 document.getElementById('demo2').style.display = 'none';
-                document.getElementById('demo3').style.display = 'none';
-                document.getElementById('demo4').style.display = 'block';
+                document.getElementById('demo3').style.display = 'block';
             }
         }
     </script>
