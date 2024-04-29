@@ -1214,14 +1214,7 @@ class InvoiceController extends Controller
         <br>     <br>     <br>     <br>
 
 
-        <table  >
-        <tr style=" background-color: #b7b5b5;">
-        <td style=" text-align: center; color: black;"> <strong>Date <br>ﺍﻟﺘﺎﺭﻳﺦ</strong></td>
-        <td style=" text-align: center; color: black;"><strong>Description <br>ﺍﻟﺘﻔﺎﺻﻴﻞ</strong></td>
-        <td style=" text-align: center; color: black;"><strong>Charges <br>ﻣﺪﻳﻦ</strong></td>
-        <td style=" text-align: center; color: black;"><strong>Credits <br>ﺩﺍﺋﻦ</strong></td>
-        </tr>
-        </table  >
+      
         <hr>
         <br>     <br>
             <h3>Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ﺍﻟﻤﺠﻤﻮﻉ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  '.$total_amount.'</h3>
