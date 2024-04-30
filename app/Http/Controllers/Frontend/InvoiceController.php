@@ -1144,8 +1144,8 @@ class InvoiceController extends Controller
             text-align: center;
           }
           .img1{
-            width:50px;
-            hight: 50px;
+            width:60px;
+            hight: 60px;
             padding-top:0 !important;
             margin-top: 0 !important;
 
@@ -1165,121 +1165,149 @@ class InvoiceController extends Controller
 		<!--html table-->
 		<table class="text-center">
 			<tr>
-				<td ><span class="company-logo"><img class="img1" src="' . $logo . '"/></span></td>
+				<td ><span class="company-logo"><img class="img1" src="' .$logo2 . '"/></span></td>
 			</tr>
 		</table>
 
 
-        <table  >
-        <tr style=" background-color: #b7b5b5;">
-        <td style="  font-family: Arial, Helvetica, sans-serif; !important text-align: center; color: black;"><strong> SIMPLIFIED TAX INVOICE </strong></td>
-        <td style="  text-align: center; color: black;"> <strong>فاتورة ضريبة المبسطة  </strong></td>
-
-        </tr>
+        <table style="padding:3px;" >
+            <tr style=" background-color: #b7b5b5; ">
+            <td style="  font-family: Arial, Helvetica, sans-serif; !important text-align: center; color: black;"><strong> SIMPLIFIED TAX INVOICE </strong></td>
+            <td style="  text-align: center; color: black;"> <strong>فاتورة ضريبة المبسطة  </strong></td>
+            </tr>
         </table  >
 
 
+        <br> <br>
+        <table>
+            <tr width="100% ">
+                <td width="30% ">
+                </td>
+
+                <td width="70% " >
+
+                                                    <table class="border-none " width="100% ">
+
+                                                        <tr class="" >
+
+                                                                <td class=" ltr  " width="65% ">
+                                                                    <div> customer name:  ' . $mdata['customer_name'] . '</div>
+                                                                    <div> Reservation number: ' .  $mdata['booking_no'] . '</div>
+                                                                    <div> Room type: ' . $transTitle['en'] . '</div>
+                                                                    <div> Date of arrival: ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
+                                                                    <div> Departure Date: ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
+                                                                    <div> Reservation Date: ' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
+                                                                    <div> payment method: ' . $mdata['method_name'] . '</div>
+
+                                                                </td>
+
+                                                                <td class=" rtl   " style="border-left: 1px solid dark;" width="35% ">
+                                                                    <div>  اسم العميل :  ' . $mdata['customer_name'] . '</div>
+                                                                    <div>ﺭﻗﻢ ﺍﻟﺤﺠﺰ  :  ' .  $mdata['booking_no'] . '</div>
+                                                                    <div> نوع ﺍﻟﻐﺮﻓﺔ :  ' . $transTitle['ar']. '</div>
+                                                                    <div> ﺗﺎﺭﻳﺦ ﺍﻟﻮﺻﻮﻝ :  ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
+                                                                    <div>  ﺗﺎﺭﻳﺦ ﺍﻟﻤﻐﺎﺩﺭﺓ:  ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
+                                                                    <div>  ﺗﺎﺭﻳﺦ الحجز:  ' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
+                                                                    <div>   <span class="ltr">' . $mdata['method_name'] . '</span>طريقة  الدفع:    </div>
+
+                                                                </td>
+
+                                                        </tr>
 
 
-        <table class="border-none text-center" width="100% ">
-                    <tr class="" >
 
-                    <td class="w-50 ltr " >
-                    <div> customer name: &nbsp;&nbsp;&nbsp;' . $mdata['customer_name'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> Reservation number: &nbsp;&nbsp;&nbsp;' .  $mdata['booking_no'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> Room type: &nbsp;&nbsp;&nbsp;' . $transTitle['en'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> Date of arrival: &nbsp;&nbsp;&nbsp;' . date('d-m-Y', strtotime($mdata['in_date'])) . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> Departure Date: &nbsp;&nbsp;&nbsp;' . date('d-m-Y', strtotime($mdata['out_date'])) . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> Reservation Date: &nbsp;&nbsp;&nbsp;' .  date('d-m-Y', strtotime($mdata['created_at'])) . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <div> payment method: &nbsp;&nbsp;&nbsp;' . $mdata['method_name'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-
-                    </td>
-
-                    <td class="w-45 rtl " >
-                    <div>  اسم العميل :  &nbsp;&nbsp;&nbsp;' . $mdata['customer_name'] . '</div>
-                    <div>ﺭﻗﻢ ﺍﻟﺤﺠﺰ  :  &nbsp;&nbsp;&nbsp;' .  $mdata['booking_no'] . '</div>
-                    <div> نوع ﺍﻟﻐﺮﻓﺔ :  &nbsp;&nbsp;&nbsp;' . $transTitle['ar']. '</div>
-                    <div> ﺗﺎﺭﻳﺦ ﺍﻟﻮﺻﻮﻝ : &nbsp;&nbsp;&nbsp; ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
-                    <div>  ﺗﺎﺭﻳﺦ ﺍﻟﻤﻐﺎﺩﺭﺓ: &nbsp;&nbsp;&nbsp; ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
-                    <div>  ﺗﺎﺭﻳﺦ الحجز:  &nbsp;&nbsp;&nbsp;' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
-                    <div>  طريقة  الدفع:  &nbsp;&nbsp;&nbsp;' . $mdata['method_name'] . '</div>
-
-                    </td>
-
-                    </tr>
+                                                    </table>
+                </td>
+                </tr>
+        <table>
 
 
 
-        </table>
-        <br>     <br>     <br>     <br>
+
+        <br>     <br>
+        <table style="padding:3px;" class="text-center" >
+        <tr style=" background-color: #b7b5b5; ">
+        <td style="  color: black;"> <strong>  Date  <br> ﺍﻟﺘﺎﺭﻳﺦ  </strong></td>
+        <td style="  color: black;"> <strong>  Description  <br> ﺍﻟﺘﻔﺎﺻﻴﻞ  </strong></td>
+        <td style="  color: black;"> <strong>  Charges  <br> ﻣﺪﻳﻦ  </strong></td>
+        <td style="  color: black;"> <strong>  Credits  <br> ﺩﺍﺋﻦ  </strong></td>
+
+        </tr>
+        </table  >
+        <br>     <br>     <br><br>     <br>     <br><br>     <br>     <br>
 
 
-      
+
         <hr>
         <br>     <br>
-            <h3>Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ﺍﻟﻤﺠﻤﻮﻉ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  '.$total_amount.'</h3>
+            <h4>Total  &nbsp;&nbsp;  ﺍﻟﻤﺠﻤﻮﻉ&nbsp;&nbsp;: </h4>
 
         <br>     <br>
+<table>
+<tr>
+<td class="w-50 ltr "><hr></td>
+</tr>
+</table>
 
-        <hr>
 
-
-
-        <table class="border-none text-center" width="100% ">
-                    <tr class="" >
+        <div >
+                <table class="border-none   " width="100% " align="right ">
+                    <tr  >
 
                     <td class="w-50 ltr" >
-                    <div> Net Amount:&nbsp;&nbsp;&nbsp;&nbsp;' . $subtotal .  ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span></div>
-                    <div> VAT :&nbsp;&nbsp;&nbsp;&nbsp;'  . $tax . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span></div>
-                    <div> Discount:&nbsp;&nbsp;&nbsp;&nbsp;' . $discount . '   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span></div>
-                    <div> Total Amount Incl. Taxes:&nbsp;&nbsp;&nbsp;&nbsp;' .  $total_amount . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span></div>
+                    <div> Net Amount:&nbsp;' . $subtotal .  ' &nbsp;<span></span></div>
+                    <div> VAT :&nbsp;'  . $tax . ' &nbsp;<span></span></div>
+                    <div> Discount:&nbsp;' . $discount . '   &nbsp;<span></span></div>
+                    <div> Total Amount Incl. Taxes:&nbsp;' .  $total_amount . ' &nbsp;<span></span></div>
 
 
                     </td>
 
 
                     <td class="w-45 rtl " >
-                    <div>ﺻﺎﻓﻲ ﺍﻟﻘﻴﻤﺔ :&nbsp;&nbsp;&nbsp;&nbsp;' . $subtotal .  '</div>
-                    <div>ﺿﺮﻳﺒﺔ ﺍﻟﻘﻴﻤﺔ ﺍﻟﻤﻀﺎﻓﺔ : &nbsp;&nbsp;&nbsp;&nbsp;'  . $tax . '</div>
-                    <div>خصم  :&nbsp;&nbsp;&nbsp;&nbsp; ' . $discount . '</div>
-                    <div>ﺍﻟﻤﺒﻠﻎ ﺍﻹﺟﻤﺎﻟﻰ ﺷﺎﻣﻞ ﺍﻟﻀﺮﻳﺒﺔ :&nbsp;&nbsp;&nbsp;&nbsp;' .  $total_amount . '</div>
+                    <div>ﺻﺎﻓﻲ ﺍﻟﻘﻴﻤﺔ :&nbsp;' . $subtotal .  '</div>
+                    <div>ﺿﺮﻳﺒﺔ ﺍﻟﻘﻴﻤﺔ ﺍﻟﻤﻀﺎﻓﺔ : &nbsp;'  . $tax . '</div>
+                    <div>خصم  :&nbsp; ' . $discount . '</div>
+                    <div>ﺍﻟﻤﺒﻠﻎ ﺍﻹﺟﻤﺎﻟﻰ ﺷﺎﻣﻞ ﺍﻟﻀﺮﻳﺒﺔ :&nbsp;' .  $total_amount . '</div>
 
                     </td>
 
                     </tr>
 
         </table>
+
+
+        </div>
+
+
         <br>     <br>
 
         <hr>
-        <br>
-        <br>
 
-        <strong>ﺃﻗﺮ ﺑﺎﻟﻤﺴﺆﻭﻟﻴﺔ ﻓﻰ ﺣﺎﻟﺔ ﻋﺪﻡ ﻗﻴﺎﻡ ﺍﻟﺸﺨﺺ ﺍﻟﻤﺸﺎﺭ ﺍﻟﻴﻪ ﺍﻭ ﺍﻟﺸﺮﻛﺔ
-        ﺍﻭ ﺍﻟﺠﻤﻌﻴﺔ ﺑﺪﻓﻊ ﻛﺎﻣﻞ ﺍﻟﺘﻜﺎﻟﻴﻒ ﺍﻭ ﺟﺰﺀ ﻣﻨﻬﺎ</strong>
+
+                <div>
+                <br>
+
+                <strong>ﺃﻗﺮ ﺑﺎﻟﻤﺴﺆﻭﻟﻴﺔ ﻓﻰ ﺣﺎﻟﺔ ﻋﺪﻡ ﻗﻴﺎﻡ ﺍﻟﺸﺨﺺ ﺍﻟﻤﺸﺎﺭ ﺍﻟﻴﻪ ﺍﻭ ﺍﻟﺸﺮﻛﺔ
+                ﺍﻭ ﺍﻟﺠﻤﻌﻴﺔ ﺑﺪﻓﻊ ﻛﺎﻣﻞ ﺍﻟﺘﻜﺎﻟﻴﻒ ﺍﻭ ﺟﺰﺀ ﻣﻨﻬﺎ</strong>
+                </div>
+
         <br>
-        <br>
-        <br>
+        <br> <br>
+        <table>
+        <tr>
+        <td class="w-30 ltr "><hr></td>
+        </tr>
+        </table>
 
         <span>ﺗﻮﻗﻴﻊ ﺍﻟﻀﻴﻒ   /     Guest Signature </span>
-
-
-        <br>
-        <br>
-            <hr>
+        <br> <br>
+            <div>
             <br>
+                <hr>
             <h4 class="text-center" >MIRA BUSINESS HOTEL,RIYADH</h4>
             <p  class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
-
-
-
-
-
-
-
-
-
-
+            </div>
 	';
 
         }
