@@ -1159,6 +1159,11 @@ class InvoiceController extends Controller
           .flex{
             display: flex;
           }
+          .font-style{
+
+            font-size: 7px;
+            font-weight: bold 5px
+          }
 
 		</style>
 
@@ -1170,10 +1175,12 @@ class InvoiceController extends Controller
 		</table>
 
 
-        <table style="padding:3px;" >
-            <tr style=" background-color: #b7b5b5; ">
-            <td style="  font-family: Arial, Helvetica, sans-serif; !important text-align: center; color: black;"><strong> SIMPLIFIED TAX INVOICE </strong></td>
-            <td style="  text-align: center; color: black;"> <strong>فاتورة ضريبة المبسطة  </strong></td>
+        <table style="padding:3px;"  >
+            <tr style=" background-color: #b7b5b5;  border: hidden!important; " >
+            <td style="  font-family: Arial, Helvetica, sans-serif; !important  color: black;"><strong> SIMPLIFIED TAX INVOICE </strong></td>
+            <td></td>
+            <td></td>
+            <td style="   float: right; color: black;"> <strong style="  float: right;">فاتورة ضريبة المبسطة  </strong></td>
             </tr>
         </table  >
 
@@ -1181,34 +1188,33 @@ class InvoiceController extends Controller
         <br> <br>
         <table>
             <tr width="100% ">
-                <td width="30% ">
+                <td width="20% ">
                 </td>
 
-                <td width="70% " >
+                <td width="80% " >
 
                                                     <table class="border-none " width="100% ">
 
                                                         <tr class="" >
-
                                                                 <td class=" ltr  " width="65% ">
-                                                                    <div> customer name:  ' . $mdata['customer_name'] . '</div>
-                                                                    <div> Reservation number: ' .  $mdata['booking_no'] . '</div>
-                                                                    <div> Room type: ' . $transTitle['en'] . '</div>
-                                                                    <div> Date of arrival: ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
-                                                                    <div> Departure Date: ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
-                                                                    <div> Reservation Date: ' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
-                                                                    <div> payment method: ' . $mdata['method_name'] . '</div>
+                                                                    <div> <span class="font-style"> customer name:</span>   ' . $mdata['customer_name'] . '</div>
+                                                                    <div>  <span class="font-style"> Reservation number: </span>' .  $mdata['booking_no'] . '</div>
+                                                                    <div>  <span class="font-style">Room type: </span> ' . $transTitle['en'] . '</div>
+                                                                    <div>  <span class="font-style">Date of arrival:</span>  ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
+                                                                    <div>  <span class="font-style">Departure Date:</span>  ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
+                                                                    <div>  <span class="font-style">Reservation Date:</span>  ' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
+                                                                    <div>  <span class="font-style"> payment method:</span> ' . $mdata['method_name'] . '</div>
 
                                                                 </td>
 
                                                                 <td class=" rtl   " style="border-left: 1px solid dark;" width="35% ">
-                                                                    <div>  اسم العميل :  ' . $mdata['customer_name'] . '</div>
-                                                                    <div>ﺭﻗﻢ ﺍﻟﺤﺠﺰ  :  ' .  $mdata['booking_no'] . '</div>
-                                                                    <div> نوع ﺍﻟﻐﺮﻓﺔ :  ' . $transTitle['ar']. '</div>
-                                                                    <div> ﺗﺎﺭﻳﺦ ﺍﻟﻮﺻﻮﻝ :  ' . date('d-m-Y', strtotime($mdata['in_date'])) . '</div>
-                                                                    <div>  ﺗﺎﺭﻳﺦ ﺍﻟﻤﻐﺎﺩﺭﺓ:  ' . date('d-m-Y', strtotime($mdata['out_date'])) . '</div>
-                                                                    <div>  ﺗﺎﺭﻳﺦ الحجز:  ' .  date('d-m-Y', strtotime($mdata['created_at'])) . '</div>
-                                                                    <div>   <span class="ltr">' . $mdata['method_name'] . '</span>طريقة  الدفع:    </div>
+                                                                    <div>     ' . $mdata['customer_name'] . '<span class="font-style">اسم العميل :</span></div>
+                                                                    <div>  ' .  $mdata['booking_no'] . '<span class="font-style">ﺭﻗﻢ ﺍﻟﺤﺠﺰ  : </span></div>
+                                                                    <div>   ' . $transTitle['ar']. '<span class="font-style">نوع ﺍﻟﻐﺮﻓﺔ : </span></div>
+                                                                    <div>   ' . date('d-m-Y', strtotime($mdata['in_date'])) . '<span class="font-style">ﺗﺎﺭﻳﺦ ﺍﻟﻮﺻﻮﻝ :</span> </div>
+                                                                    <div>     ' . date('d-m-Y', strtotime($mdata['out_date'])) . '<span class="font-style">ﺗﺎﺭﻳﺦ ﺍﻟﻤﻐﺎﺩﺭﺓ:</span></div>
+                                                                    <div>    ' .  date('d-m-Y', strtotime($mdata['created_at'])) . ' <span class="font-style">ﺗﺎﺭﻳﺦ الحجز:</span></div>
+                                                                    <div>   <span class="ltr">' . $mdata['method_name'] . '</span><span class="font-style">طريقة  الدفع:</span>     </div>
 
                                                                 </td>
 
@@ -1255,20 +1261,20 @@ class InvoiceController extends Controller
                     <tr  >
 
                     <td class="w-50 ltr" >
-                    <div> Net Amount:&nbsp;' . $subtotal .  ' &nbsp;<span></span></div>
-                    <div> VAT :&nbsp;'  . $tax . ' &nbsp;<span></span></div>
-                    <div> Discount:&nbsp;' . $discount . '   &nbsp;<span></span></div>
-                    <div> Total Amount Incl. Taxes:&nbsp;' .  $total_amount . ' &nbsp;<span></span></div>
+                    <div> <span class="font-style">Net Amount:&nbsp;</span>  ' . $subtotal .  ' &nbsp;<span></span></div>
+                    <div> <span class="font-style"> VAT :&nbsp;</span> '  . $tax . ' &nbsp;<span></span></div>
+                    <div> <span class="font-style">Discount:&nbsp;</span>  ' . $discount . '   &nbsp;<span></span></div>
+                    <div> <span class="font-style">Total Amount Incl. Taxes:&nbsp;</span>  ' .  $total_amount . ' &nbsp;<span></span></div>
 
 
                     </td>
 
 
                     <td class="w-45 rtl " >
-                    <div>ﺻﺎﻓﻲ ﺍﻟﻘﻴﻤﺔ :&nbsp;' . $subtotal .  '</div>
-                    <div>ﺿﺮﻳﺒﺔ ﺍﻟﻘﻴﻤﺔ ﺍﻟﻤﻀﺎﻓﺔ : &nbsp;'  . $tax . '</div>
-                    <div>خصم  :&nbsp; ' . $discount . '</div>
-                    <div>ﺍﻟﻤﺒﻠﻎ ﺍﻹﺟﻤﺎﻟﻰ ﺷﺎﻣﻞ ﺍﻟﻀﺮﻳﺒﺔ :&nbsp;' .  $total_amount . '</div>
+                    <div>' . $subtotal .  '<span class="font-style">ﺻﺎﻓﻲ ﺍﻟﻘﻴﻤﺔ :&nbsp;</span></div>
+                    <div>'  . $tax . '<span class="font-style">ﺿﺮﻳﺒﺔ ﺍﻟﻘﻴﻤﺔ ﺍﻟﻤﻀﺎﻓﺔ : &nbsp;</span></div>
+                    <div>' . $discount . '<span class="font-style">خصم  :&nbsp; </span></div>
+                    <div>' .  $total_amount . '<span class="font-style">ﺍﻟﻤﺒﻠﻎ ﺍﻹﺟﻤﺎﻟﻰ ﺷﺎﻣﻞ ﺍﻟﻀﺮﻳﺒﺔ :&nbsp;</span></div>
 
                     </td>
 
@@ -1300,8 +1306,8 @@ class InvoiceController extends Controller
         </tr>
         </table>
 
-        <span>ﺗﻮﻗﻴﻊ ﺍﻟﻀﻴﻒ   /     Guest Signature </span>
-        <br> <br>
+        <span class="font-style">ﺗﻮﻗﻴﻊ ﺍﻟﻀﻴﻒ   /     Guest Signature </span>
+       
             <div>
             <br>
                 <hr>
