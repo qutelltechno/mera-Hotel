@@ -82,7 +82,7 @@ Route::post('/frontend/getCheckOutTotalPrice', [App\Http\Controllers\Frontend\Ch
 
 //Invoice
 Route::get('/invoice/{id}/{booking_no}', [App\Http\Controllers\Frontend\InvoiceController::class, 'getInvoice'])->name('frontend.invoice');
-// Route::get('/invoice2/{id}/{booking_no}', [App\Http\Controllers\Frontend\InvoiceController::class, 'getInvoice2'])->name('frontend.invoice2');
+// Route::get('/invoice2/{id}/{booking_no}', [App\Http\Controllers\Frontend\InvoiceNewController::class, 'getInvoice'])->name('frontend.invoice2');
 
 //Subscribe
 Route::post('/frontend/saveSubscriber', [App\Http\Controllers\Backend\NewslettersController::class, 'saveSubscriberData'])->name('frontend.saveSubscriber');
