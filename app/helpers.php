@@ -1327,7 +1327,12 @@ function DateDiffInDays($StartDate, $EndDate){
 
 	// 1 day = 24 hours
 	// 24 * 60 * 60 = 86400 seconds
-	return abs(round($diff / 86400))+1;
+	return abs(round($diff / 86400));
+}
+
+function MunicipalityFees(){
+
+	return '2.5';
 }
 
 function NumberFormat($number){

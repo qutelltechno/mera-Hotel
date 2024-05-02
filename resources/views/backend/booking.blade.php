@@ -75,8 +75,8 @@
 										}
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;
-
 										if($gtext['currency_position'] == 'left'){
+                                            $municipalityFeesTax=$gtext['currency_icon'].NumberFormat($sub_total*((MunicipalityFees())/100));
 											$oPrice = $gtext['currency_icon'].NumberFormat($oldPrice);
 											$caloPrice = $gtext['currency_icon'].NumberFormat($calOldPrice);
 											$total_price = $gtext['currency_icon'].NumberFormat($totalPrice);
@@ -86,6 +86,7 @@
 											$total_amount = $gtext['currency_icon'].NumberFormat($totalAmount);
 
 										}else{
+                                            $municipalityFeesTax=NumberFormat($sub_total*((MunicipalityFees())/100)).$gtext['currency_icon'];
 											$oPrice = NumberFormat($oldPrice).$gtext['currency_icon'];
 											$caloPrice = NumberFormat($calOldPrice).$gtext['currency_icon'];
 											$total_price = NumberFormat($totalPrice).$gtext['currency_icon'];
@@ -103,8 +104,8 @@
 										}
 
 
-            $translationTitle = json_decode($mdata->title, true);
-            $curnetLang=glan();
+                                        $translationTitle = json_decode($mdata->title, true);
+                                        $curnetLang=glan();
 
 									@endphp
 
@@ -119,6 +120,10 @@
 									<tr>
 										<td colspan="5" class="text-right"><strong>{{ __('Subtotal') }}: </strong></td>
 										<td class="text-right"><strong>{{ $subtotal }}</strong></td>
+									</tr>
+                                    <tr>
+										<td colspan="5" class="text-right border-none"><strong>{{ __('municipality Fees') }}: </strong></td>
+										<td class="text-right border-none"><strong>{{ $municipalityFeesTax }}</strong></td>
 									</tr>
 									<tr>
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Tax') }}: </strong></td>
