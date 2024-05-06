@@ -121,6 +121,7 @@ class BookingController extends Controller
 			->orderBy('booking_manages.id', 'desc')
 			->paginate(10);
 
+
         return view('backend.booking-request', compact('datalist'));
 	}
 

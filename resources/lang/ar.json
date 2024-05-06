@@ -459,7 +459,7 @@
     "Select Action": "اختيار الإجراء",
     "Select All": "تحديد الكل",
     "Select Amenities": "اختيار المرافق",
-    "Select Complements": "اختيار التكملات",
+    "Select Complements": "اختيار المكملات",
     "Select File": "اختيار الملف",
     "Select Mail Subject Field": "اختيار حقل موضوع البريد",
     "Select Size": "اختيار الحجم",
@@ -705,7 +705,8 @@
     "Values":" القيم",
     "Values Description":" وصف القيم",
     "Perfect Package Of Services":" باقة متكاملة من الخدمات ",
-    "Perfect Package Of Services Description":" وصف باقة متكاملة من الخدمات"
+    "Perfect Package Of Services Description":" وصف باقة متكاملة من الخدمات",
+    "Invoice Complements":"اضافات الفاتورة "
 
 
 

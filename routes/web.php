@@ -181,6 +181,7 @@ Route::prefix('super-admin')->group(function () {
 
     //Complements
     Route::get('/complements', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementsPageLoad'])->name('super.backend.complements')->middleware(['auth', 'is_superAdmin']);
+    Route::get('invoice/complements', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'getComplementsPageLoad'])->name('super.backend.invoice.complements')->middleware(['auth', 'is_superAdmin']);
     Route::get('/getComplementsTableData', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementsTableData'])->name('super.backend.getComplementsTableData')->middleware(['auth', 'is_superAdmin']);
     Route::post('/saveComplementsData', [App\Http\Controllers\Backend\ComplementsController::class, 'saveComplementsData'])->name('super.backend.saveComplementsData')->middleware(['auth', 'is_superAdmin']);
     Route::post('/getComplementById', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementById'])->name('super.backend.getComplementById')->middleware(['auth', 'is_superAdmin']);
