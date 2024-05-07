@@ -40,7 +40,7 @@
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item" href="{{ route('backend.booking', [$row->id, 'booking-request']) }}">{{ __('Edit') }}</a>
 							<a class="dropdown-item" href="{{ route('frontend.invoice', [$row->id, $row->booking_no]) }}">{{ __('Invoice') }}</a>
-							<a class="dropdown-item" href="{{ route('super.backend.invoice.complements', [ $row->booking_no]) }}">{{ __('Complements') }}</a>
+							<a class="dropdown-item" href="{{ route('backend.invoice.complements', [ $row->booking_no]) }}">{{ __('Complements') }}</a>
 							<a onclick="onDelete({{ $row->id }})" class="dropdown-item" href="javascript:void(0);">{{ __('Delete') }}</a>
 						</div>
 					</div>

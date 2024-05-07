@@ -43,7 +43,7 @@ function onCheckAll() {
 
 function onPaginationDataLoad(page) {
 	$.ajax({
-		url:base_url + "/backend/getComplementsTableData?page="+page,
+		url:base_url + "/backend/invoice/getComplementsTableData?page="+page,
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -53,7 +53,7 @@ function onPaginationDataLoad(page) {
 
 function onRefreshData() {
 	$.ajax({
-		url:base_url + "/backend/getComplementsTableData?search="+$("#search").val(),
+		url:base_url + "backend/invoice/getComplementsTableData?search="+$("#search").val(),
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -63,7 +63,7 @@ function onRefreshData() {
 
 function onSearch() {
 	$.ajax({
-		url: base_url + "/backend/getComplementsTableData?search="+$("#search").val(),
+		url: base_url + "backend/invoice/getComplementsTableData?search="+$("#search").val(),
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -128,7 +128,7 @@ function onConfirmWhenAddEdit() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/saveComplementsData',
+		url: base_url + '/backend/invoice/saveComplementsData',
 		data: $('#DataEntry_formId').serialize(),
 		success: function (response) {
 			var msgType = response.msgType;

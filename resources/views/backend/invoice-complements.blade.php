@@ -29,31 +29,8 @@
                         </div>
                         <!--Data grid-->
                         <div id="list-panel" class="card-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group bulk-box">
-                                        <select id="bulk-action" class="form-control">
-                                            <option value="">{{ __('Select Action') }}</option>
-                                            <option value="publish">{{ __('Publish') }}</option>
-                                            <option value="draft">{{ __('Draft') }}</option>
-                                            <option value="delete">{{ __('Delete Permanently') }}</option>
-                                        </select>
-                                        <button type="submit" onClick="onBulkAction()"
-                                            class="btn bulk-btn">{{ __('Apply') }}</button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3"></div>
-                                <div class="col-lg-5">
-                                    <div class="form-group search-box">
-                                        <input id="search" name="search" type="text" class="form-control"
-                                            placeholder="{{ __('Search') }}...">
-                                        <button type="submit" onClick="onSearch()"
-                                            class="btn search-btn">{{ __('Search') }}</button>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="tp_datalist">
-                                @include('backend.partials.complements_table')
+                                @include('backend.partials.invoice-complements-table')
                             </div>
                         </div>
                         <!--/Data grid/-->
@@ -62,31 +39,11 @@
                         <div id="form-panel" class="card-body dnone">
                             <form novalidate="" data-validate="parsley" id="DataEntry_formId">
                                 <div class="row">
-
-
-                                    {{-- <td class="text-left" style="width:30%;">{{ $translationTitle[$curnetLang] }}</td> --}}
-
-
-                                    {{-- <div class="col-lg-4">
-                                        <div class="form-group bulk-box">
-                                            <select name="complement" id="bulk-action" class="form-control">
-                                                <option value="">{{ __('Select Complements') }}</option>
-                                                @foreach ($datalist as $data)
-                                                    @php
-                                                        $translationName = json_decode($data->name, true);
-                                                        $curnetLang = glan();
-                                                    @endphp
-                                                    <option value="{{ $data->id }}">{{ $translationName[glan()] }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div> --}}
-
-
                                     <div class="col-md-6">
-                                        <label for="complement">{{ __('Complements') }}<span class="red">*</span></label>
+                                        <label for="complement">{{ __('Complements') }}<span
+                                                class="red">*</span></label>
                                         <div class="form-group bulk-box">
-                                            <select name="complement" id="bulk-action" class="form-control">
+                                            <select name="complement" id="complement" class="form-control">
                                                 <option value="">{{ __('Select Complements') }}</option>
                                                 @foreach ($datalist as $data)
                                                     @php
@@ -101,11 +58,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="price">{{ __('Cost Price') }}<span class="red">*</span></label>
+                                            <label for="price">{{ __('Cost Price') }}<span
+                                                    class="red">*</span></label>
                                             <input type="number" name="price" id="price"
                                                 class="form-control parsley-validated" data-required="true">
                                         </div>
                                     </div>
+                                    <input type="hidden" id="invoice_number" name="invoice_number"
+                                        value="{{ $invoiceNum }}">
                                 </div>
 
                                 <input type="text" name="RecordId" id="RecordId" class="dnone">

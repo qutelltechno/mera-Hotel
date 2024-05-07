@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'is_admin' => \App\Http\Middleware\IsAdmin::class, //User is Admin
         'is_receptionist' => \App\Http\Middleware\IsReceptionist::class, //User is Receptionist
         'is_superAdmin' => isSuperAdmin::class, //User is Admin
+        'is_super_admin_rece' => \App\Http\Middleware\IsSuperAdminReceptionist::class, //User is Admin
 
     ];
 }
