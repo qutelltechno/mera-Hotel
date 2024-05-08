@@ -41,7 +41,18 @@
 </head>
 
 <body>
-
+    <br>
+    {{ $DteOfArrival }} DteOfArrival    <br>
+    {{ $DteOfOut }}  DteOfOut   <br>
+    {{ $totalPrice }}  totalPrice   <br>
+    {{ $oldPrice }}  oldPrice   <br>
+    {{ $DteOfOut }}     <br>
+    {{ $DteOfOut }}     <br>
+    {{ $DteOfOut }}     <br>
+    {{ $DteOfOut }}     <br>
+    {{ $DteOfOut }}     <br>
+    {{ $DteOfOut }}
+                          <br>
     <table class="table-auto m-auto">
         <thead class="w-80">
             <tr class="bg-secondary text-dark">

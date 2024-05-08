@@ -22,7 +22,7 @@ use App\Models\Bedtype;
 use App\Models\Room_manage;
 use App\Models\Booking_manage;
 use App\Models\Room_assign;
-
+use Carbon\Carbon;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -1447,6 +1447,21 @@ function BookingCount($status_id) {
 
 	return $count;
 }
+
+ function getDateListBetween(string $startDate, string $endDate): array
+    {
+
+        $startDateObject = Carbon::parse($startDate);
+        $endDateObject = Carbon::parse($endDate); 
+
+        $dateList = [];
+
+        for ($date = $startDateObject->clone(); $date < $endDateObject; $date->addDay()) {
+            $dateList[] = $date->format('Y-m-d');
+        }
+
+        return $dateList;
+    }
 
 //Booking Notify
 function BookingNotify($booking_id, $type) {

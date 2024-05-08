@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class InvoiceNewController extends Controller
@@ -51,6 +52,21 @@ class InvoiceNewController extends Controller
             $mdata['pstatus_name'] = $row->pstatus_name;
             $mdata['bstatus_name'] = $row->bstatus_name;
         }
+        // return $datalist;
+
+        $tax=  $mdata['tax'];
+        $bookingNumber=$mdata['booking_no'];
+        $DteOfArrival=  $mdata['in_date'];
+        $DteOfOut=  $mdata['out_date'];
+        // رﻗﻢ اﻟﺼﻔﺤﺔ:
+        $dateBooking=  $mdata['created_at'];
+        // رﻗﻢ اﻟﻤﻮﻇﻒ
+        // رﻗﻢ اﻟﻔﺎﺗﻮرة :
+        // رﻗﻢ اﻟﻔﻮﻟﻴﻮ :
+        return $dateList=getDateListBetween( $DteOfArrival, $DteOfOut);
+
+
+        
 
         $total_days = DateDiffInDays($mdata['in_date'], $mdata['out_date']);
 
@@ -115,7 +131,7 @@ class InvoiceNewController extends Controller
         ////////////////////////////////////////
 
         $html = view('Frontend.pdfstyle',
-            compact('totalPrice')
+            compact('DteOfOut','DteOfArrival','totalPrice','oldPrice','sub_total','totalTax','totalDiscount','totalAmount')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');
