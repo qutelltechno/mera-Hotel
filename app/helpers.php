@@ -1624,7 +1624,7 @@ function BookingNotify($booking_id, $type) {
 
 	$base_url = url('/');
 
-	$InvoiceDownloads = '<a href="'.route('frontend.invoice', [$booking_id, $mdata['booking_no']]).'" style="background:'.$gtext['theme_color'].';display:block;text-align:center;padding:7px 15px;margin:0 10px 10px 0;border-radius:3px;text-decoration:none;color:#fff;float:left;">'.__('Invoice').'</a>';
+	$InvoiceDownloads = '<a href="'.route('frontend.invoice2', [$booking_id, $mdata['booking_no']]).'" style="background:'.$gtext['theme_color'].';display:block;text-align:center;padding:7px 15px;margin:0 10px 10px 0;border-radius:3px;text-decoration:none;color:#fff;float:left;">'.__('Invoice').'</a>';
 
 	if($gtext['ismail'] == 1){
 		try {

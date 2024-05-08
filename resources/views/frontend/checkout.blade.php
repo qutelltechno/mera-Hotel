@@ -100,8 +100,8 @@
                                             data-required="true">
                                             <option value="">{{ __('Country') }}</option>
                                             @foreach ($country_list as $row)
-                                                <option value="{{ $row->country_name }}">
-                                                    {{ $row->country_name }}
+                                                <option value="egypt">
+                                                    egypt
                                                 </option>
                                             @endforeach
                                         </select>

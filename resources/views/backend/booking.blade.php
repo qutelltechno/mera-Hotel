@@ -191,7 +191,7 @@
 								<div class="col-lg-12">
 									<input class="dnone" id="booking_id" name="booking_id" type="text" value="{{ $mdata->id }}" />
 									<a id="submit-form" href="javascript:void(0);" class="btn btn-theme mr-10 update_btn">{{ __('Update') }}</a>
-									<a href="{{ route('frontend.invoice', [$mdata->id, $mdata->booking_no]) }}" class="btn btn-theme mr-10">{{ __('Invoice Download') }}</a>
+									<a href="{{ route('frontend.invoice2', [$mdata->id, $mdata->booking_no]) }}" class="btn btn-theme mr-10">{{ __('Invoice Download') }}</a>
 									<a href="{{ route('backend.all-booking') }}" class="btn warning-btn"><i class="fa fa-reply"></i> {{ __('Back to List') }}</a>
 								</div>
 							</div>
