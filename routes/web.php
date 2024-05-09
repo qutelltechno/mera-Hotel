@@ -767,6 +767,8 @@ Route::prefix('backend')->group(function () {
     //Tax
     Route::get('/tax', [App\Http\Controllers\Backend\TaxesController::class, 'getTaxPageLoad'])->name('backend.tax')->middleware(['auth', 'is_admin']);
     Route::post('/saveTaxData', [App\Http\Controllers\Backend\TaxesController::class, 'saveTaxData'])->name('backend.saveTaxData')->middleware(['auth', 'is_admin']);
+    Route::get('/municipality-fees', [App\Http\Controllers\Backend\MunicipalityFeesController::class, 'getMunicipalityFeesPageLoad'])->name('admin.backend.fess')->middleware(['auth', 'is_super_and_admin']);
+    Route::post('/saveFeesData', [App\Http\Controllers\Backend\MunicipalityFeesController::class, 'saveFeesData'])->name('backend.saveFeesData')->middleware(['auth', 'is_super_and_admin']);
 
     //Currency
     Route::get('/currency', [App\Http\Controllers\Backend\CurrencyController::class, 'getCurrencyPageLoad'])->name('backend.currency')->middleware(['auth', 'is_admin']);

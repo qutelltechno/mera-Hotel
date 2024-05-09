@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Booking_manage;
 use App\Models\InvoiceComplement;
+use App\Models\Tax;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -56,35 +57,63 @@ class InvoiceNewController extends Controller
         }
         // return $datalist;
 
-        $tax = $mdata['tax'];
+        $totalTax = 0;
+        if ($mdata['tax'] != '') {
+            $totalTax = $mdata['tax'];
+            $taxFormate = NumberFormat($totalTax);
+        }
+        $tax = NumberFormat($totalTax) . $gtext['currency_icon'];
         $bookingNumber = $mdata['booking_no'];
         $DteOfArrival = $mdata['in_date'];
         $DteOfOut = $mdata['out_date'];
-        // رﻗﻢ اﻟﺼﻔﺤﺔ:
         $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
-        // رﻗﻢ اﻟﻤﻮﻇﻒ
-        // رﻗﻢ اﻟﻔﺎﺗﻮرة :
-        // رﻗﻢ اﻟﻔﻮﻟﻴﻮ :
         $methodName = $mdata['method_name'];
         $roomPrice = $mdata['total_price'];
         $dateList = getDateListBetween($DteOfArrival, $DteOfOut);
-         $booking_no = Booking_manage::where('id', $booking_id)->select('booking_no')->value('booking_no');
-
-
-
-           $invoiceDataComplements = InvoiceComplement::where('invoice_number', $booking_no)
+        $booking_no = Booking_manage::where('id', $booking_id)->select('booking_no')->value('booking_no');
+        $invoiceDataComplements = InvoiceComplement::where('invoice_number', $booking_no)
             ->with('complements')
             ->get();
+        $guestName = $mdata['customer_name'];
+        $city = $mdata['city'];
+        $phone = $mdata['customer_phone'];
+        $sub_total = 0;
+        if ($mdata['subtotal'] != '') {
+            $sub_total = $mdata['subtotal'];
+            $sub_total = NumberFormat($sub_total);
+            $sub_total_num = $mdata['subtotal'];
+        }
+        $municipalityFees = $sub_total_num * MunicipalityFees() / 100;
+        $taxPersentage = Tax::first()->select('percentage')->value('percentage');
+        $totalAmount = 0;
+        if ($mdata['total_amount'] != '') {
+            $totalAmount = $mdata['total_amount'];
+            $totalAmount = NumberFormat($totalAmount);
+        }
 
-            // foreach ($invoiceDataComplements as $data){
-            //     return $data->complements[0]->name;
-            //     // return $data->created_at;
+        $totalDiscount = 0;
+        if ($mdata['discount'] != '') {
+            $totalDiscount = $mdata['discount'];
+            $totalDiscount = NumberFormat($totalDiscount);
+        }
 
-            // }
+        $prices = [];
+        foreach ($invoiceDataComplements as $complement) {
+            $prices[] = $complement->price; 
+        }
+         $totalComplementPriceNotformate = array_sum($prices);
+         $totalComplementPric=NumberFormat($totalComplementPriceNotformate);
 
+         $totalAmountWithComplement = 0;
+         if ($mdata['total_amount'] != '') {
+             $totalAmountWithComplement = $mdata['total_amount']+$totalComplementPriceNotformate;
+             $totalAmountWithComplement = NumberFormat($totalAmountWithComplement);
+         }
 
+         $numberVat=310152627910003;
+         $logo2 = public_path('media/' . 'photo_5892981411613359903_x.jpg');
 
-
+         ########################################
 // عدد لايام
         $total_days = DateDiffInDays($mdata['in_date'], $mdata['out_date']);
 
@@ -98,25 +127,7 @@ class InvoiceNewController extends Controller
             $oldPrice = $mdata['old_price'];
         }
 
-        $sub_total = 0;
-        if ($mdata['subtotal'] != '') {
-            $sub_total = $mdata['subtotal'];
-        }
-
-        $totalTax = 0;
-        if ($mdata['tax'] != '') {
-            $totalTax = $mdata['tax'];
-        }
-
-        $totalDiscount = 0;
-        if ($mdata['discount'] != '') {
-            $totalDiscount = $mdata['discount'];
-        }
-
-        $totalAmount = 0;
-        if ($mdata['total_amount'] != '') {
-            $totalAmount = $mdata['total_amount'];
-        }
+      
 
         $calOldPrice = $oldPrice * $mdata['total_room'] * $total_days;
 
@@ -124,19 +135,19 @@ class InvoiceNewController extends Controller
             $oPrice = $gtext['currency_icon'] . NumberFormat($oldPrice);
             $caloPrice = $gtext['currency_icon'] . NumberFormat($calOldPrice);
             $total_price = $gtext['currency_icon'] . NumberFormat($totalPrice);
-            $subtotal = $gtext['currency_icon'] . NumberFormat($sub_total);
-            $tax = $gtext['currency_icon'] . NumberFormat($totalTax);
-            $discount = $gtext['currency_icon'] . NumberFormat($totalDiscount);
-            $total_amount = $gtext['currency_icon'] . NumberFormat($totalAmount);
+            // $subtotal = $gtext['currency_icon'] . NumberFormat($sub_total);
+            // $tax = $gtext['currency_icon'] . NumberFormat($totalTax);
+            // $discount = $gtext['currency_icon'] . NumberFormat($totalDiscount);
+            // $total_amount = $gtext['currency_icon'] . NumberFormat($totalAmount);
 
         } else {
             $oPrice = NumberFormat($oldPrice) . $gtext['currency_icon'];
             $caloPrice = NumberFormat($calOldPrice) . $gtext['currency_icon'];
             $total_price = NumberFormat($totalPrice) . $gtext['currency_icon'];
-            $subtotal = NumberFormat($sub_total) . $gtext['currency_icon'];
-            $tax = NumberFormat($totalTax) . $gtext['currency_icon'];
-            $discount = NumberFormat($totalDiscount) . $gtext['currency_icon'];
-            $total_amount = NumberFormat($totalAmount) . $gtext['currency_icon'];
+            // $subtotal = NumberFormat($sub_total) . $gtext['currency_icon'];
+            // $tax = NumberFormat($totalTax) . $gtext['currency_icon'];
+            // $discount = NumberFormat($totalDiscount) . $gtext['currency_icon'];
+            // $total_amount = NumberFormat($totalAmount) . $gtext['currency_icon'];
         }
 
         $old_price = '';
@@ -149,13 +160,13 @@ class InvoiceNewController extends Controller
         ////////////////////////////////////////
 
         $html = view('Frontend.pdfstyle',
-            compact('invoiceDataComplements','roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalPrice', 'oldPrice', 'sub_total', 'totalTax', 'totalDiscount', 'totalAmount')
+            compact('logo2','numberVat','totalAmountWithComplement','totalComplementPric','totalDiscount','totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'tax', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalPrice', 'oldPrice', 'totalTax', 'totalDiscount', 'totalAmount')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');
 
         $pdf->loadHTML($html);
-
+        $pdf->setPaper('A4', 'landscape');
         $output = $pdf->output();
 
         $headers = array(

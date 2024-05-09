@@ -26,6 +26,8 @@ use Carbon\Carbon;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\Models\MunicipalityFees;
+
 
 //Page Variation
 function PageVariation(){
@@ -1332,7 +1334,7 @@ function DateDiffInDays($StartDate, $EndDate){
 
 function MunicipalityFees(){
 
-	return '2.5';
+	return MunicipalityFees::first()->select('percentage')->value('percentage');
 }
 
 function NumberFormat($number){

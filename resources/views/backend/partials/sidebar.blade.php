@@ -36,6 +36,7 @@
                     <li><a href="{{ route('backend.complements') }}">{{ __('Complements') }}</a></li>
                     <li><a href="{{ route('backend.bed-types') }}">{{ __('Bed Types') }}</a></li>
                     <li><a href="{{ route('backend.tax') }}">{{ __('Tax') }}</a></li>
+                    <li><a href="{{ route('admin.backend.fess') }}">{{ __('municipality Fees') }}</a></li>
                     <li><a href="{{ route('backend.currency') }}">{{ __('Currency') }}</a></li>
                     {{-- <li><a href="{{ route('backend.payment-methods') }}">{{ __('Payment Methods') }}</a></li> --}}
                     <li><a href="{{ route('backend.countries') }}">{{ __('Countries') }}</a></li>
@@ -145,6 +146,7 @@
                     <li><a href="{{ route('super.backend.complements') }}">{{ __('Complements') }}</a></li>
                     <li><a href="{{ route('super.backend.bed-types') }}">{{ __('Bed Types') }}</a></li>
                     <li><a href="{{ route('super.backend.tax') }}">{{ __('Tax') }}</a></li>
+                    <li><a href="{{ route('admin.backend.fess') }}">{{ __('municipality Fees') }}</a></li>
                     <li><a href="{{ route('super.backend.currency') }}">{{ __('Currency') }}</a></li>
                     <li><a href="{{ route('super.backend.payment-methods') }}">{{ __('Payment Methods') }}</a></li>
                     <li><a href="{{ route('super.backend.countries') }}">{{ __('Countries') }}</a></li>

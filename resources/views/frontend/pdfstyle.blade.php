@@ -12,6 +12,8 @@
         @page {
             margin: 0px;
             padding: 0px;
+            /* margin: 1.5cm; */
+            /* size: A4; */
         }
 
         * {
@@ -37,176 +39,243 @@
             width: 100%;
 
         }
+
+        th,
+        td {
+            font-size: 10px !important
+        }
+
+        .custom {
+
+            position: relative;
+
+        }
+
+        .text-dark,
+        .custom {
+            font-weight: 700
+        }
+
+        .custom::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgb(0, 0, 0);
+            width: 1px !important;
+            height: 2.5%;
+        }
+
+        .span {
+            font-weight: 200
+        }
     </style>
 </head>
 
 <body>
-    <br>
-    {{ $DteOfArrival }} DteOfArrival    <br>
-    {{ $DteOfOut }}  DteOfOut   <br>
-    {{ $totalPrice }}  totalPrice   <br>
-    {{ $oldPrice }}  oldPrice   <br>
-    {{ $DteOfOut }}     <br>
-    {{ $DteOfOut }}     <br>
-    {{ $DteOfOut }}     <br>
-    {{ $DteOfOut }}     <br>
-    {{ $DteOfOut }}     <br>
-    {{ $DteOfOut }}
-                          <br>
+
+
+    <div class="image-logo" style="width: 10% ; margin: auto">
+        <img src="{{ $logo2 }}" style="width: 100px " alt="" srcset="">
+    </div>
+
     <table class="table-auto m-auto">
-        <thead class="w-80">
+        <thead class="w-80 h-10">
             <tr class="bg-secondary text-dark">
                 <th>SIMPLIFIED TAX</th>
                 <th></th>
-                <th class="text-right">فاتوره ضريبه مبسطه</th>
+                <th></th>
+                <th></th>
+                <th class="text-right text-dark">فاتوره ضريبه مبسطه</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td class="text-start">(Guest Name)</td>
-                <td class="text-start">Company VAT :</td>
-                <td class="text-right">:ضريبةالقيمةالمضافة</td>
+                <td class="text-start">{{ $guestName }}</td>
+                <td class="text-start text-dark">Company VAT :</td>
+                <td class="text-start"> {{ $numberVat }} </td>
+                <td class="text-right text-dark custom">:ضريبةالقيمةالمضافة</td>
             </tr>
             <tr>
-                <td class="text-start">Saudi Arabia</td>
-                <td class="text-start">Conf. No.</td>
-                <td class="text-right">: رقم الحجز</td>
+                <td class="text-start">Phone:</td>
+                <td class="text-start">{{ $phone }}</td>
+                <td class="text-start text-dark">Conf. No:</td>
+                <td class="text-start"> {{ $booking_id }} </td>
+
+                <td class="text-right text-dark custom"><span class="span text-black-50">0101414100 &nbsp;
+                        &nbsp;</span>
+                    : &nbsp; &nbsp; &nbsp; رقم الحجز</td>
+            </tr>
+            <tr>
+                <td class="text-start">{{ $city }}</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Room No:</td>
+                <td class="text-start"> </td>
+
+                <td class="text-right text-dark custom">: رقم الغرفة</td>
             </tr>
             <tr>
                 <td class="text-start"></td>
-                <td class="text-start">Room No.</td>
-                <td class="text-right">: رقم الغرفة</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Arrival Date:</td>
+                <td class="text-start"> {{ $DteOfArrival }} </td>
+
+                <td class="text-right text-dark custom">: تاريخ الوصول</td>
             </tr>
             <tr>
                 <td class="text-start"></td>
-                <td class="text-start">Arrival Date</td>
-                <td class="text-right">: تاريخ الوصول</td>
-            </tr>
-            <tr>
                 <td class="text-start"></td>
-                <td class="text-start">Departure Date</td>
-                <td class="text-right">: تاريخ المغادرة</td>
+                <td class="text-start text-dark">Departure Date:</td>
+                <td class="text-start"> {{ $DteOfOut }} </td>
+
+                <td class="text-right text-dark custom">: تاريخ المغادرة</td>
             </tr>
             <tr>
-                <td class="text-start">INFORMATION INVOICE</td>
-                <td class="text-start">Page No.</td>
-                <td class="text-right">:رقم الصفحة</td>
+                <td class="text-start">INFORMATION INVOICE:</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Page No:</td>
+                <td class="text-start"> </td>
+
+                <td class="text-right text-dark custom">:رقم الصفحة</td>
             </tr>
             <tr>
                 <td class="text-start">Membership No:</td>
-                <td class="text-start">Date</td>
-                <td class="text-right">: التاريخ</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Date:</td>
+                <td class="text-start"> {{ $dateBooking }} </td>
+
+                <td class="text-right text-dark custom">: التاريخ</td>
             </tr>
             <tr>
                 <td class="text-start">A/R Number :</td>
-                <td class="text-start">Cashier No </td>
-                <td class="text-right">: رقم الموظف</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Cashier No: </td>
+                <td class="text-start"> </td>
+
+                <td class="text-right text-dark  custom">: رقم الموظف</td>
             </tr>
             <tr>
                 <td class="text-start">Company Name :</td>
-                <td class="text-start">Invoice No.</td>
-                <td class="text-right">: رقم الفاتورة</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Invoice No:</td>
+                <td class="text-start"> {{ $bookingNumber }} </td>
+
+                <td class="text-right text-dark custom">: رقم الفاتورة</td>
             </tr>
             <tr>
                 <td class="text-start">Customer VAT :</td>
-                <td class="text-start">Folio No.</td>
-                <td class="text-right">: رقم الفوليو</td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Folio No:</td>
+                <td class="text-start"> </td>
+                <td class="text-right text-dark custom">: رقم الفوليو</td>
             </tr>
         </tbody>
     </table>
 
 
-    <table class="table-auto m-auto">
-        <thead>
-            <tr class="bg-secondary text-dark">
-                <th class="text-start">
-                    Date <br />
-                    التاريخ
-                </th>
-                <th class="text-start">Description <br />التفاصيل</th>
-                <th class=""></th>
-                <th class="text-end">Charges <br />مدين</th>
-                <th class="text-end">Credits <br />دائن</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-start">{{ $dateBooking }}</td>
-                <td class="text-start">{{ $methodName }}</td>
-                <td class="text-center"> {{ __($methodName) }}</td>
-                <td class="text-center"></td>
-                <td class="text-center">00000</td>
-            </tr>
-            @foreach ($dateList as $day)
-            <tr>
-                <td class="text-start">{{ $day}}</td>
-                <td class="text-start">ROOM CHARGE</td>
-                <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">{{ $roomPrice }}</td>
-                <td class="text-center"></td>
-            </tr>
-            @endforeach
-            @foreach ($invoiceDataComplements as $data )
-            <tr>
-                <td class="text-start">{{ $data->created_at }}</td>
-                <td class="text-start">nane</td>
-                <td class="text-center">الاسم </td>
-                <td class="text-center">السعر</td>
-                <td class="text-center"></td>
-            </tr>
-            @endforeach
-
-
-
-        </tbody>
-    </table>
-
+    <div class="d-block">
+        <table class="table-auto m-auto">
+            <thead>
+                <tr class="bg-secondary text-dark">
+                    <th class="text-center">
+                        Date <br />
+                        التاريخ
+                    </th>
+                    <th class="text-center">Description <br />التفاصيل</th>
+                    <th class=""></th>
+                    <th class="text-center">Charges <br />مدين</th>
+                    <th class="text-center">Credits <br />دائن</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start">{{ $dateBooking }}</td>
+                    <td class="text-start">{{ $methodName }}</td>
+                    <td class="text-center"> {{ __($methodName) }}</td>
+                    <td class="text-center"></td>
+                    <td class="text-center">00000</td>
+                </tr>
+                @foreach ($dateList as $day)
+                    <tr>
+                        <td class="text-start">{{ $day }}</td>
+                        <td class="text-start">ROOM CHARGE</td>
+                        <td class="text-center">رسوم الغرفة</td>
+                        <td class="text-center">{{ $roomPrice }}</td>
+                        <td class="text-center"></td>
+                    </tr>
+                @endforeach
+                @php
+                    use Carbon\Carbon;
+                @endphp
+                @foreach ($invoiceDataComplements as $data)
+                    <tr>
+                        <td class="text-start">{{ Carbon::parse($data->created_at)->format('Y-m-d') }}</td>
+                        <td class="text-start">{{ $data->complements[0]->getTranslations('name')['en'] }}</td>
+                        <td class="text-center">{{ $data->complements[0]->getTranslations('name')['ar'] }} </td>
+                        <td class="text-center">{{ $data->price }}</td>
+                        <td class="text-center"></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
     <hr class="hr-spaced" />
+    <div class="container-fluid d-block" style="">
+        <table class="table-auto float-right" style="width: 50% !important">
+            <thead>
+                <tr>
+                    <th class="text-start">Total المجموع</th>
+                    <th class="text-start"></th>
+                    <th class="">{{ $totalAmountWithComplement }}</th>
+                    <th class="text-right">0000</th>
+                </tr>
+            </thead>
+            <tbody>
+                <hr class="hr-spaced" />
+                <tr>
+                    <td class="text-start">Balance</td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $totalAmount }}</td>
+                    <td class="text-right">الرصيد</td>
+                </tr>
+                <tr>
+                    <td class="text-start">Net Amount</td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $sub_total }}</td>
+                    <td class="text-right">صافي القيمة</td>
+                </tr>
+                <tr>
+                    <td class="text-start">Net Additions </td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $totalComplementPric }}</td>
+                    <td class="text-right">صافي الأضافات</td>
+                </tr>
+                <tr>
+                    <td class="text-start">Municipality Fees</td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $municipalityFees }}</td>
+                    <td class="text-right"><span dir="ltr"></span>{{ MunicipalityFees() }}%ضريبةالبلدية
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-start">VAT</td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $taxFormate }}</td>
+                    <td class="text-right">ضريبةالقيمةالمضافة<span dir="ltr"></span>{{ $taxPersentage }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-start">Discount</td>
+                    <td class="text-start">SAR</td>
+                    <td class="text-center">{{ $totalDiscount }}</td>
+                    <td class="text-right">الخصم</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-
-
-    <table class="table-auto float-right" style="width: 50% !important">
-        <thead>
-            <tr>
-                <th class="text-start">Total المجموع</th>
-                <th class="text-start"></th>
-                <th class="">0000</th>
-                <th class="text-right">0000</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <hr class="hr-spaced" />
-            <tr>
-                <td class="text-start">Balance</td>
-                <td class="text-start">SAR</td>
-                <td class="text-center">0.00</td>
-                <td class="text-right">الرصيد</td>
-            </tr>
-            <tr>
-                <td class="text-start">Balance</td>
-                <td class="text-start">SAR</td>
-                <td class="text-center">0.00</td>
-                <td class="text-right">ضريبةالبلدية2.5%</td>
-            </tr>
-            <tr>
-                <td class="text-start">Balance</td>
-                <td class="text-start">SAR</td>
-                <td class="text-center">0.00</td>
-                <td class="text-right">ضريبةالقيمةالمضافة1</td>
-            </tr>
-            <tr>
-                <td class="text-start">Balance</td>
-                <td class="text-start">SAR</td>
-                <td class="text-center">0.00</td>
-                <td class="text-right">صافي القيمة</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-    {{-- <footer class="mt-5">
-
+    <div class="mt-5 w-full d-block">
         <div class="container">
             <h4 class="text-center mt-5">MIRA BUSINESS HOTEL,RIYADH</h4>
             <div class="row row-cols-2">
@@ -219,10 +288,7 @@
             </div>
         </div>
 
-    </footer> --}}
-
-
-    <script src="{{ asset('public/backend/js/jquery-3.6.3.min.js') }}"></script>
+    </div>
     <script src="{{ asset('public/backend/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/bootstrap.min.js') }}"></script>
     @stack('scripts')
