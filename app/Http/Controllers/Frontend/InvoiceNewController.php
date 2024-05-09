@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking_manage;
+use App\Models\InvoiceComplement;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -54,20 +56,36 @@ class InvoiceNewController extends Controller
         }
         // return $datalist;
 
-        $tax=  $mdata['tax'];
-        $bookingNumber=$mdata['booking_no'];
-        $DteOfArrival=  $mdata['in_date'];
-        $DteOfOut=  $mdata['out_date'];
+        $tax = $mdata['tax'];
+        $bookingNumber = $mdata['booking_no'];
+        $DteOfArrival = $mdata['in_date'];
+        $DteOfOut = $mdata['out_date'];
         // رﻗﻢ اﻟﺼﻔﺤﺔ:
-        $dateBooking=  $mdata['created_at'];
+        $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
         // رﻗﻢ اﻟﻤﻮﻇﻒ
         // رﻗﻢ اﻟﻔﺎﺗﻮرة :
         // رﻗﻢ اﻟﻔﻮﻟﻴﻮ :
-        return $dateList=getDateListBetween( $DteOfArrival, $DteOfOut);
+        $methodName = $mdata['method_name'];
+        $roomPrice = $mdata['total_price'];
+        $dateList = getDateListBetween($DteOfArrival, $DteOfOut);
+         $booking_no = Booking_manage::where('id', $booking_id)->select('booking_no')->value('booking_no');
 
 
-        
 
+           $invoiceDataComplements = InvoiceComplement::where('invoice_number', $booking_no)
+            ->with('complements')
+            ->get();
+
+            // foreach ($invoiceDataComplements as $data){
+            //     return $data->complements[0]->name;
+            //     // return $data->created_at;
+
+            // }
+
+
+
+
+// عدد لايام
         $total_days = DateDiffInDays($mdata['in_date'], $mdata['out_date']);
 
         $totalPrice = 0;
@@ -131,7 +149,7 @@ class InvoiceNewController extends Controller
         ////////////////////////////////////////
 
         $html = view('Frontend.pdfstyle',
-            compact('DteOfOut','DteOfArrival','totalPrice','oldPrice','sub_total','totalTax','totalDiscount','totalAmount')
+            compact('invoiceDataComplements','roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalPrice', 'oldPrice', 'sub_total', 'totalTax', 'totalDiscount', 'totalAmount')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');
@@ -146,7 +164,7 @@ class InvoiceNewController extends Controller
 
         return response()->streamDownload(
             fn() => print($output), // add the content to the stream
-           'pdf' . time() . ".pdf", // the name of the file/stream
+            'pdf' . time() . ".pdf", // the name of the file/stream
             $headers
         );
 

@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                                              <div class="container">
-                                                                                               <div class="row">
-                                                                                                <div class="col-12">
-                                                                                                 <div class="breadcrumb-card wow pulse">
-                                                                                                  <h2>{{ __('Booking Request') }}</h2>
-                                                                                                 </div>
-                                                                                                </div>
-                                                                                               </div>
-                                                                                              </div>
-                                                                                             </section> -->
+                                                                                                  <div class="container">
+                                                                                                   <div class="row">
+                                                                                                    <div class="col-12">
+                                                                                                     <div class="breadcrumb-card wow pulse">
+                                                                                                      <h2>{{ __('Booking Request') }}</h2>
+                                                                                                     </div>
+                                                                                                    </div>
+                                                                                                   </div>
+                                                                                                  </div>
+                                                                                                 </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -100,8 +100,8 @@
                                             data-required="true">
                                             <option value="">{{ __('Country') }}</option>
                                             @foreach ($country_list as $row)
-                                                <option value="egypt">
-                                                    egypt
+                                                <option value="{{ $row->country_name }}">
+                                                    {{ $row->country_name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -402,7 +402,7 @@
                                                             <td><span
                                                                     class="title text-black">{{ __('municipality Fees') }}</span><span
                                                                     class="price">
-                                                                0
+                                                                    0
                                                                 </span></td>
                                                         </tr>
                                                         <tr>

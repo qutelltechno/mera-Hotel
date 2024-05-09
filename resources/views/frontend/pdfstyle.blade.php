@@ -114,6 +114,8 @@
             </tr>
         </tbody>
     </table>
+
+
     <table class="table-auto m-auto">
         <thead>
             <tr class="bg-secondary text-dark">
@@ -129,48 +131,33 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-start">DD/MM/YY</td>
-                <td class="text-start">Visa Credit Card</td>
-                <td class="text-center">فيزا كارد</td>
+                <td class="text-start">{{ $dateBooking }}</td>
+                <td class="text-start">{{ $methodName }}</td>
+                <td class="text-center"> {{ __($methodName) }}</td>
                 <td class="text-center"></td>
                 <td class="text-center">00000</td>
             </tr>
+            @foreach ($dateList as $day)
             <tr>
-                <td class="text-start">DD/MM/YY</td>
+                <td class="text-start">{{ $day}}</td>
                 <td class="text-start">ROOM CHARGE</td>
                 <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">00000</td>
+                <td class="text-center">{{ $roomPrice }}</td>
                 <td class="text-center"></td>
             </tr>
+            @endforeach
+            @foreach ($invoiceDataComplements as $data )
             <tr>
-                <td class="text-start">DD/MM/YY</td>
-                <td class="text-start">ROOM CHARGE</td>
-                <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">00000</td>
+                <td class="text-start">{{ $data->created_at }}</td>
+                <td class="text-start">nane</td>
+                <td class="text-center">الاسم </td>
+                <td class="text-center">السعر</td>
                 <td class="text-center"></td>
             </tr>
+            @endforeach
 
-            <tr>
-                <td class="text-start">DD/MM/YY</td>
-                <td class="text-start">ROOM CHARGE</td>
-                <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">00000</td>
-                <td class="text-center"></td>
-            </tr>
-            <tr>
-                <td class="text-start">DD/MM/YY</td>
-                <td class="text-start">ROOM CHARGE</td>
-                <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">00000</td>
-                <td class="text-center">00000</td>
-            </tr>
-            <tr>
-                <td class="text-start">DD/MM/YY</td>
-                <td class="text-start">ROOM CHARGE</td>
-                <td class="text-center">رسوم الغرفة</td>
-                <td class="text-center">00000</td>
-                <td class="text-center"></td>
-            </tr>
+
+
         </tbody>
     </table>
 
