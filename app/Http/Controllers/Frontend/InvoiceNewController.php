@@ -99,7 +99,7 @@ class InvoiceNewController extends Controller
 
         $prices = [];
         foreach ($invoiceDataComplements as $complement) {
-            $prices[] = $complement->price; 
+            $prices[] = $complement->price;
         }
          $totalComplementPriceNotformate = array_sum($prices);
          $totalComplementPric=NumberFormat($totalComplementPriceNotformate);
@@ -127,7 +127,7 @@ class InvoiceNewController extends Controller
             $oldPrice = $mdata['old_price'];
         }
 
-      
+
 
         $calOldPrice = $oldPrice * $mdata['total_room'] * $total_days;
 
@@ -166,7 +166,7 @@ class InvoiceNewController extends Controller
         $pdf = app()->make('dompdf.wrapper');
 
         $pdf->loadHTML($html);
-        $pdf->setPaper('A4', 'landscape');
+        // $pdf->setPaper('A5', 'landscape');
         $output = $pdf->output();
 
         $headers = array(

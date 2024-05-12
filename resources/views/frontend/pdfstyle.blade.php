@@ -95,7 +95,7 @@
                 <td class="text-start">{{ $guestName }}</td>
                 <td class="text-start text-dark">Company VAT :</td>
                 <td class="text-start"> {{ $numberVat }} </td>
-                <td class="text-right text-dark custom">:ضريبةالقيمةالمضافة</td>
+                <td class="text-right text-dark custom">&nbsp; <span class="span text-black-50">{{ $numberVat }}&nbsp;</span>:ضريبةالقيمةالمضافة </td>
             </tr>
             <tr>
                 <td class="text-start">Phone:</td>
@@ -103,7 +103,7 @@
                 <td class="text-start text-dark">Conf. No:</td>
                 <td class="text-start"> {{ $booking_id }} </td>
 
-                <td class="text-right text-dark custom"><span class="span text-black-50">0101414100 &nbsp;
+                <td class="text-right text-dark custom"><span class="span text-black-50">{{ $booking_id }} &nbsp;
                         &nbsp;</span>
                     : &nbsp; &nbsp; &nbsp; رقم الحجز</td>
             </tr>
@@ -121,7 +121,8 @@
                 <td class="text-start text-dark">Arrival Date:</td>
                 <td class="text-start"> {{ $DteOfArrival }} </td>
 
-                <td class="text-right text-dark custom">: تاريخ الوصول</td>
+                <td class="text-right text-dark custom"><span class="span text-black-50">{{ $DteOfArrival }} &nbsp;
+                    &nbsp;</span>: تاريخ الوصول</td>
             </tr>
             <tr>
                 <td class="text-start"></td>
@@ -129,7 +130,8 @@
                 <td class="text-start text-dark">Departure Date:</td>
                 <td class="text-start"> {{ $DteOfOut }} </td>
 
-                <td class="text-right text-dark custom">: تاريخ المغادرة</td>
+                <td class="text-right text-dark custom"><span class="span text-black-50">{{ $DteOfOut }} &nbsp;
+                    &nbsp;</span>: تاريخ المغادرة</td>
             </tr>
             <tr>
                 <td class="text-start">INFORMATION INVOICE:</td>
@@ -145,7 +147,8 @@
                 <td class="text-start text-dark">Date:</td>
                 <td class="text-start"> {{ $dateBooking }} </td>
 
-                <td class="text-right text-dark custom">: التاريخ</td>
+                <td class="text-right text-dark custom"><span class="span text-black-50">{{ $dateBooking }} &nbsp;
+                    &nbsp;</span>: التاريخ</td>
             </tr>
             <tr>
                 <td class="text-start">A/R Number :</td>
@@ -161,7 +164,8 @@
                 <td class="text-start text-dark">Invoice No:</td>
                 <td class="text-start"> {{ $bookingNumber }} </td>
 
-                <td class="text-right text-dark custom">: رقم الفاتورة</td>
+                <td class="text-right text-dark custom"><span class="span text-black-50">{{ $bookingNumber }} &nbsp;
+                    &nbsp;</span>: رقم الفاتورة</td>
             </tr>
             <tr>
                 <td class="text-start">Customer VAT :</td>
@@ -221,8 +225,8 @@
         </table>
     </div>
     <hr class="hr-spaced" />
-    <div class="container-fluid d-block" style="">
-        <table class="table-auto float-right" style="width: 50% !important">
+    <div class="container">
+        <table class="table-auto me-4 float-right" style="width: 50% !important">
             <thead>
                 <tr>
                     <th class="text-start">Total المجموع</th>
@@ -252,17 +256,17 @@
                     <td class="text-right">صافي الأضافات</td>
                 </tr>
                 <tr>
-                    <td class="text-start">Municipality Fees</td>
+                    <td class="text-start">&nbsp;<span dir="ltr"></span>Municipality Fees</td>&nbsp;%
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $municipalityFees }}</td>
-                    <td class="text-right"><span dir="ltr"></span>{{ MunicipalityFees() }}%ضريبةالبلدية
+                    <td class="text-right">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-start">VAT</td>
+                    <td class="text-start">VAT&nbsp; <span dir="ltr"></span>{{ $taxPersentage }}&nbsp;% </td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $taxFormate }}</td>
-                    <td class="text-right">ضريبةالقيمةالمضافة<span dir="ltr"></span>{{ $taxPersentage }}%
+                    <td class="text-right">&nbsp;<span dir="ltr"></span>{{ $taxPersentage }}&nbsp;%ضريبةالقيمةالمضافة
                     </td>
                 </tr>
                 <tr>
@@ -275,7 +279,7 @@
         </table>
     </div>
 
-    <div class="mt-5 w-full d-block">
+    {{-- <div class="mt-5 w-full d-block">
         <div class="container">
             <h4 class="text-center mt-5">MIRA BUSINESS HOTEL,RIYADH</h4>
             <div class="row row-cols-2">
@@ -288,7 +292,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
     <script src="{{ asset('public/backend/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/bootstrap.min.js') }}"></script>
     @stack('scripts')
