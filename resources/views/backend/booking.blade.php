@@ -71,7 +71,7 @@
 
 										$totalAmount = 0;
 										if($mdata->total_amount !=''){
-											$totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
+											// $totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
 										}
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;

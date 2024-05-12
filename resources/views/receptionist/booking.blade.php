@@ -74,7 +74,7 @@
 
 										$totalAmount = 0;
 										if($mdata->total_amount !=''){
-											$totalAmount = $mdata->total_amount;
+											$totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
 										}
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;
@@ -124,6 +124,10 @@
 									<tr>
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Tax') }}: </strong></td>
 										<td class="text-right border-none"><strong>{{ $tax }}</strong></td>
+									</tr>
+                                    <tr>
+										<td colspan="5" class="text-right border-none"><strong>{{ __('Net additions') }}: </strong></td>
+										<td class="text-right border-none"><strong>{{ $totalComplementPric }}</strong></td>
 									</tr>
 									<tr>
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Discount') }}: </strong></td>
