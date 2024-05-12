@@ -229,7 +229,7 @@
         <table class="table-auto me-4 float-right" style="width: 50% !important">
             <thead>
                 <tr>
-                    <th class="text-start">Total المجموع</th>
+                    <th class="text-start text-dark">Total المجموع</th>
                     <th class="text-start"></th>
                     <th class="">{{ $totalAmountWithComplement }}</th>
                     <th class="text-right">0000</th>
@@ -238,42 +238,42 @@
             <tbody>
                 <hr class="hr-spaced" />
                 <tr>
-                    <td class="text-start">Balance</td>
+                    <td class="text-start text-dark">Balance</td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $totalAmount }}</td>
-                    <td class="text-right">الرصيد</td>
+                    <td class="text-right text-dark">الرصيد</td>
                 </tr>
                 <tr>
-                    <td class="text-start">Net Amount</td>
+                    <td class="text-start text-dark">Net Amount</td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $sub_total }}</td>
-                    <td class="text-right">صافي القيمة</td>
+                    <td class="text-right text-dark">صافي القيمة</td>
                 </tr>
                 <tr>
-                    <td class="text-start">Net Additions </td>
+                    <td class="text-start text-dark">Net Additions </td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $totalComplementPric }}</td>
-                    <td class="text-right">صافي الأضافات</td>
+                    <td class="text-right text-dark">صافي الأضافات</td>
                 </tr>
                 <tr>
-                    <td class="text-start">&nbsp;<span dir="ltr"></span>Municipality Fees</td>&nbsp;%
+                    <td class="text-start text-dark">&nbsp;<span dir="ltr"></span>Municipality Fees</td>&nbsp;%
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $municipalityFees }}</td>
-                    <td class="text-right">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
+                    <td class="text-right text-dark">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-start">VAT&nbsp; <span dir="ltr"></span>{{ $taxPersentage }}&nbsp;% </td>
+                    <td class="text-start text-dark">VAT&nbsp; <span dir="ltr"></span>{{ $taxPersentage }}&nbsp;% </td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $taxFormate }}</td>
-                    <td class="text-right">&nbsp;<span dir="ltr"></span>{{ $taxPersentage }}&nbsp;%ضريبةالقيمةالمضافة
+                    <td class="text-right text-dark">&nbsp;<span dir="ltr"></span>{{ $taxPersentage }}&nbsp;%ضريبةالقيمةالمضافة
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-start">Discount</td>
+                    <td class="text-start text-dark">Discount</td>
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $totalDiscount }}</td>
-                    <td class="text-right">الخصم</td>
+                    <td class="text-right text-dark">الخصم</td>
                 </tr>
             </tbody>
         </table>
