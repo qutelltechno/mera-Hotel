@@ -159,7 +159,7 @@ class InvoiceNewController extends Controller
 
         ////////////////////////////////////////
 
-        $html = view('Frontend.pdfstyle',
+        $html = view('frontend.pdfstyle',
             compact('logo2','numberVat','totalAmountWithComplement','totalComplementPric','totalDiscount','totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'tax', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalPrice', 'oldPrice', 'totalTax', 'totalDiscount', 'totalAmount')
         )->toArabicHTML();
 
