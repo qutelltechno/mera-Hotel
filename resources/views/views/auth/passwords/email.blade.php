@@ -29,7 +29,7 @@
 					@endif
 					<form class="text-left" id="login_form" method="POST" action="{{ route('frontend.resetPassword') }}">
 						@csrf
-						
+
 						<div class="form-group">
 							<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" required autocomplete="email">
 							@if ($errors->has('email'))
@@ -45,7 +45,7 @@
 							@endif
 						</div>
 						@endif
-						<input type="submit" class="btn login-btn" value="{{ __('Send Password Reset Link') }}">
+						<input type="submit" class="btn login-btn" style="font-size : 13px;"  value="{{ __('Send Password Reset Link') }}">
 					</form>
 					<h3><a href="{{ url('/login') }}">{{ __('Back to login') }}</a></h3>
 				</div>

@@ -162,9 +162,9 @@
 
         <!-- Inner Section -->
         <section class="inner-section inner-section-bg block-bg">
-            <h2 class="text-center">حجز غرف ميرا أعمال </h2>
+            <h2 class="text-center">{{ __('Book Mira Business rooms') }}    </h2>
             <div class="container gallery-container">
-                
+
                 <!-- Gallery 1 -->
                 <div class="tz-gallery tz-gallery-noroom" id="demo">
                     @php
@@ -206,7 +206,7 @@
                     @endif
                 </div>
 
-             
+
 
             </div>
         </section>

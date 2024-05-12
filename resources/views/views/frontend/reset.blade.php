@@ -89,7 +89,7 @@
                                 @endif
 							</div>
 							@endif
-							<input type="submit" class="btn theme-btn full" value="{{ __('Send Password Reset Link') }}">
+							<input type="submit" class="btn theme-btn full" style="font-size : 13px;" value="{{ __('Send Password Reset Link') }}">
 						</form>
 						@if (Route::has('frontend.register'))
 						<h3><a href="{{ route('frontend.register') }}">{{ __('Sign up for an account') }}</a></h3>
