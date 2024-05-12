@@ -296,7 +296,7 @@ class BookingController extends Controller
          $totalComplementPriceNotformate = array_sum($prices);
          $totalComplementPric=NumberFormat($totalComplementPriceNotformate);
 
-        return view('backend.booking', compact('totalComplementPric','page_type', 'payment_status_list', 'booking_status_list', 'mdata', 'room_list', 'total_room'));
+        return view('backend.booking', compact('totalComplementPriceNotformate','page_type', 'payment_status_list', 'booking_status_list', 'mdata', 'room_list', 'total_room'));
 	}
 
 	//Get data for room list Pagination
