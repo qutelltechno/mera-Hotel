@@ -619,6 +619,10 @@ Route::prefix('backend')->group(function () {
     Route::get('/invoice/getComplementsTableData', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'getComplementsTableData'])->name('backend.invoice.getComplementsTableData')->middleware(['auth', 'is_super_admin_rece',]);
     Route::get('invoice/complements/{invoiceNum}', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'getComplementsPageLoad'])->name('backend.invoice.complements')->middleware(['auth','is_super_admin_rece']);
     Route::post('invoice/saveComplementsData', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'saveComplementsData'])->name('backend.invoice.saveComplementsData')->middleware(['auth', 'is_super_admin_rece']);
+    Route::post('invoice/deleteInvoiceComplement', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'deleteInvoiceComplement'])->name('backend.deleteInvoiceComplement')->middleware(['auth', 'is_super_admin_rece']);
+    Route::post('invoice/getInvoiceComplementById', [App\Http\Controllers\Backend\InvoiceComplementsController::class, 'getInvoiceComplementById'])->name('backend.getInvoiceComplementById')->middleware(['auth', 'is_super_admin_rece']);
+
+    //
     Route::post('/saveComplementsData', [App\Http\Controllers\Backend\ComplementsController::class, 'saveComplementsData'])->name('backend.saveComplementsData')->middleware(['auth', 'is_admin']);
     Route::post('/getComplementById', [App\Http\Controllers\Backend\ComplementsController::class, 'getComplementById'])->name('backend.getComplementById')->middleware(['auth', 'is_admin']);
     Route::post('/deleteComplement', [App\Http\Controllers\Backend\ComplementsController::class, 'deleteComplement'])->name('backend.deleteComplement')->middleware(['auth', 'is_admin']);

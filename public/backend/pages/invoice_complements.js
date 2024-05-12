@@ -41,19 +41,19 @@ function onCheckAll() {
     });
 }
 
-function onPaginationDataLoad(page) {
-	$.ajax({
-		url:base_url + "/backend/invoice/getComplementsTableData?page="+page,
-		success:function(data){
-			$('#tp_datalist').html(data);
-			onCheckAll();
-		}
-	});
-}
+// function onPaginationDataLoad(page) {
+// 	$.ajax({
+// 		url:base_url + "/backend/invoice/getComplementsTableData?page="+page,
+// 		success:function(data){
+// 			$('#tp_datalist').html(data);
+// 			onCheckAll();
+// 		}
+// 	});
+// }
 
 function onRefreshData() {
 	$.ajax({
-		url:base_url + "backend/invoice/getComplementsTableData?search="+$("#search").val(),
+		url:base_url + "/backend/invoice/getComplementsTableData?search="+$("#search").val(),
 		success:function(data){
 			$('#tp_datalist').html(data);
 			onCheckAll();
@@ -61,15 +61,15 @@ function onRefreshData() {
 	});
 }
 
-function onSearch() {
-	$.ajax({
-		url: base_url + "backend/invoice/getComplementsTableData?search="+$("#search").val(),
-		success:function(data){
-			$('#tp_datalist').html(data);
-			onCheckAll();
-		}
-	});
-}
+// function onSearch() {
+// 	$.ajax({
+// 		url: base_url + "backend/invoice/getComplementsTableData?search="+$("#search").val(),
+// 		success:function(data){
+// 			$('#tp_datalist').html(data);
+// 			onCheckAll();
+// 		}
+// 	});
+// }
 
 function resetForm(id) {
     $('#' + id).each(function () {
@@ -158,10 +158,11 @@ function onLoadEditData() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/getComplementById',
+		url: base_url + '/backend/invoice/getInvoiceComplementById',
 		data: 'id='+RecordId,
 		success: function (response) {
 			var data = response;
+            console.log(data);
 			$("#RecordId").val(data.id);
 			$("#name_ar").val(data.name['ar']);
 			$("#name_en").val(data.name['en']);
@@ -183,7 +184,7 @@ function onConfirmDelete() {
 
     $.ajax({
 		type : 'POST',
-		url: base_url + '/backend/deleteComplement',
+		url: base_url + '/backend/invoice/deleteInvoiceComplement',
 		data: 'id='+RecordId,
 		success: function (response) {
 			var msgType = response.msgType;
