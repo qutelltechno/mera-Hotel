@@ -256,7 +256,7 @@
                     <td class="text-right text-dark">صافي الأضافات</td>
                 </tr>
                 <tr>
-                    <td class="text-start text-dark">&nbsp;<span dir="ltr"></span>Municipality Fees</td>&nbsp;%
+                    <td class="text-start text-dark">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;Municipality Fees</td>&nbsp;%
                     <td class="text-start">SAR</td>
                     <td class="text-center">{{ $municipalityFees }}</td>
                     <td class="text-right text-dark">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
