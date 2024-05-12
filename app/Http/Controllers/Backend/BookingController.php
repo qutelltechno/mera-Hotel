@@ -14,6 +14,7 @@ use App\Models\Booking_manage;
 use App\Models\Room_manage;
 use App\Models\Room;
 use App\Models\Country;
+use App\Models\InvoiceComplement;
 
 class BookingController extends Controller
 {
@@ -285,7 +286,17 @@ class BookingController extends Controller
 
 		$total_room = Room_manage::where('roomtype_id', '=', $roomtype_id)->where('book_status', '=', 2)->where('is_publish', '=', 1)->count();
 
-        return view('backend.booking', compact('page_type', 'payment_status_list', 'booking_status_list', 'mdata', 'room_list', 'total_room'));
+        $invoiceDataComplements = InvoiceComplement::where('invoice_number', $mdata->booking_no)
+        ->with('complements')
+        ->get();
+        $prices = [];
+        foreach ($invoiceDataComplements as $complement) {
+            $prices[] = $complement->price;
+        }
+         $totalComplementPriceNotformate = array_sum($prices);
+         $totalComplementPric=NumberFormat($totalComplementPriceNotformate);
+
+        return view('backend.booking', compact('totalComplementPric','page_type', 'payment_status_list', 'booking_status_list', 'mdata', 'room_list', 'total_room'));
 	}
 
 	//Get data for room list Pagination
