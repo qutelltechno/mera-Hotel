@@ -253,12 +253,7 @@
                             <td class="text-center">{{ $totalAmount }}</td>
                             <td class="text-right text-dark">الرصيد</td>
                         </tr>
-                        <tr>
-                            <td class="text-start text-dark">Net Amount</td>
-                            <td class="text-start">SAR</td>
-                            <td class="text-center">{{ $sub_total }}</td>
-                            <td class="text-right text-dark">صافي القيمة</td>
-                        </tr>
+                       
                         <tr>
                             <td class="text-start text-dark">Net Additions </td>
                             <td class="text-start">SAR</td>
