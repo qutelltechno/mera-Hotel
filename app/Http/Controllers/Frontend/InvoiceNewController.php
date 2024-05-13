@@ -8,9 +8,24 @@ use App\Models\InvoiceComplement;
 use App\Models\Tax;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Frontend\SallaController;
+
 
 class InvoiceNewController extends Controller
 {
+    protected $numberVat;
+    protected $taxPersentage;
+    protected $totalAmountWithComplement;
+    protected $dateBookingUnformate;
+    protected $totalAmountWithComplementUnformate;
+    protected $base64_image_string;
+    protected $salla;
+    public function __construct(SallaController $salla)
+{
+    $this->salla = $salla;
+}
+
+
     public function getInvoice($booking_id)
     {
 
@@ -67,6 +82,8 @@ class InvoiceNewController extends Controller
         $DteOfArrival = $mdata['in_date'];
         $DteOfOut = $mdata['out_date'];
         $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
+        $dateBookingUnformate=$mdata['created_at'];
+        $this->dateBookingUnformate=$dateBookingUnformate;
         $methodName = $mdata['method_name'];
         $roomPrice = $mdata['total_price'];
         $dateList = getDateListBetween($DteOfArrival, $DteOfOut);
@@ -85,6 +102,7 @@ class InvoiceNewController extends Controller
         }
         $municipalityFees = $sub_total_num * MunicipalityFees() / 100;
         $taxPersentage = Tax::first()->select('percentage')->value('percentage');
+        $this->taxPersentage=$taxPersentage;
         $totalAmount = 0;
         if ($mdata['total_amount'] != '') {
             $totalAmount = $mdata['total_amount'];
@@ -106,61 +124,20 @@ class InvoiceNewController extends Controller
 
          $totalAmountWithComplement = 0;
          if ($mdata['total_amount'] != '') {
-             $totalAmountWithComplement = $mdata['total_amount']+$totalComplementPriceNotformate;
-             $totalAmountWithComplement = NumberFormat($totalAmountWithComplement);
+             $totalAmountWithComplementUnformate = $mdata['total_amount']+$totalComplementPriceNotformate;
+             $totalAmountWithComplement = NumberFormat($totalAmountWithComplementUnformate);
+             $this->totalAmountWithComplementUnformate=$totalAmountWithComplementUnformate;
          }
 
          $numberVat=310152627910003;
+         $this->numberVat= $numberVat;
          $logo2 = public_path('media/' . 'photo_5892981411613359903_x.jpg');
 
          ########################################
-// عدد لايام
-        $total_days = DateDiffInDays($mdata['in_date'], $mdata['out_date']);
-
-        $totalPrice = 0;
-        if ($mdata['total_price'] != '') {
-            $totalPrice = $mdata['total_price'];
-        }
-
-        $oldPrice = 0;
-        if ($mdata['old_price'] != '') {
-            $oldPrice = $mdata['old_price'];
-        }
-
-
-
-        $calOldPrice = $oldPrice * $mdata['total_room'] * $total_days;
-
-        if ($gtext['currency_position'] == 'left') {
-            $oPrice = $gtext['currency_icon'] . NumberFormat($oldPrice);
-            $caloPrice = $gtext['currency_icon'] . NumberFormat($calOldPrice);
-            $total_price = $gtext['currency_icon'] . NumberFormat($totalPrice);
-            // $subtotal = $gtext['currency_icon'] . NumberFormat($sub_total);
-            // $tax = $gtext['currency_icon'] . NumberFormat($totalTax);
-            // $discount = $gtext['currency_icon'] . NumberFormat($totalDiscount);
-            // $total_amount = $gtext['currency_icon'] . NumberFormat($totalAmount);
-
-        } else {
-            $oPrice = NumberFormat($oldPrice) . $gtext['currency_icon'];
-            $caloPrice = NumberFormat($calOldPrice) . $gtext['currency_icon'];
-            $total_price = NumberFormat($totalPrice) . $gtext['currency_icon'];
-            // $subtotal = NumberFormat($sub_total) . $gtext['currency_icon'];
-            // $tax = NumberFormat($totalTax) . $gtext['currency_icon'];
-            // $discount = NumberFormat($totalDiscount) . $gtext['currency_icon'];
-            // $total_amount = NumberFormat($totalAmount) . $gtext['currency_icon'];
-        }
-
-        $old_price = '';
-        $cal_old_price = '';
-        if ($mdata['is_discount'] == 1) {
-            $old_price = '<p class="old-price">' . $oPrice . '</p>';
-            $cal_old_price = '<p class="old-price">' . $caloPrice . '</p>';
-        }
-
-        ////////////////////////////////////////
+         $qrcodeLogo = $this->generateQrcodeImg($this->salla);
 
         $html = view('frontend.pdfstyle',
-            compact('logo2','numberVat','totalAmountWithComplement','totalComplementPric','totalDiscount','totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'tax', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalPrice', 'oldPrice', 'totalTax', 'totalDiscount', 'totalAmount')
+            compact('qrcodeLogo','logo2','numberVat','totalAmountWithComplement','totalComplementPric','totalDiscount','totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'tax', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival',  'totalTax', 'totalDiscount', 'totalAmount')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');
@@ -180,4 +157,35 @@ class InvoiceNewController extends Controller
         );
 
     }
+
+
+    public function generateQrcodeImg(  $salla)
+    {
+        $qr_data = ['seller_name' => 'Mira Hotel',
+        'vat_number' => $this->numberVat,
+        'invoice_date' => $this->dateBookingUnformate,
+        'total_amount' => $this->totalAmountWithComplementUnformate,
+        'vat_amount' => $this->taxPersentage,
+
+
+    ];
+        $base64_image = "";
+            $this->base64_image_string = $salla->render($qr_data);
+                return $this->pdf_file_with_image();
+
+    }
+
+    public function pdf_file_with_image()
+    {
+
+            return $this->image_html($this->base64_image_string);
+
+    }
+
+    public function image_html($base64_file)
+    {
+        return $base64_file;
+    }
+
+
 }

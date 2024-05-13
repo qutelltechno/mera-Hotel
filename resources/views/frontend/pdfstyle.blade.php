@@ -77,7 +77,14 @@
 
     <div class="image-logo" style="width: 10% ; margin: auto">
         <img src="{{ $logo2 }}" style="width: 100px " alt="" srcset="">
+
+
     </div>
+
+
+
+
+
 
     <table class="table-auto m-auto">
         <thead class="w-80 h-10">
@@ -95,7 +102,8 @@
                 <td class="text-start">{{ $guestName }}</td>
                 <td class="text-start text-dark">Company VAT :</td>
                 <td class="text-start"> {{ $numberVat }} </td>
-                <td class="text-right text-dark custom">&nbsp; <span class="span text-black-50">{{ $numberVat }}&nbsp;</span>:ضريبةالقيمةالمضافة </td>
+                <td class="text-right text-dark custom">&nbsp; <span
+                        class="span text-black-50">{{ $numberVat }}&nbsp;</span>:ضريبةالقيمةالمضافة </td>
             </tr>
             <tr>
                 <td class="text-start">Phone:</td>
@@ -122,7 +130,7 @@
                 <td class="text-start"> {{ $DteOfArrival }} </td>
 
                 <td class="text-right text-dark custom"><span class="span text-black-50">{{ $DteOfArrival }} &nbsp;
-                    &nbsp;</span>: تاريخ الوصول</td>
+                        &nbsp;</span>: تاريخ الوصول</td>
             </tr>
             <tr>
                 <td class="text-start"></td>
@@ -131,7 +139,7 @@
                 <td class="text-start"> {{ $DteOfOut }} </td>
 
                 <td class="text-right text-dark custom"><span class="span text-black-50">{{ $DteOfOut }} &nbsp;
-                    &nbsp;</span>: تاريخ المغادرة</td>
+                        &nbsp;</span>: تاريخ المغادرة</td>
             </tr>
             <tr>
                 <td class="text-start">INFORMATION INVOICE:</td>
@@ -148,7 +156,7 @@
                 <td class="text-start"> {{ $dateBooking }} </td>
 
                 <td class="text-right text-dark custom"><span class="span text-black-50">{{ $dateBooking }} &nbsp;
-                    &nbsp;</span>: التاريخ</td>
+                        &nbsp;</span>: التاريخ</td>
             </tr>
             <tr>
                 <td class="text-start">A/R Number :</td>
@@ -165,7 +173,7 @@
                 <td class="text-start"> {{ $bookingNumber }} </td>
 
                 <td class="text-right text-dark custom"><span class="span text-black-50">{{ $bookingNumber }} &nbsp;
-                    &nbsp;</span>: رقم الفاتورة</td>
+                        &nbsp;</span>: رقم الفاتورة</td>
             </tr>
             <tr>
                 <td class="text-start">Customer VAT :</td>
@@ -226,57 +234,69 @@
     </div>
     <hr class="hr-spaced" />
     <div class="container">
-        <table class="table-auto me-4 float-right" style="width: 50% !important">
-            <thead>
-                <tr>
-                    <th class="text-start text-dark">Total المجموع</th>
-                    <th class="text-start"></th>
-                    <th class="">{{ $totalAmountWithComplement }}</th>
-                    <th class="text-right">0000</th>
-                </tr>
-            </thead>
-            <tbody>
-                <hr class="hr-spaced" />
-                <tr>
-                    <td class="text-start text-dark">Balance</td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $totalAmount }}</td>
-                    <td class="text-right text-dark">الرصيد</td>
-                </tr>
-                <tr>
-                    <td class="text-start text-dark">Net Amount</td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $sub_total }}</td>
-                    <td class="text-right text-dark">صافي القيمة</td>
-                </tr>
-                <tr>
-                    <td class="text-start text-dark">Net Additions </td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $totalComplementPric }}</td>
-                    <td class="text-right text-dark">صافي الأضافات</td>
-                </tr>
-                <tr>
-                    <td class="text-start text-dark">Municipality Fees <span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%</td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $municipalityFees }}</td>
-                    <td class="text-right text-dark">&nbsp;<span dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-start text-dark">VAT&nbsp; <span dir="ltr"></span>{{ $taxPersentage }}&nbsp;% </td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $taxFormate }}</td>
-                    <td class="text-right text-dark">&nbsp;<span dir="ltr"></span>{{ $taxPersentage }}&nbsp;%ضريبةالقيمةالمضافة
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-start text-dark">Discount</td>
-                    <td class="text-start">SAR</td>
-                    <td class="text-center">{{ $totalDiscount }}</td>
-                    <td class="text-right text-dark">الخصم</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-10">
+                <table class="table-auto  float-right" style="width: 50% !important">
+                    <thead>
+                        <tr>
+                            <th class="text-start text-dark">Total المجموع</th>
+                            <th class="text-start"></th>
+                            <th class="">{{ $totalAmountWithComplement }}</th>
+                            <th class="text-right">0000</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <hr class="hr-spaced" />
+                        <tr>
+                            <td class="text-start text-dark">Balance</td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $totalAmount }}</td>
+                            <td class="text-right text-dark">الرصيد</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start text-dark">Net Amount</td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $sub_total }}</td>
+                            <td class="text-right text-dark">صافي القيمة</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start text-dark">Net Additions </td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $totalComplementPric }}</td>
+                            <td class="text-right text-dark">صافي الأضافات</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start text-dark">Municipality Fees <span
+                                    dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%</td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $municipalityFees }}</td>
+                            <td class="text-right text-dark">&nbsp;<span
+                                    dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%ضريبةالبلدية
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-start text-dark">VAT&nbsp; <span
+                                    dir="ltr"></span>{{ $taxPersentage }}&nbsp;% </td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $taxFormate }}</td>
+                            <td class="text-right text-dark">&nbsp;<span
+                                    dir="ltr"></span>{{ $taxPersentage }}&nbsp;%ضريبةالقيمةالمضافة
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-start text-dark">Discount</td>
+                            <td class="text-start">SAR</td>
+                            <td class="text-center">{{ $totalDiscount }}</td>
+                            <td class="text-right text-dark">الخصم</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4 float-left"style="width: 50% !important">
+                <img src="{{ $qrcodeLogo }}" style="width: 200px ; " alt="" srcset="">
+
+            </div>
+        </div>
     </div>
 
     {{-- <div class="mt-5 w-full d-block">

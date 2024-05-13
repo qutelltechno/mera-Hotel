@@ -47,6 +47,11 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         array (
             'voku\\' => 5,
         ),
+        'c' => 
+        array (
+            'chillerlan\\Settings\\' => 20,
+            'chillerlan\\QRCode\\' => 18,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -101,6 +106,7 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\Backtrace\\' => 17,
+            'Salla\\ZATCA\\' => 12,
             'Sabberworm\\CSS\\' => 15,
         ),
         'R' => 
@@ -215,6 +221,14 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'chillerlan\\Settings\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
+        ),
+        'chillerlan\\QRCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),
         'ZipStream\\' => 
         array (
@@ -387,6 +401,10 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
+        ),
+        'Salla\\ZATCA\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/salla/zatca/src',
         ),
         'Sabberworm\\CSS\\' => 
         array (
@@ -712,14 +730,17 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Http\\Controllers\\Backend\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/FaqController.php',
         'App\\Http\\Controllers\\Backend\\HomeSliderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/HomeSliderController.php',
         'App\\Http\\Controllers\\Backend\\HotelController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/HotelController.php',
+        'App\\Http\\Controllers\\Backend\\InvoiceComplementsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/InvoiceComplementsController.php',
         'App\\Http\\Controllers\\Backend\\LanguagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/LanguagesController.php',
         'App\\Http\\Controllers\\Backend\\MediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MediaController.php',
         'App\\Http\\Controllers\\Backend\\MenuBuilderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MenuBuilderController.php',
         'App\\Http\\Controllers\\Backend\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MenuController.php',
+        'App\\Http\\Controllers\\Backend\\MunicipalityFeesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/MunicipalityFeesController.php',
         'App\\Http\\Controllers\\Backend\\NewslettersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/NewslettersController.php',
         'App\\Http\\Controllers\\Backend\\Offer_adsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Offer_adsController.php',
         'App\\Http\\Controllers\\Backend\\OurServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/OurServicesController.php',
         'App\\Http\\Controllers\\Backend\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/PageController.php',
+        'App\\Http\\Controllers\\Backend\\ReservationPolicyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ReservationPolicyController.php',
         'App\\Http\\Controllers\\Backend\\RoomListController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/RoomListController.php',
         'App\\Http\\Controllers\\Backend\\RoomsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/RoomsController.php',
         'App\\Http\\Controllers\\Backend\\SectionManageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SectionManageController.php',
@@ -737,9 +758,12 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Http\\Controllers\\Frontend\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/GalleryController.php',
         'App\\Http\\Controllers\\Frontend\\HomeFrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeFrontendController.php',
         'App\\Http\\Controllers\\Frontend\\InvoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/InvoiceController.php',
+        'App\\Http\\Controllers\\Frontend\\InvoiceNewController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/InvoiceNewController.php',
         'App\\Http\\Controllers\\Frontend\\MyDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/MyDashboardController.php',
         'App\\Http\\Controllers\\Frontend\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PageController.php',
+        'App\\Http\\Controllers\\Frontend\\ReservationPolicyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ReservationPolicyController.php',
         'App\\Http\\Controllers\\Frontend\\RoomsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/RoomsController.php',
+        'App\\Http\\Controllers\\Frontend\\SallaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/SallaController.php',
         'App\\Http\\Controllers\\Frontend\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/SearchController.php',
         'App\\Http\\Controllers\\Frontend\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ServiceController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -754,6 +778,8 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\IsAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/IsAdmin.php',
         'App\\Http\\Middleware\\IsReceptionist' => __DIR__ . '/../..' . '/app/Http/Middleware/IsReceptionist.php',
+        'App\\Http\\Middleware\\IsSuperAdminReceptionist' => __DIR__ . '/../..' . '/app/Http/Middleware/IsSuperAdminReceptionist.php',
+        'App\\Http\\Middleware\\IsSuperAndAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/IsSuperAndAdmin.php',
         'App\\Http\\Middleware\\Localization' => __DIR__ . '/../..' . '/app/Http/Middleware/Localization.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -774,6 +800,7 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
         'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
         'App\\Models\\Hotel' => __DIR__ . '/../..' . '/app/Models/Hotel.php',
+        'App\\Models\\InvoiceComplement' => __DIR__ . '/../..' . '/app/Models/InvoiceComplement.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',
         'App\\Models\\Lankeyvalue' => __DIR__ . '/../..' . '/app/Models/Lankeyvalue.php',
         'App\\Models\\Media_option' => __DIR__ . '/../..' . '/app/Models/Media_option.php',
@@ -782,6 +809,7 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
         'App\\Models\\Menu_child' => __DIR__ . '/../..' . '/app/Models/Menu_child.php',
         'App\\Models\\Menu_parent' => __DIR__ . '/../..' . '/app/Models/Menu_parent.php',
+        'App\\Models\\MunicipalityFees' => __DIR__ . '/../..' . '/app/Models/MunicipalityFees.php',
         'App\\Models\\Offer_ad' => __DIR__ . '/../..' . '/app/Models/Offer_ad.php',
         'App\\Models\\Page' => __DIR__ . '/../..' . '/app/Models/Page.php',
         'App\\Models\\ReservationPolicy' => __DIR__ . '/../..' . '/app/Models/ReservationPolicy.php',
@@ -6183,6 +6211,13 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'Sabberworm\\CSS\\Value\\URL' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/Value/URL.php',
         'Sabberworm\\CSS\\Value\\Value' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/Value/Value.php',
         'Sabberworm\\CSS\\Value\\ValueList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/Value/ValueList.php',
+        'Salla\\ZATCA\\GenerateQrCode' => __DIR__ . '/..' . '/salla/zatca/src/GenerateQrCode.php',
+        'Salla\\ZATCA\\Tag' => __DIR__ . '/..' . '/salla/zatca/src/Tag.php',
+        'Salla\\ZATCA\\Tags\\InvoiceDate' => __DIR__ . '/..' . '/salla/zatca/src/Tags/InvoiceDate.php',
+        'Salla\\ZATCA\\Tags\\InvoiceTaxAmount' => __DIR__ . '/..' . '/salla/zatca/src/Tags/InvoiceTaxAmount.php',
+        'Salla\\ZATCA\\Tags\\InvoiceTotalAmount' => __DIR__ . '/..' . '/salla/zatca/src/Tags/InvoiceTotalAmount.php',
+        'Salla\\ZATCA\\Tags\\Seller' => __DIR__ . '/..' . '/salla/zatca/src/Tags/Seller.php',
+        'Salla\\ZATCA\\Tags\\TaxNumber' => __DIR__ . '/..' . '/salla/zatca/src/Tags/TaxNumber.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',
@@ -8004,6 +8039,31 @@ class ComposerStaticInitbfe3d0dae9da32134c5803cee08aacdb
         'ZipStream\\Zip64\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zip64/ExtendedInformationExtraField.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
         'ZipStream\\Zs\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zs/ExtendedInformationExtraField.php',
+        'chillerlan\\QRCode\\Data\\AlphaNum' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/AlphaNum.php',
+        'chillerlan\\QRCode\\Data\\Byte' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Byte.php',
+        'chillerlan\\QRCode\\Data\\Kanji' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Kanji.php',
+        'chillerlan\\QRCode\\Data\\MaskPatternTester' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/MaskPatternTester.php',
+        'chillerlan\\QRCode\\Data\\Number' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/Number.php',
+        'chillerlan\\QRCode\\Data\\QRCodeDataException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRCodeDataException.php',
+        'chillerlan\\QRCode\\Data\\QRDataAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataAbstract.php',
+        'chillerlan\\QRCode\\Data\\QRDataInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRDataInterface.php',
+        'chillerlan\\QRCode\\Data\\QRMatrix' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Data/QRMatrix.php',
+        'chillerlan\\QRCode\\Helpers\\BitBuffer' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Helpers/BitBuffer.php',
+        'chillerlan\\QRCode\\Helpers\\Polynomial' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Helpers/Polynomial.php',
+        'chillerlan\\QRCode\\Output\\QRCodeOutputException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRCodeOutputException.php',
+        'chillerlan\\QRCode\\Output\\QRFpdf' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRFpdf.php',
+        'chillerlan\\QRCode\\Output\\QRImage' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRImage.php',
+        'chillerlan\\QRCode\\Output\\QRImagick' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRImagick.php',
+        'chillerlan\\QRCode\\Output\\QRMarkup' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRMarkup.php',
+        'chillerlan\\QRCode\\Output\\QROutputAbstract' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QROutputAbstract.php',
+        'chillerlan\\QRCode\\Output\\QROutputInterface' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QROutputInterface.php',
+        'chillerlan\\QRCode\\Output\\QRString' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/Output/QRString.php',
+        'chillerlan\\QRCode\\QRCode' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QRCode.php',
+        'chillerlan\\QRCode\\QRCodeException' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QRCodeException.php',
+        'chillerlan\\QRCode\\QROptions' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QROptions.php',
+        'chillerlan\\QRCode\\QROptionsTrait' => __DIR__ . '/..' . '/chillerlan/php-qrcode/src/QROptionsTrait.php',
+        'chillerlan\\Settings\\SettingsContainerAbstract' => __DIR__ . '/..' . '/chillerlan/php-settings-container/src/SettingsContainerAbstract.php',
+        'chillerlan\\Settings\\SettingsContainerInterface' => __DIR__ . '/..' . '/chillerlan/php-settings-container/src/SettingsContainerInterface.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 
