@@ -236,7 +236,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <table class="table-auto  float-right" style="width: 50% !important">
+                <table class="float-right" style="width: 55% !important">
                     <thead>
                         <tr>
                             <th class="text-start text-dark">Total المجموع</th>
@@ -266,8 +266,7 @@
                             <td class="text-right text-dark">صافي الأضافات</td>
                         </tr>
                         <tr>
-                            <td class="text-start text-dark">Municipality Fees <span
-                                    dir="ltr"></span>{{ MunicipalityFees() }}&nbsp;%</td>
+                            <td class="text-start text-dark">Municipality Fees{{ MunicipalityFees() }}%</td>
                             <td class="text-start">SAR</td>
                             <td class="text-center">{{ $municipalityFees }}</td>
                             <td class="text-right text-dark">&nbsp;<span
@@ -292,27 +291,35 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-4 float-left"style="width: 50% !important">
-                <img src="{{ $qrcodeLogo }}" style="width: 200px ; " alt="" srcset="">
+            <div class="col-4 float-left"style="width: 40% !important">
+                <img src="{{ $qrcodeLogo }}" style="width: 150px ; " alt="" srcset="">
 
+            </div>
+            <div class="mt-5 text-center">
+                <small class="text-dark" style="font-size: 10px ;">أقر بالمسؤولية في حاله عدم قيام الشخص المشار اليه او
+                     <br>____________________________________ الشركه او الجمعيه بدفع كامل التكاليف او جزء منها </small>
             </div>
         </div>
     </div>
 
-    {{-- <div class="mt-5 w-full d-block">
+    <hr class="hr-spaced" />
+
+    <div class=" w-full d-block">
         <div class="container">
-            <h4 class="text-center mt-5">MIRA BUSINESS HOTEL,RIYADH</h4>
-            <div class="row row-cols-2">
-                <div class="col">
-                    <p>PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
-                </div>
-                <div class="col">
-                    <h6>Guest Signature / الضيف توقيع</h6>
+            <p class="text-center mt-1 text-dark" style="font-size: 12px">MIRA BUSINESS HOTEL,RIYADH</p>
+
+            <div class="d=flex justify-content-between">
+<div>
+    <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
+</div>
+                <div>
+                    <p>Guest Signature / <span> توقيع الضيف </span></p>
                 </div>
             </div>
         </div>
 
-    </div> --}}
+    </div>
+
     <script src="{{ asset('public/backend/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/bootstrap.min.js') }}"></script>
     @stack('scripts')
