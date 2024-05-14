@@ -28,6 +28,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use App\Models\MunicipalityFees;
 
+date_default_timezone_set('Asia/Riyadh');
 
 //Page Variation
 function PageVariation(){
@@ -466,7 +467,7 @@ function gtext(){
 		$data['invoice_email'] = $general_settingsDataObj->email;
 		$data['invoice_phone'] = $general_settingsDataObj->phone;
 		$data['invoice_address'] = $general_settingsDataObj->address;
-		$data['timezone'] = $general_settingsDataObj->timezone;
+		$data['timezone'] ='Asia/Riyadh' ;
 	}else{
 		$data['site_name'] = 'bShop';
 		$data['site_title'] = 'Laravel eCommerce Shopping Platform';
@@ -474,7 +475,7 @@ function gtext(){
 		$data['invoice_email'] = '';
 		$data['invoice_phone'] = '';
 		$data['invoice_address'] = '';
-		$data['timezone'] = '';
+		$data['timezone'] = 'Asia/Riyadh';
 	}
 
 	//subheader_bg_images

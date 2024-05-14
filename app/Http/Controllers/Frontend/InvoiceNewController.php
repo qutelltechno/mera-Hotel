@@ -27,7 +27,6 @@ class InvoiceNewController extends Controller
 
     public function getInvoice($booking_id)
     {
-                date_default_timezone_set('Asia/Riyadh');
 
 
         $gtext = gtext();
