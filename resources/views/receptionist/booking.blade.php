@@ -44,8 +44,17 @@
 								</thead>
 								<tbody>
 
+                                    @php
+                                    $total_days = DateDiffInDays($mdata->in_date, $mdata->out_date);
+                                    			$subTotall = $mdata->total_room * $mdata->total_price*$total_days;
+                                                $subTotallWithComplemnets=$subTotall  + $totalComplementPriceNotformate ;
+                                                $taxAmount=$subTotallWithComplemnets*tax()/100;
+                                                $feesAmount=$subTotallWithComplemnets*MunicipalityFees()/100;
+                                                $totalAmount= $taxAmount +  $feesAmount + $subTotallWithComplemnets;
+
+                                    @endphp
+
 									@php
-										$total_days = DateDiffInDays($mdata->in_date, $mdata->out_date);
 
 										$totalPrice = 0;
 										if($mdata->total_price !=''){
@@ -57,47 +66,50 @@
 											$oldPrice = $mdata->old_price;
 										}
 
-										$sub_total = 0;
-										if($mdata->subtotal !=''){
-											$sub_total = $mdata->subtotal;
-										}
+										// $sub_total = 0;
+										// if($mdata->subtotal !=''){
+										// 	$sub_total = $mdata->subtotal;
+										// }
 
-										$totalTax = 0;
-										if($mdata->tax !=''){
-											$totalTax = $mdata->tax;
-										}
+										// $totalTax = 0;
+										// if($mdata->tax !=''){
+										// 	$totalTax = $mdata->tax;
+										// }
 
 										$totalDiscount = 0;
 										if($mdata->discount !=''){
 											$totalDiscount = $mdata->discount;
 										}
 
-										$totalAmount = 0;
-										if($mdata->total_amount !=''){
-											$totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
-										}
+										// $totalAmount = 0;
+										// if($mdata->total_amount !=''){
+										// 	// $totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
+										// }
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;
-
 										if($gtext['currency_position'] == 'left'){
-                                            $municipalityFeesTax=$gtext['currency_icon'].NumberFormat($sub_total*((MunicipalityFees())/100));
+                                            $municipalityFeesTax=$gtext['currency_icon'].NumberFormat($feesAmount);
 											$oPrice = $gtext['currency_icon'].NumberFormat($oldPrice);
 											$caloPrice = $gtext['currency_icon'].NumberFormat($calOldPrice);
 											$total_price = $gtext['currency_icon'].NumberFormat($totalPrice);
-											$subtotal = $gtext['currency_icon'].NumberFormat($sub_total);
-											$tax = $gtext['currency_icon'].NumberFormat($totalTax);
+											$subtotal = $gtext['currency_icon'].NumberFormat($subTotall);
+											$tax = $gtext['currency_icon'].NumberFormat($taxAmount);
 											$discount = $gtext['currency_icon'].NumberFormat($totalDiscount);
 											$total_amount = $gtext['currency_icon'].NumberFormat($totalAmount);
+											$totalComplementPrice = $gtext['currency_icon'].NumberFormat($totalComplementPriceNotformate);
+
 
 										}else{
-                                            $municipalityFeesTax=NumberFormat($sub_total*((MunicipalityFees())/100)).$gtext['currency_icon'];
+                                            $municipalityFeesTax=NumberFormat($feesAmount).$gtext['currency_icon'];
 											$oPrice = NumberFormat($oldPrice).$gtext['currency_icon'];
 											$caloPrice = NumberFormat($calOldPrice).$gtext['currency_icon'];
 											$total_price = NumberFormat($totalPrice).$gtext['currency_icon'];
-											$subtotal = NumberFormat($sub_total).$gtext['currency_icon'];
-											$tax = NumberFormat($totalTax).$gtext['currency_icon'];
+											$subtotal = NumberFormat($subTotall).$gtext['currency_icon'];
+											$tax = NumberFormat($taxAmount).$gtext['currency_icon'];
 											$discount = NumberFormat($totalDiscount).$gtext['currency_icon'];
 											$total_amount = NumberFormat($totalAmount).$gtext['currency_icon'];
+                                            $totalComplementPrice = $gtext['currency_icon'].NumberFormat($totalComplementPriceNotformate);
+
 										}
 
 										$old_price = '';
@@ -106,13 +118,15 @@
 											$old_price = $oPrice;
 											$cal_old_price = $caloPrice;
 										}
+
+
+                                        $translationTitle = json_decode($mdata->title, true);
+                                        $curnetLang=glan();
+
 									@endphp
 
 									<tr>
-                                        @php
-                                            $transTitle=json_decode($mdata->title,true);
-                                        @endphp
-										<td class="text-left" style="width:30%;">{{  $transTitle[glan()] }}</td>
+										<td class="text-left" style="width:30%;">{{ $translationTitle[$curnetLang] }}</td>
 										<td class="text-center" style="width:15%;">{{ $mdata->total_room }}</td>
 										<td class="text-center" style="width:10%;">{{ $total_price }} @php if($old_price !=''){ @endphp<br><span style="text-decoration:line-through;color:#ee0101;">{{ $old_price }}</span>@php } @endphp</td>
 										<td class="text-center" style="width:25%;">@php echo date('d-m-Y', strtotime($mdata->in_date)).'<br><strong>to</strong><br>'.date('d-m-Y', strtotime($mdata->out_date)); @endphp</td>
@@ -131,9 +145,10 @@
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Tax') }}: </strong></td>
 										<td class="text-right border-none"><strong>{{ $tax }}</strong></td>
 									</tr>
+
                                     <tr>
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Net additions') }}: </strong></td>
-										<td class="text-right border-none"><strong>{{ $totalComplementPric }}</strong></td>
+										<td class="text-right border-none"><strong>{{ $totalComplementPrice }}</strong></td>
 									</tr>
 									<tr>
 										<td colspan="5" class="text-right border-none"><strong>{{ __('Discount') }}: </strong></td>

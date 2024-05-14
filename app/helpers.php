@@ -1337,6 +1337,12 @@ function MunicipalityFees(){
 	return MunicipalityFees::first()->select('percentage')->value('percentage');
 }
 
+
+function tax(){
+
+	return  Tax::first()->select('percentage')->value('percentage');
+}
+
 function NumberFormat($number){
 
  	$currency = Tp_option::where('option_name', 'currency')->get();
@@ -1454,7 +1460,7 @@ function BookingCount($status_id) {
     {
 
         $startDateObject = Carbon::parse($startDate);
-        $endDateObject = Carbon::parse($endDate); 
+        $endDateObject = Carbon::parse($endDate);
 
         $dateList = [];
 
