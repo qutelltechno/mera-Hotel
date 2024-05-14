@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Riyadh',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Elibyy\TCPDF\ServiceProvider::class,
-		
+
         /*
          * Package Service Providers...
          */

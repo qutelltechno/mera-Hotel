@@ -41,7 +41,7 @@ class SettingsController extends Controller
 			$data['email'] = '';
 			$data['phone'] = '';
 			$data['address'] = '';
-			$data['timezone'] = '';
+			$data['timezone'] = 'Asia/Riyadh';
 		}
 
 		$datalist = $data;
