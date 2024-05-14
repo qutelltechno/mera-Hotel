@@ -69,7 +69,7 @@ class InvoiceNewController extends Controller
             $mdata['pstatus_name'] = $row->pstatus_name;
             $mdata['bstatus_name'] = $row->bstatus_name;
         }
-        return $datalist;
+        // return $datalist;
 
         $tottalDayes=DateDiffInDays( $mdata['in_date'],$mdata['out_date'] );
         $bookingNumber = $mdata['booking_no'];
