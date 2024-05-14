@@ -16,6 +16,11 @@
             /* size: A4; */
         }
 
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
         * {
             font-family: DejaVu Sans !important;
         }
@@ -63,7 +68,7 @@
             left: 20px;
             background-color: rgb(0, 0, 0);
             width: 1px !important;
-            height: 2.5%;
+            height: 3.4%;
         }
 
         .span {
@@ -75,20 +80,13 @@
 <body>
 
 
-    <div class="image-logo" style="width: 10% ; margin: auto">
-        <img src="{{ $logo2 }}" style="width: 100px " alt="" srcset="">
-
-
+    <div class="image-logo" style="width: 10%; margin: auto">
+        <img src="{{ $logo2 }}" style="width: 90px" alt="" srcset="">
     </div>
 
-
-
-
-
-
-    <table class="table-auto m-auto">
+    <table class="table-auto m-auto" style="padding-bottom: 10px">
         <thead class="w-80 h-10">
-            <tr class="bg-secondary text-dark">
+            <tr class="bg-secondary text-dark text-center">
                 <th>SIMPLIFIED TAX</th>
                 <th></th>
                 <th></th>
@@ -98,9 +96,9 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-start">(Guest Name)</td>
+                <td class="text-end">(Guest Name)</td>
                 <td class="text-start">{{ $guestName }}</td>
-                <td class="text-start text-dark">Company VAT :</td>
+                <td class="text-end text-dark">Company VAT :</td>
                 <td class="text-start"> {{ $numberVat }} </td>
                 <td class="text-right text-dark custom">&nbsp; <span
                         class="span text-black-50">{{ $numberVat }}&nbsp;</span>:ضريبةالقيمةالمضافة </td>
@@ -128,10 +126,11 @@
 
                 </td>
 
-                <td class="text-right text-dark custom"> <span class="span text-black-50">
-
+                <td class="text-right text-dark custom">
+                    <span class="span text-black-50">
                         @if ($roomsNumbers->isEmpty())
-                            <p> لم يتم التحديد
+                            <p style="display:inline; font-size:14px">
+                                لم يتم التحديد
                             </p>
                         @else
                             {{ implode(', ', $roomsNumbers->toArray()) }}
@@ -139,7 +138,9 @@
 
                         &nbsp;
                         &nbsp;
-                    </span>: رقم الغرفة </td>
+                    </span>
+                    : رقم الغرفة
+                </td>
             </tr>
             <tr>
                 <td class="text-start"></td>
@@ -255,7 +256,7 @@
                             <td class="text-start">{{ $day }}</td>
                             <td class="text-start">ROOM CHARGE</td>
                             <td class="text-center">رسوم الغرف</td>
-                            <td class="text-center">{{ $roomPrice*$totalRoomsBooking }}</td>
+                            <td class="text-center">{{ $roomPrice * $totalRoomsBooking }}</td>
                             <td class="text-center"></td>
                         </tr>
                     @endforeach
@@ -355,7 +356,7 @@
                 <img src="{{ $qrcodeLogo }}" style="width: 150px ; " alt="" srcset="">
 
             </div>
-            <div class="mt-5 text-center">
+            <div class="mt-2 text-center">
                 <small class="text-dark" style="font-size: 10px ;">أقر بالمسؤولية في حاله عدم قيام الشخص المشار اليه
                     او
                     <br>____________________________________ الشركه او الجمعيه بدفع كامل التكاليف او جزء منها </small>
@@ -365,21 +366,18 @@
 
     <hr class="hr-spaced" />
 
-    <div class=" w-full d-block">
-        <div class="container">
-            <p class="text-center mt-1 text-dark" style="font-size: 12px">MIRA BUSINESS HOTEL,RIYADH</p>
 
-            <div class="d=flex justify-content-between">
-                <div>
-                    <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
-                </div>
-                <div>
-                    <p>Guest Signature / <span> توقيع الضيف </span></p>
-                </div>
-            </div>
+    <div style="width:100%; display: flex">
+
+        <div>
+            <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL,RIYADH </p>
+            <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
         </div>
-
+        <p>Guest Signature / <span> توقيع الضيف </span></p>
     </div>
+
+
+
 
     <script src="{{ asset('public/backend/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/bootstrap.min.js') }}"></script>
