@@ -69,9 +69,9 @@ class InvoiceNewController extends Controller
             $mdata['pstatus_name'] = $row->pstatus_name;
             $mdata['bstatus_name'] = $row->bstatus_name;
         }
-        // return $datalist;
+        return $datalist;
 
-
+        $tottalDayes=DateDiffInDays( $mdata['in_date'],$mdata['out_date'] );
         $bookingNumber = $mdata['booking_no'];
         $DteOfArrival = $mdata['in_date'];
         $DteOfOut = $mdata['out_date'];
@@ -107,9 +107,9 @@ class InvoiceNewController extends Controller
 
 
         if ( $roomsId->isEmpty()) {
-            $sub_total_num=$roomPrice* $mdata['total_room'];
+            $sub_total_num=$roomPrice* $mdata['total_room']* $tottalDayes;
         } else {
-            $sub_total_num=$roomPrice*$tottalRoomsAfterApproved;
+            $sub_total_num=$roomPrice*$tottalRoomsAfterApproved* $tottalDayes;
         }
 
         $sub_total = 0;
