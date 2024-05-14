@@ -43,6 +43,7 @@
 							<a class="dropdown-item" href="{{ route('backend.booking', [$row->id, 'all-booking']) }}">{{ __('Edit') }}</a>
 							<a class="dropdown-item" onClick="onCheckOutModalView({{ $row->payment_status_id }}, {{ $row->booking_status_id }}, {{ $row->id }})" href="javascript:void(0);">{{ __('Check Out') }}</a>
 							<a class="dropdown-item" href="{{ route('frontend.invoice2', [$row->id, $row->booking_no]) }}">{{ __('Invoice') }}</a>
+                            <a class="dropdown-item" href="{{ route('backend.invoice.complements', [ $row->booking_no]) }}">{{ __('Complements') }}</a>
 							<a onclick="onDelete({{ $row->id }})" class="dropdown-item" href="javascript:void(0);">{{ __('Delete') }}</a>
 						</div>
 					</div>

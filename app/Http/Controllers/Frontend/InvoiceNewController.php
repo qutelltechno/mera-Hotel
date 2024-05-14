@@ -3,28 +3,27 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Frontend\SallaController;
 use App\Models\Booking_manage;
 use App\Models\InvoiceComplement;
+use App\Models\Room_assign;
+use App\Models\Room_manage;
 use App\Models\Tax;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Frontend\SallaController;
-
 
 class InvoiceNewController extends Controller
 {
     protected $numberVat;
     protected $taxPersentage;
-    protected $totalAmountWithComplement;
+    protected $totalAmountWithComplementAndTaxAndFees;
     protected $dateBookingUnformate;
-    protected $totalAmountWithComplementUnformate;
     protected $base64_image_string;
     protected $salla;
     public function __construct(SallaController $salla)
-{
-    $this->salla = $salla;
-}
-
+    {
+        $this->salla = $salla;
+    }
 
     public function getInvoice($booking_id)
     {
@@ -72,18 +71,13 @@ class InvoiceNewController extends Controller
         }
         // return $datalist;
 
-        $totalTax = 0;
-        if ($mdata['tax'] != '') {
-            $totalTax = $mdata['tax'];
-            $taxFormate = NumberFormat($totalTax);
-        }
-        $tax = NumberFormat($totalTax) . $gtext['currency_icon'];
+
         $bookingNumber = $mdata['booking_no'];
         $DteOfArrival = $mdata['in_date'];
         $DteOfOut = $mdata['out_date'];
         $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
-        $dateBookingUnformate=$mdata['created_at'];
-        $this->dateBookingUnformate=$dateBookingUnformate;
+        $dateBookingUnformate = $mdata['created_at'];
+        $this->dateBookingUnformate = $dateBookingUnformate;
         $methodName = $mdata['method_name'];
         $roomPrice = $mdata['total_price'];
         $dateList = getDateListBetween($DteOfArrival, $DteOfOut);
@@ -91,18 +85,57 @@ class InvoiceNewController extends Controller
         $invoiceDataComplements = InvoiceComplement::where('invoice_number', $booking_no)
             ->with('complements')
             ->get();
+        $prices = [];
+        foreach ($invoiceDataComplements as $complement) {
+            $prices[] = $complement->price;
+        }
+        $totalComplementPriceNotformate = array_sum($prices);
+        $totalComplementPric = NumberFormat($totalComplementPriceNotformate);
+
+        //customr data
         $guestName = $mdata['customer_name'];
         $city = $mdata['city'];
         $phone = $mdata['customer_phone'];
-        $sub_total = 0;
-        if ($mdata['subtotal'] != '') {
-            $sub_total = $mdata['subtotal'];
-            $sub_total = NumberFormat($sub_total);
-            $sub_total_num = $mdata['subtotal'];
+        //
+
+        //room data
+        $roomsId = Room_assign::where('booking_id', $booking_id)->pluck('room_id');
+        $roomsNumbers = Room_manage::whereIn('id', $roomsId)->pluck('room_no');
+        $tottalRoomsAfterApproved = count($roomsNumbers);
+        $totalRoomsBooking = $mdata['total_room'];
+        //
+
+
+        if ( $roomsId->isEmpty()) {
+            $sub_total_num=$roomPrice* $mdata['total_room'];
+        } else {
+            $sub_total_num=$roomPrice*$tottalRoomsAfterApproved;
         }
-        $municipalityFees = $sub_total_num * MunicipalityFees() / 100;
+
+        $sub_total = 0;
+        if ( $sub_total_num != '') {
+            $sub_total =  $sub_total_num;
+            $sub_total = NumberFormat($sub_total);
+        }
+
+
+
+        ///all total with tax and fees
+        if ($totalComplementPriceNotformate > 1) {
+            $subTottalWithComplements=$sub_total_num +$totalComplementPriceNotformate;
+        } else {
+            $subTottalWithComplements=$sub_total_num;
+        }
+
         $taxPersentage = Tax::first()->select('percentage')->value('percentage');
-        $this->taxPersentage=$taxPersentage;
+        $this->taxPersentage = $taxPersentage;
+        $municipalityFees = $subTottalWithComplements * MunicipalityFees() / 100;
+        $tax=    $subTottalWithComplements * $taxPersentage/ 100;
+        $taxFormate=    NumberFormat( $tax);
+        $totalAmountWithComplementAndTaxAndFees =$subTottalWithComplements+   $tax  + $municipalityFees;
+        $this->totalAmountWithComplementAndTaxAndFees=$totalAmountWithComplementAndTaxAndFees;
+        ///
+
         $totalAmount = 0;
         if ($mdata['total_amount'] != '') {
             $totalAmount = $mdata['total_amount'];
@@ -115,29 +148,15 @@ class InvoiceNewController extends Controller
             $totalDiscount = NumberFormat($totalDiscount);
         }
 
-        $prices = [];
-        foreach ($invoiceDataComplements as $complement) {
-            $prices[] = $complement->price;
-        }
-         $totalComplementPriceNotformate = array_sum($prices);
-         $totalComplementPric=NumberFormat($totalComplementPriceNotformate);
 
-         $totalAmountWithComplement = 0;
-         if ($mdata['total_amount'] != '') {
-             $totalAmountWithComplementUnformate = $mdata['total_amount']+$totalComplementPriceNotformate;
-             $totalAmountWithComplement = NumberFormat($totalAmountWithComplementUnformate);
-             $this->totalAmountWithComplementUnformate=$totalAmountWithComplementUnformate;
-         }
-
-         $numberVat=310152627910003;
-         $this->numberVat= $numberVat;
-         $logo2 = public_path('media/' . 'photo_5892981411613359903_x.jpg');
-
-         ########################################
-         $qrcodeLogo = $this->generateQrcodeImg($this->salla);
+        ########################################
+        $logo2 = public_path('media/' . 'photo_5892981411613359903_x.jpg');
+        $numberVat = 310152627910003;
+        $this->numberVat = $numberVat;
+        $qrcodeLogo = $this->generateQrcodeImg($this->salla);
 
         $html = view('frontend.pdfstyle',
-            compact('qrcodeLogo','logo2','numberVat','totalAmountWithComplement','totalComplementPric','totalDiscount','totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'tax', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival',  'totalTax', 'totalDiscount', 'totalAmount')
+            compact('totalRoomsBooking', 'tottalRoomsAfterApproved', 'roomsNumbers', 'qrcodeLogo', 'logo2', 'numberVat', 'totalAmountWithComplementAndTaxAndFees', 'totalComplementPric', 'totalDiscount', 'totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalDiscount', 'totalAmount')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');
@@ -158,27 +177,25 @@ class InvoiceNewController extends Controller
 
     }
 
-
-    public function generateQrcodeImg(  $salla)
+    public function generateQrcodeImg($salla)
     {
         $qr_data = ['seller_name' => 'Mira Hotel',
-        'vat_number' => $this->numberVat,
-        'invoice_date' => $this->dateBookingUnformate,
-        'total_amount' => $this->totalAmountWithComplementUnformate,
-        'vat_amount' => $this->taxPersentage,
+            'vat_number' => $this->numberVat,
+            'invoice_date' => $this->dateBookingUnformate,
+            'total_amount' => $this->totalAmountWithComplementAndTaxAndFees,
+            'vat_amount' => $this->taxPersentage,
 
-
-    ];
+        ];
         $base64_image = "";
-            $this->base64_image_string = $salla->render($qr_data);
-                return $this->pdf_file_with_image();
+        $this->base64_image_string = $salla->render($qr_data);
+        return $this->pdf_file_with_image();
 
     }
 
     public function pdf_file_with_image()
     {
 
-            return $this->image_html($this->base64_image_string);
+        return $this->image_html($this->base64_image_string);
 
     }
 
@@ -186,6 +203,5 @@ class InvoiceNewController extends Controller
     {
         return $base64_file;
     }
-
 
 }

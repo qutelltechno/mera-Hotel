@@ -119,9 +119,50 @@
                 <td class="text-start">{{ $city }}</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Room No:</td>
-                <td class="text-start"> </td>
+                <td class="text-start">
+                    @if ($roomsNumbers->isEmpty())
+                        Not specified
+                    @else
+                        {{ implode(', ', $roomsNumbers->toArray()) }}
+                    @endif
 
-                <td class="text-right text-dark custom">: رقم الغرفة</td>
+                </td>
+
+                <td class="text-right text-dark custom"> <span class="span text-black-50">
+
+                        @if ($roomsNumbers->isEmpty())
+                            <p> لم يتم التحديد
+                            </p>
+                        @else
+                            {{ implode(', ', $roomsNumbers->toArray()) }}
+                        @endif
+
+                        &nbsp;
+                        &nbsp;
+                    </span>: رقم الغرفة </td>
+            </tr>
+            <tr>
+                <td class="text-start"></td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Rooms Numbers:</td>
+                <td class="text-start">
+                    @if ($roomsNumbers->isEmpty())
+                        {{ $totalRoomsBooking }}
+                    @else
+                        {{ $tottalRoomsAfterApproved }}
+                    @endif
+                </td>
+
+                <td class="text-right text-dark custom"><span class="span text-black-50">
+
+                        @if ($roomsNumbers->isEmpty())
+                            {{ $totalRoomsBooking }}
+                        @else
+                            {{ $tottalRoomsAfterApproved }}
+                        @endif
+                        &nbsp;
+                        &nbsp;
+                    </span>: عدد الغرف</td>
             </tr>
             <tr>
                 <td class="text-start"></td>
@@ -208,15 +249,39 @@
                     <td class="text-center"></td>
                     <td class="text-center">00000</td>
                 </tr>
-                @foreach ($dateList as $day)
-                    <tr>
-                        <td class="text-start">{{ $day }}</td>
-                        <td class="text-start">ROOM CHARGE</td>
-                        <td class="text-center">رسوم الغرفة</td>
-                        <td class="text-center">{{ $roomPrice }}</td>
-                        <td class="text-center"></td>
-                    </tr>
-                @endforeach
+                @if ($roomsNumbers->isEmpty())
+                    @foreach ($dateList as $day)
+                        <tr>
+                            <td class="text-start">{{ $day }}</td>
+                            <td class="text-start">ROOM CHARGE</td>
+                            <td class="text-center">رسوم الغرف</td>
+                            <td class="text-center">{{ $roomPrice*$totalRoomsBooking }}</td>
+                            <td class="text-center"></td>
+                        </tr>
+                    @endforeach
+                @else
+                    @foreach ($roomsNumbers as $roomNumber)
+                        <tr>
+                            <td class="text-start"></td>
+                            <td class="text-start text-dark">ROOM Number: {{ $roomNumber }}</td>
+                            <td class="text-center text-dark">غرفة رقم :{{ $roomNumber }}</td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                        @foreach ($dateList as $day)
+                            <tr>
+                                <td class="text-start">{{ $day }}</td>
+                                <td class="text-start">ROOM CHARGE</td>
+                                <td class="text-center">رسوم الغرفة</td>
+                                <td class="text-center">{{ $roomPrice }}</td>
+                                <td class="text-center"></td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+
+
+                @endif
+
                 @php
                     use Carbon\Carbon;
                 @endphp
@@ -241,7 +306,7 @@
                         <tr>
                             <th class="text-start text-dark">Total المجموع</th>
                             <th class="text-start"></th>
-                            <th class="">{{ $totalAmountWithComplement }}</th>
+                            <th class="">{{ $totalAmountWithComplementAndTaxAndFees }}</th>
                             <th class="text-right">0000</th>
                         </tr>
                     </thead>
@@ -250,10 +315,10 @@
                         <tr>
                             <td class="text-start text-dark">Balance</td>
                             <td class="text-start">SAR</td>
-                            <td class="text-center">{{ $totalAmount }}</td>
+                            <td class="text-center">{{ $sub_total }}</td>
                             <td class="text-right text-dark">الرصيد</td>
                         </tr>
-                       
+
                         <tr>
                             <td class="text-start text-dark">Net Additions </td>
                             <td class="text-start">SAR</td>
@@ -291,8 +356,9 @@
 
             </div>
             <div class="mt-5 text-center">
-                <small class="text-dark" style="font-size: 10px ;">أقر بالمسؤولية في حاله عدم قيام الشخص المشار اليه او
-                     <br>____________________________________ الشركه او الجمعيه بدفع كامل التكاليف او جزء منها </small>
+                <small class="text-dark" style="font-size: 10px ;">أقر بالمسؤولية في حاله عدم قيام الشخص المشار اليه
+                    او
+                    <br>____________________________________ الشركه او الجمعيه بدفع كامل التكاليف او جزء منها </small>
             </div>
         </div>
     </div>
@@ -304,9 +370,9 @@
             <p class="text-center mt-1 text-dark" style="font-size: 12px">MIRA BUSINESS HOTEL,RIYADH</p>
 
             <div class="d=flex justify-content-between">
-<div>
-    <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
-</div>
+                <div>
+                    <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
+                </div>
                 <div>
                     <p>Guest Signature / <span> توقيع الضيف </span></p>
                 </div>

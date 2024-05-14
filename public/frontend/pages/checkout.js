@@ -196,6 +196,7 @@ function onConfirmMakeOrder() {
 		beforeSend: function() {
 			$('.checkout_btn').html('<span class="spinner-border spinner-border-sm"></span> Please Wait...');
 		},
+        // console.log(data);
 		success: function (response) {
 			var msgType = response.msgType;
 			var msg = response.msg;
