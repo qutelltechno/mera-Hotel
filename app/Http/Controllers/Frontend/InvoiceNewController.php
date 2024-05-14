@@ -27,6 +27,8 @@ class InvoiceNewController extends Controller
 
     public function getInvoice($booking_id)
     {
+                date_default_timezone_set('Asia/Riyadh');
+
 
         $gtext = gtext();
 
@@ -76,7 +78,7 @@ class InvoiceNewController extends Controller
         $DteOfArrival = $mdata['in_date'];
         $DteOfOut = $mdata['out_date'];
         $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
-        $dateBookingUnformate = $mdata['created_at'];
+        $dateBookingUnformate =     $mdata['created_at'];
         $this->dateBookingUnformate = $dateBookingUnformate;
         $methodName = $mdata['method_name'];
         $roomPrice = $mdata['total_price'];
