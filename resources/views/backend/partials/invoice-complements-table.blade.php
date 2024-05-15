@@ -2,8 +2,8 @@
     <table class="table table-borderless table-theme" style="width:100%;">
         <thead>
             <tr>
-                <th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox">
-                </th>
+                {{-- <th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox">
+                </th> --}}
                 <th class="text-center" style="width:40%">{{ __('Complement') }}</th>
                 <th class="text-center" style="width:20%">{{ __('Cost Price') }} </th>
                 <th class="text-center" style="width:35%">{{ __('Action') }}</th>
@@ -20,8 +20,8 @@
                     <tr>
 
                         {{-- @dd( $transName ) --}}
-                        <td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}"
-                                class="tp-checkbox selected_item" type="checkbox"></td>
+                        {{-- <td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}"
+                                class="tp-checkbox selected_item" type="checkbox"></td> --}}
                         <td class="text-center">{{ $row->complements[$i]->name }}</td>
                         <td class="text-center">{{$row->price }}&#160; &#160; SAR </td>
                         <td class="text-center">

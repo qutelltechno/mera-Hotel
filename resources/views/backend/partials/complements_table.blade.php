@@ -3,8 +3,8 @@
 		<thead>
 			<tr>
 				<th class="checkboxlist text-center" style="width:5%"><input class="tp-check-all checkAll" type="checkbox"></th>
-				<th class="text-left" style="width:25%">{{ __('Complement') }}</th>
-				<th class="text-left" style="width:50%">{{ __('Item') }}</th>
+				<th class="text-center" style="width:25%">{{ __('Complement') }}</th>
+				{{-- <th class="text-left" style="width:50%">{{ __('Item') }}</th> --}}
 				<th class="text-center" style="width:10%">{{ __('Status') }}</th>
 				<th class="text-center" style="width:10%">{{ __('Action') }}</th>
 			</tr>
@@ -12,7 +12,7 @@
 		<tbody>
 			@if (count($datalist)>0)
 			@foreach($datalist as $row)
-			
+
 			<tr>
 				@php
 		 	$transName = json_decode($row->name, true);
@@ -20,8 +20,8 @@
 
 		     @endphp
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
-				<td class="text-left">{{ $transName[glan()] }}</td>
-				<td class="text-left">{{ $transitem[glan()] }}</td>
+				<td class="text-center">{{ $transName[glan()] }}</td>
+				{{-- <td class="text-left">{{ $transitem[glan()] }}</td> --}}
 				@if ($row->is_publish == 1)
 				<td class="text-center"><span class="enable_btn">{{ __($row->status) }}</span></td>
 				@else
