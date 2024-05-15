@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class InvoiceNewController extends Controller
 {
     protected $numberVat;
-    protected $taxPersentage;
+    protected $tax;
     protected $totalAmountWithComplementAndTaxAndFees;
     protected $dateBookingUnformate;
     protected $base64_image_string;
@@ -129,9 +129,9 @@ class InvoiceNewController extends Controller
         }
 
         $taxPersentage = Tax::first()->select('percentage')->value('percentage');
-        $this->taxPersentage = $taxPersentage;
         $municipalityFees = $subTottalWithComplements * MunicipalityFees() / 100;
         $tax=    $subTottalWithComplements * $taxPersentage/ 100;
+        $this->tax=$tax;
         $taxFormate=    NumberFormat( $tax);
         $totalAmountWithComplementAndTaxAndFees =$subTottalWithComplements+   $tax  + $municipalityFees;
         $this->totalAmountWithComplementAndTaxAndFees=$totalAmountWithComplementAndTaxAndFees;
@@ -180,11 +180,11 @@ class InvoiceNewController extends Controller
 
     public function generateQrcodeImg($salla)
     {
-        $qr_data = ['seller_name' => 'Mira Hotel',
+        $qr_data = ['seller_name' => 'Mira Business Hotel,Riyadh',
             'vat_number' => $this->numberVat,
             'invoice_date' => $this->dateBookingUnformate,
             'total_amount' => $this->totalAmountWithComplementAndTaxAndFees,
-            'vat_amount' => $this->taxPersentage,
+            'vat_amount' => $this->tax,
 
         ];
         $base64_image = "";

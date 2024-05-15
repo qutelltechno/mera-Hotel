@@ -66,11 +66,11 @@ class CheckoutFrontController extends Controller
 
     public function LoadCheckout($id, $title)
     {
-		$country_list = Country::where('is_publish', '=', 1)->orderBy('country_name', 'ASC')->get();
+		// $country_list = Country::where('is_publish', '=', 1)->orderBy('country_name', 'ASC')->get();
 		$rtdata = Room::where('id', $id)->where('is_publish', '=', 1)->first();
 		$total_room = Room_manage::where('roomtype_id', '=', $id)->where('book_status', '=', 2)->where('is_publish', '=', 1)->count();
 
-        return view('frontend.checkout', compact('country_list', 'rtdata', 'total_room'));
+        return view('frontend.checkout', compact( 'rtdata', 'total_room'));
     }
 
     public function LoadThank()

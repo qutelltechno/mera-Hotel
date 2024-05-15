@@ -96,14 +96,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <select id="country" name="country" class="form-control parsley-validated"
-                                            data-required="true">
-                                            <option value="">{{ __('Country') }}</option>
-                                            @foreach ($country_list as $row)
-                                                <option value="{{ $row->country_name }}">
-                                                    {{ $row->country_name }}
+                                        <select id="country" name="country" class="form-control parsley-validated "
+                                            hidden>
+                                            <option value="Saudia">{{ __('Country') }}</option>
+                                            {{-- @foreach ($country_list as $row) --}}
+                                                <option value="Saudia" selected>
+                                                    {{-- {{ $row->country_name }} --}}
                                                 </option>
-                                            @endforeach
+                                            {{-- @endforeach --}}
                                         </select>
                                         <span class="text-danger error-text country_error"></span>
                                     </div>
@@ -111,8 +111,8 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <input id="state" name="state" type="text"
-                                            placeholder="{{ __('State') }}" class="form-control parsley-validated"
-                                            data-required="true">
+                                            placeholder ="{{ __('State') }}" class="form-control parsley-validated"
+                                            hidden  value="pending">
                                         <span class="text-danger error-text state_error"></span>
                                     </div>
                                 </div>
