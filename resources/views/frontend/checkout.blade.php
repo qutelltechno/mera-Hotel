@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                                                          <div class="container">
-                                                                                                           <div class="row">
-                                                                                                            <div class="col-12">
-                                                                                                             <div class="breadcrumb-card wow pulse">
-                                                                                                              <h2>{{ __('Booking Request') }}</h2>
-                                                                                                             </div>
-                                                                                                            </div>
-                                                                                                           </div>
-                                                                                                          </div>
-                                                                                                         </section> -->
+                                                                                                              <div class="container">
+                                                                                                               <div class="row">
+                                                                                                                <div class="col-12">
+                                                                                                                 <div class="breadcrumb-card wow pulse">
+                                                                                                                  <h2>{{ __('Booking Request') }}</h2>
+                                                                                                                 </div>
+                                                                                                                </div>
+                                                                                                               </div>
+                                                                                                              </div>
+                                                                                                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -100,9 +100,9 @@
                                             hidden>
                                             <option value="Saudia">{{ __('Country') }}</option>
                                             {{-- @foreach ($country_list as $row) --}}
-                                                <option value="Saudia" selected>
-                                                    {{-- {{ $row->country_name }} --}}
-                                                </option>
+                                            <option value="Saudia" selected>
+                                                {{-- {{ $row->country_name }} --}}
+                                            </option>
                                             {{-- @endforeach --}}
                                         </select>
                                         <span class="text-danger error-text country_error"></span>
@@ -112,7 +112,7 @@
                                     <div class="mb-3">
                                         <input id="state" name="state" type="text"
                                             placeholder ="{{ __('State') }}" class="form-control parsley-validated"
-                                            hidden  value="pending">
+                                            hidden value="pending">
                                         <span class="text-danger error-text state_error"></span>
                                     </div>
                                 </div>
@@ -138,12 +138,17 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <textarea id="address" name="address" placeholder="{{ __('Address') }}" rows="2"
-                                            class="form-control parsley-validated" data-required="true">
-@if (isset(Auth::user()->address))
-{{ Auth::user()->address }}
-@endif
-</textarea>
+                                        <textarea hidden id="address" name="address" placeholder="{{ __('Address') }}" rows="2"
+                                            class="form-control parsley-validated" >
+                                                            @if (isset(Auth::user()->address))
+                                                            {{ Auth::user()->address }}
+                                                            @else
+                                                            Saudia
+                                                            @endif
+
+
+
+                                        </textarea>
                                         <span class="text-danger error-text address_error"></span>
                                     </div>
                                 </div>
@@ -182,11 +187,11 @@
                                 </div>
                             @endauth
 
-                            <h5 class="mt10">{{ __('Payment Method') }}</h5>
-                            <div class="row">
+                            <h5 class="mt10" style="display: none">{{ __('Payment Method') }}</h5>
+                            <div class="row" style="display: none">
                                 <div class="col-md-12">
                                     <span class="text-danger 						error-text payment_method_error"></span>
-                                    @if ($gtext['stripe_isenable'] == 1)
+                                    {{-- @if ($gtext['stripe_isenable'] == 1)
                                         <div class="payment_card">
                                             <div class="checkboxlist">
                                                 <label class="checkbox-title">
@@ -266,14 +271,14 @@
                                             </div>
                                             <p id="pay_cod" class="hideclass">{{ $gtext['cod_description'] }}</p>
                                         </div>
-                                    @endif
+                                    @endif --}}
 
                                     @if ($gtext['bank_isenable'] == 1)
-                                        <div class="payment_card">
+                                        <div class="payment_card " >
                                             <div class="checkboxlist">
                                                 <label class="checkbox-title">
                                                     <input id="payment_method_bank" name="payment_method" type="radio"
-                                                        value="2"><img
+                                                        value="2" checked><img
                                                         src="{{ asset('public/frontend/images/bank_transfer.png') }}"
                                                         alt="Bank Transfer" />
                                                 </label>
@@ -283,6 +288,9 @@
                                     @endif
                                 </div>
                             </div>
+
+
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="mb-3 mt10">
@@ -456,8 +464,8 @@
                                                         style="direction: ltr !important;">
                                                         {!! nl2br($gtext['phone_footer']) !!}</strong>
                                                 </p>
-                                                @if (glan()=='ar')
-                                                <br>
+                                                @if (glan() == 'ar')
+                                                    <br>
                                                 @endif
 
                                                 {{-- <p><strong>{{ __('Phone')}}:</strong>
