@@ -97,7 +97,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-3" style="display-none">
+								<div class="col-lg-3 display-none" >
 									<div class="form-group">
 										<label for="state">{{ __('State') }}</label>
 										<input type="text" name="state" id="state" class="form-control"  hidden value="pending">
