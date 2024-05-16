@@ -442,7 +442,7 @@ class BookingController extends Controller
 		if($response){
 			if($isnotify == 1){
 				if($gtext['ismail'] == 1){
-					self::BookingNotify($id, 'booking');
+					BookingNotify($id, 'booking');
 				}
 			}
 
