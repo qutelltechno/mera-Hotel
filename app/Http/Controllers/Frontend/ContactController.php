@@ -126,9 +126,9 @@ class ContactController extends Controller
                 //Get mail
                 $mail->setFrom($gtext['from_mail'], $gtext['from_name']);
                 $replyMail = $request->input('email');
-                $replyNmae = $request->input('name');
+                $replyName = $request->input('name');
 
-                $mail->addReplyTo($replyMail,$replyNmae);
+                $mail->addReplyTo($replyMail,$replyName);
                 $mail->addAddress($gtext['to_mail'], $gtext['to_name']);
                 $mail->isHTML(true);
                 $mail->CharSet = "utf-8";
