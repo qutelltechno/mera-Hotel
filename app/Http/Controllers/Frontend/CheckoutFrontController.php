@@ -66,7 +66,7 @@ class CheckoutFrontController extends Controller
 
     public function LoadCheckout($id, $title)
     {
-		$country_list = Country::where('is_publish', '=', 1)->orderBy('country_name', 'ASC')->get();
+		$country_list = Country::where('is_publish', '=', 1)->orderBy('id', 'ASC')->get();
 		$rtdata = Room::where('id', $id)->where('is_publish', '=', 1)->first();
 		$total_room = Room_manage::where('roomtype_id', '=', $id)->where('book_status', '=', 2)->where('is_publish', '=', 1)->count();
 

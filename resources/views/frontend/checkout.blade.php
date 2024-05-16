@@ -93,11 +93,27 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
-                                  
-
-
+                                    <div class="mb-3">
+                                        <input id="zip_code" name="zip_code" type="text"
+                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
+                                            data-required="true">
+                                        <span class="text-danger error-text zip_code_error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input id="city" name="city" type="text"
+                                            placeholder="{{ __('City') }}" class="form-control parsley-validated"
+                                            data-required="true">
+                                        <span class="text-danger error-text city_error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="mb-3">
                                         <select id="country" name="country" class="form-control parsley-validated"
                                             data-required="true">
@@ -117,24 +133,6 @@
                                             placeholder ="{{ __('State') }}" class="form-control parsley-validated"
                                             hidden value="pending">
                                         <span class="text-danger error-text state_error"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <input id="zip_code" name="zip_code" type="text"
-                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
-                                            data-required="true">
-                                        <span class="text-danger error-text zip_code_error"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <input id="city" name="city" type="text"
-                                            placeholder="{{ __('City') }}" class="form-control parsley-validated"
-                                            data-required="true">
-                                        <span class="text-danger error-text city_error"></span>
                                     </div>
                                 </div>
                             </div>
