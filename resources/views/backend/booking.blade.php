@@ -197,7 +197,7 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-12">
-									<div class=" checkbox_group">
+									<div class="tw_checkbox checkbox_group">
 										<input id="isnotify" name="isnotify" type="checkbox">
 										<label for="isnotify">{{ __('Send confirmation email to customer') }}</label>
 										<span></span>
