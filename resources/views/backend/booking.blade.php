@@ -134,11 +134,11 @@
 										<td class="text-right"><strong>{{ $subtotal }}</strong></td>
 									</tr>
                                     <tr>
-										<td colspan="5" class="text-right border-none"><strong>{{ __('municipality Fees') }}: </strong></td>
+										<td colspan="5" class="text-right border-none"><strong>{{ __('municipality Fees') }}: </strong>&nbsp;  <span> {{ MunicipalityFees() }} % </span></td>
 										<td class="text-right border-none"><strong>{{ $municipalityFeesTax }}</strong></td>
 									</tr>
 									<tr>
-										<td colspan="5" class="text-right border-none"><strong>{{ __('Tax') }}: </strong></td>
+										<td colspan="5" class="text-right border-none"><strong>{{ __('Tax') }}: </strong> &nbsp;  <span> {{ tax() }} % </span></td>
 										<td class="text-right border-none"><strong>{{ $tax }}</strong></td>
 									</tr>
 
@@ -288,9 +288,9 @@
 						<p><strong>{{ __('Country') }}</strong>: {{ $mdata->country }}</p>
 						@endif
 
-						@if ($mdata->state != '')
+						{{-- @if ($mdata->state != '')
 						<p><strong>{{ __('State') }}</strong>: {{ $mdata->state }}</p>
-						@endif
+						@endif --}}
 
 						@if ($mdata->zip_code != '')
 						<p><strong>{{ __('Zip Code') }}</strong>: {{ $mdata->zip_code }}</p>

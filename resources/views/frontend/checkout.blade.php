@@ -411,13 +411,13 @@
                                                             <td><span
                                                                     class="title text-black">{{ __('municipality Fees') }}</span><span
                                                                     class="price">
-                                                                    0
+                                                                    {{ MunicipalityFees() }} %
                                                                 </span></td>
                                                         </tr>
                                                         <tr>
                                                             <td><span
                                                                     class="title text-black">{{ __('Tax') }}</span><span
-                                                                    class="price">0</span></td>
+                                                                    class="price">{{ tax() }} %</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td><span

@@ -541,8 +541,8 @@ class CheckoutFrontController extends Controller
 			$res['total_table'] = '<table class="table total-price-card">
 					<tbody>
 						<tr><td><span class="title">'.__('Subtotal').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($subtotal).'</span></td></tr>
-                        <tr><td><span class="title">'.__('municipality Fees').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($municipalityFees).'</span></td></tr>
-						<tr><td><span class="title">'.__('Tax').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($total_tax).'</span></td></tr>
+                        <tr><td><span class="title">'.__('municipality Fees').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($municipalityFees).'</span> &nbsp; <span> '.MunicipalityFees().' %</span></td></tr>
+						<tr><td><span class="title">'.__('Tax').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($total_tax).'</span>&nbsp;  <span> '.tax().' %</span></td></tr>
 						<tr><td><span class="title">'.__('Discount').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($total_discount).'</span></td></tr>
 						<tr><td><span class="title">'.__('Total').'</span><span class="price">'.$gtext['currency_icon'].NumberFormat($total_amount).'</span></td></tr>
 					</tbody>
@@ -552,8 +552,8 @@ class CheckoutFrontController extends Controller
 					<tbody>
 
 						<tr><td><span class="title">'.__('Subtotal').'</span><span class="price">'.NumberFormat($subtotal).$gtext['currency_icon'].'</span></td></tr>
-                        <tr><td><span class="title">'.__('municipality Fees').'</span><span class="price">'.NumberFormat($municipalityFees).$gtext['currency_icon'].'</span></td></tr>
-						<tr><td><span class="title">'.__('Tax').'</span><span class="price">'.NumberFormat($total_tax).$gtext['currency_icon'].'</span></td></tr>
+                        <tr><td><span class="title">'.__('municipality Fees').'</span><span class="price">'.NumberFormat($municipalityFees).$gtext['currency_icon'].'</span> &nbsp;  <span> '.MunicipalityFees().' %</span></td></tr>
+						<tr><td><span class="title">'.__('Tax').'</span><span class="price">'.NumberFormat($total_tax).$gtext['currency_icon'].'</span></span>&nbsp;  <span> '.tax().' %</span></td></tr>
 						<tr><td><span class="title">'.__('Discount').'</span><span class="price">'.NumberFormat($total_discount).$gtext['currency_icon'].'</span></td></tr>
 						<tr><td><span class="title">'.__('Total').'</span><span class="price">'.NumberFormat($total_amount).$gtext['currency_icon'].'</span></td></tr>
 					</tbody>
