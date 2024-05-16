@@ -15,6 +15,8 @@ use App\Models\Room_manage;
 use App\Models\Room;
 use App\Models\Country;
 use App\Models\InvoiceComplement;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class BookingController extends Controller
 {
@@ -440,7 +442,7 @@ class BookingController extends Controller
 		if($response){
 			if($isnotify == 1){
 				if($gtext['ismail'] == 1){
-					BookingNotify($id, 'booking');
+					self::BookingNotify($id, 'booking');
 				}
 			}
 
@@ -748,5 +750,308 @@ class BookingController extends Controller
 		$res['total_room'] = $total_room;
 
 		return response()->json($res);
+    }
+    public  function BookingNotify($booking_id, $type) {
+        $gtext = gtext();
+
+        $datalist = DB::table('booking_manages')
+            ->join('rooms', 'booking_manages.roomtype_id', '=', 'rooms.id')
+            ->join('payment_method', 'booking_manages.payment_method_id', '=', 'payment_method.id')
+            ->join('payment_status', 'booking_manages.payment_status_id', '=', 'payment_status.id')
+            ->join('booking_status', 'booking_manages.booking_status_id', '=', 'booking_status.id')
+            ->select('booking_manages.*', 'rooms.title', 'rooms.old_price', 'rooms.is_discount',
+             'payment_method.method_name', 'payment_status.pstatus_name', 'booking_status.bstatus_name')
+            ->where('booking_manages.id', $booking_id)
+            ->get();
+
+        $mdata = array();
+        foreach($datalist as $row){
+            $mdata['title'] = $row->title;
+            $mdata['is_discount'] = $row->is_discount;
+            $mdata['old_price'] = $row->old_price;
+            $mdata['booking_no'] = $row->booking_no;
+            $mdata['payment_status_id'] = $row->payment_status_id;
+            $mdata['booking_status_id'] = $row->booking_status_id;
+            $mdata['total_room'] = $row->total_room;
+            $mdata['total_price'] = $row->total_price;
+            $mdata['discount'] = $row->discount;
+            $mdata['tax'] = $row->tax;
+            $mdata['subtotal'] = $row->subtotal;
+            $mdata['total_amount'] = $row->total_amount;
+            $mdata['in_date'] = $row->in_date;
+            $mdata['out_date'] = $row->out_date;
+            $mdata['customer_name'] = $row->name;
+            $mdata['customer_email'] = $row->email;
+            $mdata['customer_address'] = $row->address;
+            $mdata['city'] = $row->city;
+            $mdata['state'] = $row->state;
+            $mdata['zip_code'] = $row->zip_code;
+            $mdata['country'] = $row->country;
+            $mdata['customer_phone'] = $row->phone;
+            $mdata['created_at'] = $row->created_at;
+            $mdata['method_name'] = $row->method_name;
+            $mdata['pstatus_name'] = $row->pstatus_name;
+            $mdata['bstatus_name'] = $row->bstatus_name;
+        }
+
+        $total_days = DateDiffInDays($mdata['in_date'], $mdata['out_date']);
+
+        $totalPrice = 0;
+        if($mdata['total_price'] !=''){
+            $totalPrice = $mdata['total_price'];
+        }
+
+        $oldPrice = 0;
+        if($mdata['old_price'] !=''){
+            $oldPrice = $mdata['old_price'];
+        }
+
+        $sub_total = 0;
+        if($mdata['subtotal'] !=''){
+            $sub_total = $mdata['subtotal'];
+        }
+
+        $totalTax = 0;
+        if($mdata['tax'] !=''){
+            $totalTax = $mdata['tax'];
+        }
+
+        $totalDiscount = 0;
+        if($mdata['discount'] !=''){
+            $totalDiscount = $mdata['discount'];
+        }
+
+        $totalAmount = 0;
+        if($mdata['total_amount'] !=''){
+            $totalAmount = $mdata['total_amount'];
+        }
+
+        $calOldPrice = $oldPrice*$mdata['total_room']*$total_days;
+
+        if($gtext['currency_position'] == 'left'){
+            $oPrice = $gtext['currency_icon'].NumberFormat($oldPrice);
+            $caloPrice = $gtext['currency_icon'].NumberFormat($calOldPrice);
+            $total_price = $gtext['currency_icon'].NumberFormat($totalPrice);
+            $subtotal = $gtext['currency_icon'].NumberFormat($sub_total);
+            $tax = $gtext['currency_icon'].NumberFormat($totalTax);
+            $discount = $gtext['currency_icon'].NumberFormat($totalDiscount);
+            $total_amount = $gtext['currency_icon'].NumberFormat($totalAmount);
+
+        }else{
+            $oPrice = NumberFormat($oldPrice).$gtext['currency_icon'];
+            $caloPrice = NumberFormat($calOldPrice).$gtext['currency_icon'];
+            $total_price = NumberFormat($totalPrice).$gtext['currency_icon'];
+            $subtotal = NumberFormat($sub_total).$gtext['currency_icon'];
+            $tax = NumberFormat($totalTax).$gtext['currency_icon'];
+            $discount = NumberFormat($totalDiscount).$gtext['currency_icon'];
+            $total_amount = NumberFormat($totalAmount).$gtext['currency_icon'];
+        }
+
+        $old_price = '';
+        $cal_old_price = '';
+        if($mdata['is_discount'] == 1){
+            $old_price = '<br><span style="text-decoration:line-through;color:#ee0101;">'.$oPrice.'</span>';
+            $cal_old_price = '<br><span style="text-decoration:line-through;color:#ee0101;">'.$caloPrice.'</span>';
+        }
+
+        $item_list = '<tr>
+                <td style="width:35%;text-align:left;border:1px solid #ddd;">'.$mdata['title'].'</td>
+                <td style="width:10%;text-align:center;border:1px solid #ddd;">'.$mdata['total_room'].'</td>
+                <td style="width:10%;text-align:center;border:1px solid #ddd;">'.$total_price.$old_price.'</td>
+                <td style="width:25%;text-align:center;border:1px solid #ddd;">'.date('d-m-Y', strtotime($mdata['in_date'])).' to '.date('d-m-Y', strtotime($mdata['out_date'])).'</td>
+                <td style="width:10%;text-align:center;border:1px solid #ddd;">'.$total_days.'</td>
+                <td style="width:10%;text-align:right;border:1px solid #ddd;">'.$subtotal.$cal_old_price.'</td>
+            </tr>';
+
+        $RoomDataList = DB::table('room_manages')
+            ->join('room_assigns', 'room_manages.id', '=', 'room_assigns.room_id')
+            ->select('room_manages.room_no')
+            ->where('room_assigns.booking_id', $booking_id)
+            ->orderBy('room_manages.room_no', 'asc')
+            ->get();
+
+        $room_no = '';
+        $f = 0;
+        foreach($RoomDataList as $row){
+            if($f++){
+                $room_no .= ', ';
+            }
+
+            $room_no .= $row->room_no;
+        }
+
+        $assign_rooms = '';
+        if($room_no !=''){
+            $assign_rooms = __('Your assign  room no').': '.$room_no;
+        }
+
+        if($mdata['payment_status_id'] == 1){
+            $pstatus = '#26c56d'; //Completed = 1
+        }elseif($mdata['payment_status_id'] == 2){
+            $pstatus = '#fe9e42'; //Pending = 2
+        }elseif($mdata['payment_status_id'] == 3){
+            $pstatus = '#f25961'; //Canceled = 3
+        }elseif($mdata['payment_status_id'] == 4){
+            $pstatus = '#f25961'; //Incompleted 4
+        }
+
+        $SubjectText = '';
+        $BodyText = '';
+
+        if($mdata['booking_status_id'] == 1){
+            $bstatus = '#fe9e42'; //Pending = 1
+        }elseif($mdata['booking_status_id'] == 2){
+            $bstatus = '#26c56d'; //Approved = 2
+            $SubjectText = __('Your booking request is approved.');
+            $BodyText = __('Your booking request is approved. You can find your booking information below.');
+        }elseif($mdata['booking_status_id'] == 3){
+            $bstatus = '#919395'; //Checked Out = 3
+            $SubjectText = __('Your booking has checked out.');
+            $BodyText = __('Your booking has checked out. You can find your booking information below.');
+        }elseif($mdata['booking_status_id'] == 4){
+            $bstatus = '#f25961'; //Canceled 4
+            $SubjectText = __('Your booking has cancelled.');
+            $BodyText = __('Your booking has cancelled. You can find your booking information below.');
+        }
+
+        $subject_text = '';
+        $body_text = '';
+        if($type == 'booking_request'){
+            $subject_text = __('Your booking request is successfully.');
+            $body_text = __('We have received your booking request and will contact you as soon. You can find your booking information below.');
+        }elseif($type == 'booking'){
+            $subject_text = $SubjectText;
+            $body_text = $BodyText;
+        }
+
+        $base_url = url('/');
+
+        $InvoiceDownloads = '<a href="'.route('frontend.invoice2', [$booking_id, $mdata['booking_no']]).'" style="background:'.$gtext['theme_color'].';display:block;text-align:center;padding:7px 15px;margin:0 10px 10px 0;border-radius:3px;text-decoration:none;color:#fff;float:left;">'.__('Invoice').'</a>';
+
+        if($gtext['ismail'] == 1){
+            try {
+
+                require 'vendor/autoload.php';
+                $mail = new PHPMailer(true);
+                $mail->CharSet = "UTF-8";
+
+                if($gtext['mailer'] == 'smtp'){
+                    $mail->SMTPDebug = 0; //0 = off (for production use), 1 = client messages, 2 = client and server messages
+                    $mail->isSMTP();
+                    $mail->Host       = $gtext['smtp_host'];
+                    $mail->SMTPAuth   = true;
+                    $mail->Username   = $gtext['smtp_username'];
+                    $mail->Password   = $gtext['smtp_password'];
+                    $mail->SMTPSecure = $gtext['smtp_security'];
+                    $mail->Port       = $gtext['smtp_port'];
+                }
+
+                //Get mail
+                $mail->setFrom($gtext['from_mail'], $gtext['from_name']);
+                $mail->addAddress($mdata['customer_email'], $mdata['customer_name']);
+
+                $mail->isHTML(true);
+                $mail->CharSet = "utf-8";
+                $mail->Subject = $mdata['booking_no'].' - '.$subject_text;
+
+                $mail->Body =
+                '<table style="background-color:#edf2f7;color:#111111;padding:40px 0px;line-height:24px;font-size:14px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table style="background-color:#fff;max-width:1000px;margin:0 auto;padding:30px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr><td style="font-size:40px;border-bottom:1px solid #ddd;padding-bottom:25px;font-weight:bold;text-align:center;">'.$gtext['company'].'</td></tr>
+                                            <tr><td style="font-size:25px;font-weight:bold;padding:30px 0px 5px 0px;">'.__('Hi').' '.$mdata['customer_name'].'</td></tr>
+                                            <tr><td>'.$body_text.'</td></tr>
+                                            <tr>
+                                                <td style="padding-top:30px;padding-bottom:20px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td style="vertical-align: top;">
+                                                                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                                                                    <tr><td style="font-size:16px;font-weight:bold;">'.__('BILL TO').':</td></tr>
+                                                                    <tr><td><strong>'.$mdata['customer_name'].'</strong></td></tr>
+                                                                    <tr><td>'.$mdata['customer_address'].'</td></tr>
+                                                                    <tr><td>'.$mdata['city'].', '.$mdata['state'].', '.$mdata['zip_code'].', '.$mdata['country'].'</td></tr>
+                                                                    <tr><td>'.$mdata['customer_email'].'</td></tr>
+                                                                    <tr><td>'.$mdata['customer_phone'].'</td></tr>
+                                                                </table>
+                                                                <table style="padding:30px 0px;" border="0" cellpadding="3" cellspacing="0" width="100%">
+                                                                    <tr><td style="font-size:16px;font-weight:bold;">'.__('BILL FROM').':</td></tr>
+                                                                    <tr><td><strong>'.$gtext['company'].'</strong></td></tr>
+                                                                    <tr><td>'.$gtext['invoice_address'].'</td></tr>
+                                                                    <tr><td>'.$gtext['invoice_email'].'</td></tr>
+                                                                    <tr><td>'.$gtext['invoice_phone'].'</td></tr>
+                                                                </table>
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <table style="text-align:right;" border="0" cellpadding="3" cellspacing="0" width="100%">
+                                                                    <tr><td><strong>'.__('Booking No').'</strong>: '.$mdata['booking_no'].'</td></tr>
+                                                                    <tr><td><strong>'.__('Booking Date').'</strong>: '.date('d-m-Y', strtotime($mdata['created_at'])).'</td></tr>
+                                                                    <tr><td><strong>'.__('Payment Method').'</strong>: '.$mdata['method_name'].'</td></tr>
+                                                                    <tr><td><strong>'.__('Payment Status').'</strong>: <span style="color:'.$pstatus.'">'.$mdata['pstatus_name'].'</span></td></tr>
+                                                                    <tr><td><strong>'.__('Booking Status').'</strong>: <span style="color:'.$bstatus.'">'.$mdata['bstatus_name'].'</span></td></tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table style="border-collapse:collapse;" border="0" cellpadding="5" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <th style="width:35%;text-align:left;border:1px solid #ddd;">'.__('Room Type').'</th>
+                                                            <th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Total Room').'</th>
+                                                            <th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Price').'</th>
+                                                            <th style="width:25%;text-align:center;border:1px solid #ddd;">'.__('In / Out Date').'</th>
+                                                            <th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Total Days').'</th>
+                                                            <th style="width:10%;text-align:right;border:1px solid #ddd;">'.__('Total').'</th>
+                                                        </tr>
+                                                        '.$item_list.'
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top:5px;padding-bottom:20px;">
+                                                    <table style="font-weight:bold;" border="0" cellpadding="5" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td style="width:60%;text-align:left;">'.$assign_rooms.'</td>
+                                                            <td style="width:25%;text-align:right;">'.__('Subtotal').':</td>
+                                                            <td style="width:15%;text-align:right;">'.$subtotal.'</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:60%;text-align:right;"></td>
+                                                            <td style="width:25%;text-align:right;">'.__('Tax').':</td>
+                                                            <td style="width:15%;text-align:right;">'.$tax.'</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:60%;text-align:left;"></td>
+                                                            <td style="width:25%;text-align:right;">'.__('Discount').':</td>
+                                                            <td style="width:15%;text-align:right;">'.$discount.'</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:60%;text-align:left;"></td>
+                                                            <td style="width:25%;text-align:right;">'.__('Grand Total').':</td>
+                                                            <td style="width:15%;text-align:right;">'.$total_amount.'</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr><td style="padding-top:30px;padding-bottom:50px;">'.$InvoiceDownloads.'</td></tr>
+                                            <tr><td style="padding-top:10px;border-top:1px solid #ddd;text-align:center;">'.__('Thank you for booking our rooms.').'</td></tr>
+                                            <tr><td style="padding-top:5px;text-align:center;">'.__('If you have any questions about this invoice, please contact us').'</td></tr>
+                                            <tr><td style="padding-top:5px;text-align:center;"><a href="'.$base_url.'">'.$base_url.'</a></td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>';
+
+                $mail->send();
+
+                return 1;
+            } catch (Exception $e) {
+                return 0;
+            }
+        }
     }
 }
