@@ -100,7 +100,7 @@
 								<div class="col-lg-3">
 									<div class="form-group">
 										<label for="state">{{ __('State') }}</label>
-										<input type="text" name="state" id="state" class="form-control">
+										<input type="text" name="state" id="state" class="form-control"  hidden value="pending">
 									</div>
 								</div>
 								<div class="col-lg-3">
