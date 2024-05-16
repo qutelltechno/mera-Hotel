@@ -127,7 +127,7 @@
                                         <span class="text-danger error-text country_error"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="display: none">
                                     <div class="mb-3">
                                         <input id="state" name="state" type="text"
                                             placeholder ="{{ __('State') }}" class="form-control parsley-validated"
