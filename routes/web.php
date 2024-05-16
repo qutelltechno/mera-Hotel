@@ -104,7 +104,7 @@ Route::prefix('super-admin')->group(function () {
     Route::get('/booking-request', [App\Http\Controllers\Backend\BookingController::class, 'getBookingRequestPageLoad'])->name('super.backend.booking-request')->middleware(['auth', 'is_superAdmin']);
     Route::get('/getBookingRequestTableData', [App\Http\Controllers\Backend\BookingController::class, 'getBookingRequestTableData'])->name('super.backend.getBookingRequestTableData')->middleware(['auth', 'is_superAdmin']);
     Route::get('/booking/{id}/{type}', [App\Http\Controllers\Backend\BookingController::class, 'getBookingData'])->name('super.backend.booking')->middleware(['auth', 'is_superAdmin']);
-    Route::post('/updateBookingStatus', [App\Http\Controllers\Backend\BookingController::class, 'updateBookingStatus'])->name('super.backend.updateBookingStatus')->middleware(['auth', 'is_super_admin_rece']);
+    Route::post('/updateBookingStatus', [App\Http\Controllers\Backend\BookingController::class, 'updateBookingStatus'])->name('super.backend.updateBookingStatus')->middleware(['auth', 'is_superAdmin']);
     Route::post('/updateRoomDate', [App\Http\Controllers\Backend\BookingController::class, 'updateRoomDate'])->name('super.backend.updateRoomDate')->middleware(['auth', 'is_superAdmin']);
     Route::get('/getPaymentBookingStatusData', [App\Http\Controllers\Backend\BookingController::class, 'getPaymentBookingStatusData'])->name('super.backend.getPaymentBookingStatusData')->middleware(['auth', 'is_superAdmin']);
     Route::post('/deleteBookingRequest', [App\Http\Controllers\Backend\BookingController::class, 'deleteBookingRequest'])->name('super.backend.deleteBookingRequest')->middleware(['auth', 'is_superAdmin']);
@@ -538,7 +538,7 @@ Route::prefix('backend')->group(function () {
     Route::get('/booking-request', [App\Http\Controllers\Backend\BookingController::class, 'getBookingRequestPageLoad'])->name('backend.booking-request')->middleware(['auth', 'is_admin']);
     Route::get('/getBookingRequestTableData', [App\Http\Controllers\Backend\BookingController::class, 'getBookingRequestTableData'])->name('backend.getBookingRequestTableData')->middleware(['auth', 'is_admin']);
     Route::get('/booking/{id}/{type}', [App\Http\Controllers\Backend\BookingController::class, 'getBookingData'])->name('backend.booking')->middleware(['auth', 'is_admin']);
-    Route::post('/updateBookingStatus', [App\Http\Controllers\Backend\BookingController::class, 'updateBookingStatus'])->name('backend.updateBookingStatus')->middleware(['auth', 'is_super_admin_rece']);
+    Route::post('/updateBookingStatus', [App\Http\Controllers\Backend\BookingController::class, 'updateBookingStatus'])->name('backend.updateBookingStatus')->middleware(['auth', 'is_admin']);
     Route::post('/updateRoomDate', [App\Http\Controllers\Backend\BookingController::class, 'updateRoomDate'])->name('backend.updateRoomDate')->middleware(['auth', 'is_admin']);
     Route::get('/getPaymentBookingStatusData', [App\Http\Controllers\Backend\BookingController::class, 'getPaymentBookingStatusData'])->name('backend.getPaymentBookingStatusData')->middleware(['auth', 'is_admin']);
     Route::post('/deleteBookingRequest', [App\Http\Controllers\Backend\BookingController::class, 'deleteBookingRequest'])->name('backend.deleteBookingRequest')->middleware(['auth', 'is_admin']);
@@ -984,7 +984,7 @@ Route::prefix('receptionist')->group(function () {
     Route::get('/booking-request', [App\Http\Controllers\Receptionist\BookingController::class, 'getBookingRequestPageLoad'])->name('receptionist.booking-request')->middleware(['auth', 'is_receptionist']);
     Route::get('/getBookingRequestTableData', [App\Http\Controllers\Receptionist\BookingController::class, 'getBookingRequestTableData'])->name('receptionist.getBookingRequestTableData')->middleware(['auth', 'is_receptionist']);
     Route::get('/booking/{id}/{type}', [App\Http\Controllers\Receptionist\BookingController::class, 'getBookingData'])->name('receptionist.booking')->middleware(['auth', 'is_receptionist']);
-    Route::post('/updateBookingStatus', [App\Http\Controllers\Receptionist\BookingController::class, 'updateBookingStatus'])->name('receptionist.updateBookingStatus')->middleware(['auth', 'is_super_admin_rece']);
+    Route::post('/updateBookingStatus', [App\Http\Controllers\Receptionist\BookingController::class, 'updateBookingStatus'])->name('receptionist.updateBookingStatus')->middleware(['auth', 'is_receptionist']);
     Route::post('/updateRoomDate', [App\Http\Controllers\Receptionist\BookingController::class, 'updateRoomDate'])->name('receptionist.updateRoomDate')->middleware(['auth', 'is_receptionist']);
     Route::get('/getPaymentBookingStatusData', [App\Http\Controllers\Receptionist\BookingController::class, 'getPaymentBookingStatusData'])->name('receptionist.getPaymentBookingStatusData')->middleware(['auth', 'is_receptionist']);
     Route::post('/deleteBookingRequest', [App\Http\Controllers\Receptionist\BookingController::class, 'deleteBookingRequest'])->name('receptionist.deleteBookingRequest')->middleware(['auth', 'is_receptionist']);
