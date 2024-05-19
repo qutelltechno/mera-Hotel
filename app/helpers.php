@@ -1685,80 +1685,8 @@ function BookingNotify($booking_id, $type) {
 										<tr><td style="font-size:25px;font-weight:bold;padding:30px 0px 5px 0px;">'.__('Hi').' '.$mdata['customer_name'].'</td></tr>
 										<tr><td>'.$body_text.'</td></tr>
 										<tr>
-											<td style="padding-top:30px;padding-bottom:20px;">
-												<table border="0" cellpadding="0" cellspacing="0" width="100%">
-													<tr>
-														<td style="vertical-align: top;">
-															<table border="0" cellpadding="3" cellspacing="0" width="100%">
-																<tr><td style="font-size:16px;font-weight:bold;">'.__('BILL TO').':</td></tr>
-																<tr><td><strong>'.$mdata['customer_name'].'</strong></td></tr>
-																<tr><td>'.$mdata['customer_address'].'</td></tr>
-																<tr><td>'.$mdata['city'].', '.$mdata['state'].', '.$mdata['zip_code'].', '.$mdata['country'].'</td></tr>
-																<tr><td>'.$mdata['customer_email'].'</td></tr>
-																<tr><td>'.$mdata['customer_phone'].'</td></tr>
-															</table>
-															<table style="padding:30px 0px;" border="0" cellpadding="3" cellspacing="0" width="100%">
-																<tr><td style="font-size:16px;font-weight:bold;">'.__('BILL FROM').':</td></tr>
-																<tr><td><strong>'.$gtext['company'].'</strong></td></tr>
-																<tr><td>'.$gtext['invoice_address'].'</td></tr>
-																<tr><td>'.$gtext['invoice_email'].'</td></tr>
-																<tr><td>'.$gtext['invoice_phone'].'</td></tr>
-															</table>
-														</td>
-														<td style="vertical-align: top;">
-															<table style="text-align:right;" border="0" cellpadding="3" cellspacing="0" width="100%">
-																<tr><td><strong>'.__('Booking No').'</strong>: '.$mdata['booking_no'].'</td></tr>
-																<tr><td><strong>'.__('Booking Date').'</strong>: '.date('d-m-Y', strtotime($mdata['created_at'])).'</td></tr>
-																<tr><td><strong>'.__('Payment Method').'</strong>: '.$mdata['method_name'].'</td></tr>
-																<tr><td><strong>'.__('Payment Status').'</strong>: <span style="color:'.$pstatus.'">'.$mdata['pstatus_name'].'</span></td></tr>
-																<tr><td><strong>'.__('Booking Status').'</strong>: <span style="color:'.$bstatus.'">'.$mdata['bstatus_name'].'</span></td></tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<table style="border-collapse:collapse;" border="0" cellpadding="5" cellspacing="0" width="100%">
-													<tr>
-														<th style="width:35%;text-align:left;border:1px solid #ddd;">'.__('Room Type').'</th>
-														<th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Total Room').'</th>
-														<th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Price').'</th>
-														<th style="width:25%;text-align:center;border:1px solid #ddd;">'.__('In / Out Date').'</th>
-														<th style="width:10%;text-align:center;border:1px solid #ddd;">'.__('Total Days').'</th>
-														<th style="width:10%;text-align:right;border:1px solid #ddd;">'.__('Total').'</th>
-													</tr>
-													'.$item_list.'
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top:5px;padding-bottom:20px;">
-												<table style="font-weight:bold;" border="0" cellpadding="5" cellspacing="0" width="100%">
-													<tr>
-														<td style="width:60%;text-align:left;">'.$assign_rooms.'</td>
-														<td style="width:25%;text-align:right;">'.__('Subtotal').':</td>
-														<td style="width:15%;text-align:right;">'.$subtotal.'</td>
-													</tr>
-													<tr>
-														<td style="width:60%;text-align:right;"></td>
-														<td style="width:25%;text-align:right;">'.__('Tax').':</td>
-														<td style="width:15%;text-align:right;">'.$tax.'</td>
-													</tr>
-													<tr>
-														<td style="width:60%;text-align:left;"></td>
-														<td style="width:25%;text-align:right;">'.__('Discount').':</td>
-														<td style="width:15%;text-align:right;">'.$discount.'</td>
-													</tr>
-													<tr>
-														<td style="width:60%;text-align:left;"></td>
-														<td style="width:25%;text-align:right;">'.__('Grand Total').':</td>
-														<td style="width:15%;text-align:right;">'.$total_amount.'</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
+											
+
 										<tr><td style="padding-top:30px;padding-bottom:50px;">'.$InvoiceDownloads.'</td></tr>
 										<tr><td style="padding-top:10px;border-top:1px solid #ddd;text-align:center;">'.__('Thank you for booking our rooms.').'</td></tr>
 										<tr><td style="padding-top:5px;text-align:center;">'.__('If you have any questions about this invoice, please contact us').'</td></tr>
@@ -1766,7 +1694,8 @@ function BookingNotify($booking_id, $type) {
 									</table>
 								</td>
 							</tr>
-						</table>';
+						</table>'
+                        ;
 
 			$mail->send();
 
