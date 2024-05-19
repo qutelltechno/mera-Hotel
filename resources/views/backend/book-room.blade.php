@@ -82,8 +82,14 @@
 										<span class="text-danger error-text phone_error"></span>
 									</div>
 								</div>
-								<div class="col-lg-3">
+                                <div class="col-lg-3">
 									<div class="form-group">
+										<label for="city">{{ __('City') }}</label>
+										<input type="text" name="city" id="city" class="form-control">
+									</div>
+								</div>
+								<div class="col-lg-3" hidden>
+									{{-- <div class="form-group">
 										<label for="country">{{ __('Country') }}<span class="red">*</span></label>
 										<select id="country" name="country" class="chosen-rtl form-control parsley-validated" data-required="true">
 											@foreach($country_list as $row)
@@ -93,28 +99,34 @@
 											@endforeach
 										</select>
 										<span class="text-danger error-text country_error"></span>
+									</div> --}}
+                                    <div class="form-group" style="display: none">
+										<label for="country">{{ __('Country') }}<span class="red">*</span></label>
+										<select id="country" name="country" class="chosen-rtl form-control parsley-validated" data-required="true">
+											{{-- @foreach($country_list as $row) --}}
+											<option value="المملكة العربية السعودية " selected>
+												{{-- {{ $row->country_name }} --}}
+											</option>
+											{{-- @endforeach --}}
+										</select>
+										<span class="text-danger error-text country_error"></span>
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" >
 								<div class="col-lg-3 display-none" >
 									<div class="form-group">
 										<label for="state">{{ __('State') }}</label>
 										<input type="text" name="state" id="state" class="form-control"  hidden value="pending">
 									</div>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-3" style="display: none">
 									<div class="form-group">
 										<label for="zip_code">{{ __('Zip Code') }}</label>
-										<input type="text" name="zip_code" id="zip_code" class="form-control">
+										<input type="text" name="zip_code" id="zip_code" class="form-control" value="11111">
 									</div>
 								</div>
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label for="city">{{ __('City') }}</label>
-										<input type="text" name="city" id="city" class="form-control">
-									</div>
-								</div>
+
 								<div class="col-lg-3"></div>
 							</div>
 							<div class="row">

@@ -96,10 +96,16 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <input id="zip_code" name="zip_code" type="text"
                                             placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
                                             data-required="true">
+                                        <span class="text-danger error-text zip_code_error"></span>
+                                    </div> --}}
+                                    <div class="mb-3 " style="display: none">
+                                        <input id="zip_code" name="zip_code" type="text"  value="11111"
+                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
+                                            >
                                         <span class="text-danger error-text zip_code_error"></span>
                                     </div>
                                 </div>
@@ -113,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6" style="display: none">
                                     <div class="mb-3">
                                         <select id="country" name="country" class="form-control parsley-validated"
                                             data-required="true">
@@ -123,6 +129,20 @@
                                                     {{ $row->country_name }}
                                                 </option>
                                             @endforeach
+                                        </select>
+                                        <span class="text-danger error-text country_error"></span>
+                                    </div>
+                                </div> --}}
+                                <div class="col-md-6" style="display: none">
+                                    <div class="mb-3">
+                                        <select id="country" name="country" class="form-control parsley-validated"
+                                            data-required="true">
+                                            <option value="المملكة العربية السعودية " selected>{{ __('Country') }}</option>
+                                            {{-- @foreach ($country_list as $row)
+                                                <option value="{{ $row->country_name }}">
+                                                    {{ $row->country_name }}
+                                                </option>
+                                            @endforeach --}}
                                         </select>
                                         <span class="text-danger error-text country_error"></span>
                                     </div>
