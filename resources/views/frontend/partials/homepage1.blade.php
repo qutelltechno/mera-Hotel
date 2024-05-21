@@ -81,7 +81,8 @@
     <!--            <h2>{{ __('Hotel group') }}</h2>-->
     <!--        </div>-->
     <!--        <div class="row">-->
-    <!--            @foreach ($hotels as $hotel)-->
+    <!--            @foreach ($hotels as $hotel)
+-->
     <!--                <div class="d-flex flex-column col-lg-3 col-md-6 col-sm-12 align-self-stretch py-3">-->
     <!--                    <div>-->
     <!--                        <img src="{{ asset('public/frontend/images/hotels/') . '/' . $hotel->image }}"-->
@@ -107,7 +108,8 @@
     <!--                        </div>-->
     <!--                    </div>-->
     <!--                </div>-->
-    <!--            @endforeach-->
+    <!--
+@endforeach-->
     <!--        </div>-->
 
 
@@ -214,7 +216,9 @@
                                     </a>
                                     @if ($row->is_discount == 1 && $row->old_price != '')
                                         @php
-                                            $discount = number_format((($row->old_price - $row->price) * 100) / $row->old_price);
+                                            $discount = number_format(
+                                                (($row->old_price - $row->price) * 100) / $row->old_price,
+                                            );
                                         @endphp
                                         <span class="item-label">{{ $discount }}% {{ __('Off') }}</span>
                                     @endif
@@ -298,172 +302,166 @@
     <!-- About Section/ -->
     @if ($about_us_section->is_publish == 1)
         {{-- @foreach ($about_us as $row) --}}
-            @php
-                $descriptio = json_decode($about_us->desc);
-                $S = json_decode($about_us->title);
-            @endphp
-            {{-- @dd(  $descriptio->image2) --}}
+        @php
+            $descriptio = json_decode($about_us->desc);
+            $S = json_decode($about_us->title);
+        @endphp
+        {{-- @dd(  $descriptio->image2) --}}
 
-            {{-- @php $aRow = json_decode($row->desc);
+        {{-- @php $aRow = json_decode($row->desc);
             @endphp --}}
-            <section class="section about-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-5 wow fadeInRight ">
-                            @if ($about_us->image != '')
-                                <div class="row">
-                                    <div class="col-lg-12 ">
-                                        <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $about_us->image) }}"
-                                                alt="{{ $row->title }}">
+        <section class="section about-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-5 wow fadeInRight ">
+                        @if ($about_us->image != '')
+                            <div class="row">
+                                <div class="col-lg-12 ">
+                                    <div class="about-img">
+                                        <img src="{{ asset('public/media/' . $about_us->image) }}"
+                                            alt="{{ $row->title }}">
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        <div class="row">
+                            @if ($descriptio->image2 != '')
+                                <div class="col-12 col-md-6">
+                                    <div class="about-img">
+                                        <img src="{{ asset('public/media/' . $descriptio->image2) }}"
+                                            alt="{{ $row->title }}">
+                                    </div>
+                                </div>
+                            @endif
+                            @if ($descriptio->image3 != '')
+                                <div class="col-12 col-md-6">
+                                    <div class="about-img">
+                                        <img src="{{ asset('public/media/' . $descriptio->image3) }}"
+                                            alt="{{ $row->title }}">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-7 wow fadeInLeft">
+                        <div class="about-card">
+                            <div class="about-title">
+                                <h5>{{ __('About Us') }}</h5>
+
+                            </div>
+                            }
+                            <hr>
+
+                            <div class="about-title">
+                                <h5> {{ $S->welcome_title }}</h5>
+                                <p class="text-black">
+
+                                    {!! $descriptio->welcom_Description !!}
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="about-title">
+                                <h5>{{ $S->vision_title }}</h5>
+                                <p class="text-black">
+                                    {!! $descriptio->vision_description !!}
+
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="about-title">
+                                <h5> {{ $S->values_title }}</h5>
+                                <p class="text-black">
+                                    {!! $descriptio->values_description !!}
+
+                                </p>
+                            </div>
+                            <hr>
+
+
+                            <div class="about-title">
+                                <h5> {{ $S->package_title }}</h5>
+                                <p class="text-black">
+                                    {!! $descriptio->package_description !!}
+                                </p>
+                            </div>
+
+                            <hr>
+                            <div class="item-title d-flex justify-content-center">
+                                <a class="btn theme-btn"
+                                    href="{{ route('frontend.aboutus') }}">{{ __('Show More') }}</a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="about-card mt-lg-4 mb-lg-4 py-lg-5"
+                        style="padding-left: 120px; padding-right: 120px; padding-top: 20px;">
+                        <div class="row mb40">
+                            @if ($descriptio->total_rooms != '')
+                                <div class="col-12 col-sm-3 col-lg-3">
+                                    <div class="info-card mb15">
+                                        <div class="icon">
+                                            <i class="bi bi-buildings"></i>
+                                        </div>
+                                        <div>
+                                            <h4>{{ $descriptio->total_rooms }}</h4>
+                                            <p>{{ __('Rooms') }}</p>
                                         </div>
                                     </div>
                                 </div>
                             @endif
 
-                            <div class="row">
-                                @if ($descriptio->image2 != '')
-                                    <div class="col-12 col-md-6">
-                                        <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $descriptio->image2) }}"
-                                                alt="{{ $row->title }}">
+                            @if ($descriptio->total_customers != '')
+                                <div class="col-12 col-sm-3 col-lg-3">
+                                    <div class="info-card mb15">
+                                        <div class="icon">
+                                            <i class="bi bi-emoji-smile"></i>
+                                        </div>
+                                        <div>
+                                            <h4>{{ $descriptio->total_customers }}</h4>
+                                            <p>{{ __('Customers') }}</p>
                                         </div>
                                     </div>
-                                @endif
-                                @if ($descriptio->image3 != '')
-                                    <div class="col-12 col-md-6">
-                                        <div class="about-img">
-                                            <img src="{{ asset('public/media/' . $descriptio->image3) }}"
-                                                alt="{{ $row->title }}">
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-lg-7 wow fadeInLeft">
-                            <div class="about-card">
-                                <div class="about-title">
-                                    <h5>{{ __('About Us') }}</h5>
-                                    {{-- <h2>{{ $row->title }}</h2> --}}
                                 </div>
-                                {{-- @if ($aRow->welcom_Description != '')
-                                    <p class ="mb20 text-black" style="text-align: justify">
-                                        {{ $aRow->welcom_Description }}
-                                    </p>
-                                @endif --}}
-                                <hr>
-                                
-                                    <div class="about-title">
-                                        <h5> {{$S->welcome_title}}</h5>
-                                        <p class="text-black">
-                                           
-                                            {!! $descriptio->welcom_Description  !!}
-                                        </p>
+                            @endif
+
+                            @if ($descriptio->total_amenities != '')
+                                <div class="col-12 col-sm-3 col-lg-3">
+                                    <div class="info-card mb15">
+                                        <div class="icon">
+                                            <i class="bi bi-pie-chart"></i>
+                                        </div>
+                                        <div>
+                                            <h4>{{ $descriptio->total_amenities }}</h4>
+                                            <p>{{ __('Amenities') }}</p>
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <div class="about-title">
-                                        <h5>{{$S->vision_title}}</h5>
-                                        <p class="text-black">
-                                            {!!$descriptio->vision_description!!}
+                                </div>
+                            @endif
 
-                                             </p>
+                            @if ($descriptio->total_packages != '')
+                                <div class="col-12 col-sm-3 col-lg-3">
+                                    <div class="info-card mb15">
+                                        <div class="icon">
+                                            <i class="bi bi-percent"></i>
+                                        </div>
+                                        <div>
+                                            <h4>{{ $descriptio->total_packages }}</h4>
+                                            <p>{{ __('Packages') }}</p>
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <div class="about-title">
-                                        <h5>  {{$S->values_title}}</h5>
-                                        <p class="text-black">
-                                            {!!$descriptio->values_description!!}
-
-                                        </p>
-                                    </div>
-                                    <hr>
-
-
-                                    <div class="about-title">
-                                        <h5>  {{$S->package_title}}</h5>
-                                        <p class="text-black">
-                                            {!!$descriptio->package_description!!}
-                                        </p>
-                                    </div>
-                                
-                                    <hr>
-                                    <div class="item-title d-flex justify-content-center">
-                                        <a class="btn theme-btn" href="{{ route('frontend.aboutus') }}">{{ __('Show More') }}</a>
-                                    </div>
-
-                                {{-- @if ($descriptio->button_text != '')
-                                    <a href="{{ $row->url }}" class="btn theme-btn mb-4"
-                                        {{ $aRow->target == '' ? '' : 'target=' . $descriptio->target }}>{{ $descriptio->button_text }}</a>
-                                @endif --}}
-                            </div>
-
+                                </div>
+                            @endif
                         </div>
-
-                        <div class="about-card mt-lg-4 mb-lg-4 py-lg-5"
-                            style="padding-left: 120px; padding-right: 120px; padding-top: 20px;">
-                            <div class="row mb40">
-                                @if ($descriptio->total_rooms != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-buildings"></i>
-                                            </div>
-                                            <div>
-                                                <h4>{{ $descriptio->total_rooms }}</h4>
-                                                <p>{{ __('Rooms') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if ($descriptio->total_customers != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-emoji-smile"></i>
-                                            </div>
-                                            <div>
-                                                <h4>{{ $descriptio->total_customers }}</h4>
-                                                <p>{{ __('Customers') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if ($descriptio->total_amenities != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-pie-chart"></i>
-                                            </div>
-                                            <div>
-                                                <h4>{{ $descriptio->total_amenities }}</h4>
-                                                <p>{{ __('Amenities') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if ($descriptio->total_packages != '')
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="info-card mb15">
-                                            <div class="icon">
-                                                <i class="bi bi-percent"></i>
-                                            </div>
-                                            <div>
-                                                <h4>{{ $descriptio->total_packages }}</h4>
-                                                <p>{{ __('Packages') }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
-            </section>
+            </div>
+        </section>
     @endif
     <!-- /About Section/ -->
 
@@ -505,50 +503,7 @@
             </div>
         </section>
     @endif
-    <!-- /Services Section/ -->
 
-    <!-- Testimonial Section/ -->
-    {{-- <section class="section testimonial-section" style="
-        background-image: url('{{asset('public/frontend/images/bg/founders.png')}}');
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding-top: 40px;
-    ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="section-heading">
-                        <h1 class="text-white font-weight-bold">{{ __('Founders') }}</h1>
-                        <h2 class="text-white font-weight-bold">{{ __('Hotel founders') }}</h2>
-                        <p>{{ __("Get to know the hotel's founders") }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row testimonial-slider">
-                @foreach ($testimonial as $row)
-                <div class="col-md-12">
-                    <div class="testimonial-card">
-                        <div class="client">
-                            <div class="img-card">
-                                <img src="{{ asset('public/media/'.$row->image) }}" alt="{{ $row->title }}" />
-                            </div>
-                            <div class="client-info">
-                                <h4>{{ $row->title }}</h4>
-                                <span>{{ __('Founder') }}</span>
-                            </div>
-                        </div>
-                        <div class="comment">{{ $row->desc }}</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section> --}}
-    <!-- /Testimonial Section/ -->
-
-    <!-- Blog Section/ -->
     @if ($our_blogs_section->is_publish == 1)
         <section class="section blog-section">
             <div class="container">
