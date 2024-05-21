@@ -66,7 +66,6 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background-color: rgb(0, 0, 0);
             width: 1px !important;
             height: 3.4%;
         }
@@ -386,13 +385,16 @@
         </div>
     </div>
 
-    <hr class="hr-spaced" />
 
 
-    <div class="footer-container">  <div class="footer-content">  <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL, RIYADH</p>
-        <p class="text-center">PO.Box.12242, Olaya street, Riyadh, Kingdom of Saudi Arabia</p>
-        <p>Guest Signature / <span>توقيع الضيف</span></p>
-      </div>
+
+    <div class="footer-container">
+        <hr class="hr-spaced" />
+        <div class="footer-content">
+            <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL, RIYADH</p>
+            <p class="text-center">PO.Box.12242, Olaya street, Riyadh, Kingdom of Saudi Arabia</p>
+            <p>Guest Signature / <span>توقيع الضيف</span></p>
+        </div>
     </div>
 
 
