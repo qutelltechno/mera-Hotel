@@ -16,10 +16,6 @@ class FaqController extends Controller
         $lan = glan();
         $faqs = Faq::where('lan', $lan)->orderBy('id', 'asc')->get();
 
-        // $currentLocale = app()->getLocale(); 
-        // $faqs = Faq::where('lan', $currentLocale)->orderBy('id', 'asc')->get();
-
-
         return view('frontend.faq', compact(
             'faqs',
         ));

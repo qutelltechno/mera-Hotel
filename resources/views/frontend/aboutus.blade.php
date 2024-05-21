@@ -34,19 +34,7 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-      <div class="container">
-       <div class="row">
-        <div class="col-12">
-         <div class="breadcrumb-card wow pulse">
-          <h2>{{ __('About Us') }}</h2>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section> -->
-        <!-- /Page Breadcrumb/ -->
+
 
         <!-- Inner Section -->
 
@@ -95,62 +83,52 @@
 
                             <div class="col-md-12 col-lg-7 wow fadeInLeft">
                                 <div class="about-card">
-                                    {{-- <div class="about-title">
-                                        <h5>{{ __('About Us') }}</h5>
-                                        <h2>{{ $title->welcome_title }}</h2>
-                                    </div>
-                                    @if ($aRow->welcom_Description != '')
-                                        <p class="mb20 text-black" style="text-align: justify">
-                                            {{ $aRow->welcom_Description }}</p>
-                                    @endif --}}
+
                                     <hr>
-								
-                                        <div class="about-title">
 
-                                            <h5>{{ $title->welcome_title }} </h5>
-                                                <p class="text-black">
+                                    <div class="about-title">
 
-                                                    {!! $aRow->welcom_Description !!}
-                                                   
-                                                </p>
-                                        </div>
-                                        <hr>
-                                        <div class="about-title">
-                                            <h5>{{ $title->vision_title }}</h5>
-                                            <p class="text-black">
-												{!! $aRow->vision_description !!}
-												</p>
-                                        </div>
-                                        <hr>
-                                        <div class="about-title">
-                                            <h5>{{ $title->values_title }}</h5>
-                                            <p class="text-black">
-												
-												{!! $aRow->values_description !!}
+                                        <h5>{{ $title->welcome_title }} </h5>
+                                        <p class="text-black">
 
-											
-                                            </p>
-                                        </div>
-                                        <hr>
-                                        <div class="about-title">
-                                            <h5>{{ $title->package_title }}</h5>
-                                            <p class="text-black">
-												
-												{!! $aRow->package_description !!}
+                                            {!! $aRow->welcom_Description !!}
 
-                                            </p>
-                                        </div>
-                                
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="about-title">
+                                        <h5>{{ $title->vision_title }}</h5>
+                                        <p class="text-black">
+                                            {!! $aRow->vision_description !!}
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="about-title">
+                                        <h5>{{ $title->values_title }}</h5>
+                                        <p class="text-black">
 
-                                    {{-- @if ($aRow->button_text != '')
-						<a href="{{ $row->url }}" class="btn theme-btn mb-4" {{ $aRow->target =='' ? '' : "target=".$aRow->target }}>{{ $aRow->button_text }}</a>
-						@endif --}}
+                                            {!! $aRow->values_description !!}
+
+
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="about-title">
+                                        <h5>{{ $title->package_title }}</h5>
+                                        <p class="text-black">
+
+                                            {!! $aRow->package_description !!}
+
+                                        </p>
+                                    </div>
+
+
                                 </div>
 
                             </div>
 
                             <div class="about-card mt-lg-4 mb-lg-4 py-lg-5"
-                            style="padding-top: 20px;padding-left: 120px;padding-right: 120px;">
+                                style="padding-top: 20px;padding-left: 120px;padding-right: 120px;">
                                 <div class="row mb40">
                                     @if ($aRow->total_rooms != '')
                                         <div class="col-12 col-sm-3 col-lg-3">
@@ -217,33 +195,6 @@
         @endif
         <!-- /About Section/ -->
 
-        <!-- Preview Video Section-->
-        {{-- @if ($home_video['is_publish'] == 1)
-	<section class="preview-section">
-		<div class="row align-items-center justify-content-center g-0">
-			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
-				<div class="preview-video">
-					<img src="{{ asset('public/media/'.$home_video['image']) }}" alt="{{ $home_video['title'] }}">
-					<div class="video-card">
-						<a href="{{ $home_video['video_url'] }}" class="play-icon popup-video">
-							<i class="bi bi-play-fill"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-12 col-lg-12 col-xl-6">
-				<div class="preview-content">
-					<h5 class="text-white">{{ __('Preview') }}</h5>
-					<h2 class="text-white">{{ $home_video['title'] }}</h2>
-					@if ($home_video['short_desc'] != '')
-					<p class="text-white">{{ $home_video['short_desc'] }}</p>
-					@endif
-					<a href="{{ $home_video['url'] }}" {{ $home_video['target'] =='' ? '' : "target=".$home_video['target'] }} class="btn shadow btn-light">{{ $home_video['button_text'] }}</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	@endif --}}
         <!-- /Preview Video Section/ -->
 
         <!-- Blog Section/ -->
@@ -274,8 +225,6 @@
                                 </div>
                                 <div class="blog-content">
                                     <div class="blog-meta-card">
-                                        {{-- <div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($row->created_at)) }}</div>
-								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $row->name }}</div> --}}
                                     </div>
                                     <div class="blog-title">
                                         <h4><a

@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                                                              <div class="container">
-                                                                                                               <div class="row">
-                                                                                                                <div class="col-12">
-                                                                                                                 <div class="breadcrumb-card wow pulse">
-                                                                                                                  <h2>{{ __('Booking Request') }}</h2>
-                                                                                                                 </div>
-                                                                                                                </div>
-                                                                                                               </div>
-                                                                                                              </div>
-                                                                                                             </section> -->
+                                                                                                                  <div class="container">
+                                                                                                                   <div class="row">
+                                                                                                                    <div class="col-12">
+                                                                                                                     <div class="breadcrumb-card wow pulse">
+                                                                                                                      <h2>{{ __('Booking Request') }}</h2>
+                                                                                                                     </div>
+                                                                                                                    </div>
+                                                                                                                   </div>
+                                                                                                                  </div>
+                                                                                                                 </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -96,16 +96,9 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    {{-- <div class="mb-3">
-                                        <input id="zip_code" name="zip_code" type="text"
-                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
-                                            data-required="true">
-                                        <span class="text-danger error-text zip_code_error"></span>
-                                    </div> --}}
                                     <div class="mb-3 " style="display: none">
-                                        <input id="zip_code" name="zip_code" type="text"  value="11111"
-                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated"
-                                            >
+                                        <input id="zip_code" name="zip_code" type="text" value="11111"
+                                            placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated">
                                         <span class="text-danger error-text zip_code_error"></span>
                                     </div>
                                 </div>
@@ -119,30 +112,12 @@
                                 </div>
                             </div>
                             <div class="row">
-                                {{-- <div class="col-md-6" style="display: none">
-                                    <div class="mb-3">
-                                        <select id="country" name="country" class="form-control parsley-validated"
-                                            data-required="true">
-                                            <option value="">{{ __('Country') }}</option>
-                                            @foreach ($country_list as $row)
-                                                <option value="{{ $row->country_name }}">
-                                                    {{ $row->country_name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        <span class="text-danger error-text country_error"></span>
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-6" style="display: none">
                                     <div class="mb-3">
                                         <select id="country" name="country" class="form-control parsley-validated"
                                             data-required="true">
-                                            <option value="المملكة العربية السعودية " selected>{{ __('Country') }}</option>
-                                            {{-- @foreach ($country_list as $row)
-                                                <option value="{{ $row->country_name }}">
-                                                    {{ $row->country_name }}
-                                                </option>
-                                            @endforeach --}}
+                                            <option value="المملكة العربية السعودية " selected>{{ __('Country') }}
+                                            </option>
                                         </select>
                                         <span class="text-danger error-text country_error"></span>
                                     </div>
@@ -160,12 +135,12 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <textarea hidden id="address" name="address" placeholder="{{ __('Address') }}" rows="2"
-                                            class="form-control parsley-validated" >
+                                            class="form-control parsley-validated">
                                                             @if (isset(Auth::user()->address))
-                                                            {{ Auth::user()->address }}
-                                                            @else
-                                                            Saudia
-                                                            @endif
+{{ Auth::user()->address }}
+@else
+Saudia
+@endif
 
 
 
@@ -212,90 +187,9 @@
                             <div class="row" style="display: none">
                                 <div class="col-md-12">
                                     <span class="text-danger 						error-text payment_method_error"></span>
-                                    {{-- @if ($gtext['stripe_isenable'] == 1)
-                                        <div class="payment_card">
-                                            <div class="checkboxlist">
-                                                <label class="checkbox-title">
-                                                    <input id="payment_method_stripe" name="payment_method"
-                                                        type="radio" value="3"><img
-                                                        src="{{ asset('public/frontend/images/stripe.png') }}"
-                                                        alt="Stripe" />
-                                                </label>
-                                            </div>
-                                            <div id="pay_stripe" class="row hideclass">
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="mb-3">
-                                                                <div class="form-control" id="card-element"></div>
-                                                                <span class="card-errors" id="card-errors"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if ($gtext['isenable_paypal'] == 1)
-                                        <div class="payment_card">
-                                            <div class="checkboxlist">
-                                                <label class="checkbox-title">
-                                                    <input id="payment_method_paypal" name="payment_method"
-                                                        type="radio" value="4"><img
-                                                        src="{{ asset('public/frontend/images/paypal.png') }}"
-                                                        alt="Paypal" />
-                                                </label>
-                                            </div>
-                                            <p id="pay_paypal" class="hideclass">{{ __('Pay online via Paypal') }}</p>
-                                        </div>
-                                    @endif
-
-                                    @if ($gtext['isenable_razorpay'] == 1)
-                                        <div class="payment_card">
-                                            <div class="checkboxlist">
-                                                <label class="checkbox-title">
-                                                    <input id="payment_method_razorpay" name="payment_method"
-                                                        type="radio" value="5"><img
-                                                        src="{{ asset('public/frontend/images/razorpay.png') }}"
-                                                        alt="Razorpay" />
-                                                </label>
-                                            </div>
-                                            <p id="pay_razorpay" class="hideclass">{{ __('Pay online via Razorpay') }}
-                                            </p>
-                                        </div>
-                                    @endif
-
-                                    @if ($gtext['isenable_mollie'] == 1)
-                                        <div class="payment_card">
-                                            <div class="checkboxlist">
-                                                <label class="checkbox-title">
-                                                    <input id="payment_method_mollie" name="payment_method"
-                                                        type="radio" value="6"><img
-                                                        src="{{ asset('public/frontend/images/mollie.png') }}"
-                                                        alt="Mollie" />
-                                                </label>
-                                            </div>
-                                            <p id="pay_mollie" class="hideclass">{{ __('Pay online via Mollie') }}</p>
-                                        </div>
-                                    @endif
-
-                                    @if ($gtext['cod_isenable'] == 1)
-                                        <div class="payment_card">
-                                            <div class="checkboxlist">
-                                                <label class="checkbox-title">
-                                                    <input id="payment_method_cod" name="payment_method" type="radio"
-                                                        value="1"><img
-                                                        src="{{ asset('public/frontend/images/cash_on_delivery.png') }}"
-                                                        alt="Cash on Delivery" />
-                                                </label>
-                                            </div>
-                                            <p id="pay_cod" class="hideclass">{{ $gtext['cod_description'] }}</p>
-                                        </div>
-                                    @endif --}}
 
                                     @if ($gtext['bank_isenable'] == 1)
-                                        <div class="payment_card " >
+                                        <div class="payment_card ">
                                             <div class="checkboxlist">
                                                 <label class="checkbox-title">
                                                     <input id="payment_method_bank" name="payment_method" type="radio"
@@ -489,11 +383,6 @@
                                                     <br>
                                                 @endif
 
-                                                {{-- <p><strong>{{ __('Phone')}}:</strong>
-                                                            <span class=""style="direction: ltr !important;"  >
-                                                                <p>{!! nl2br($gtext['phone_footer']) !!}</p>
-                                                            </span>
-                                                        </p> --}}
                                             @endif
 
                                             @if ($gtext['email_footer'] != '')
@@ -555,7 +444,4 @@
     @else
         <script src="{{ asset('public/frontend/pages/checkout.js') }}"></script>
     @endif
-    {{-- <script>
-        window.trans = @json(app('translator')->get('messages'));
-    </script> --}}
 @endpush

@@ -83,10 +83,10 @@
         }
 
         /* @media (max-width: 767px) {
-            .min-header {
-                height: 175px;
-            }
-        } */
+                .min-header {
+                    height: 175px;
+                }
+            } */
 
         @keyframes example {
             from {
@@ -134,25 +134,11 @@
         #baguetteBox-overlay.visible {
             opacity: 1
         }
-        
     </style>
 @endsection
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-      <div class="container">
-       <div class="row">
-        <div class="col-12">
-         <div class="breadcrumb-card wow pulse">
-          <h2>{{ __('gallery') }}</h2>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section> -->
-        <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
         <section class="inner-section inner-section-bg block-bg">

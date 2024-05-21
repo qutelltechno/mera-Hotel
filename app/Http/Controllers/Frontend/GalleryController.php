@@ -11,7 +11,6 @@ class GalleryController extends Controller
     {
         $lan = glan();
 
-        // $spa = Offer_ad::where('lan', $lan)->where('desc->button_text', 'spa')->orderBy('id', 'asc')->get();
         $spa = Offer_ad::where('desc->button_text', 'spa')
         ->where('lan',$lan)
         ->orderBy('id', 'asc')->get();

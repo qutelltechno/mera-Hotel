@@ -25,7 +25,6 @@ class AboutUsController extends Controller
 
         //About Us
 		$about_us = Section_content::where('lan', $lan)->where('lan', $lan)->where('page_type', '=', 'home_1')->where('section_type', '=', 'about_us')->where('is_publish', '=', 1)->orderBy('id', 'desc')->limit(1)->get();
-        // dd($about_us);
         //Testimonial Section
         $testimonial_section = Section_manage::where('lan',$lan)->where('manage_type', '=', 'home_1')->where('section', '=', 'testimonial')->first();
 

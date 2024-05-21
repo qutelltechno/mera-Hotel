@@ -34,19 +34,6 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-                                                  <div class="container">
-                                                   <div class="row">
-                                                    <div class="col-12">
-                                                     <div class="breadcrumb-card wow pulse">
-                                                      <h2>{{ __('Our Services') }}</h2>
-                                                     </div>
-                                                    </div>
-                                                   </div>
-                                                  </div>
-                                                 </section> -->
-        <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
 
