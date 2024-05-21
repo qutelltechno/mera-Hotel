@@ -74,6 +74,28 @@
         .span {
             font-weight: 200
         }
+
+        .footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* Center the footer content horizontally */
+            align-items: flex-end;
+            /* Align footer content to bottom */
+            position: fixed;
+            /* Make footer stick to bottom */
+            bottom: 0;
+            /* Position footer at the very bottom */
+            height: auto;
+            /* Maintain auto height for content */
+            background-color: #f5f5f5;
+            /* Optional background color */
+        }
+
+        .footer-content {
+            padding: 1rem;
+            /* Add some padding for better visuals */
+        }
     </style>
 </head>
 
@@ -367,13 +389,10 @@
     <hr class="hr-spaced" />
 
 
-    <div style="width:100%; display: flex">
-
-        <div>
-            <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL,RIYADH </p>
-            <p class="text-center">PO.Box.12242,Olaya street,Riyadh ,Kingdom of Saudi Arabia</p>
-        </div>
-        <p>Guest Signature / <span> توقيع الضيف </span></p>
+    <div class="footer-container">  <div class="footer-content">  <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL, RIYADH</p>
+        <p class="text-center">PO.Box.12242, Olaya street, Riyadh, Kingdom of Saudi Arabia</p>
+        <p>Guest Signature / <span>توقيع الضيف</span></p>
+      </div>
     </div>
 
 
