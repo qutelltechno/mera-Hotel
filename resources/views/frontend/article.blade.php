@@ -39,21 +39,7 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- <section class="breadcrumb-section" style="background-image:  url({{ $data->thumbnail ? asset('public/media/' . $data->thumbnail) : asset('public/frontend/images/breadcrumb_bg.jpg') }});">
-                                      <div class="container">
-                                       <div class="row">
-                                        <div class="col-12">
-                                         <div class="breadcrumb-card wow pulse">
-                                          <h2>{{ $data->title }}</h2>
-                                         </div>
-                                        </div>
-                                       </div>
-                                      </div>
-                                     </section> -->
-        <!-- /Page Breadcrumb/ -->
 
-        <!-- Inner Section -->
         <section class="inner-section inner-section-bg">
             <div class="container">
                 <div class="row">
@@ -66,8 +52,7 @@
                             </div>
                             <div class="blog-content">
                                 <div class="blog-meta-card">
-                                    {{-- <div class="blog-date"><i class="bi bi-alarm"></i>{{ date('d M , Y', strtotime($data->created_at)) }}</div>
-								<div class="blog-meta"><i class="bi bi-person"></i>{{ __('By') }}, {{ $data->name }}</div> --}}
+
                                 </div>
                                 <div class="blog-title">
                                     <h3>{{ $transTitle[glan()] }}</h3>
@@ -97,21 +82,6 @@
                     </div>
                     <div class="col-12 col-md-12 col-lg-4">
                         <div class="sidebar">
-                            <!-- 			<div class="widget-card">
-                                           <div class="widget-title">{{ __('Blog Categories') }}</div>
-                                           <div class="widget-body">
-                                            <ul class="widget-list">
-                                             @foreach ($blog_categories_list as $row)
-    <li>
-                                              <div class="desc">
-                                               <a href="{{ route('frontend.blog-category', [$row->id, $row->slug]) }}">{{ $row->name }}</a>
-                                              </div>
-                                              <div class="count">{{ $row->TotalProduct }}</div>
-                                             </li>
-    @endforeach
-                                            </ul>
-                                           </div>
-                                          </div> -->
 
                             <div class="widget-card">
                                 <div class="widget-title">{{ __('Latest Blog') }}</div>

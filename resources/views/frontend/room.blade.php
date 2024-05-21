@@ -40,21 +40,7 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- 	<section class="breadcrumb-section" style="background-image: url({{ $data->cover_img ? asset('public/media/' . $data->cover_img) : '' }});">
-              <div class="container">
-               <div class="row">
-                <div class="col-12">
-                 <div class="breadcrumb-card wow pulse">
-                  <h2>{{ $data->title }}</h2>
-                 </div>
-                </div>
-               </div>
-              </div>
-             </section> -->
-        <!-- /Page Breadcrumb/ -->
 
-        <!-- Inner Section -->
         <section class="inner-section inner-section-bg">
             <div class="container">
                 <div class="row">
@@ -190,23 +176,6 @@
                                 </div>
                             @endif
 
-                            {{-- @if (count($room_images) > 0)
-                                <div class="widget-card">
-                                    <div class="widget-title">{{ __('Gallery View') }}</div>
-                                    <div class="widget-body">
-                                        <ul class="gallery-card room_gallery_view">
-                                            @foreach ($room_images as $key => $row)
-                                                <li>
-                                                    <a href="{{ asset('public/media/' . $row->thumbnail) }}">
-                                                        <img src="{{ asset('public/media/' . $row->thumbnail) }}"
-                                                            alt="{{ $key }}" />
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            @endif --}}
                         </div>
                     </div>
                 </div>

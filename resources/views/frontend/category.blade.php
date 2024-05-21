@@ -74,19 +74,9 @@
             box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
         }
 
-        /* .gallery-container .tz-gallery .lightbox img:hover {
-                                filter: brightness(0.3);
-                            } */
-
         .gallery-container .baguetteBox-button {
             background-color: transparent !important;
         }
-
-        /* @media (max-width: 767px) {
-                                    .min-header {
-                                        height: 175px;
-                                    }
-                                } */
 
         @keyframes example {
             from {
@@ -146,21 +136,7 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- <section class="breadcrumb-section" style="background-image: url({{ $gtext['blog_bg'] ? asset('public/media/' . $gtext['blog_bg']) : '' }});">
-                              <div class="container">
-                               <div class="row">
-                                <div class="col-12">
-                                 <div class="breadcrumb-card wow pulse">
-                                  <h2>{{ __('gallery') }}</h2>
-                                 </div>
-                                </div>
-                               </div>
-                              </div>
-                             </section> -->
-        <!-- /Page Breadcrumb/ -->
 
-        <!-- Inner Section -->
         <section class="inner-section inner-section-bg block-bg">
             <h2 class="text-center">{{ __('Book Mira Business rooms') }}    </h2>
             <div class="container gallery-container">
@@ -183,10 +159,7 @@
                                             alt="Park" />
                                         <div class="overlay">
                                             <h2 class="text-light">{{ $row->title }}</h2>
-                                            {{-- <button type="button" class="btn btn-outline-light">
-                                            {{ __('Browse') }}
 
-                                        </button> --}}
                                             <div class="button-container">
                                                 <a href="{{ route('frontend.checkout', [$row->id, md5($row->slug)]) }}"
                                                     class="btn theme-btn book-now-btn">{{ __('Book Now') }}</a>

@@ -34,21 +34,7 @@
 
 @section('content')
 <main class="main">
-	<!-- Page Breadcrumb -->
-<!-- 	<section class="breadcrumb-section" style="background-image: url({{ $gtext['login_bg'] ? asset('public/media/'.$gtext['login_bg']) : '' }});">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="breadcrumb-card wow pulse">
-						<h2>{{ __('Search') }}</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- /Page Breadcrumb/ -->
 
-	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">
 		<div class="container">
 			<div class="row">
@@ -72,7 +58,6 @@
 						</div>
 						<div class="item-content">
 							<div class="item-title">
-								{{-- <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{ str_limit($row->title) }}</a> --}}
                                 <a href="{{ route('frontend.room', [$row->id, $row->slug]) }}">{{  str_limit($translateTitle->{glan()}) }}</a>
 
 							</div>

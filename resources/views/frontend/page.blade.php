@@ -34,19 +34,6 @@
 
 @section('content')
 <main class="main">
-	<!-- Page Breadcrumb -->
-	<!-- <section class="breadcrumb-section" style="background-image: url({{ $data['thumbnail'] ? asset('public/media/'.$data['thumbnail']) : asset('public/frontend/images/breadcrumb_bg.jpg') }});">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="breadcrumb-card wow pulse">
-						<h2>{{ $data['title'] }}</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- /Page Breadcrumb/ -->
 
 	<!-- Inner Section -->
 	<section class="inner-section inner-section-bg">

@@ -17,12 +17,11 @@ class RoomsController extends Controller
     {
         return $this->getCategoryPage("hotel");
     }
-    
-    //get Category Page
+
+
     public function getCategoryPage( $title)
     {
-        // $cat=Category::all();
-        // dd($cat);
+
 
         $lan = glan();
 

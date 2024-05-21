@@ -40,10 +40,7 @@ class ContactController extends Controller
     {
         $gtext = gtext();
         $res = array();
-        // return  $gtext;
 
-        // $is_captcha =1;
-        // $recaptcha =1;
         $is_captcha = $request->input('is_captcha');
 
         if ($is_captcha == 1) {
@@ -100,13 +97,10 @@ class ContactController extends Controller
             $SendData .= "<tr><td style='padding-bottom:7px;'><strong>" . $Name . ": </strong>" . $Value . "</td></tr>";
         }
 
-        // $base_url = route('frontend.contact', [$contact_id, str_slug($title)]);
         $site_name = $gtext['site_name'];
         $site_title = $gtext['site_title'];
-        // $gtext['ismail']=1;
         if ($gtext['ismail'] == 1) {
             try {
-
 
                 require 'vendor/autoload.php';
                 $mail = new PHPMailer(true);
@@ -128,7 +122,7 @@ class ContactController extends Controller
                 $replyMail = $request->input('email');
                 $replyName = $request->input('name');
 
-                $mail->addReplyTo($replyMail,$replyName);
+                $mail->addReplyTo($replyMail, $replyName);
                 $mail->addAddress($gtext['to_mail'], $gtext['to_name']);
                 $mail->isHTML(true);
                 $mail->CharSet = "utf-8";
@@ -145,9 +139,7 @@ class ContactController extends Controller
 									</td>
 								</tr>
 							</table>";
-// dd( $mail);
                 $mail->send();
-                // return 'll';
                 $res['msgType'] = 'success';
                 $res['msg'] = __('Your message has been delivered');
                 return response()->json($res);
