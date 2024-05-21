@@ -87,7 +87,6 @@
             /* Position footer at the very bottom */
             height: auto;
             /* Maintain auto height for content */
-            background-color: #f5f5f5;
             /* Optional background color */
         }
 
