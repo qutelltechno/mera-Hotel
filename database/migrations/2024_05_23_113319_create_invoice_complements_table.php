@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('invoice_complements', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-			$table->text('desc')->nullable();
-            $table->integer('is_publish')->default(0);
-			$table->string('lan', 100)->nullable();
+            $table->bigInteger('complement_id');
+            $table->double('price', 12, 3);
+            $table->char('invoice_number',100);
             $table->timestamps();
         });
-}
+    }
 
     /**
      * Reverse the migrations.
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('invoice_complements');
     }
 };

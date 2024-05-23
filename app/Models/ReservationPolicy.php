@@ -10,6 +10,7 @@ class ReservationPolicy extends Model
 {
     use HasFactory, HasTranslations;
     protected $table = 'reservation_policies';
+    protected $timestamps = true;
     public $translatable = ['title', 'value'];
     protected $fillable = [
         'title',

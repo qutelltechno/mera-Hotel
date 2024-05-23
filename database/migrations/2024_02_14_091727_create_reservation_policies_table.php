@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('reservation_policies', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
+            $table->text('title')->nullable();
             $table->longText('value')->nullable();
             $table->timestamps();
         });
