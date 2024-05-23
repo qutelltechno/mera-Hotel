@@ -34,14 +34,19 @@
                             <div class="card-body">
                                 <div class="row mb-10">
                                     <div class="col-lg-8">
-								<div class="group-button">
-									<button id="orderstatus_0" type="button" onClick="onDataViewByStatus(0)" class="btn btn-theme orderstatus active">{{ __('All') }} (@php echo BookingCount(0); @endphp)</button>
-									@foreach ($booking_status_list as $row)
-                                <button id="orderstatus_{{ $row->id }}" type="button" onClick="onDataViewByStatus({{ $row->id }})" class="btn btn-theme orderstatus">{{ __($row->bstatus_name) }} (@php echo BookingCount($row->id); @endphp)</button>
-									@endforeach
-								</div>
-								<input type="hidden" id="view_by_status" value="0"/>
-							</div>
+                                        <div class="group-button">
+                                            <button id="orderstatus_0" type="button" onClick="onDataViewByStatus(0)"
+                                                class="btn btn-theme orderstatus active">{{ __('All') }}
+                                                (@php echo BookingCount(0); @endphp)</button>
+                                            @foreach ($booking_status_list as $row)
+                                                <button id="orderstatus_{{ $row->id }}" type="button"
+                                                    onClick="onDataViewByStatus({{ $row->id }})"
+                                                    class="btn btn-theme orderstatus">{{ __($row->bstatus_name) }}
+                                                    (@php echo BookingCount($row->id); @endphp)</button>
+                                            @endforeach
+                                        </div>
+                                        <input type="hidden" id="view_by_status" value="0" />
+                                    </div>
 
                                     <div class="col-lg-4">
                                         <div class="filter-form-group pull-right">
