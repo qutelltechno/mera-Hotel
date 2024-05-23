@@ -18,11 +18,13 @@ class LanguageSeeder extends Seeder
             [
                 'language_code' => 'en',
                 'language_name' => 'English',
+                'is_rtl'=>0,
                 'flag' => 'https://en.wikipedia.org/wiki/File:Flag_of_the_United_Kingdom_%281-2%29.svg',
             ],
             [
                 'language_code' => 'ar',
                 'language_name' => 'العربية ',
+                'is_rtl'=>1,
                 'flag' => 'https://en.wikipedia.org/wiki/File:Flag_of_arabic.svg',
             ],
         ];
