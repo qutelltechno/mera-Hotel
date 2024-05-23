@@ -62,25 +62,14 @@
 											$oldPrice = $mdata->old_price;
 										}
 
-										// $sub_total = 0;
-										// if($mdata->subtotal !=''){
-										// 	$sub_total = $mdata->subtotal;
-										// }
 
-										// $totalTax = 0;
-										// if($mdata->tax !=''){
-										// 	$totalTax = $mdata->tax;
-										// }
 
 										$totalDiscount = 0;
 										if($mdata->discount !=''){
 											$totalDiscount = $mdata->discount;
 										}
 
-										// $totalAmount = 0;
-										// if($mdata->total_amount !=''){
-										// 	// $totalAmount = $mdata->total_amount +$totalComplementPriceNotformate;
-										// }
+									
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;
 										if($gtext['currency_position'] == 'left'){

@@ -18,7 +18,6 @@ class AboutUsController extends Controller
 		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
 		$languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
         $curntLang=App()->getLocale();
-// dd($curntLang);
 		$datalist = DB::table('section_contents')
 			->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
 			->select('section_contents.*', 'tp_status.status')
@@ -122,7 +121,7 @@ class AboutUsController extends Controller
 			'package_title' => 'required',
 			'is_publish' => 'required'
 		]);
-	
+
 
 		$errors = $validator->errors();
 
@@ -191,7 +190,7 @@ class AboutUsController extends Controller
 			'vision_title' => $vision_title,
 			'values_title' => $values_title,
 			'package_title' => $package_title,
-			
+
 		);
 		$data = array(
 			'section_type' => 'about_us',

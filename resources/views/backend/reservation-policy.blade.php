@@ -29,26 +29,7 @@
                         </div>
                         <!--Data grid-->
                         <div id="list-panel" class="card-body">
-                            {{-- <div class="row">
-							<div class="col-lg-4">
-								<div class="form-group bulk-box">
-									<select id="bulk-action" class="form-control">
-										<option value="">{{ __('Select Action') }}</option>
-										<option value="publish">{{ __('Publish') }}</option>
-										<option value="draft">{{ __('Draft') }}</option>
-										<option value="delete">{{ __('Delete Permanently') }}</option>
-									</select>
-									<button type="submit" onClick="onBulkAction()" class="btn bulk-btn">{{ __('Apply') }}</button>
-								</div>
-							</div>
-							<div class="col-lg-3"></div>
-							<div class="col-lg-5">
-								<div class="form-group search-box">
-									<input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
-									<button type="submit" onClick="onSearch()" class="btn search-btn">{{ __('Search') }}</button>
-								</div>
-							</div>
-						</div> --}}
+
                             <div id="tp_datalist">
                                 @include('backend.partials.reservation_policy_table')
                             </div>
@@ -68,7 +49,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="title_ar">  السياسة بالعربية  <span class="red">*</span></label>
+                                            <label for="title_ar"> السياسة بالعربية <span class="red">*</span></label>
                                             <input type="text" name="title_ar" id="title_ar"
                                                 class="form-control parsley-validated" data-required="true">
                                         </div>
@@ -92,21 +73,7 @@
 
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="is_publish">{{ __('Status') }}<span class="red">*</span></label>
-										<select name="is_publish" id="is_publish" class="chosen-rtl form-control">
-										@foreach ($statuslist as $row)
-											<option value="{{ $row->id }}">
-												{{ $row->status }}
-											</option>
-										@endforeach
-										</select>
-									</div>
-								</div>
-								<div class="col-md-8"></div>
-							</div> --}}
+
                                 <input type="text" name="RecordId" id="RecordId" class="dnone">
                                 <div class="row tabs-footer mt-15">
                                     <div class="col-lg-12">

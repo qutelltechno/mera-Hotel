@@ -103,29 +103,29 @@
                                             <textarea name="welcom_Description" id="welcom_Description" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
-								
-								{{-- // --}}
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="vision_title">{{ __('Vision ') }}<span
-                                                    class="red">*</span></label>
-                                            <input type="text" name="vision_title" id="vision_title"
-                                                class="form-control parsley-validated" data-required="true">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="vision_description">{{ __('Vision Description') }}</label>
-                                            <textarea name="vision_description" id="vision_description" class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-								{{-- // --}}
 
-									{{-- // --}}
+                                    {{-- // --}}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="vision_title">{{ __('Vision ') }}<span
+                                                        class="red">*</span></label>
+                                                <input type="text" name="vision_title" id="vision_title"
+                                                    class="form-control parsley-validated" data-required="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="vision_description">{{ __('Vision Description') }}</label>
+                                                <textarea name="vision_description" id="vision_description" class="form-control" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- // --}}
+
+                                    {{-- // --}}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                 </div>
-								{{-- // --}}
+                                {{-- // --}}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -165,7 +165,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 {{-- ##### --}}
 

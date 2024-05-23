@@ -3,220 +3,226 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media_option;
+use App\Models\Section_content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Media_option;
-use App\Models\Section_content;
 
 class OurServicesController extends Controller
 {
-	//Our Services page load
-    public function getOurServicesPageLoad() {
-		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
+    //Our Services page load
+    public function getOurServicesPageLoad()
+    {
+        $media_datalist = Media_option::orderBy('id', 'desc')->paginate(28);
 
-		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
+        $statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
         $languageslist = DB::table('languages')->where('status', 1)->orderBy('language_name', 'asc')->get();
-		$currentLocale = app()->getLocale();
-		$datalist = DB::table('section_contents')
-			->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
-			->select('section_contents.*', 'tp_status.status')
-			->where('section_type', '=', 'our_services')
-			->where('section_contents.lan',$currentLocale )
-			->orderBy('section_contents.id','desc')
-			->paginate(20);
+        $currentLocale = app()->getLocale();
+        $datalist = DB::table('section_contents')
+            ->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
+            ->select('section_contents.*', 'tp_status.status')
+            ->where('section_type', '=', 'our_services')
+            ->where('section_contents.lan', $currentLocale)
+            ->orderBy('section_contents.id', 'desc')
+            ->paginate(20);
 
         return view('backend.our-services', compact('media_datalist', 'statuslist', 'datalist', 'languageslist'));
     }
 
-	//Get data for Our Services Pagination
-	public function getOurServicesTableData(Request $request){
+    //Get data for Our Services Pagination
+    public function getOurServicesTableData(Request $request)
+    {
 
-		$search = $request->search;
-		$page_type = $request->page_type;
+        $search = $request->search;
+        $page_type = $request->page_type;
 
-		if($request->ajax()){
+        if ($request->ajax()) {
 
-			if($search != ''){
-				$datalist = DB::table('section_contents')
-					->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
-					->select('section_contents.*', 'tp_status.status')
-					->where(function ($query) use ($search){
-						$query->where('title', 'like', '%'.$search.'%');
-					})
-					->where('section_type', '=', 'our_services')
-					->orderBy('section_contents.id','desc')
-					->paginate(20);
-			}else{
+            if ($search != '') {
+                $datalist = DB::table('section_contents')
+                    ->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
+                    ->select('section_contents.*', 'tp_status.status')
+                    ->where(function ($query) use ($search) {
+                        $query->where('title', 'like', '%' . $search . '%');
+                    })
+                    ->where('section_type', '=', 'our_services')
+                    ->orderBy('section_contents.id', 'desc')
+                    ->paginate(20);
+            } else {
 
-				$datalist = DB::table('section_contents')
-					->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
-					->select('section_contents.*', 'tp_status.status')
-					->where('section_type', '=', 'our_services')
-					->orderBy('section_contents.id','desc')
-					->paginate(20);
-			}
+                $datalist = DB::table('section_contents')
+                    ->join('tp_status', 'section_contents.is_publish', '=', 'tp_status.id')
+                    ->select('section_contents.*', 'tp_status.status')
+                    ->where('section_type', '=', 'our_services')
+                    ->orderBy('section_contents.id', 'desc')
+                    ->paginate(20);
+            }
 
-			return view('backend.partials.our_services_table', compact('datalist'))->render();
-		}
-	}
-
-	//Save data for Our Services
-    public function saveOurServicesData(Request $request){
-		$res = array();
-
-		$id = $request->input('RecordId');
-		$title = $request->input('services_title');
-		$description = $request->input('description');
-		$image = $request->input('image');
-		$lan = $request->input('lan');
-		$is_publish = $request->input('is_publish');
-
-		$validator_array = array(
-			'image' => $request->input('image'),
-			'title' => $request->input('services_title'),
-			'description' => $request->input('description'),
-			'is_publish' => $request->input('is_publish')
-		);
-
-		$validator = Validator::make($validator_array, [
-			'image' => 'required',
-			'title' => 'required',
-			'description' => 'required',
-			'is_publish' => 'required'
-		]);
-
-		$errors = $validator->errors();
-
-		if($errors->has('image')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('image');
-			return response()->json($res);
-		}
-
-		if($errors->has('title')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('title');
-			return response()->json($res);
-		}
-
-		if($errors->has('description')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('description');
-			return response()->json($res);
-		}
-
-		if($errors->has('is_publish')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('is_publish');
-			return response()->json($res);
-		}
-
-		$data = array(
-			'section_type' => 'our_services',
-			'image' => $image,
-			'title' => $title,
-			'desc' => $description,
-			'lan' => $lan,
-			'is_publish' => $is_publish
-		);
-
-		if($id ==''){
-			$response = Section_content::create($data);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Saved Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data insert failed');
-			}
-		}else{
-			$response = Section_content::where('id', $id)->update($data);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
-		}
-
-		return response()->json($res);
+            return view('backend.partials.our_services_table', compact('datalist'))->render();
+        }
     }
 
-	//Get data for Our Services by id
-    public function getOurServicesById(Request $request){
+    //Save data for Our Services
+    public function saveOurServicesData(Request $request)
+    {
+        $res = array();
 
-		$id = $request->id;
+        $id = $request->input('RecordId');
+        $title = $request->input('services_title');
+        $description = $request->input('description');
+        $image = $request->input('image');
+        $lan = $request->input('lan');
+        $is_publish = $request->input('is_publish');
 
-		$data = Section_content::where('id', $id)->first();
+        $validator_array = array(
+            'image' => $request->input('image'),
+            'title' => $request->input('services_title'),
+            'description' => $request->input('description'),
+            'is_publish' => $request->input('is_publish'),
+        );
 
-		return response()->json($data);
-	}
+        $validator = Validator::make($validator_array, [
+            'image' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'is_publish' => 'required',
+        ]);
 
-	//Delete data for Our Services
-	public function deleteOurService(Request $request){
+        $errors = $validator->errors();
 
-		$res = array();
+        if ($errors->has('image')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('image');
+            return response()->json($res);
+        }
 
-		$id = $request->id;
+        if ($errors->has('title')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('title');
+            return response()->json($res);
+        }
 
-		if($id != ''){
-			$response = Section_content::where('id', $id)->delete();
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Removed Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data remove failed');
-			}
-		}
+        if ($errors->has('description')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('description');
+            return response()->json($res);
+        }
 
-		return response()->json($res);
-	}
+        if ($errors->has('is_publish')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('is_publish');
+            return response()->json($res);
+        }
 
-	//Bulk Action for Our Services
-	public function bulkActionOurServices(Request $request){
+        $data = array(
+            'section_type' => 'our_services',
+            'image' => $image,
+            'title' => $title,
+            'desc' => $description,
+            'lan' => $lan,
+            'is_publish' => $is_publish,
+        );
 
-		$res = array();
+        if ($id == '') {
+            $response = Section_content::create($data);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Saved Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data insert failed');
+            }
+        } else {
+            $response = Section_content::where('id', $id)->update($data);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+        }
 
-		$idsStr = $request->ids;
-		$idsArray = explode(',', $idsStr);
+        return response()->json($res);
+    }
 
-		$BulkAction = $request->BulkAction;
+    //Get data for Our Services by id
+    public function getOurServicesById(Request $request)
+    {
 
-		if($BulkAction == 'publish'){
-			$response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 1]);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
+        $id = $request->id;
 
-		}elseif($BulkAction == 'draft'){
+        $data = Section_content::where('id', $id)->first();
 
-			$response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 2]);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
+        return response()->json($data);
+    }
 
-		}elseif($BulkAction == 'delete'){
-			$response = Section_content::whereIn('id', $idsArray)->delete();
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Removed Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data remove failed');
-			}
-		}
+    //Delete data for Our Services
+    public function deleteOurService(Request $request)
+    {
 
-		return response()->json($res);
-	}
+        $res = array();
+
+        $id = $request->id;
+
+        if ($id != '') {
+            $response = Section_content::where('id', $id)->delete();
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Removed Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data remove failed');
+            }
+        }
+
+        return response()->json($res);
+    }
+
+    //Bulk Action for Our Services
+    public function bulkActionOurServices(Request $request)
+    {
+
+        $res = array();
+
+        $idsStr = $request->ids;
+        $idsArray = explode(',', $idsStr);
+
+        $BulkAction = $request->BulkAction;
+
+        if ($BulkAction == 'publish') {
+            $response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 1]);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+
+        } elseif ($BulkAction == 'draft') {
+
+            $response = Section_content::whereIn('id', $idsArray)->update(['is_publish' => 2]);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+
+        } elseif ($BulkAction == 'delete') {
+            $response = Section_content::whereIn('id', $idsArray)->delete();
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Removed Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data remove failed');
+            }
+        }
+
+        return response()->json($res);
+    }
 }

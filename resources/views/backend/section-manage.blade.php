@@ -32,9 +32,6 @@
 									<select name="manage_type_filter" id="manage_type_filter" class="chosen-rtl form-control">
 										<option value="0" selected="selected">{{ __('All Manage Page') }}</option>
 										<option value="home_1">Home Page 1</option>
-										<!--<option value="home_2">Home Page 2</option>
-										<option value="home_3">Home Page 3</option>
-										<option value="home_4">Home Page 4</option>-->
 									</select>
 								</div>
 							</div>
@@ -74,9 +71,6 @@
 										<label for="manage_type">{{ __('Manage Page') }}<span class="red">*</span></label>
 										<select name="manage_type" id="manage_type" class="chosen-rtl form-control">
 											<option value="home_1">Home Page 1</option>
-											<!--<option value="home_2">Home Page 2</option>
-											<option value="home_3">Home Page 3</option>
-											<option value="home_4">Home Page 4</option>-->
 										</select>
 									</div>
 								</div>
@@ -147,11 +141,11 @@
                                             <select name="lan" id="lan" class="chosen-rtl form-control">
 												@if (glan()==='ar')
 												<option selected  value="ar">
-													العربية 
+													العربية
 												</option>
-	
+
 												<option   value="en">
-													English 
+													English
 												</option>
 												@else
 												<option value="en">

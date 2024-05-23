@@ -24,9 +24,7 @@ class HotelController extends Controller
             ->join('languages', 'hotels.lan', '=', 'languages.language_code')
             ->select('hotels.*', 'languages.language_name')
             ->orderBy('hotels.id', 'desc')
-            // ->where('hotels.lan', $currentLocale)
             ->paginate(20);
-            // dd( $datalist);
 
         return view('backend.hotels', compact('media_datalist', 'datalist', 'statuslist', 'languageslist'));
     }

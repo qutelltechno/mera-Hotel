@@ -6,7 +6,6 @@
                 </th>
                 <th class="text-left" style="width:20%">{{ __('Slider') }} </th>
                 <th class="text-left" style="width:15%">{{ __('Manage Page') }} </th>
-                {{-- <th class="text-left" style="width:20%">{{ __('URL') }} </th> --}}
                 <th class="text-center" style="width:15%">{{ __('Image') }} </th>
                 <th class="text-center" style="width:10%">{{ __('Language') }}</th>
                 <th class="text-center" style="width:15%">{{ __('Status') }}</th>
@@ -21,7 +20,6 @@
                                 class="tp-checkbox selected_item" type="checkbox"></td>
                         <td class="text-left">{{ $row->title }}</td>
                         <td class="text-left">{{ $row->slider_type }}</td>
-                        {{-- <td class="text-left">{{ $row->url }}</td> --}}
                         @if ($row->image != '')
                             <td class="text-center">
                                 <div class="table_col_image"><img

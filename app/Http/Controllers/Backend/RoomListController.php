@@ -14,23 +14,15 @@ class RoomListController extends Controller
     {
         $currentLocale = app()->getLocale();
         $room_list = Room::where('is_publish', 1)
-        // ->where('lan', glan() )
             ->orderBy('title', 'asc')->get();
 
         $datalist = DB::table('room_manages')
             ->join('tp_status', 'room_manages.is_publish', '=', 'tp_status.id')
             ->join('rooms', 'room_manages.roomtype_id', '=', 'rooms.id')
-        // ->join('rooms', function ($join) use ($currentLocale) {
-        //     $join->on('room_manages.roomtype_id', '=', 'rooms.id')
-        //         ->where('rooms.lan', '=', $currentLocale);
-        // })
+
             ->leftjoin('room_assigns', 'room_manages.id', '=', 'room_assigns.room_id')
-        // ->leftjoin('room_assigns', function ($join) use ($currentLocale) {
-        //     $join->on('room_manages.id', '=', 'room_assigns.room_id')
-        //         ->where('rooms.lan', '=', $currentLocale);
-        // })
+
             ->leftjoin('booking_manages', 'room_assigns.booking_id', '=', 'booking_manages.id')
-        // ->where('rooms.lan',glan())
             ->select('room_manages.*', 'tp_status.status', 'rooms.title', 'booking_manages.booking_no',
                 'booking_manages.name', 'booking_manages.phone')
             ->orderBy('rooms.title', 'asc')

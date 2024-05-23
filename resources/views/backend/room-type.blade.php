@@ -25,34 +25,7 @@
 					</div>
 					<!--Data grid-->
 					<div id="list-panel" class="card-body">
-						{{-- <div class="row mb-10">
-							<div class="col-lg-3">
-								<div class="form-group mb-10">
-									<select name="language_code" id="language_code" class="chosen-rtl form-control">
-										<option value="0" selected="selected">{{ __('All Language') }}</option>
-										@foreach($languageslist as $row)
-											<option value="{{ $row->language_code }}">
-												{{ $row->language_name }}
-											</option>
-										@endforeach
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="form-group mb-10">
-									<select name="category_id" id="category_id" class="chosen-rtl form-control">
-										<option value="0" selected="selected">{{ __('All Category') }}</option>
-										@foreach($categorylist as $row)
-											<option value="{{ $row->id }}">
-												{{ $row->name }}
-											</option>
-										@endforeach
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-3"></div>
-							<div class="col-lg-3"></div>
-						</div> --}}
+
 
 						<div class="row">
 							<div class="col-lg-4">
@@ -67,12 +40,6 @@
 								</div>
 							</div>
 							<div class="col-lg-3"></div>
-							{{-- <div class="col-lg-5">
-								<div class="form-group search-box">
-									<input id="search" name="search" type="text" class="form-control" placeholder="{{ __('Search') }}...">
-									<button type="submit" onClick="onSearch()" class="btn search-btn">{{ __('Search') }}</button>
-								</div>
-							</div> --}}
 						</div>
 						<div id="tp_datalist">
 							@include('backend.partials.room_type_table')
@@ -100,18 +67,6 @@
 										<input type="text" name="slug" id="slug" class="form-control parsley-validated" data-required="true">
 									</div>
 								</div>
-								{{-- <div class="col-lg-4">
-									<div class="form-group">
-										<label for="categoryid">{{ __('Category') }}<span class="red">*</span></label>
-										<select name="categoryid" id="categoryid" class="chosen-rtl form-control">
-											@foreach($categorylist as $row)
-												<option value="{{ $row->id }}">
-													{{ $row->name }}
-												</option>
-											@endforeach
-										</select>
-									</div>
-								</div> --}}
 
                                 <div class="col-lg-4">
 									<div class="form-group">
@@ -128,39 +83,6 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-3">
-									{{-- <div class="form-group">
-										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
-										<select name="lan" id="lan" class="chosen-rtl form-control">
-										@foreach($languageslist as $row)
-											<option value="{{ $row->language_code }}">
-												{{ $row->language_name }}
-											</option>
-										@endforeach
-										</select>
-									</div> --}}
-
-                                    {{-- <div class="form-group">
-										<label for="lan">{{ __('Language') }}<span class="red">*</span></label>
-										<select name="lan"  class="chosen-rtl form-control">
-
-                                        @if ($currentLocale==='ar')
-                                        <option selected value="ar">
-                                            العربية
-                                        </option>
-                                        <option value="en">
-                                            English
-                                        </option>
-                                        @else
-                                        <option selected value="en">
-                                            English
-                                        </option>
-                                        <option value="ar">
-                                            العربية
-                                        </option>
-
-                                        @endif
-										</select>
-									</div> --}}
 								</div>
 								<div class="col-lg-9"></div>
 							</div>

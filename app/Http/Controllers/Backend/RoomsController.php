@@ -31,7 +31,6 @@ class RoomsController extends Controller
 			->join('tp_status', 'rooms.is_publish', '=', 'tp_status.id')
 			->join('languages', 'rooms.lan', '=', 'languages.language_code')
 			->select('rooms.*', 'tp_status.status', 'languages.language_name')
-			// ->where('rooms.lan',$currentLocale)
 			->orderBy('rooms.id','desc')
 			->paginate(20);
 

@@ -19,11 +19,8 @@
                 $translationsTitle = json_decode($row->title, true);
                 $curnetLang=glan();
             @endphp
-            {{-- @dd($translationsTitle[$curnetLang] ) --}}
 				<td class="checkboxlist text-center"><input name="item_ids[]" value="{{ $row->id }}" class="tp-checkbox selected_item" type="checkbox"></td>
 				<td class="text-center"><a href="{{ route('backend.room', [$row->id]) }}" title="{{ __('Edit') }}">{{$translationsTitle[$curnetLang]??null}}</a></td>
-				{{-- <td class="text-left">{{ $row->category_name }}</td> --}}
-				{{-- <td class="text-center">{{ $row->language_name }}</td> --}}
 
 				@if ($row->thumbnail != '')
 				<td class="text-center"><div class="table_col_image"><img src="{{ asset('public') }}/media/{{ $row->thumbnail }}" /></div></td>

@@ -3,195 +3,201 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Country;
 
 class CountriesController extends Controller
 {
-	//Countries page load
-    public function getCountriesPageLoad() {
+    //Countries page load
+    public function getCountriesPageLoad()
+    {
 
-		$statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
-		
-		$datalist = DB::table('countries')
-			->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
-			->select('countries.*', 'tp_status.status')
-			->orderBy('countries.id','desc')
-			->paginate(20);
+        $statuslist = DB::table('tp_status')->orderBy('id', 'asc')->get();
+
+        $datalist = DB::table('countries')
+            ->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
+            ->select('countries.*', 'tp_status.status')
+            ->orderBy('countries.id', 'desc')
+            ->paginate(20);
 
         return view('backend.countries', compact('statuslist', 'datalist'));
     }
-	
-	//Get data for Countries Pagination
-	public function getCountriesTableData(Request $request){
 
-		$search = $request->search;
-		
-		if($request->ajax()){
+    //Get data for Countries Pagination
+    public function getCountriesTableData(Request $request)
+    {
 
-			if($search != ''){
-				
-				$datalist = DB::table('countries')
-					->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
-					->select('countries.*', 'tp_status.status')
-					->where(function ($query) use ($search){
-						$query->where('country_name', 'like', '%'.$search.'%');
-					})
-					->orderBy('countries.id','desc')
-					->paginate(20);
-			}else{
-				
-				$datalist = DB::table('countries')
-					->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
-					->select('countries.*', 'tp_status.status')
-					->orderBy('countries.id','desc')
-					->paginate(20);
-			}
+        $search = $request->search;
 
-			return view('backend.partials.countries_table', compact('datalist'))->render();
-		}
-	}
-	
-	//Save data for Countries
-    public function saveCountriesData(Request $request){
-		$res = array();
-		
-		$id = $request->input('RecordId');
-		$country_name_ar = $request->input('country_name_ar');
-		$country_name_en= $request->input('country_name_en');
-		$is_publish = $request->input('is_publish');
-		
-		$validator_array = array(
-			'country_name_ar' => $request->input('country_name_ar'),
-			'country_name_en' => $request->input('country_name_en'),
+        if ($request->ajax()) {
 
-		);
-		
-		$validator = Validator::make($validator_array, [
-			'country_name_ar' => 'required|max:191',
-			'country_name_en' => 'required|max:191'
+            if ($search != '') {
 
-		]);
+                $datalist = DB::table('countries')
+                    ->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
+                    ->select('countries.*', 'tp_status.status')
+                    ->where(function ($query) use ($search) {
+                        $query->where('country_name', 'like', '%' . $search . '%');
+                    })
+                    ->orderBy('countries.id', 'desc')
+                    ->paginate(20);
+            } else {
 
-		$errors = $validator->errors();
+                $datalist = DB::table('countries')
+                    ->join('tp_status', 'countries.is_publish', '=', 'tp_status.id')
+                    ->select('countries.*', 'tp_status.status')
+                    ->orderBy('countries.id', 'desc')
+                    ->paginate(20);
+            }
 
-		if($errors->has('country_name_ar')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('country_name_ar');
-			return response()->json($res);
-		}
-		if($errors->has('country_name_en')){
-			$res['msgType'] = 'error';
-			$res['msg'] = $errors->first('country_name_en');
-			return response()->json($res);
-		}
-
-		$data = array(
-			'country_name' => [
-                'en'=>  $country_name_en,
-                'ar'=>  $country_name_ar,
-            ],
-			'is_publish' => $is_publish
-		);
-
-		if($id ==''){
-			$response = Country::create($data);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Saved Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data insert failed');
-			}
-		}else{
-			$response = Country::where('id', $id)->update($data);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
-		}
-		
-		return response()->json($res);
+            return view('backend.partials.countries_table', compact('datalist'))->render();
+        }
     }
-	
-	//Get data for Country by id
-    public function getCountryById(Request $request){
 
-		$id = $request->id;
-		
-		$data = Country::where('id', $id)->first();
-		
-		return response()->json($data);
-	}
-	
-	//Delete data for Country
-	public function deleteCountry(Request $request){
-		
-		$res = array();
+    //Save data for Countries
+    public function saveCountriesData(Request $request)
+    {
+        $res = array();
 
-		$id = $request->id;
+        $id = $request->input('RecordId');
+        $country_name_ar = $request->input('country_name_ar');
+        $country_name_en = $request->input('country_name_en');
+        $is_publish = $request->input('is_publish');
 
-		if($id != ''){
-			$response = Country::where('id', $id)->delete();
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Removed Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data remove failed');
-			}
-		}
-		
-		return response()->json($res);
-	}
-	
-	//Bulk Action for Country
-	public function bulkActionCountry(Request $request){
-		
-		$res = array();
+        $validator_array = array(
+            'country_name_ar' => $request->input('country_name_ar'),
+            'country_name_en' => $request->input('country_name_en'),
 
-		$idsStr = $request->ids;
-		$idsArray = explode(',', $idsStr);
-		
-		$BulkAction = $request->BulkAction;
+        );
 
-		if($BulkAction == 'publish'){
-			$response = Country::whereIn('id', $idsArray)->update(['is_publish' => 1]);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
-			
-		}elseif($BulkAction == 'draft'){
-			
-			$response = Country::whereIn('id', $idsArray)->update(['is_publish' => 2]);
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Updated Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data update failed');
-			}
-			
-		}elseif($BulkAction == 'delete'){
-			$response = Country::whereIn('id', $idsArray)->delete();
-			if($response){
-				$res['msgType'] = 'success';
-				$res['msg'] = __('Removed Successfully');
-			}else{
-				$res['msgType'] = 'error';
-				$res['msg'] = __('Data remove failed');
-			}
-		}
-		
-		return response()->json($res);
-	}
+        $validator = Validator::make($validator_array, [
+            'country_name_ar' => 'required|max:191',
+            'country_name_en' => 'required|max:191',
+
+        ]);
+
+        $errors = $validator->errors();
+
+        if ($errors->has('country_name_ar')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('country_name_ar');
+            return response()->json($res);
+        }
+        if ($errors->has('country_name_en')) {
+            $res['msgType'] = 'error';
+            $res['msg'] = $errors->first('country_name_en');
+            return response()->json($res);
+        }
+
+        $data = array(
+            'country_name' => [
+                'en' => $country_name_en,
+                'ar' => $country_name_ar,
+            ],
+            'is_publish' => $is_publish,
+        );
+
+        if ($id == '') {
+            $response = Country::create($data);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Saved Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data insert failed');
+            }
+        } else {
+            $response = Country::where('id', $id)->update($data);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+        }
+
+        return response()->json($res);
+    }
+
+    //Get data for Country by id
+    public function getCountryById(Request $request)
+    {
+
+        $id = $request->id;
+
+        $data = Country::where('id', $id)->first();
+
+        return response()->json($data);
+    }
+
+    //Delete data for Country
+    public function deleteCountry(Request $request)
+    {
+
+        $res = array();
+
+        $id = $request->id;
+
+        if ($id != '') {
+            $response = Country::where('id', $id)->delete();
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Removed Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data remove failed');
+            }
+        }
+
+        return response()->json($res);
+    }
+
+    //Bulk Action for Country
+    public function bulkActionCountry(Request $request)
+    {
+
+        $res = array();
+
+        $idsStr = $request->ids;
+        $idsArray = explode(',', $idsStr);
+
+        $BulkAction = $request->BulkAction;
+
+        if ($BulkAction == 'publish') {
+            $response = Country::whereIn('id', $idsArray)->update(['is_publish' => 1]);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+
+        } elseif ($BulkAction == 'draft') {
+
+            $response = Country::whereIn('id', $idsArray)->update(['is_publish' => 2]);
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Updated Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data update failed');
+            }
+
+        } elseif ($BulkAction == 'delete') {
+            $response = Country::whereIn('id', $idsArray)->delete();
+            if ($response) {
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Removed Successfully');
+            } else {
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data remove failed');
+            }
+        }
+
+        return response()->json($res);
+    }
 }
