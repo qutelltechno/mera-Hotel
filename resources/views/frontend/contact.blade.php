@@ -57,21 +57,7 @@
 
 @section('content')
     <main class="main">
-        <!-- Page Breadcrumb -->
-        <!-- 	<section class="breadcrumb-section" style="background-image: url({{ $gtext['contact_bg'] ? asset('public/media/' . $gtext['contact_bg']) : '' }});">
-          <div class="container">
-           <div class="row">
-            <div class="col-12">
-             <div class="breadcrumb-card wow pulse">
-              <h2>{{ $data['title'] }}</h2>
-             </div>
-            </div>
-           </div>
-          </div>
-         </section> -->
-        <!-- /Page Breadcrumb/ -->
 
-        <!-- Inner Section -->
         @if ($data['is_publish'] == 1)
             @php $contact_form = $data['contact_form']; @endphp
             <section class="inner-section contact_card inner-section-bg block-bg">
@@ -222,63 +208,7 @@
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <!--<div class="row pt-md-5 pt-3">-->
-                    <!--    <div class="col-md-8 offset-md-2 ">-->
-                    <!--        <h3 class="heading text-center">{{ __('Contact information for other branches') }}</h3>-->
-                    <!--    </div>-->
-                    <!--</div>-->
-                    <!--<div class="contact-info">-->
-                    <!--    <div class="row">-->
-                    <!--        {{-- @dd($hotels) --}}-->
-                    <!--        @foreach ($hotels as $hotel)-->
-                    <!--            @if ($hotel->is_main == 0)-->
-                    <!--                <div class="col-12 col-sm-12 col-lg-4 col-xl-4 col-xxl-4 p-2">-->
-                    <!--                    <h4 class=" text-center text-dark"> {{ $hotel->name }} </h4>-->
 
-                    <!--                    <div class=" bg-white p-5 rounded " style="">-->
-                    <!--                        <div class="info">-->
-                    <!--                            <span class="icon iconc">-->
-                    <!--                                <i class="bi bi-envelope-paper"></i>-->
-                    <!--                            </span>-->
-                    <!--                            <div class="desc">-->
-                    <!--                                <span>{{ __('Email Address') }}</span>-->
-                    <!--                                <p><a href="mailto:" style="color:#000">{{ $hotel->email }}</a></p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="info">-->
-                    <!--                            <span class="icon iconc">-->
-                    <!--                                <i class="bi bi-telephone"></i>-->
-                    <!--                            </span>-->
-                    <!--                            <div class="desc "class="text-dark">-->
-                    <!--                                <span>{{ __('Phone') }}</span>-->
-                    <!--                                <br>-->
-                    <!--                                <span style="direction: ltr !important;">-->
-                    <!--                                    <p>{{ $hotel->phone }}</p>-->
-                    <!--                                </span>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-
-
-                    <!--                        <div class="info">-->
-                    <!--                            <span class="icon iconc">-->
-                    <!--                                <i class="bi bi-geo-alt"></i>-->
-                    <!--                            </span>-->
-                    <!--                            <div class="desc">-->
-                    <!--                                <span>{{ __('Address') }}</span>-->
-                    <!--                                <p>{{ $hotel->address }}</p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-
-                    <!--                    </div>-->
-                    <!--                    <iframe src="{{ $hotel->map }}" width="100%" height="200px"-->
-                    <!--                        style="border:0;" allowfullscreen="" loading="lazy"-->
-                    <!--                        referrerpolicy="no-referrer-when-downgrade"></iframe>-->
-                    <!--                </div>-->
-                    <!--            @endif-->
-                    <!--        @endforeach-->
-
-                    <!--    </div>-->
-                    <!--</div>-->
 
                 </div>
 

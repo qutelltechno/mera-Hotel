@@ -108,8 +108,8 @@
         }
 
         /* .gallery-container .content:hover .overlay {
-                    opacity: 1;
-                } */
+                        opacity: 1;
+                    } */
 
         .gallery-container h1 {
             margin: 0;
@@ -118,8 +118,8 @@
         }
 
         /* .gallery-container a {
-                                display: flex !important;
-                            } */
+                                    display: flex !important;
+                                } */
 
         #baguetteBox-overlay.visible {
             opacity: 1
@@ -138,7 +138,7 @@
     <main class="main">
 
         <section class="inner-section inner-section-bg block-bg">
-            <h2 class="text-center">{{ __('Book Mira Business rooms') }}    </h2>
+            <h2 class="text-center">{{ __('Book Mira Business rooms') }} </h2>
             <div class="container gallery-container">
 
                 <!-- Gallery 1 -->
@@ -174,7 +174,8 @@
                         </div>
                     @else
                         <div class="text-center   bottom: 8px;">
-                            <h1 style="font-size: 12px;"> {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
+                            <h1 style="font-size: 12px;">
+                                {{ __('The website only allows room reservations for Mira Business Hotel.') }} </h1>
                         </div>
                     @endif
                 </div>

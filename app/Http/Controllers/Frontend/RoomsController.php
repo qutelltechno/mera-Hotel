@@ -12,16 +12,13 @@ use Illuminate\Support\Facades\DB;
 class RoomsController extends Controller
 {
 
-
-    public function getCategoryRoomsPage( )
+    public function getCategoryRoomsPage()
     {
         return $this->getCategoryPage("hotel");
     }
 
-
-    public function getCategoryPage( $title)
+    public function getCategoryPage($title)
     {
-
 
         $lan = glan();
 
@@ -49,29 +46,29 @@ class RoomsController extends Controller
 
         $hotels = Hotel::with('rooms')->get();
 
-        return view('frontend.category', compact('metadata', 'datalist','hotels', 'curntLang'));
+        return view('frontend.category', compact('metadata', 'datalist', 'hotels', 'curntLang'));
     }
 
     //get Room Page
-    public function getRoomPage($id, $title){
+    public function getRoomPage($id, $title)
+    {
 
-		//Room details
-		$data = DB::table('rooms')
-			->join('categories', 'rooms.cat_id', '=', 'categories.id')
-			->select('rooms.*', 'categories.name as category_name', 'categories.slug as category_slug')
-			->where('rooms.id', '=', $id)
-			->where('rooms.is_publish', '=', 1)
-			->first();
+        //Room details
+        $data = DB::table('rooms')
+            ->join('categories', 'rooms.cat_id', '=', 'categories.id')
+            ->select('rooms.*', 'categories.name as category_name', 'categories.slug as category_slug')
+            ->where('rooms.id', '=', $id)
+            ->where('rooms.is_publish', '=', 1)
+            ->first();
 
-		$data->amenities = RoomDetailsList($data->amenities, 'amenities');
-		$data->complements = RoomDetailsList($data->complements, 'complements');
-		$data->beds = RoomDetailsList($data->beds, 'beds');
+        $data->amenities = RoomDetailsList($data->amenities, 'amenities');
+        $data->complements = RoomDetailsList($data->complements, 'complements');
+        $data->beds = RoomDetailsList($data->beds, 'beds');
 
-		//Room images
-		$room_images = Room_image::where('room_id', $id)->get();
+        //Room images
+        $room_images = Room_image::where('room_id', $id)->get();
 
         return view('frontend.room', compact('data', 'room_images'));
     }
-
 
 }

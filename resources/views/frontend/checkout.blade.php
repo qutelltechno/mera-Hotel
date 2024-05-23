@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                                                                  <div class="container">
-                                                                                                                   <div class="row">
-                                                                                                                    <div class="col-12">
-                                                                                                                     <div class="breadcrumb-card wow pulse">
-                                                                                                                      <h2>{{ __('Booking Request') }}</h2>
-                                                                                                                     </div>
-                                                                                                                    </div>
-                                                                                                                   </div>
-                                                                                                                  </div>
-                                                                                                                 </section> -->
+                                                                                                                      <div class="container">
+                                                                                                                       <div class="row">
+                                                                                                                        <div class="col-12">
+                                                                                                                         <div class="breadcrumb-card wow pulse">
+                                                                                                                          <h2>{{ __('Booking Request') }}</h2>
+                                                                                                                         </div>
+                                                                                                                        </div>
+                                                                                                                       </div>
+                                                                                                                      </div>
+                                                                                                                     </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
