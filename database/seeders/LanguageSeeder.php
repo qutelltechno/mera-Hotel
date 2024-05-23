@@ -17,14 +17,16 @@ class LanguageSeeder extends Seeder
         $languages = [
             [
                 'language_code' => 'en',
-                'language_name' => 'English',
+                'language_name' => 'en',
                 'is_rtl'=>0,
+                'language_defult'=>0,
                 'flag' => 'https://en.wikipedia.org/wiki/File:Flag_of_the_United_Kingdom_%281-2%29.svg',
             ],
             [
                 'language_code' => 'ar',
-                'language_name' => 'العربية ',
+                'language_name' => 'ar ',
                 'is_rtl'=>1,
+                'language_defult'=>1,
                 'flag' => 'https://en.wikipedia.org/wiki/File:Flag_of_arabic.svg',
             ],
         ];
