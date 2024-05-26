@@ -25,6 +25,7 @@ class HomeSliderController extends Controller
 			->where('sliders.lan',$currentLocale)
 			->orderBy('sliders.id','desc')
 			->paginate(10);
+          
 
         return view('backend.slider', compact('media_datalist', 'statuslist', 'languageslist', 'datalist'));
     }

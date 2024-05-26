@@ -146,12 +146,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-4">
-									<div class="form-group">
-										<label for="image_url">{{ __('URL') }}</label>
-										<input type="text" name="image_url" id="image_url" class="form-control">
-									</div>
-								</div> --}}
                                 </div>
 
                                 <div class="row">
