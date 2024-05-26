@@ -36,16 +36,16 @@
     <main class="main">
         <!-- Page Breadcrumb -->
         <!-- <section class="breadcrumb-section" style="background-image: url({{ $rtdata->cover_img ? asset('public/media/' . $rtdata->cover_img) : '' }});">
-                                                                                                                      <div class="container">
-                                                                                                                       <div class="row">
-                                                                                                                        <div class="col-12">
-                                                                                                                         <div class="breadcrumb-card wow pulse">
-                                                                                                                          <h2>{{ __('Booking Request') }}</h2>
-                                                                                                                         </div>
-                                                                                                                        </div>
-                                                                                                                       </div>
-                                                                                                                      </div>
-                                                                                                                     </section> -->
+                                                                                                                              <div class="container">
+                                                                                                                               <div class="row">
+                                                                                                                                <div class="col-12">
+                                                                                                                                 <div class="breadcrumb-card wow pulse">
+                                                                                                                                  <h2>{{ __('Booking Request') }}</h2>
+                                                                                                                                 </div>
+                                                                                                                                </div>
+                                                                                                                               </div>
+                                                                                                                              </div>
+                                                                                                                             </section> -->
         <!-- /Page Breadcrumb/ -->
 
         <!-- Inner Section -->
@@ -104,6 +104,20 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <div class="mb-3">
+
+                                        <select id="country" name="country" class="form-control parsley-validated ">
+                                            <option value="Saudia">{{ __('Country') }}</option>
+                                            @foreach ($country_list as $row)
+                                                <option value=" {{ $row->country_name }}" selected>
+                                                    {{ $row->country_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <span class="text-danger error-text country_error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="mb-3 " style="display: none">
                                         <input id="zip_code" name="zip_code" type="text" value="11111"
                                             placeholder="{{ __('Zip Code') }}" class="form-control parsley-validated">
@@ -113,16 +127,7 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-md-6" style="display: none">
-                                    <div class="mb-3">
-                                        <select id="country" name="country" class="form-control parsley-validated"
-                                            data-required="true">
-                                            <option value="المملكة العربية السعودية " selected>{{ __('Country') }}
-                                            </option>
-                                        </select>
-                                        <span class="text-danger error-text country_error"></span>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-6" style="display: none">
                                     <div class="mb-3">
                                         <input id="state" name="state" type="text"

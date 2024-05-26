@@ -94,6 +94,10 @@
             padding: 1rem;
             /* Add some padding for better visuals */
         }
+
+        .pagenum:before {
+            content: counter(page);
+        }
     </style>
 </head>
 
@@ -116,15 +120,15 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-end">(Guest Name)</td>
-                <td class="text-start">{{ $guestName }}</td>
+                <td class="text-end text-dark">(Guest Name)</td>
+                <td class="text-start ">{{ $guestName }}</td>
                 <td class="text-end text-dark">Company VAT :</td>
                 <td class="text-start"> {{ $numberVat }} </td>
                 <td class="text-right text-dark custom">&nbsp; <span
                         class="span text-black-50">{{ $numberVat }}&nbsp;</span>:ضريبةالقيمةالمضافة </td>
             </tr>
             <tr>
-                <td class="text-start">Phone:</td>
+                <td class="text-start text-dark">Phone:</td>
                 <td class="text-start">{{ $phone }}</td>
                 <td class="text-start text-dark">Conf. No:</td>
                 <td class="text-start"> {{ $booking_id }} </td>
@@ -134,7 +138,7 @@
                     : &nbsp; &nbsp; &nbsp; رقم الحجز</td>
             </tr>
             <tr>
-                <td class="text-start">{{ $city }}</td>
+                <td class="text-start text-dark">{{ $city }}</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Room No:</td>
                 <td class="text-start">
@@ -204,15 +208,15 @@
                         &nbsp;</span>: تاريخ المغادرة</td>
             </tr>
             <tr>
-                <td class="text-start">INFORMATION INVOICE:</td>
+                <td class="text-start text-dark">INFORMATION INVOICE:</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Page No:</td>
-                <td class="text-start"> </td>
+                <td class="text-start">      <span class="pagenum"></span> </td>
 
-                <td class="text-right text-dark custom">:رقم الصفحة</td>
+                <td class="text-right text-dark custom">     <span class="pagenum"></span> :رقم الصفحة</td>
             </tr>
             <tr>
-                <td class="text-start">Membership No:</td>
+                <td class="text-start text-dark">Membership No:</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Date:</td>
                 <td class="text-start"> {{ $dateBooking }} </td>
@@ -221,7 +225,7 @@
                         &nbsp;</span>: التاريخ</td>
             </tr>
             <tr>
-                <td class="text-start">A/R Number :</td>
+                <td class="text-start text-dark">A/R Number :</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Cashier No: </td>
                 <td class="text-start"> </td>
@@ -229,7 +233,7 @@
                 <td class="text-right text-dark  custom">: رقم الموظف</td>
             </tr>
             <tr>
-                <td class="text-start">Company Name :</td>
+                <td class="text-start text-dark">Company Name :</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Invoice No:</td>
                 <td class="text-start"> {{ $bookingNumber }} </td>
@@ -238,7 +242,7 @@
                         &nbsp;</span>: رقم الفاتورة</td>
             </tr>
             <tr>
-                <td class="text-start">Customer VAT :</td>
+                <td class="text-start text-dark">Customer VAT :</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Folio No:</td>
                 <td class="text-start"> </td>
@@ -306,6 +310,13 @@
                 @php
                     use Carbon\Carbon;
                 @endphp
+                @if (!$invoiceDataComplements->isEmpty())
+                    <td class="text-start"></td>
+                    <td class="text-start"></td>
+                    <td class="text-center"> Complements &nbsp; /المكملات </td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                @endif
                 @foreach ($invoiceDataComplements as $data)
                     <tr>
                         <td class="text-start">{{ Carbon::parse($data->created_at)->format('Y-m-d') }}</td>
@@ -393,6 +404,7 @@
             <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL, RIYADH</p>
             <p class="text-center">PO.Box.12242, Olaya street, Riyadh, Kingdom of Saudi Arabia</p>
             <p>Guest Signature / <span>توقيع الضيف</span></p>
+            <br><br>
         </div>
     </div>
 

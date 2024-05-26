@@ -99,18 +99,18 @@
                                             <input type="text" name="city" id="city" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3" hidden>
+                                    <div class="col-lg-3">
 
-                                        <div class="form-group" style="display: none">
-                                            <label for="country">{{ __('Country') }}<span
-                                                    class="red">*</span></label>
+                                        <div class="form-group">
+                                            <label for="country">{{ __('Country') }}<span class="red">*</span></label>
                                             <select id="country" name="country"
                                                 class="chosen-rtl form-control parsley-validated" data-required="true">
-                                                {{-- @foreach ($country_list as $row) --}}
-                                                <option value="المملكة العربية السعودية " selected>
-                                                    {{-- {{ $row->country_name }} --}}
-                                                </option>
-                                                {{-- @endforeach --}}
+
+                                                @foreach ($country_list as $row)
+                                                    <option value="{{ $row->country_name }}" selected>
+                                                        {{ $row->country_name }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                             <span class="text-danger error-text country_error"></span>
                                         </div>

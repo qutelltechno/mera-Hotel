@@ -262,7 +262,7 @@
                                 <h5>{{ __('About Us') }}</h5>
 
                             </div>
-                            }
+
                             <hr>
 
                             <div class="about-title">

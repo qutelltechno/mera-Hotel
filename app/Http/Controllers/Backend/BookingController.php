@@ -588,7 +588,7 @@ class BookingController extends Controller
     {
 
         $RoomTypeList = Room::get();
-        $country_list = Country::where('is_publish', '=', 1)->orderBy('id', 'ASC')->get();
+        $country_list = Country::where('is_publish', '=', 1)->orderBy('id', 'desc')->get();
 
         return view('backend.book-room', compact('RoomTypeList', 'country_list'));
     }

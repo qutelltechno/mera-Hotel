@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             TaxSeeder::class,
             SocialMediaSeeder::class,
+            SectionMangeSeeder::class,
+            SectionContetnSeeder::class,
 
 
         ]);
