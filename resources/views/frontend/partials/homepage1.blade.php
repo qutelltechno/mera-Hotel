@@ -72,82 +72,7 @@
 
         </section>
     @endif
-    <!-- /Hero Section/ -->
 
-    <!-- Hotels -->
-    <!--<section class="section service-section block-bg">-->
-    <!--    <div class="container mt-5">-->
-    <!--        <div class="section-heading text-center">-->
-    <!--            <h2>{{ __('Hotel group') }}</h2>-->
-    <!--        </div>-->
-    <!--        <div class="row">-->
-    <!--            @foreach ($hotels as $hotel)
--->
-    <!--                <div class="d-flex flex-column col-lg-3 col-md-6 col-sm-12 align-self-stretch py-3">-->
-    <!--                    <div>-->
-    <!--                        <img src="{{ asset('public/frontend/images/hotels/') . '/' . $hotel->image }}"-->
-    <!--                            style="height:200px">-->
-    <!--                    </div>-->
-    <!--                    <div class="d-flex flex-column col-9 shadow p-4 bg-white justify-content-between"-->
-    <!--                        style="width: 100%; flex: 1 1 auto; ">-->
-    <!--                        <div class="">-->
-    <!--                            <h3>{{ $hotel->name }}</h3>-->
-    <!--                            <p class="paragraphe-text text-black">-->
-    <!--                                {{ $hotel->description }}-->
-    <!--                            </p>-->
-    <!--                        </div>-->
-
-    <!--                        <div class="social-media mt25 mt-2 d-none">-->
-    <!--                            <div class="social-media mt25 mt-2">-->
-    <!--                                <a href="{{ $hotel->facebook }}" target="_blank"><i class="bi bi-facebook"></i></a>-->
-    <!--                                <a href="{{ $hotel->twitter }}" target="_blank"><i class="bi bi-twitter"> </i></a>-->
-    <!--                                <a href="{{ $hotel->instagram }}" target="_blank"><i-->
-    <!--                                        class="bi bi-instagram"></i></a>-->
-    <!--                                <a href="{{ $hotel->youtube }}" target="_blank"><i class="bi bi-youtube"></i></a>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--
-@endforeach-->
-    <!--        </div>-->
-
-
-
-    <!--        {{-- <div class="row">-->
-    <!--            <div class="card-deck ">-->
-    <!--                @foreach ($hotels as $hotel)-->
-    <!--                <div class="card ">-->
-    <!--                    <img src="{{ asset("public/frontend/images/hotels/").'/'.$hotel->image }}" class="card-img-top" alt="{{ $hotel->name }}">-->
-    <!--                    <div class="card-body">-->
-    <!--                        <h5 class="card-title">{{ $hotel->name }}</h5>-->
-    <!--                        <p class="card-text">{{ $hotel->description }}</p>-->
-    <!--                    </div>-->
-    <!--                    <ul class="list-group list-group-flush">-->
-    <!--                        <li class="list-group-item">-->
-    <!--                            <a href="{{ $hotel->facebook }}" target="_blank"><i class="bi bi-facebook"></i></a>-->
-    <!--                        </li>-->
-    <!--                        <li class="list-group-item">-->
-    <!--                            <a href="{{ $hotel->twitter }}" target="_blank"><i class="bi bi-twitter"></i></a>-->
-    <!--                        </li>-->
-    <!--                        <li class="list-group-item">-->
-    <!--                            <a href="{{ $hotel->instagram }}" target="_blank"><i class="bi bi-instagram"></i></a>-->
-    <!--                        </li>-->
-    <!--                        <li class="list-group-item">-->
-    <!--                            <a href="{{ $hotel->youtube }}" target="_blank"><i class="bi bi-youtube"></i></a>-->
-    <!--                        </li>-->
-    <!--                    </ul>-->
-    <!--                </div>-->
-    <!--                @endforeach-->
-    <!--            </div>-->
-    <!--        </div> --}}-->
-
-
-    <!--    </div>-->
-    <!--</section>-->
-    <!-- /Hotels -->
-
-    <!-- Offer Section -->
     @if ($offer_ads_section->is_publish == 1)
         <section class="section offer-section">
             <div class="container">
@@ -271,17 +196,7 @@
     @if ($home_video['is_publish'] == 1)
         <section class="preview-section">
             <div class="row align-items-center justify-content-center g-0">
-                <!--<div class="col-12 col-md-12 col-lg-12 col-xl-6">-->
-                <!--    <div class="preview-video">-->
-                <!--        <img src="{{ asset('public/media/' . $home_video['image']) }}"-->
-                <!--            alt="{{ $home_video['title'] }}">-->
-                <!--        <div class="video-card">-->
-                <!--            <a href="{{ $home_video['video_url'] }}" class="play-icon popup-video">-->
-                <!--                <i class="bi bi-play-fill"></i>-->
-                <!--            </a>-->
-                <!--        </div>-->
-                <!--    </div>-->
-                <!--</div>-->
+
                 <div class="col-12 col-md-12 col-lg-12 col-xl-6">
                     <div class="preview-content">
                         <h5>{{ __('Preview') }}</h5>
@@ -301,15 +216,11 @@
 
     <!-- About Section/ -->
     @if ($about_us_section->is_publish == 1)
-        {{-- @foreach ($about_us as $row) --}}
         @php
             $descriptio = json_decode($about_us->desc);
             $S = json_decode($about_us->title);
         @endphp
-        {{-- @dd(  $descriptio->image2) --}}
 
-        {{-- @php $aRow = json_decode($row->desc);
-            @endphp --}}
         <section class="section about-section">
             <div class="container">
                 <div class="row">
