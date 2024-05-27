@@ -140,14 +140,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+                                    <div class="mb-3 mt10">
+                                        <textarea name="comments" class="form-control" placeholder="{{ __('Note') }}" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="mb-3">
                                         <textarea hidden id="address" name="address" placeholder="{{ __('Address') }}" rows="2"
                                             class="form-control parsley-validated">
-                                                            @if (isset(Auth::user()->address))
-{{ Auth::user()->address }}
-@else
-Saudia
-@endif
+                                                                @if (isset(Auth::user()->address))
+                                            {{ Auth::user()->address }}
+                                            @else
+                                            Saudia
+                                            @endif
 
 
 
@@ -213,13 +220,7 @@ Saudia
 
 
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mb-3 mt10">
-                                        <textarea name="comments" class="form-control" placeholder="{{ __('Note') }}" rows="2"></textarea>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                         <div class="col-lg-5">
