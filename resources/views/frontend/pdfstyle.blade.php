@@ -153,7 +153,7 @@
                 <td class="text-right text-dark custom">
                     <span class="span text-black-50">
                         @if ($roomsNumbers->isEmpty())
-                            <p style="display:inline; font-size:14px">
+                            <p style="display:inline; font-size:10px">
                                 لم يتم التحديد
                             </p>
                         @else
@@ -194,7 +194,7 @@
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Booking status</td>
                 <td class="text-start"> {{ $bookingStatus }} </td>
-                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:14px">{{ __($bookingStatus) }}</p> &nbsp;
+                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:10px">{{ __($bookingStatus) }}</p> &nbsp;
                         &nbsp;</span>: حالة الحجز</td>
             </tr>
             <tr>
@@ -202,7 +202,7 @@
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Payment status</td>
                 <td class="text-start"> {{ $paymentStatus }} </td>
-                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:14px">{{__( $paymentStatus) }}</p>  &nbsp;
+                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:10px">{{__( $paymentStatus) }}</p>  &nbsp;
                         &nbsp;</span>: حالة الدفع</td>
             </tr>
             <tr>
