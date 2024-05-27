@@ -324,11 +324,11 @@
                                             <div class="col-12 mb15" id="TotalPrice">
                                                 <table class="table total-price-card">
                                                     <tbody>
-                                                        <tr>
+                                                        {{-- <tr>
                                                             <td><span
                                                                     class="title text-black">{{ __('Subtotal') }}</span><span
                                                                     class="price">0</span></td>
-                                                        </tr>
+                                                        </tr> --}}
                                                         <tr>
                                                             <td><span
                                                                     class="title text-black">{{ __('municipality Fees') }}</span><span
