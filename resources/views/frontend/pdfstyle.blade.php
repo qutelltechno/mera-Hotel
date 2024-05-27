@@ -192,6 +192,22 @@
             <tr>
                 <td class="text-start"></td>
                 <td class="text-start"></td>
+                <td class="text-start text-dark">Booking status</td>
+                <td class="text-start"> {{ $bookingStatus }} </td>
+                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:14px">{{ __($bookingStatus) }}</p> &nbsp;
+                        &nbsp;</span>: حالة الحجز</td>
+            </tr>
+            <tr>
+                <td class="text-start"></td>
+                <td class="text-start"></td>
+                <td class="text-start text-dark">Payment status</td>
+                <td class="text-start"> {{ $paymentStatus }} </td>
+                <td class="text-right text-dark custom"><span class="span text-black-50"> <p style="display:inline; font-size:14px">{{__( $paymentStatus) }}</p>  &nbsp;
+                        &nbsp;</span>: حالة الدفع</td>
+            </tr>
+            <tr>
+                <td class="text-start"></td>
+                <td class="text-start"></td>
                 <td class="text-start text-dark">Arrival Date:</td>
                 <td class="text-start"> {{ $DteOfArrival }} </td>
 
@@ -199,7 +215,8 @@
                         &nbsp;</span>: تاريخ الوصول</td>
             </tr>
             <tr>
-                <td class="text-start"></td>
+                {{-- <td class="text-start"></td> --}}
+                <td class="text-start text-dark">INFORMATION INVOICE:</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Departure Date:</td>
                 <td class="text-start"> {{ $DteOfOut }} </td>
@@ -207,14 +224,14 @@
                 <td class="text-right text-dark custom"><span class="span text-black-50">{{ $DteOfOut }} &nbsp;
                         &nbsp;</span>: تاريخ المغادرة</td>
             </tr>
-            <tr>
-                <td class="text-start text-dark">INFORMATION INVOICE:</td>
-                <td class="text-start"></td>
-                <td class="text-start text-dark">Page No:</td>
-                <td class="text-start">      <span class="pagenum"></span> </td>
+            {{-- <tr> --}}
+                {{-- <td class="text-start text-dark">INFORMATION INVOICE:</td> --}}
+                {{-- <td class="text-start"></td> --}}
+                {{-- <td class="text-start text-dark">Page No:</td> --}}
+                {{-- <td class="text-start">      <span class="pagenum"></span> </td>
 
-                <td class="text-right text-dark custom">     <span class="pagenum"></span> :رقم الصفحة</td>
-            </tr>
+                {{-- <td class="text-right text-dark custom">     <span class="pagenum"></span> :رقم الصفحة</td> --}}
+            {{-- </tr> --}}
             <tr>
                 <td class="text-start text-dark">Membership No:</td>
                 <td class="text-start"></td>
@@ -245,8 +262,9 @@
                 <td class="text-start text-dark">Customer VAT :</td>
                 <td class="text-start"></td>
                 <td class="text-start text-dark">Folio No:</td>
-                <td class="text-start"> </td>
-                <td class="text-right text-dark custom">: رقم الفوليو</td>
+                <td class="text-start"> 0000 </td>
+                <td class="text-right text-dark custom"> <span class="span text-black-50">0000 &nbsp;
+                    &nbsp;</span> : رقم الفوليو</td>
             </tr>
         </tbody>
     </table>

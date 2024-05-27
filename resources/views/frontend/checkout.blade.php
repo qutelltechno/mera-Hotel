@@ -95,14 +95,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <input id="city" name="city" type="text"
-                                            placeholder="{{ __('City') }}" class="form-control parsley-validated"
-                                            data-required="true">
-                                        <span class="text-danger error-text city_error"></span>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-6">
                                     <div class="mb-3">
 
@@ -115,6 +108,14 @@
                                             @endforeach
                                         </select>
                                         <span class="text-danger error-text country_error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input id="city" name="city" type="text"
+                                            placeholder="{{ __('City') }}" class="form-control parsley-validated"
+                                            data-required="true">
+                                        <span class="text-danger error-text city_error"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

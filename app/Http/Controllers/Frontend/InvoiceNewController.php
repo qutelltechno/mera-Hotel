@@ -148,6 +148,11 @@ class InvoiceNewController extends Controller
             $totalDiscount = $mdata['discount'];
             $totalDiscount = NumberFormat($totalDiscount);
         }
+        //
+
+
+       $paymentStatus=   $mdata['pstatus_name'];
+      $bookingStatus=   $mdata['bstatus_name'];
 
 
         ########################################
@@ -157,7 +162,10 @@ class InvoiceNewController extends Controller
         $qrcodeLogo = $this->generateQrcodeImg($this->salla);
 
         $html = view('frontend.pdfstyle',
-            compact('totalRoomsBooking', 'tottalRoomsAfterApproved', 'roomsNumbers', 'qrcodeLogo', 'logo2', 'numberVat', 'totalAmountWithComplementAndTaxAndFees', 'totalComplementPric', 'totalDiscount', 'totalAmount', 'taxPersentage', 'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'invoiceDataComplements', 'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalDiscount', 'totalAmount')
+            compact('totalRoomsBooking', 'tottalRoomsAfterApproved', 'roomsNumbers', 'qrcodeLogo', 'logo2', 'numberVat',
+            'totalAmountWithComplementAndTaxAndFees', 'totalComplementPric', 'totalDiscount', 'totalAmount', 'taxPersentage',
+            'municipalityFees', 'taxFormate', 'sub_total', 'phone', 'city', 'guestName', 'bookingNumber', 'booking_id', 'invoiceDataComplements',
+            'roomPrice', 'dateList', 'methodName', 'dateBooking', 'DteOfOut', 'DteOfArrival', 'totalDiscount', 'totalAmount','paymentStatus','bookingStatus')
         )->toArabicHTML();
 
         $pdf = app()->make('dompdf.wrapper');

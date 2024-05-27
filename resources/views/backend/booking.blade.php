@@ -69,7 +69,7 @@
 											$totalDiscount = $mdata->discount;
 										}
 
-									
+
 
 										$calOldPrice = $oldPrice*$mdata->total_room*$total_days;
 										if($gtext['currency_position'] == 'left'){
@@ -281,9 +281,9 @@
 						<p><strong>{{ __('State') }}</strong>: {{ $mdata->state }}</p>
 						@endif --}}
 
-						@if ($mdata->zip_code != '')
+						{{-- @if ($mdata->zip_code != '')
 						<p><strong>{{ __('Zip Code') }}</strong>: {{ $mdata->zip_code }}</p>
-						@endif
+						@endif --}}
 
 						@if ($mdata->city != '')
 						<p><strong>{{ __('City') }}</strong>: {{ $mdata->city }}</p>
