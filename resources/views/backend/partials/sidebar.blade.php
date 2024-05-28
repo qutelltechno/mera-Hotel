@@ -58,7 +58,7 @@
                     <li><a href="{{ route('backend.faq') }}"><i class="bi bi-filter"></i>{{ __('Faq') }}</a></li>
                     <li><a href="{{ route('backend.blog') }}"><i class="fa fa-rss-square"></i>{{ __('Posts') }}</a>
                     </li>
-                    <li><a href="{{ route('backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a></li>
+                    {{-- <li><a href="{{ route('backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a></li> --}}
 
                 </ul>
             </li>
@@ -172,8 +172,8 @@
                     </li>
                     <li><a href="{{ route('super.backend.blog') }}"><i
                                 class="fa fa-rss-square"></i>{{ __('Posts') }}</a></li>
-                    <li><a href="{{ route('super.backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a>
-                    </li>
+                    {{-- <li><a href="{{ route('super.backend.reservationpolicy') }}">{{ __('Policy Reservation') }}</a>
+                    </li> --}}
                     {{-- <li><a href="{{ route('backend.section-manage') }}">{{ __('Section Manage') }}</a></li> --}}
                 </ul>
             </li>
