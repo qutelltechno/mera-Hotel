@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking_manage;
 use App\Models\Complement;
 use App\Models\InvoiceComplement;
 use Illuminate\Http\Request;
@@ -75,7 +76,11 @@ class InvoiceComplementsController extends Controller
         );
 
         if ($id == '') {
+
             $response = InvoiceComplement::create($data);
+            Booking_manage::where('booking_no', $invoice_number)
+            ->first()
+            ->update(['payment_status_id' => 4]);
             if ($response) {
                 $res['msgType'] = 'success';
                 $res['msg'] = __('Saved Successfully');
@@ -102,7 +107,7 @@ class InvoiceComplementsController extends Controller
          $previousUrl = $request->server('HTTP_REFERER');
 
 
-       
+
         $pattern = '/\/([^\/]+)$/';
         preg_match($pattern, $previousUrl, $matches);
         if (isset($matches[1])) {
