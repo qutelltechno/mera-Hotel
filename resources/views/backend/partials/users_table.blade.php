@@ -47,7 +47,7 @@
 	</table>
 </div>
 <div class="row mt-15">
-	<div class="col-lg-12 users_pagination">
+	<div class="col-lg-12 ">
 		{{ $datalist->links() }}
 	</div>
 </div>

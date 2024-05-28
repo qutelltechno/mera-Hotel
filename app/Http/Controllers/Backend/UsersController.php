@@ -70,6 +70,25 @@ class UsersController extends Controller
 					->paginate(20);
 			}else{
 
+               if (Auth::user()->role_id == 1) {
+                $datalist = DB::table('users')
+                ->join('user_roles', 'users.role_id', '=', 'user_roles.id')
+                ->join('user_status', 'users.status_id', '=', 'user_status.id')
+                ->select('users.*', 'user_roles.role', 'user_status.status')
+                ->whereIn('users.role_id', [1, 3,2])
+                ->orderBy('users.name','asc')
+                ->paginate(20);
+               } else {
+                $datalist = DB::table('users')
+					->join('user_roles', 'users.role_id', '=', 'user_roles.id')
+					->join('user_status', 'users.status_id', '=', 'user_status.id')
+					->select('users.*', 'user_roles.role', 'user_status.status')
+					->whereIn('users.role_id', [1, 3,4])
+					->orderBy('users.name','asc')
+					->paginate(20);
+               }
+
+
 				$datalist = DB::table('users')
 					->join('user_roles', 'users.role_id', '=', 'user_roles.id')
 					->join('user_status', 'users.status_id', '=', 'user_status.id')
