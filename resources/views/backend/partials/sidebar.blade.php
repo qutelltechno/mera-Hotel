@@ -62,6 +62,8 @@
 
                 </ul>
             </li>
+            <li><a href="{{ route('backend.users') }}"><i class="fa fa-user-plus"></i>{{ __('Users') }}</a>
+            </li>
             {{-- <li><a href="{{ route('backend.page') }}"><i class="fa fa-clipboard"></i>{{ __('Pages') }}</a></li> --}}
 
 

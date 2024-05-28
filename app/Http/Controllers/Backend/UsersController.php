@@ -16,16 +16,33 @@ class UsersController extends Controller
     //Users page load
     public function getUsersPageLoad(){
 		$statuslist = DB::table('user_status')->orderBy('id', 'asc')->get();
-		$roleslist = DB::table('user_roles')->whereNotIn('id', [2])->orderBy('id', 'asc')->get();
-		$media_datalist = Media_option::orderBy('id','desc')->paginate(28);
+        $media_datalist = Media_option::orderBy('id','desc')->paginate(28);
 
-		$datalist = DB::table('users')
+        if (Auth::user()->role_id == 1) {
+            $roleslist = DB::table('user_roles')->whereNotIn('id', [4])->orderBy('id', 'asc')->get();
+            $datalist = DB::table('users')
+			->join('user_roles', 'users.role_id', '=', 'user_roles.id')
+			->join('user_status', 'users.status_id', '=', 'user_status.id')
+			->select('users.*', 'user_roles.role', 'user_status.status')
+			->whereIn('users.role_id', [1, 3,2])
+			->orderBy('users.name','asc')
+			->paginate(20);
+
+        } else {
+            $roleslist = DB::table('user_roles')->whereNotIn('id', [2])->orderBy('id', 'asc')->get();
+            $datalist = DB::table('users')
 			->join('user_roles', 'users.role_id', '=', 'user_roles.id')
 			->join('user_status', 'users.status_id', '=', 'user_status.id')
 			->select('users.*', 'user_roles.role', 'user_status.status')
 			->whereIn('users.role_id', [1, 3,4])
 			->orderBy('users.name','asc')
 			->paginate(20);
+
+        }
+
+
+
+
 
         return view('backend.users', compact('statuslist', 'roleslist', 'media_datalist', 'datalist'));
     }

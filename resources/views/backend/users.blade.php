@@ -111,6 +111,7 @@
 									<div class="form-group">
 										<label for="role_id">{{ __('Role') }}<span class="red">*</span></label>
 										<select name="role_id" id="role_id" class="chosen-rtl form-control">
+                                            
 										@foreach($roleslist as $row)
 											<option value="{{ $row->id }}">
 												{{ $row->role }}
