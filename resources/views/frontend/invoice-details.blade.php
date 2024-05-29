@@ -34,7 +34,7 @@
 
 @section('content')
     <main class="main">
-    
+
         <section class="inner-section inner-section-bg">
             <div class="container">
                 <div class="row my-dashbord">
@@ -50,7 +50,7 @@
                                             <h5>{{ __('BILL TO') }}:</h5>
                                             <p class="mb5"><strong>{{ $mdata['customer_name'] }}</strong></p>
                                             <p class="mb5">{{ $mdata['customer_address'] }}</p>
-                                            <p class="mb5">{{ $mdata['city'] }}, {{ $mdata['state'] }},
+                                            <p class="mb5">{{ $mdata['city'] }}, 
                                                 {{ $mdata['country'] }}</p>
                                             <p class="mb5">{{ $mdata['customer_email'] }}</p>
                                             <p class="mb5">{{ $mdata['customer_phone'] }}</p>
@@ -132,12 +132,23 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="border_none"><span
-                                                                class="title">{{ __('Subtotal') }}</span><span
+                                                                class="title">{{ __('Balnace') }}</span><span
                                                                 class="price">{{ $pdata['subtotal'] }}</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><span class="title">{{ __('Tax') }}</span><span
-                                                                class="price">{{ $pdata['tax'] }}</span></td>
+                                                        <td class="border_none"><span
+                                                                class="title">{{ __('Net Additions') }}</span><span
+                                                                class="price">{{ $pdata['totalComplementPric'] }}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="border_none"><span
+                                                                class="title">{{ __('Municipality Fees') }}</span><span
+                                                                class="price">{{ $pdata['municipalityFees'] }}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="border_none"><span
+                                                                class="title">{{ __('VAT') }}</span><span
+                                                                class="price">{{  $pdata['taxFormate'] }}</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td><span class="title">{{ __('Discount') }}</span><span
@@ -145,7 +156,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td><span class="title">{{ __('Grand Total') }}</span><span
-                                                                class="price">{{ $pdata['total_amount'] }}</span></td>
+                                                                class="price">{{ $pdata['totalAmountWithComplementAndTaxAndFees'] }}</span></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

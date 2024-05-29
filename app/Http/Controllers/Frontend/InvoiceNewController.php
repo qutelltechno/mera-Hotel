@@ -79,6 +79,7 @@ class InvoiceNewController extends Controller
         $dateBooking = Carbon::parse($mdata['created_at'])->format('Y-m-d');
         $dateBookingUnformate =     $mdata['created_at'];
         $this->dateBookingUnformate = $dateBookingUnformate;
+
         $methodName = $mdata['method_name'];
         $roomPrice = $mdata['total_price'];
         $dateList = getDateListBetween($DteOfArrival, $DteOfOut);
@@ -128,8 +129,8 @@ class InvoiceNewController extends Controller
             $subTottalWithComplements=$sub_total_num;
         }
 
-        $taxPersentage = Tax::first()->select('percentage')->value('percentage');
         $municipalityFees = $subTottalWithComplements * MunicipalityFees() / 100;
+        $taxPersentage = Tax::first()->select('percentage')->value('percentage');
         $tax=    $subTottalWithComplements * $taxPersentage/ 100;
         $this->tax=$tax;
         $taxFormate=    NumberFormat( $tax);
