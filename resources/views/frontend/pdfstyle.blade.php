@@ -422,7 +422,7 @@
             <p class="text-center mt-1 text-dark">MIRA BUSINESS HOTEL, RIYADH</p>
             <p class="text-center">PO.Box.12242, Olaya street, Riyadh, Kingdom of Saudi Arabia</p>
             <p>Guest Signature / <span>توقيع الضيف</span></p>
-            <br><br>
+           
         </div>
     </div>
 
