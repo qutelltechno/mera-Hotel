@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             TaxSeeder::class,
             SocialMediaSeeder::class,
             SectionMangeSeeder::class,
-            SectionContetnSeeder::class,
+            // SectionContetnSeeder::class,
 
 
         ]);
